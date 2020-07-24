@@ -32,6 +32,9 @@ https://www.campingcenter.com.ar/ _Diseño sencillo y facil de comprender, lo mi
 ### Formulario de registro
 ![USER](./Wireframe/USER.jpg "Formulario de registro" )
 
+### Formulario carga de productos administrador
+![ADMIN](./Wireframe/ADMIN.jpg "Admin")
+
 ### Carrito
 ![CARRITO](./Wireframe/CARRITO.jpg "Carrito")
 
