@@ -9,8 +9,7 @@ Campistas casuales, profesionales, entusiastas y participantes de actividades ou
 
 - Nicolas Iacson: Soy Nicolas Iacson, tengo 18 años, entusiasta de la tecnología, mi objetivo actual es terminar este curso para trabajar de lo que me gusta y seguir formándome en el futuro y poder gestionar un negocio propio en algún momento.
 
-- Federico Melgarejo: 21 años, me interesan la programacion y tecnologia en general. Pretendo, con los conocimienos que adquiera de aqui en adelante, desarrollarme como programador ya sea en un puesto fijo o de manera independiente y de esa forma tambien poder continuar con mis estudios.
-
+- Federico Melgarejo: 21 años, ayudo en lo que puedo, ya quiero ver este proyecto terminado.
 
 #### Referencias:
 
