@@ -23,3 +23,16 @@ https://www.total-fishing-tackle.com/ _Ejemplo mas simplificado de lo que preten
 https://freshair.com.ar/ _Marcas._
 
 https://www.campingcenter.com.ar/ _Diseño sencillo y facil de comprender, lo minimo que deberiamos conseguir._
+
+### Home
+![HOME](./Wireframe/HOME.jpg "Home")
+
+### Productos
+![PRODUCTOS](./Wireframe/PRODUCTOS.jpg "Detalles del Producto" )
+
+### Formulario de registro
+![USER](./Wireframe/USER.jpg "Formulario de registro" )
+
+### Carrito
+![CARRITO](./Wireframe/CARRITO.jpg "Carrito")
+
