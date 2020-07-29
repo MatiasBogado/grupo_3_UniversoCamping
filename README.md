@@ -1,5 +1,8 @@
 ## Grupo_3_Camping
 Breve descripcion del sitio: _Venta de elementos para la supervivencia y el bienestar en todo tipo de ambientes y climas, desde indumentaria y accesorios hasta navajas, rifles, elementos de pesca y demas equipamiento y artículos deportivos outdoor._
+
+_Link al tablero de trabajo:_ https://trello.com/b/CupLrIgc/grupo3universocamping
+
 ### Publico objetivo
 Campistas casuales, profesionales, entusiastas y participantes de actividades outdoor en general.
 
