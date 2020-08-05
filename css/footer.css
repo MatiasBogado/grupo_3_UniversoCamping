@@ -1,0 +1,52 @@
+footer{
+    background-color: black;
+    color: white;
+}
+footer ul{
+    padding: 0;
+    list-style: none;
+}
+footer ul li{
+    padding: 0;
+    text-decoration: none;
+}
+footer .seguinos{
+    border-radius: 3%;
+    padding: 4px;
+    display: inline;
+    font-family: 'Roboto', sans-serif;
+}
+footer .contactanos{
+    border-radius: 5%;
+    padding: 5px;
+    display: inline;
+    font-family: 'Roboto', sans-serif;
+}
+.icon-facebook {
+	background: #2E406E;
+}
+
+.icon-twitter {
+	background: #339DC5;
+}
+
+.icon-youtube {
+	background: #E83028;
+}
+
+.icon-instagram {
+	background: #3F60A5;
+}
+.icon {
+	color: white;
+    text-decoration: none;
+	padding: .7rem;
+	display: inline;
+}
+.metodosPago{
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0;
+}
+.iconosTarjetas{
+    font-size: 20px;
+}
