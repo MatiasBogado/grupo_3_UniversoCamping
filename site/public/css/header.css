@@ -1,0 +1,137 @@
+header .colorBarraSuperior{
+    background-color: #534317;
+}
+header .colorBarraInferior{
+    background-color: black;
+}
+header .barraSuperior{
+    color: lightgray;
+  	font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+header .barraSuperior ul{
+    padding: 3px;
+}
+header .barraSuperior i{
+    padding: 2px;
+}
+header .barraInferior{
+    background-color: black;
+    color: white;
+}
+header ul{
+    margin: 0;
+    padding: 0;
+}
+header ul li{
+    display: inline;
+}
+header .bar{
+    padding-left: 3px;
+    border-left:1px solid lightgray ;
+}
+header nav{
+	background-color: black
+}
+header nav .logo{
+	color: white;
+	font-size: 3.2rem;
+}
+header nav .contenedorLogo{
+    padding: 0;
+}
+:root{
+    --color-amarillo:#EAC926;
+    --color-grisClaro: #ebebeb;
+    --color-grisOscuro: #666666;
+    --color-azul: #03264C;
+    --color-verde: #39b54a;
+    --color-celeste: #1259c3;
+
+}
+header .nav-link{
+	color: white !important;
+	align-self: center;
+}
+header .fa-shopping-cart{
+    font-size: 30px;
+}
+header .buscardorContainer{
+    text-align: center;
+}
+header form{
+    background-color: white;
+    border: 1px solid var(--color-grisClaro);
+    border-radius: 5px;
+    padding: 0px 8px;
+}
+header form input{
+    border: 0;
+    border-right: 2px solid var(--color-grisClaro);
+    padding-right: 5px;
+    width: 93%;
+}
+header form button{
+    background:0;
+    border:0;
+    padding:0px;
+    color: black;
+}
+header nav div{
+    align-self: center;
+    text-align: center;
+}
+header nav .imgLogo{
+    height: 50px
+}
+@media (min-width: 768px) { 
+    header nav .imgLogo{
+    height: 60px
+    }
+    header form{
+        margin-bottom: 0;
+    }
+    header form input{
+    border: 0;
+    border-right: 2px solid var(--color-grisClaro);
+    padding-right: 5px;
+    width: 90%;
+    }
+    header nav .contenedorLogo{
+        padding: 0px 15px;
+    }
+
+}
+@media (min-width: 992px) { 
+    header .navContentLg{
+        margin: 0;
+    }
+    header .navContentLg li{
+        font-family: 'Roboto', sans-serif;
+        color: white;
+        list-style: none;
+    }
+    header .navContentLg li a{
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        font-size: 14px
+    }
+    header .navContentLg button{
+        background-color: black;
+        color: white;
+        border: 0;
+    }
+    header .navContentLg button:hover{
+        color: white;
+    }
+    header .navContentLg button:focus{
+        border: 0;
+    }
+    header .btn:hover{
+    color: white;
+    text-decoration: none;
+    }
+    header .btn:focus{
+    border: 0px
+    }
+ }
