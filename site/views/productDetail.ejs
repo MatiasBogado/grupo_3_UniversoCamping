@@ -1,34 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- head -->
     <%- include('partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/productDetail.css">
+    <link rel="stylesheet" href="/css/productCart.css">
     <title></title>
 </head>
+
 <body>
     <!-- Header -->
     <%- include('partials/header.ejs') %>
-
     <!--=============================
     =            Content            =
     ==============================-->
-    
-    <main>
-           <div class="container">
-               espacio product detail
-           </div>
+    <main class="container my-2">
+        <section class="row">
+            <!--============================
+            =            Images            =
+            =============================-->
+            <article class="col-12 col-lg-8 article1 mt-4" style="">
+                <div class="row">
+                    <div class="d-none d-md-block col-3 px-md-0 secondaryImages">
+                        <img class="d-block img-fluid" src="http://placehold.it/900x700" alt="">
+                        <img class="d-block img-fluid" src="http://placehold.it/900x700" alt="">
+                        <img class="d-block img-fluid" src="http://placehold.it/900x700" alt="">
+                        <img class="d-block img-fluid" src="http://placehold.it/900x700" alt="">
+                        <img class="d-block img-fluid" src="http://placehold.it/900x700" alt="">
+                        <img class="d-block img-fluid" src="http://placehold.it/900x700" alt="">
+                    </div>
+                    <div class="col-12 col-md-9 mainImage">
+                        Nota: no respeta el padding
+                    </div>
+                </div>
+            </article>
+            <!--====  End of Images  ====-->
+            <hr>
+            <!--============================
+            =            Detail            =
+            =============================-->
+            <article class="col-12 col-lg-4 article2 mt-4">
+                <h5 class="titleSection card-header text-center" style="">Titulo producto</h5>
+                <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol style="background-color: white" class="breadcrumb backgroundWhite p-0 mb-0 montserrat blackColor">
+                                                <li class="breadcrumb-item"><a class="blackColor"  href="#">Home</a></li>
+                                                <li class="breadcrumb-item"><a class="blackColor" href="#">porductDetail</a></li>
+                                                <li  class="blackColor breadcrumb-item active" aria-current="page">producto#1</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                    <div class="col-lg-12 montserrat">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="">
+                                                <p class="precio blackColor m-0 d-inline" href="#">$1034ARS</p>
+                                                <p class="d-inline greenColor m-0" href="#"> 20% OFF</p>
+                                            </li>
+                                            <li class="mb-4">
+                                                <p class="rounded envio d-inline" href="#">Stock disponible</p>
+                                            </li>
+                                            <li class="my-2">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                        <p class="mb-0 d-inline">Añadir al carrito</p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group js-quantity form-quantity">
+                                                            <div class="form-row m-0 align-items-center">
+                                                                <div class="form-control-container col">
+                                                                    <input type="number" class="form-control js-quantity-input form-control-inline" autocorrect="off" autocapitalize="off" name="quantity" value="1" min="1" aria-label="Cambiar cantidad">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <button class="btn btn-block btn-outline-dark">Carrito</button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="my-2">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <i class="fas fa-truck"></i>
+                                                        <p class="mb-0 d-inline" href="#">Calcular tiempo de envio</p>
+                                                    </div>
+                                                    <div class="form-control-container col-6 pr-0">
+                                                        <input type="tel" class="borderRadiusCalcular form-control js-shipping-input form-control-inline" autocorrect="off" autocapitalize="off" name="zipcode" placeholder="Tu código postal" aria-label="Tu código postal">
+                                                        <input type="hidden" name="variant_id" id="shipping-variant-id" value="126772373">
+                                                    </div>
+                                                    <div class="col-6 pl-0">
+                                                        <button class="borderRadiusCalcular2 js-calculate-shipping btn btn-dark btn-block" aria-label="Calcular envío">
+                                                            <span class="js-calculate-shipping-wording">Calcular</span>
+                                                            <span class="js-calculating-shipping-wording" style="display: none;">Calculando</span>
+                                                            <span class="float-right loading" style="display: none;">
+                                                                <svg class="icon-inline icon-smd icon-spin svg-icon-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="my-2">
+                                                <p class="montserratLight" href="#">Compra protegida, devolucion hasta 30 dias de realizada la compra</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+            </article>
+            <!--====  End of Detail  ====-->
+            <hr>
+            <!--=================================
+            =            Descripcion            =
+            ==================================-->
+            <article class="col-12 mt-4">
+                <h5 class="titleSection card-header text-center" style="">Descripción</h5>
+                <div class="card-body montserrat">
+                <p>-Lorem ipsum</p>
+                <p>dolor sit amet, consectetur adipisicing elit. Assumenda debitis, iste quo ad accusantium distinctio aut provident earum reprehenderit voluptatem tenetur ipsum porro itaque laborum, iure deserunt ipsam alias maiores!</p>
+                <p>
+                    .Lorem ipsum dolor sit amet
+                </p>
+                <p>
+                    .consectetur adipisicing elit
+                </p>
+                <p>
+                    .Lorem ipsum dolor sit amet
+                </p>
+                <p>
+                    .consectetur adipisicing elit
+                </p>
+                <p>
+                    .Lorem ipsum dolor sit amet
+                </p>
+                <p>
+                    .consectetur adipisicing elit
+                </p>
+            </div>
+            </article>
+            <!--====  End of Descripcion  ====-->
+            <hr>
+            <!--=================================
+            =            Comentarios            =
+            ==================================-->
+            <article class="col-12 mt-4">
+                <h5 class="titleSection card-header text-center" style="">Comentarios</h5>
+                <div class="col">
+                <div class="p-3 bg-white rounded montserrat">
+                    <div class="review mt-4">
+                        <div class="d-flex flex-row comment-user"><img class="rounded" src="https://i.imgur.com/xxJl1D7.jpg" width="40">
+                            <div class="ml-2">
+                                <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">Hui jhong</span><span class="dot"></span><span class="date">12 Aug 2020</span></div>
+                                <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="comment-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                        </div>
+                    </div>
+                    <div class="review mt-4">
+                        <div class="d-flex flex-row comment-user"><img class="rounded" src="https://i.imgur.com/xxJl1D7.jpg" width="40">
+                            <div class="ml-2">
+                                <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">Timso hui</span><span class="dot"></span><span class="date">12 Aug 2020</span></div>
+                                <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+                        </div>
+                    </div>
+                    <div class="review mt-4">
+                        <div class="d-flex flex-row comment-user"><img class="rounded" src="https://i.imgur.com/xxJl1D7.jpg" width="40">
+                            <div class="ml-2">
+                                <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">Hui jhong</span><span class="dot"></span><span class="date">12 Aug 2020</span></div>
+                                <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="comment-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </article>
+            <!--====  End of Comentarios  ====-->
+        </section>
     </main>
-    
     <!--====  End of Content  ====-->
-    
     <!-- footer -->
     <%- include('partials/footer.ejs') %>
-
     <!-- scripts -->
     <%- include('partials/scripts.ejs') %>
 </body>
-</html>
 
+</html>
