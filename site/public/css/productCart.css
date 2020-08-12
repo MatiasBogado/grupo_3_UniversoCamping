@@ -1,0 +1,169 @@
+/* general*/
+
+h4,h5{
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    margin-top: 10px;
+}
+input, select.custom-select{
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom:1px solid gray;
+    background-color: transparent;
+}
+/* cuerpo de formulario*/
+.encabezado p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin:0 auto;
+    border-bottom: 1px solid #a8ab7a;
+}
+#paginacion {
+    overflow: hidden;
+}
+.derecha{ 
+    float: right;
+}
+
+.imagen img{
+    background-image: url('');
+    width: 170px;
+}
+.card-body{
+    padding: 0px;
+}
+
+.carrito-total{
+	background: #FC304D;
+	cursor:  pointer;
+	padding: 5px 10px;
+	position: relative;
+}
+.bolsa{
+	position: absolute;
+	background: #f2f2f2;
+	display: none;
+	padding:  5px;
+	z-index:  9999;
+}
+.simpleCart_items{
+	width: 350px;
+}
+.simpleCart_shelfItem{
+	padding-top:  15px;
+	padding-bottom: 15px;
+}
+.item-image img{
+	height: auto;
+	width: 80px;
+}
+.item_image,
+.item_Quantity,
+.item_price{
+	margin-bottom: 15px;
+}
+.item_price{
+	font-size: 2em;
+}
+.item-remove a{
+	color: #EC2626;
+}
+
+.item_add{
+	border-radius: 21.5px;
+	border:  thin solid;
+	transition: .5s;
+	padding:  5px 10px;
+}
+.item_add:hover{
+	background: #41DA7B;
+	border:  thin solid #2DC466;
+	color: #fff;
+}
+
+.cantidad-precio{
+    display: flex;
+    flex-wrap: wrap;
+}
+.precio{
+   margin-top: 18px;
+}
+.pago-envio{
+    display: flex;
+    flex-wrap: wrap;
+} 
+.custom-select{
+    border-radius: 0px;
+    width: 50%;
+}  
+.botonesAccion{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px 0;
+} 
+.accion{
+    margin-bottom: 7px;
+    text-align: center;
+}
+.carrito{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+@media(min-width:768px){
+    h4, h5{
+        font-family: 'Roboto', sans-serif;
+        font-size: medium;
+        margin-top: 10px;
+    }
+    .encabezado p{
+        font-size: 20px;
+    }
+    .pago-envio{
+        display:flex;
+        flex-direction: column;
+    }
+    .botonesAccion{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 30px 0;
+    }
+    .btn-primary{
+        width: 200px;
+    }
+}
+
+
+@media(min-width:1024px){
+    form.container-fluid{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    h4, h5{
+        font-family: 'Roboto', sans-serif;
+        font-size: large;
+        margin-top: 10px;
+    }    
+    .encabezado p{
+        font-size: 24px;
+    }
+    .pago-envio{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;  
+    }
+    .btn-primary{
+        width: 250px;
+    }
+    .custom-select{
+        width: 90%;
+    } 
+}

@@ -1,0 +1,35 @@
+
+.banner img{
+    width: 100% ;
+}
+.card-img{
+    background-image: url(/img/1.png);
+}
+
+.cat{
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color:rgba(230, 218, 245, 0.486);
+    color: ivory;
+    font-size:flex;
+}
+
+
+.Categorias{
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+
+    
+}
+
+section .contenidoCat figure img {
+    width: 100%;
+}
+
+
+section .contenidoMar figure img {
+    width: 100%;
+}
+
+

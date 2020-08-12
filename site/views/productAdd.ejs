@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/css/productAdd.css">
     <title></title>
 </head>
+
 <body>
     <!-- Header -->
     <%- include('partials/header.ejs') %>
@@ -15,20 +17,103 @@
     <!--=============================
     =            Content            =
     ==============================-->
-    
-    <main>
-           <div style="height: 400px">
-               espacio
-           </div>
-    </main>
-    
+
+
+    <!-- CUERPO DE ADMINISTRACION-->
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <!-- FORMULARIO -->
+
+            <form class="container-fluid" action="">
+                <div class="encabezado">
+                    <p>ADMINISTRADOR DE PRODUCTOS</p>
+                    <div id="paginacion">
+                        <span class="izquierda">&laquo; Anterior</span>
+                        <span class="derecha">Siguiente &raquo;</span>
+                    </div>
+                </div>
+                <!-- BOX DE CODIGO Y CATEGORIA DEL PRODUCTO -->
+                <div class="cod-cat ">
+                    <div class="codigo col-md-6 col-lg-6" style="text-align: center">
+                        <h4>Igresar código</h4>
+                        <input type="text" placeholder="Código del producto">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="categoria col-md-6 col-lg-6" style="text-align: center">
+                        <h4>Categoria</h4>
+                        <select class="categoria " name="categoria" id="">
+                            <option value="">Buscar</option>
+                            <option value="Ofertas">-- Ofertas --</option>
+                            <option value="Pesca">-- Pesca --</option>
+                            <option value="Accesorios">-- Accesorios --</option>
+                            <option value="Carpas">-- Carpas --</option>
+                            <option value="Rifles">-- Rifles --</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- BOX DE DESCRIPCION DEL PRODUCTO -->
+                <div class="descripcion">
+                    <div class="col-md-6 col-lg-6" style="text-align: center">
+                        <h4>Descripción del producto</h4>
+                        <textarea name="descripcion" id="" cols="38" rows="10"></textarea>
+                    </div>
+                    <!-- BOX DE VISUALIZACION DE IMAGEN DEL PRODUCTO-->
+                    <div class=" col-md-6 col-lg-6" style="text-align: center">
+                        <h4>Verificar imagen</h4>
+                        <div class="imagen">
+                            <div class="drag-drop">
+                                <input type="file" multiple="multiple" id="photo" />
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
+                                    <i class="fa fa-circle fa-stack-1x top medium"></i>
+                                    <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
+                                </span>
+                                <span class="desc">Pulse aquí para añadir imagen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOX DE PRECIO Y STOCK DEL PRODUCTO-->
+                <div class="precio-stock">
+                    <div class="col-md-6 col-lg-6" style="text-align: center">
+                        <h4>Stock</h4>
+                        <label><input type="number"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6" style="text-align: center">
+                        <h4>Precio</h4>
+                        <label><input type="number"></label>
+                    </div>
+                </div>
+                <!-- BOX DE BOTONES DE COLAPSO (AGREGAR-MODIFICAR-ELIMINAR)-->
+                <div class="botonesAccion">
+                    <div class="accion col-md-4 col-lg-4">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#agregar"
+                            aria-expanded="false" aria-controls="agregar">AGREGAR</button>
+                    </div>
+                    <div class="accion col-md-4 col-lg-4">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#modificar"
+                            aria-expanded="false" aria-controls="modificarr">MODIFICAR</button>
+                    </div>
+                    <div class="accion col-md-4 col-lg-4">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#eliminar"
+                            aria-expanded="false" aria-controls="eliminar">ELIMINAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
     <!--====  End of Content  ====-->
-    
+
     <!-- footer -->
     <%- include('partials/footer.ejs') %>
 
     <!-- scripts -->
     <%- include('partials/scripts.ejs') %>
 </body>
-</html>
 
+</html>

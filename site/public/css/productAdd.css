@@ -1,0 +1,177 @@
+/* cuerpo de formulario*/
+.encabezado p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin:0 auto;
+    border-bottom: 1px solid #a8ab7a;
+}
+#paginacion {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    overflow: hidden;
+} 
+.derecha{ 
+    float: right;
+}
+.izquierda{
+     float: left;
+}
+h4, h5{
+
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    margin-top: 10px;
+}
+input, select{
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom:1px solid gray;
+    background-color: transparent;
+}
+
+.cod-cat{
+    margin: 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.descripcion{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Estilo del área del input[file] */
+.imagen{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.drag-drop {
+    height: 130px;
+    width: 200px;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}   
+.drag-drop span.desc {
+    display: block;
+    font-size: 12px;
+    padding: 0 8px;
+    color: #000;
+}
+input[type="file"] {
+    height: 160px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 3;
+}
+     
+/* Estilo del área del input[file] con :hover */
+.drag-drop:hover, input[type="file"]:hover {
+    background-color: #ebefbc;
+    cursor: pointer;
+}
+.drag-drop:hover span.desc {
+    color: #fff;
+} 
+     
+/* Composición del icono de Upload con FontAwesome */
+.fa-stack {
+    margin-top: 8px;
+}    
+.fa-stack .top { 
+    color: white; 
+}  
+.fa-stack .medium { 
+    color: black;
+    text-shadow: 0 0 4px #666;
+}     
+.fa-stack .bottom { 
+    color: rgba(225, 225, 225, .75); 
+}
+ 
+.precio-stock{
+    margin: 20px 70px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.botonesAccion{
+    display: flex;
+    justify-content: space-around;
+}
+.accion{
+    display: flex;
+    justify-content: center;
+}
+.btn-primary{
+    height: 35px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+.btn{
+    padding:0px;
+}
+.tarjeta-accion{
+    display: flex;
+    flex-direction: column;
+}
+
+ 
+@media(min-width:768px){
+    .encabezado p{
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;  
+    }
+    h4, h5{
+        font-family: 'Roboto', sans-serif;
+        font-size: medium;
+        margin-top: 10px;
+    }
+    .cod-cat{
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+    .precio-stock{
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .btn-primary{
+        width: 200px;
+    }
+    
+}
+
+@media(min-width:1024px){ 
+    form.container-fluid{
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    h4, h5{
+        font-family: 'Roboto', sans-serif;
+        font-size: large;
+        margin-top: 10px;
+    }
+    .cod-cat{
+        margin-bottom:  20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .precio-stock{
+        margin-bottom: 50px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .btn-primary{
+        width: 250px;
+    }
+   
+}
