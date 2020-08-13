@@ -21,35 +21,42 @@
     <div class="container-fluid">
         <div class="row">
             <!-- FORMULARIO  -->
-            <form class="container-fluid" action="">
+            <form class="container my-3" action="">
                 <div class="encabezado">
-                    <p>CARRITO DE COMPRAS</p>
-                    <div id="paginacion">
+                    <p class="tiltes p-1">CARRITO DE COMPRAS</p>
+                    <div id="paginacion montserrat">
                         <span class="izquierda">&laquo; Anterior</span>
                     </div>
                 </div>
                 <!-- BOX DE PRODUCTO SELECCIONADO Y DESCRIPCION -->
-                <div class="producto">
-                    <div class="codigo col-md-7 col-lg-7" style="text-align: center">
-                        <h4>Producto seleccionado</h4>
-                        <div class="imagen">
-                            <img src="/img/logo-camping.png" alt="25">
+                <div class="producto montserrat">
+                    <div class="codigo col-md-12 col-lg-7" style="text-align: center">
+                        <h4 class="productoSeleccionado">Producto seleccionado</h4>
+                        <div class="imagen my-3">
+                            <img width="120%" src="https://d26lpennugtm8s.cloudfront.net/stores/097/961/products/hacha-2-fw3-fw1-84d447e10f8d40a20d15919024439604-640-0.png" alt="25">
                         </div>
-                        <div class="card">
+                        <h4 class="productoSeleccionado">Descripcion</h4>
+                        <div class="row justify-content-center">
+                            
+                        
+                        <div class="card col-12 col-md-7">
                             <div class="card-body">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi odio dolores
                                 voluptatum ab placeat minus illum quisquam velit aperiam doloribus saepe at, non laborum
                                 repellendus accusantium blanditiis quae eum consequatur?
                             </div>
                         </div>
+                        </div>
                     </div>
                     
                 </div>
                 
                 <!-- BOX DE CANTIDAD DE UNIDADES , PRECIO y DESCUENTO  -->
-                <div class="cantidad-precio">
-                    <div class="col-5 col-md-3 col-lg-3" style="text-align: center">
-                        <h4>Cantidad</h4>
+                    <div class="cantidad-precio">
+                        <div class="col-12">
+                            <div class="row justify-content-between my-3">
+                    <div class="my-2 col-12 col-md-6 col-lg-6" style="text-align: center">
+                        <h4 class="productoSeleccionado" >Cantidad</h4>
                         <div class="input">
                             <select class="custom-select" id="" aria-label="">
                                 <option value="1">1</option>
@@ -58,13 +65,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-4" style="text-align: center">
-                        <h4>Precio</h4>
+                    <div class="col-md-6 col-lg-6 my-2">
+                        <h4 class="productoSeleccionado precio">Precio</h4>
                         <div class="precio">
-                            <label><input type="number"></label>
+                            <label style="max-width: 100%;"><input style="max-width: 100%;" type="number"></label>
                         </div>
                     </div>
-                    <div class="carrito col-12 col-sm-5 col-lg-5"style="margin-top:10px">
+                    <div class="d-none carrito col-12 col-sm-5 col-lg-6"style="margin-top:10px">
                         <!-- Carrito de compras y sus items -->
                         <div class=''>
                           
@@ -80,18 +87,16 @@
                             </div>
                           </div>
                         </div>
-                    </div>      
-                    <div class="col-md-7 col-lg-7" style="text-align: center;border-top: 1px solid black;margin-top: 10px;">
-                        <h5>Codigo de descuento</h5>
+                    </div>    
+                    <div class="my-2 col-md-6 col-lg-6" style="text-align: center;margin-top: 10px;">
+                        <h5 class="productoSeleccionado">Codigo de descuento</h5>
                         <div class="">
                             <label><input type="text-number"></label>
                         </div>
                     </div>
-                </div>
                 <!-- BOX DE METODOS DE PAGO Y  METODO DE ENVIO-->
-                <div class="pago-envio ">
-                    <div class=" col-md-7 col-lg-4" style="text-align: center">
-                        <h5>Metodo de pago</h5>
+                    <div class="my-2 col-md-6 col-lg-6" style="text-align: center">
+                        <h5 class="productoSeleccionado" >Metodo de pago</h5>
                         <div class="input">
                             <select class="custom-select" id="" aria-label="">
                                 <option value="1">Efectivo</option>
@@ -102,8 +107,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class=" col-md-7 col-lg-3" style="text-align: center">
-                        <h5>Metodo de envio</h5>
+                    <div class="my-2 col-md-6 col-lg-6" style="text-align: center">
+                        <h5 class="productoSeleccionado">Metodo de envio</h5>
                         <div class="input">
                             <select class="custom-select" id="" aria-label="">
                                 <option value="Re">Retira en local</option>
@@ -113,18 +118,21 @@
                         </div>
                     </div>
                 </div>
+                                    </div>
+                    </div>
+
                 <!-- BOX DE CAJA DE BOTONES (FINALIZAR COMPRA-AGREGAR PRODUCTO-VACIAR CARRITO)-->
                 <div class="botonesAccion">
-                    <div class="accion col-md-4 col-lg-4">
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#agregar"
+                    <div class="my-2 accion col-md-4 col-lg-4">
+                        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#agregar"
                             aria-expanded="false" aria-controls="agregar">FINALIZAR COMPRA</button>
                     </div>
-                    <div class="accion  col-md-4 col-lg-4">
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#eliminar"
+                    <div class="my-2 accion  col-md-4 col-lg-4">
+                        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#eliminar"
                             aria-expanded="false" aria-controls="eliminar">AGREGAR PRODUCTO</button>
                     </div>
-                    <div class="accion  col-md-4 col-lg-4">
-                        <button class="btn btn-primary"style="opacity:0.6" type="button" data-toggle="collapse" data-target="#modificar"
+                    <div class="my-2 accion  col-md-4 col-lg-4">
+                        <button class="btn btn-outline-dark"style="opacity:0.6" type="button" data-toggle="collapse" data-target="#modificar"
                             aria-expanded="false" aria-controls="modificarr">VACIAR CARRITO</button>
                     </div>
                 </div>

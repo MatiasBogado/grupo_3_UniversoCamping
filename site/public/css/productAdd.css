@@ -53,8 +53,6 @@ input, select{
     text-align: center;
     color: white;
     position: relative;
-    margin-top: 50px;
-    margin-bottom: 20px;
 }   
 .drag-drop span.desc {
     display: block;
@@ -96,11 +94,6 @@ input[type="file"] {
     color: rgba(225, 225, 225, .75); 
 }
  
-.precio-stock{
-    margin: 20px 70px;
-    display: flex;
-    flex-wrap: wrap;
-}
 .botonesAccion{
     display: flex;
     justify-content: space-around;
@@ -108,14 +101,6 @@ input[type="file"] {
 .accion{
     display: flex;
     justify-content: center;
-}
-.btn-primary{
-    height: 35px;
-    width: 100px;
-    margin-bottom: 20px;
-}
-.btn{
-    padding:0px;
 }
 .tarjeta-accion{
     display: flex;
@@ -143,11 +128,7 @@ input[type="file"] {
         margin-bottom: 20px;
         display: flex;
         flex-wrap: wrap;
-    }
-    .btn-primary{
-        width: 200px;
-    }
-    
+    }    
 }
 
 @media(min-width:1024px){ 
@@ -170,8 +151,35 @@ input[type="file"] {
         display: flex;
         flex-wrap: wrap;
     }
-    .btn-primary{
-        width: 250px;
-    }
    
 }
+.titles{
+    background-color: #534317;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 4px solid #e2ddf1
+}
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.productoSeleccionado{
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+}
+.card{
+    border:1px solid black;
+}
+.inputCodigo{
+    border: 1px solid black
+}
+.buttonCodigo{
+    background-color: white;
+    border: 1px solid black
+}
+.borderRadiusCalcular2{
+    border-radius: 0px 10px 10px 0px
+}
+.borderRadiusCalcular{
+    border-radius: 10px 0px 0px 10px
+}
+
