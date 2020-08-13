@@ -32,13 +32,18 @@ https://www.campingcenter.com.ar/ _Diseño sencillo y facil de comprender, lo mi
 [adm]:./Wireframe/ADMIN.jpg
 [cart]:./Wireframe/CARRITO.jpg
 
-[Home][home]
+### Mockups:
 
-[Productos][prod]
+#### Logo del sitio
+![Logo](./Design/logo-camping.jpg "logo")
 
-[Formulario de registro][user]
+#### [Home][home]
 
-[Formulario carga de productos administrador][adm]
+#### [Productos][prod]
 
-[Carrito][cart]
+#### [Formulario de registro][user]
+
+#### [Formulario carga de productos administrador][adm]
+
+#### [Carrito][cart]
 
