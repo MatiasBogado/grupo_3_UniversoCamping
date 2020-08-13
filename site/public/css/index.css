@@ -1,35 +1,86 @@
 
+body{
+    background-color: rgba(228, 228, 228, 0.445);
+
+}
+/* BANNER */
+
+@media (min-width: 1024px) {
+    .banner img{
+      height: 300px;
+    }
+  }
+
 .banner img{
     width: 100% ;
-}
-.card-img{
-    background-image: url(/img/1.png);
-}
-
-.cat{
-    padding: 10px 10px;
-    border-radius: 10px;
-    background-color:rgba(230, 218, 245, 0.486);
-    color: ivory;
-    font-size:flex;
-}
-
-
-.Categorias{
-    border: none;
-    border-radius: 5px;
-    justify-content: center;
-
+    
     
 }
 
-section .contenidoCat figure img {
-    width: 100%;
+/*CAROUSEL*/
+
+.tituloCarousel{
+    padding-bottom: 10px;
+}
+.ContenedorCarousel{
+    text-align: center;
+    
+}
+.ContenedorCarousel img{
+    border: 1px solid;
+    border-radius: 10px;
+
+}
+
+.oferta{
+ color: rgb(168, 200, 28);
+}
+.controlPrev{
+    background-color: rgba(129, 103, 155, 0.377);
+}
+.controlNext{
+    background-color: rgba(129, 103, 155, 0.377);
+}
+
+.barraHr{
+    padding-top: 50px;
+}
+
+/*CATEGORIAS*/
+
+.Categorias{
+    padding-left: 10px;
+    justify-content: center;
+}
+.Categorias img{
+    border: 1px solid;
+    border-radius: 20px;
+    border-width: 2px;
+}
+.textoCat{
+    padding: 10px;
+    border-radius: 10px;
+    background-color:rgba(0, 0, 0, 0.431);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
 
 
-section .contenidoMar figure img {
-    width: 100%;
+/*MARCAS*/
+
+@media (max-width: 425px) {
+    .marcas img{
+      display: none;
+    }
+  }
+
+.marcas img{
+width: 100%;
 }
+
 
 

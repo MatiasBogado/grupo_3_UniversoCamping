@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    
     <!-- head -->
     <%- include('partials/head.ejs') %>
     <link rel="stylesheet" href="/css/index.css">
@@ -18,174 +20,252 @@
     ==============================-->
     
   <main>
-           <div class="">
-            <section class="banner">
-                    <img src="/img/banner-2.png" alt="">
-               </section>
+      <!--CAJA CONTENIDO GENERAL-->
 
-               <!--SECCIÓN: PRODUCTOS-->
-     <section>
+           <div class="Home">
 
-        <!--caja que contiene todos los productos-->
-        <div class="row productos">
-
-            <!--CARROUSEL-->
-
-            <div class="titulo col-12">
-                <h2>
-                    Carrousel Productos
-                </h2>
-            </div>
+               <!-- BANNER -->
             
-                
+               <div class="banner">
+                    <img src="/img/banner-2.png" alt="">
+               </div>
 
-                 <!--SECCION CATEGORIAS-------------------------------------------------------------------------->
+               <!-- SECCIÓN CAROUSEL -->
+               <h2 class="barraHr">
+                <hr>
+            </h2>
 
-                <div class="tituloCat col-12">
-                    <h1>
-                            
-                    </h1>
-                </div>
-                <div class="Categorias row">
-
-                    <div class="card col-4 col-lg-2">
-                        <a href=""><img src="/img/7.png" alt="" class="card-img"></a>
+               <h2 class="text-center tituloCarousel"> Productos Recomendados </h2>
+    
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner ContenedorCarousel">
+                  <div class="carousel-item active">
+                      <div class="row productos justify-content-center">
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="/img/producto1.png" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="img/producto2.jpg" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="img/producto3.jpg" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
                         
+                      </div>          
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row productos justify-content-center">
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="/img/producto1.png" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="img/producto2.jpg" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="img/producto3.jpg" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
+                        
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row productos justify-content-center">
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="/img/producto1.png" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="img/producto2.jpg" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="img/producto3.jpg" class="d-block w-100" alt="...">
+                            <article>
+                                <h2>$2000</h2>
+                                
+                                <span class="fas fa-tags oferta">50% OFF</span>
+                                
+                                <p>Producto</p>
+                            </article>
+                        </div>
+                        
+                      </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev controlPrev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next controlNext" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+
+              
+                <!-- SECCION CATEGORIAS -->
+    <h2 class="barraHr">
+        <hr>
+    </h2>
+
+            <div class="row Categorias">
+
+                <div class="col-8 col-md-3 col-lg-2">
+                    <img src="/img/CAMPING.png" alt="" class="card-img">
+                    <div class="row card-img-overlay justify-content-center">
+                        <h4 class="textoCat text-center">
+                            CAMPING
+                            <a href=""><h4 class="catIr">Ver más</h4></a>
+                        </h4>
                        
                     </div>
-                    <div class="card col-4 col-lg-2">
-                        <img src="/img/PESCA.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center align-items-center">
-                            <h4 class="cat text-center">
-                                PESCA
-                                <a href=""><h4 class="catIr">Ir</h4></a>
-                            </h4>
-                           
-                        </div>
+                   
+                </div>
+                <div class="col-8 col-md-3 col-lg-2">
+                    <img src="/img/PESCA.png" alt="" class="card-img">
+                    <div class="row card-img-overlay justify-content-center">
+                        <h4 class="textoCat text-center">
+                            PESCA
+                            <a href=""><h4 class="catIr">Ver más</h4></a>
+                        </h4>
                        
                     </div>
-                    <div class="card col-4 col-lg-2">
-                        <img src="/img/ACCESORIOS.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center align-items-center">
-                            <h4 class="cat text-center">
-                                ACCESORIOS
-                                <a href=""><h4 class="catIr">Ir</h4></a>
-                            </h4>
-                           
-                        </div>
+                   
+                </div>
+                <div class="col-8 col-md-3 col-lg-2">
+                    <img src="/img/ACCESORIOS.png" alt="" class="card-img">
+                    <div class="row card-img-overlay justify-content-center">
+                        <h4 class="textoCat text-center">
+                            ACCESORIOS
+                            <a href=""><h4 class="catIr">Ver más</h4></a>
+                        </h4>
                        
-                    
-                    </div>
-                    <div class="card col-4 col-lg-2">
-                        <img src="/img/7.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center align-items-center">
-                            <h4 class="cat text-center">
-                                INDUMENTARIA
-                                <a href=""><h4 class="catIr">Ir</h4></a>
-                            </h4>
-                           
-                        </div>
-                       
-                    </div>
-                    <div class="card col-4 col-lg-2">
-                        <img src="/img/1.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center align-items-center">
-                            <h4 class="cat text-center">
-                                CALZADO
-                                <a href=""><h4 class="catIr">Ir</h4></a>
-                            </h4>
-                           
-                        </div>
-                       
-                    </div>
-                    <div class="card col-4 col-lg-2">
-                        <img src="/img/2.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center align-items-center">
-                            <h4 class="cat text-center font-size-10em">
-                                OTROS DEPORTES
-                                <a href=""><h4 class="catIr">Ir</h4></a>
-                            </h4>
-                           
-                        </div>
-                       
-                    </div>
-                
-                
-                
-            </div>
-                
-                
-                <!--SECCION MARCAS---------------------------------------------------------------------->
-                <div class="row justify-content-center">
-                    <div class="titulo col-0 col-md-0 col-lg-12 text-center">
-                        <h1>
-                            
-                        </h1>
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-1">
-                        <div class="contenidoMar">
-                            <!--ETIQUETA SEMANTICA-->
-                            <figure>
-                                <img src="/img/marcas-1.jpg" alt="">
-                            </figure>
-                        </div>
-                        <!--finaliza contenido-->
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-1">
-                        <div class="contenidoMar">
-                            <!--ETIQUETA SEMANTICA-->
-                            <figure>
-                                <img src="/img/marcas-2.png" alt="">
-                            </figure>
-                        </div>
-                        <!--finaliza contenido-->
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-1">
-                        <div class="contenidoMar">
-                            <!--ETIQUETA SEMANTICA-->
-                            <figure>
-                                <img src="/img/marcas-3.jpg" alt="">
-                            </figure>
-                        </div>
-                        <!--finaliza contenido-->
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-1">
-                        <div class="contenidoMar">
-                            <!--ETIQUETA SEMANTICA-->
-                            <figure>
-                                <img src="/img/marcas-4.png" alt="">
-                            </figure>
-                        </div>
-                        <!--finaliza contenido-->
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-1">
-                        <div class="contenidoMar">
-                            <!--ETIQUETA SEMANTICA-->
-                            <figure>
-                                <img src="/img/marcas-5.jpg" alt="">
-                            </figure>
-                        </div>
-                        <!--finaliza contenido-->
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-1">
-                        <div class="contenidoMar">
-                            <!--ETIQUETA SEMANTICA-->
-                            <figure>
-                                <img src="/img/marcas-6.png" alt="">
-                            </figure>
-                        </div>
-                        <!--finaliza contenido-->
                     </div>
                    
                 </div>
                 
-
                 
+                
+            
+            
         </div>
-        <!--finaliza el div.row-->
-    </section>
+            <div class="row Categorias">
+
+            <div class="col-8 col-md-3 col-lg-2">
+                <img src="/img/indumentaria.jpg" alt="" class="card-img">
+                    <div class="row card-img-overlay justify-content-center">
+                        <h4 class="textoCat text-center">
+                            INDUMENTARIA
+                            <a href=""><h4 class="catIr">Ver más</h4></a>
+                        </h4>
+                   
+                </div>
+               
+            </div>
+            <div class="col-8 col-md-3 col-lg-2">
+                <img src="/img/calzado.jpg" alt="" class="card-img">
+                    <div class="row card-img-overlay justify-content-center">
+                        <h4 class="textoCat text-center">
+                            CALZADO
+                            <a href=""><h4 class="catIr">Ver más</h4></a>
+                        </h4>
+                   
+                </div>
+               
+            </div>
+            
+            
+            
+            
+        
+        
+        </div>
+
     
-    <!--FINALIZA PRODUCTOS-->
+                <!-- SECCION MARCAS -->
+    <h2 class="barraHr">
+        <hr>
+    </h2>
+    <div class="row marcas justify-content-center">
+        <div class="col-1 col-md-2 col-lg-2">
+            <img src="/img/marcas-1.jpg"alt="...">
+        </div>
+        <div class="col-1 col-md-2 col-lg-2">
+            <img src="/img/marcas-1.jpg"alt="...">
+        </div>
+        <div class="col-1 col-md-2 col-lg-2">
+            <img src="/img/marcas-1.jpg"alt="...">
+        </div>
+        <div class="col-1 col-md-2 col-lg-2">
+            <img src="/img/marcas-1.jpg"alt="...">
+        </div>
+        <div class="col-1 col-md-2 col-lg-2">
+            <img src="/img/marcas-1.jpg"alt="...">
+        </div>
+        <div class="col-1 col-md-2 col-lg-2">
+            <img src="/img/marcas-1.jpg"alt="...">
+        </div>
+        
+        
+      </div>
+    
+    </div>
+   
+    
+    
            </div>
 
 
