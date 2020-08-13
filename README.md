@@ -26,18 +26,19 @@ https://freshair.com.ar/ _Marcas._
 
 https://www.campingcenter.com.ar/ _Diseño sencillo y facil de comprender, lo minimo que deberiamos conseguir._
 
-### Home
-![HOME](./Wireframe/HOME.jpg "Home")
+[home]:./Wireframe/HOME.jpg
+[prod]:./Wireframe/PRODUCTOS.jpg
+[user]:./Wireframe/USER.jpg
+[adm]:./Wireframe/ADMIN.jpg
+[cart]:./Wireframe/CARRITO.jpg
 
-### Productos
-![PRODUCTOS](./Wireframe/PRODUCTOS.jpg "Detalles del Producto" )
+[Home][home]
 
-### Formulario de registro
-![USER](./Wireframe/USER.jpg "Formulario de registro" )
+[Productos][prod]
 
-### Formulario carga de productos administrador
-![ADMIN](./Wireframe/ADMIN.jpg "Admin")
+[Formulario de registro][user]
 
-### Carrito
-![CARRITO](./Wireframe/CARRITO.jpg "Carrito")
+[Formulario carga de productos administrador][adm]
+
+[Carrito][cart]
 
