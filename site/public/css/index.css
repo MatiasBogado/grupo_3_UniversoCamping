@@ -21,6 +21,7 @@ body{
 
 .tituloCarousel{
     padding-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 .ContenedorCarousel{
     text-align: center;
@@ -82,5 +83,9 @@ body{
 width: 100%;
 }
 
+
+.Categorias{
+    font-family: 'Montserrat', sans-serif;
+}
 
 
