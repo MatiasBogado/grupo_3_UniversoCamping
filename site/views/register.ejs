@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +9,29 @@
     <link rel="stylesheet" href="/css/register.css">
     <title></title>
 </head>
+
 <body>
     <!-- Header -->
     <%- include('partials/header.ejs') %>
-
     <!--=============================
     =            Content            =
     ==============================-->
-    
     <main class="main">
-           <div style="height: 691px">
-              <div class="container">
-                  <div class="row justify-content-center">
-                      <div class="col-md-12 mt-5">
-                          <h2 class=>Crear Cuenta</h2>
-                          <hr class="bg-info">
-                          <p class="text-danger small pt-0 mt-0">*Todos los campos son obligatorios</p>
-                          <form>
-                              <div class="row form-group">
-                                  <label for="nombre" class="col-form-label col-md-4 ">Nombre:</label>
-                                  <div class="col-md-8">
-                                      <input type="text" name="nombre" value="" id="nombre" class="form-control">
-                                  </div>
-                              </div>
-                              <div class="row form-group">
+        <div style="height: 691px">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 mt-5">
+                        <h2 class=>Crear Cuenta</h2>
+                        <hr class="bg-info">
+                        <p class="text-danger small pt-0 mt-0">*Todos los campos son obligatorios</p>
+                        <form>
+                            <div class="row form-group">
+                                <label for="nombre" class="col-form-label col-md-4 ">Nombre:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="nombre" value="" id="nombre" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
                                 <label for="nombre" class="col-form-label col-md-4 ">Apellido:</label>
                                 <div class="col-md-8">
                                     <input type="text" name="Apellido" value="" id="Apellido" class="form-control">
@@ -54,29 +54,23 @@
                                 <div class="col-md-8">
                                     <input type="password" name="Confirmar Contraseña" value="" id="Confirmar Contraseña" class="form-control">
                                 </div>
-                            </div> 
+                            </div>
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-sm-4 text-center">
                                     <button class="register btn btn-primary " type="submit">Registrarme</button>
                                 </div>
                             </div>
-                            
-                                
-                            
-                          </form>
-                      </div>
-                  </div>
-              </div>
-           </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    
     <!--====  End of Content  ====-->
-    
     <!-- footer -->
-        <%- include('partials/footer.ejs') %>
+    <%- include('partials/footer.ejs') %>
     <!-- scripts -->
-        <%- include('partials/scripts.ejs') %>
-    
+    <%- include('partials/scripts.ejs') %>
 </body>
-</html>
 
+</html>

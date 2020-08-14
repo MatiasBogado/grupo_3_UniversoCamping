@@ -13,20 +13,13 @@
 <body>
     <!-- Header -->
     <%- include('partials/header.ejs') %>
-
     <!--=============================
     =            Content            =
     ==============================-->
-
-
     <!-- CUERPO DE ADMINISTRACION-->
-
     <div class="container-fluid">
-
         <div class="row">
-
             <!-- FORMULARIO -->
-
             <form class="container my-3 montserrat" action="">
                 <div class="encabezado">
                     <p class="titles p-1">Administrador de productos</p>
@@ -40,28 +33,23 @@
                     <div class="codigo col-md-6 col-lg-4" style="text-align: center">
                         <h4 class="productoSeleccionado">Ingresar código</h4>
                         <div class="row">
-                                                    <div class="form-control-container col-9 pr-0">
-                                                        <input type="tel" class="borderRadiusCalcular form-control js-shipping-input form-control-inline" autocorrect="off" autocapitalize="off" name="zipcode" placeholder="Codigo del producto" aria-label="Tu código postal">
-                                                        <input type="hidden" name="variant_id" id="shipping-variant-id" value="126772373">
-                                                    </div>
-                                                    <div class="col-3 pl-0">
-                                                        <button class="borderRadiusCalcular2 js-calculate-shipping btn btn-dark btn-block" aria-label="Calcular envío">
-                                                            <span class="js-calculate-shipping-wording">
-                                                        <i class="fas fa-search"></i>
-                                                        </span>
-
-
-
-
-
-
-                                                            <span class="js-calculating-shipping-wording" style="display: none;">Calculando</span>
-                                                            <span class="float-right loading" style="display: none;">
-                                                                <svg class="icon-inline icon-smd icon-spin svg-icon-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                </div>                    </div>
+                            <div class="form-control-container col-9 pr-0">
+                                <input type="tel" class="borderRadiusCalcular form-control js-shipping-input form-control-inline" autocorrect="off" autocapitalize="off" name="zipcode" placeholder="Codigo del producto" aria-label="Tu código postal">
+                                <input type="hidden" name="variant_id" id="shipping-variant-id" value="126772373">
+                            </div>
+                            <div class="col-3 pl-0">
+                                <button class="borderRadiusCalcular2 js-calculate-shipping btn btn-dark btn-block" aria-label="Calcular envío">
+                                    <span class="js-calculate-shipping-wording">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                    <span class="js-calculating-shipping-wording" style="display: none;">Calculando</span>
+                                    <span class="float-right loading" style="display: none;">
+                                        <svg class="icon-inline icon-smd icon-spin svg-icon-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="my-2 categoria col-md-6 col-lg-6" style="text-align: center">
                         <h4 class="productoSeleccionado">Categoria</h4>
                         <select class="categoria " name="categoria" id="">
@@ -116,28 +104,21 @@
                 <!-- BOX DE BOTONES DE COLAPSO (AGREGAR-MODIFICAR-ELIMINAR)-->
                 <div class="row">
                     <div class="accion my-2 col-12 col-md-4 col-lg-4">
-                        <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#agregar"
-                            aria-expanded="false" aria-controls="agregar">Agregar</button>
+                        <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#agregar" aria-expanded="false" aria-controls="agregar">Agregar</button>
                     </div>
                     <div class="accion my-2 col-12 col-md-4 col-lg-4">
-                        <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#modificar"
-                            aria-expanded="false" aria-controls="modificarr">Modificar</button>
+                        <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#modificar" aria-expanded="false" aria-controls="modificarr">Modificar</button>
                     </div>
                     <div class="accion my-2 col-12 col-md-4 col-lg-4">
-                        <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#eliminar"
-                            aria-expanded="false" aria-controls="eliminar">Eliminar</button>
+                        <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#eliminar" aria-expanded="false" aria-controls="eliminar">Eliminar</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
-
     <!--====  End of Content  ====-->
-
     <!-- footer -->
     <%- include('partials/footer.ejs') %>
-
     <!-- scripts -->
     <%- include('partials/scripts.ejs') %>
 </body>
