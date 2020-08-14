@@ -1,4 +1,13 @@
 .register{
     padding-left: 100px;
     padding-right: 100px;
+    background-color: #4d582a ;
+    color: white;
+}
+.titles{
+    background-color: #534317;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-align: center;
 }

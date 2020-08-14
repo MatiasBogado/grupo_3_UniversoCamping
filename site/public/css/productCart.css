@@ -179,7 +179,7 @@ input, select.custom-select{
     } 
 }
 
-.tiltes{
+.titles{
     background-color: #534317;
     color:white;
     font-family: 'Roboto', sans-serif;
@@ -196,4 +196,8 @@ main .producto .card{
 }
 main .producto .card-body{
     padding: 5px;
+}
+.botones{
+    color: white;
+    background-color:  #4d582a
 }

@@ -182,4 +182,8 @@ input[type="file"] {
 .borderRadiusCalcular{
     border-radius: 10px 0px 0px 10px
 }
+.botones{
+    color: white;
+    background-color:  #4d582a ;
+}
 
