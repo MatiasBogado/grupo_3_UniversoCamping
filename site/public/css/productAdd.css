@@ -6,6 +6,15 @@
     margin:0 auto;
     border-bottom: 1px solid #a8ab7a;
 }
+.titles{
+    background-color: #534317;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 4px solid #e2ddf1;
+}
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
 #paginacion {
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
@@ -17,6 +26,35 @@
 .izquierda{
      float: left;
 }
+
+.productoSeleccionado{
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+}
+.card{
+    border:1px solid grey;
+}
+.inputCodigo{
+    border: 1px solid black
+}
+.buttonCodigo{
+    background-color: white;
+    border: 1px solid black
+}
+.borderRadiusCalcular2{
+    border-radius: 0px 10px 10px 0px
+}
+.borderRadiusCalcular{
+    border-radius: 10px 0px 0px 10px
+}
+.botones{
+    font-size: 15px;
+    color: white;
+    background-color:  #4d582a ;
+}
+
+
+
 h4, h5{
 
     font-family: 'Roboto', sans-serif;
@@ -94,10 +132,6 @@ input[type="file"] {
     color: rgba(225, 225, 225, .75); 
 }
  
-.botonesAccion{
-    display: flex;
-    justify-content: space-around;
-}
 .accion{
     display: flex;
     justify-content: center;
@@ -128,7 +162,11 @@ input[type="file"] {
         margin-bottom: 20px;
         display: flex;
         flex-wrap: wrap;
-    }    
+    } 
+    .botonesAccion{
+        display: flex;
+        justify-content: space-around;
+    }   
 }
 
 @media(min-width:1024px){ 
@@ -151,39 +189,8 @@ input[type="file"] {
         display: flex;
         flex-wrap: wrap;
     }
+    .botones{
+        width: 250px;
+        font-size: 15px;
    
 }
-.titles{
-    background-color: #534317;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-    border-bottom: 4px solid #e2ddf1
-}
-.montserrat{
-    font-family: 'Montserrat', sans-serif;
-}
-.productoSeleccionado{
-    font-size: 22px;
-    font-family: 'Roboto', sans-serif;
-}
-.card{
-    border:1px solid black;
-}
-.inputCodigo{
-    border: 1px solid black
-}
-.buttonCodigo{
-    background-color: white;
-    border: 1px solid black
-}
-.borderRadiusCalcular2{
-    border-radius: 0px 10px 10px 0px
-}
-.borderRadiusCalcular{
-    border-radius: 10px 0px 0px 10px
-}
-.botones{
-    color: white;
-    background-color:  #4d582a ;
-}
-

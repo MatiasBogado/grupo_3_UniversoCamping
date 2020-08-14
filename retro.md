@@ -1,1 +1,1 @@
-![retro](./rtr.PNG "retrospectiva")
+![retro](./rtr-mural.png "retrospectiva")

@@ -59,6 +59,7 @@ body{
     border-width: 2px;
 }
 .textoCat{
+    font-size:15px;
     padding: 10px;
     border-radius: 10px;
     background-color:rgba(0, 0, 0, 0.431);
@@ -68,6 +69,9 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     
+}
+.catIr{
+    font-size: 13px;
 }
 
 

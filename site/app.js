@@ -15,7 +15,7 @@ const productAdd = require('./routes/productAdd')
 
 //servidor
 const PUERTO = 8080;
-app.listen(PUERTO, () =>console.log("El servidor esta levantado en el puerto " + PUERTO))
+app.listen(PUERTO, () =>console.log("El servidor esta funcionando en el puerto " + PUERTO))
 
 //URL
 app.use('/',routeIndex)

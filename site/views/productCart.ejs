@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row" style="padding: 0px 15px">
                 <!-- FORMULARIO  -->
-                <form class="container my-3 p-0" style="border: 1px solid black" action="">
+                <form class="container my-3 p-0" action="">
                     <div class="encabezado">
                         <p class="titles p-1">Carrito de compras</p>
                         <div id="paginacion montserrat">
@@ -33,14 +33,17 @@
                         <div class="codigo col-md-12 col-lg-7" style="text-align: center">
                             <h4 class="productoSeleccionado">Producto seleccionado</h4>
                             <div class="imagen my-3">
-                                <img width="120%" src="https://d26lpennugtm8s.cloudfront.net/stores/097/961/products/hacha-2-fw3-fw1-84d447e10f8d40a20d15919024439604-640-0.png" alt="25">
+                                <img width="120%"
+                                    src="https://d26lpennugtm8s.cloudfront.net/stores/097/961/products/hacha-2-fw3-fw1-84d447e10f8d40a20d15919024439604-640-0.png"
+                                    alt="25">
                             </div>
                             <h4 class="productoSeleccionado">Descripcion</h4>
                             <div class="row justify-content-center">
                                 <div class="card col-12 col-md-7">
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi odio dolores
-                                        voluptatum ab placeat minus illum quisquam velit aperiam doloribus saepe at, non laborum
+                                        voluptatum ab placeat minus illum quisquam velit aperiam doloribus saepe at, non
+                                        laborum
                                         repellendus accusantium blanditiis quae eum consequatur?
                                     </div>
                                 </div>
@@ -64,19 +67,21 @@
                                 <div class="col-md-6 col-lg-6 my-2">
                                     <h4 class="productoSeleccionado precio">Precio</h4>
                                     <div class="precio">
-                                        <label style="max-width: 100%;"><input style="max-width: 100%;" type="number"></label>
+                                        <label style="max-width: 100%;"><input type="text-number"></label>
                                     </div>
                                 </div>
+                                <!-- Carrito de compras y sus items -->
                                 <div class="d-none carrito col-12 col-sm-5 col-lg-6" style="margin-top:10px">
-                                    <!-- Carrito de compras y sus items -->
                                     <div class=''>
                                         <p class="carrito-total">
-                                            <span class="simpleCart_quantity">0</span> item(s) <span class="simpleCart_total">$0.00</span>
+                                            <span class="simpleCart_quantity">0</span> item(s) <span
+                                                class="simpleCart_total">$0.00</span>
                                         </p>
                                         <div class="bolsa">
                                             <div class="simpleCart_items"></div>
                                             <div class="opciones">
-                                                <a class="boton simpleCart_empty" href="javascript:void(0)">Vaciar carrito</a>
+                                                <a class="boton simpleCart_empty" href="javascript:void(0)">Vaciar
+                                                    carrito</a>
                                                 <a class="boton simpleCart_checkout" href="#">Checkout</a>
                                             </div>
                                         </div>
@@ -84,7 +89,7 @@
                                 </div>
                                 <div class="my-2 col-md-6 col-lg-6" style="text-align: center;margin-top: 10px;">
                                     <h5 class="productoSeleccionado">Codigo de descuento</h5>
-                                    <div class="">
+                                    <div class="descuento">
                                         <label><input type="text-number"></label>
                                     </div>
                                 </div>
@@ -113,20 +118,23 @@
                                 </div>
                             </div>
                         </div>
-                    </div>a
+                    </div>
                     <!-- BOX DE CAJA DE BOTONES (FINALIZAR COMPRA-AGREGAR PRODUCTO-VACIAR CARRITO)-->
                     <div class="botonesAccion">
                         <div class="my-2 accion col-md-4 col-lg-4">
-                            <button class="botones btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#agregar"
-                                aria-expanded="false" aria-controls="agregar">FINALIZAR COMPRA</button>
+                            <button class="botones btn btn-outline-dark" type="button" data-toggle="collapse"
+                                data-target="#agregar" aria-expanded="false" aria-controls="agregar">FINALIZAR
+                                COMPRA</button>
                         </div>
                         <div class="my-2 accion  col-md-4 col-lg-4">
-                            <button class="botones btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#eliminar"
-                                aria-expanded="false" aria-controls="eliminar">AGREGAR PRODUCTO</button>
+                            <button class="botones btn btn-outline-dark" type="button" data-toggle="collapse"
+                                data-target="#eliminar" aria-expanded="false" aria-controls="eliminar">AGREGAR
+                                PRODUCTO</button>
                         </div>
                         <div class="my-2 accion  col-md-4 col-lg-4">
-                            <button class="botones btn btn-outline-dark"style="opacity:0.6" type="button" data-toggle="collapse" data-target="#modificar"
-                                aria-expanded="false" aria-controls="modificarr">VACIAR CARRITO</button>
+                            <button class="botones btn btn-outline-dark" style="opacity:0.6" type="button"
+                                data-toggle="collapse" data-target="#modificar" aria-expanded="false"
+                                aria-controls="modificarr">VACIAR CARRITO</button>
                         </div>
                     </div>
                 </form>
