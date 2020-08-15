@@ -166,7 +166,11 @@ input[type="file"] {
     .botonesAccion{
         display: flex;
         justify-content: space-around;
-    }   
+    } 
+    .botones{
+        width: 250px;
+        font-size: 12px;
+    }  
 }
 
 @media(min-width:1024px){ 
@@ -192,5 +196,5 @@ input[type="file"] {
     .botones{
         width: 250px;
         font-size: 15px;
-   
+    }
 }

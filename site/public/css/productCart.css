@@ -1,7 +1,6 @@
 /* general*/
 
 h4,h5{
-    
     font-family: 'Roboto', sans-serif;
     font-size: small;
     margin-top: 10px;
@@ -27,7 +26,6 @@ input, select.custom-select{
 .derecha{ 
     float: right;
 }
-
 .imagen img{
     background-image: url('');
     width: 200px;
@@ -146,7 +144,6 @@ main .producto .card-body{
 }
 
 
-
 @media(min-width:768px){
     h4, h5{
         font-family: 'Roboto', sans-serif;
@@ -169,17 +166,13 @@ main .producto .card-body{
     .botones{
         width: 200px;
     }
-    
-
 }
-
 
 @media(min-width:1024px){
     form.container-fluid{
         padding-left: 50px;
         padding-right: 50px;
     }
-
     h4, h5{
         font-family: 'Roboto', sans-serif;
         font-size: large;
@@ -192,9 +185,6 @@ main .producto .card-body{
     }
     .botones{
         width: 250px;
-    }
-    .custom-select{
-        width: 90%;
     } 
 }
 

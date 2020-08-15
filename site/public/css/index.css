@@ -3,19 +3,26 @@ body{
     background-color: rgba(228, 228, 228, 0.445);
 
 }
+
 /* BANNER */
+.banner img{
+    width: 100%;
+}
+.Categorias{
+    font-family: 'Montserrat', sans-serif;
+}
+.marcas img{
+    width: 100%;
+}
 
 @media (min-width: 1024px) {
     .banner img{
       height: 300px;
     }
+    .carousel-control-next, .carousel-control-prev{
+        background-color:#161711;
+    }
   }
-
-.banner img{
-    width: 100% ;
-    
-    
-}
 
 /*CAROUSEL*/
 
@@ -25,24 +32,14 @@ body{
 }
 .ContenedorCarousel{
     text-align: center;
-    
 }
 .ContenedorCarousel img{
     border: 1px solid;
     border-radius: 10px;
-
 }
-
 .oferta{
  color: rgb(168, 200, 28);
 }
-.controlPrev{
-    background-color: rgba(129, 103, 155, 0.377);
-}
-.controlNext{
-    background-color: rgba(129, 103, 155, 0.377);
-}
-
 .barraHr{
     padding-top: 50px;
 }
@@ -67,8 +64,7 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    
+    transform: translate(-50%, -50%);   
 }
 .catIr{
     font-size: 13px;
@@ -77,19 +73,18 @@ body{
 
 /*MARCAS*/
 
-@media (max-width: 425px) {
+@media (max-width: 375px) {
     .marcas img{
-      display: none;
+    display: none;
+      
     }
-  }
-
-.marcas img{
-width: 100%;
 }
 
 
-.Categorias{
-    font-family: 'Montserrat', sans-serif;
-}
 
+
+
+    
+    
+    
 
