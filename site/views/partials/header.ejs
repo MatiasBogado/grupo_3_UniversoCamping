@@ -32,7 +32,9 @@
         <div class="container">
             <nav class="row barraInferior">
                 <!-- Carrito de compras -->
-                <div class="col-3 d-md-none"><i class="fas fa-shopping-cart"></i></div>
+                <div class="col-3 d-md-none">
+                    <a href="/productCart" style="color: white;"><i class="fas fa-shopping-cart"></i></a>
+                </div>
                 <!-- logo -->
                 <div class="col-6 col-md-4 col-lg-3 order-md-1 text-center text-md-left contenedorLogo my-3">
                     <a href="/">
@@ -43,7 +45,7 @@
                 <div class="col-3 col-md-3 order-md-4 d-lg-none">
                     <div class="row">
                         <div class="col d-none d-md-inline">
-                            <i class="fas fa-shopping-cart"></i>
+                        <a href="/productCart" style="color: white;"> <i class="fas fa-shopping-cart"></i></a>
                         </div>
                         <div class="col">
                             <button class="align-middle navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,20 +64,44 @@
                 <!-- navbar a desplegar -->
                 <div class="collapse navbar-collapse order-5" id="navbarText">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Seccion1<span class="sr-only">(current)</span></a>
+                        <li>
+                            <div class="dropdown show">
+                                <a class="btn dropdown-toggle p-0 text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pesca
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Seccion2</a>
+                        <li><a class="text-white" href="">Calzado</a></li>
+                        <li><a class="text-white" href="">Ropa</a></li>
+                        <li>
+                            <div class="dropdown show">
+                                <a class="btn dropdown-toggle p-0 text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Herramientas
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Seccion3</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Seccion4</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Seccion5</a>
+                        <li><a href="" class="text-white">Armas</a></li>
+                        <li>
+                            <div class="dropdown show">
+                                <a class="btn dropdown-toggle p-0 text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Camping
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
