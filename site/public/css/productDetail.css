@@ -1,69 +1,69 @@
-main section .article1{
+.mainProductDetail section .article1{
 	padding: 0px 30px;
 }
-main section .article1 .mainImage{
+.mainProductDetail section .article1 .mainImage{
 	height: 60vh;
 	background-image: url("http://placehold.it/900x700");
 
 }
-main section .article1 .secondaryImages{
+.mainProductDetail section .article1 .secondaryImages{
 	height: 60vh;
 	overflow-y: scroll;
 }
-main section .article2 .precio{
+.mainProductDetail section .article2 .precio{
 	font-size: 30px;
 }
-main section .titleSection{
+.mainProductDetail section .titleSection{
 	background-color: #534317;
 	color: white;
 	font-family: 'Roboto', sans-serif;
 }
-main section .article2 .envio{
+.mainProductDetail section .article2 .envio{
 	background-color: #7daa1e;
 	color: white;
 	padding: 5px;
 }
-.btn-carrito{
+.mainProductDetail .btn-carrito{
 	color: white;
 	background-color:#4d582a;
 }
 @media (min-width: 992px) {
-	main section .article1{
+	.mainProductDetail section .article1{
 	padding-right: 15px;
 	}
-	main section .article1 .mainImage{
+	.mainProductDetail section .article1 .mainImage{
 	height: 70vh;
 	background-image: url("http://placehold.it/900x700");
 	}
-	main section .article1 .secondaryImages{
+	.mainProductDetail section .article1 .secondaryImages{
 	height: 70vh;
 	overflow-y: scroll;
 	}
-	main section .article2{
+	.mainProductDetail section .article2{
 		height: 70vh;
 		padding-left: 0px;
 	}
-	main section .article2 .card-header:first-child{
+	.mainProductDetail section .article2 .card-header:first-child{
 		border-radius: 0px
 	}
 }
 
-.tiltes{
+.mainProductDetail .tiltes{
 	background-color: #534317;
 	color:white;
 	font-family: 'Roboto', sans-serif;
 	border-bottom: 4px solid #e2ddf1
 }
-.montserrat{
+.mainProductDetail .montserrat{
 	font-family: 'Montserrat', sans-serif;
 }
-.blackColor{
+.mainProductDetail .blackColor{
 	color: black
 }
-main section .article2 .borderRadiusCalcular2{
+.mainProductDetail section .article2 .borderRadiusCalcular2{
 	border-radius: 0px 10px 10px 0px
 }
-main section .article2 .borderRadiusCalcular{
+.mainProductDetail section .article2 .borderRadiusCalcular{
 	border-radius: 10px 0px 0px 10px
 }
 

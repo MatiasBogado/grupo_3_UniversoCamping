@@ -1,61 +1,56 @@
 
-body{
-    background-color: rgba(228, 228, 228, 0.445);
-
-}
-
 /* BANNER */
-.banner img{
+.mainIndex .banner img{
     width: 100%;
 }
-.Categorias{
+.mainIndex .Categorias{
     font-family: 'Montserrat', sans-serif;
 }
-.marcas img{
+.mainIndex .marcas img{
     width: 100%;
 }
 
 @media (min-width: 1024px) {
-    .banner img{
+    .mainIndex .banner img{
       height: 300px;
     }
-    .carousel-control-next, .carousel-control-prev{
+    .mainIndex .carousel-control-next, .carousel-control-prev{
         background-color:#161711;
     }
   }
 
 /*CAROUSEL*/
 
-.tituloCarousel{
+.mainIndex .tituloCarousel{
     padding-bottom: 10px;
     font-family: 'Roboto', sans-serif;
 }
-.ContenedorCarousel{
+.mainIndex .ContenedorCarousel{
     text-align: center;
 }
-.ContenedorCarousel img{
+.mainIndex .ContenedorCarousel img{
     border: 1px solid;
     border-radius: 10px;
 }
-.oferta{
+.mainIndex .oferta{
  color: rgb(168, 200, 28);
 }
-.barraHr{
+.mainIndex .barraHr{
     padding-top: 50px;
 }
 
 /*CATEGORIAS*/
 
-.Categorias{
+.mainIndex .Categorias{
     padding-left: 10px;
     justify-content: center;
 }
-.Categorias img{
+.mainIndex .Categorias img{
     border: 1px solid;
     border-radius: 20px;
     border-width: 2px;
 }
-.textoCat{
+.mainIndex .textoCat{
     font-size:15px;
     padding: 10px;
     border-radius: 10px;
@@ -66,7 +61,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);   
 }
-.catIr{
+.mainIndex .catIr{
     font-size: 13px;
 }
 
@@ -74,7 +69,7 @@ body{
 /*MARCAS*/
 
 @media (max-width: 375px) {
-    .marcas img{
+    .mainIndex .marcas img{
     display: none;
       
     }

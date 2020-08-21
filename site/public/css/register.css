@@ -1,10 +1,10 @@
-.register{
+.mainRegister .register{
     padding-left: 100px;
     padding-right: 100px;
     background-color: #4d582a ;
     color: white;
 }
-.titles{
+.mainRegister .titles{
     background-color: #534317;
     color:white;
     font-family: 'Roboto', sans-serif;

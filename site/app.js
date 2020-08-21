@@ -8,10 +8,9 @@ app.use(express.static(__dirname+ '/public'));
 
 //rutas
 const routeIndex = require('./routes/Index')
-const productDetail = require('./routes/productDetail')
-const productCart = require('./routes/productCart')
-const register = require('./routes/register')
-const productAdd = require('./routes/productAdd')
+const users = require('./routes/users')
+const products = require('./routes/products')
+
 
 //servidor
 const PUERTO = 8080;
@@ -19,7 +18,8 @@ app.listen(PUERTO, () =>console.log("El servidor esta funcionando en el puerto "
 
 //URL
 app.use('/',routeIndex)
-app.use('/productDetail',productDetail)
-app.use('/productCart',productCart)
-app.use('/register',register)
-app.use('/productAdd',productAdd)
+app.use('/',products)
+app.use('/',products)
+app.use('/',products)
+app.use('/',users)
+
