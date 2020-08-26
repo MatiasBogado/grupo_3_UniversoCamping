@@ -7,7 +7,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname+ '/public'));
 
 //rutas
-const routeIndex = require('./routes/Index')
+const routeIndex = require('./routes/index')
 const users = require('./routes/users')
 const products = require('./routes/products')
 
