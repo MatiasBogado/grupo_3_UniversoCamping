@@ -331,7 +331,6 @@ footer .contactanos{
 .mainProductAdd .izquierda{
      float: left;
 }
-
 .mainProductAdd .productoSeleccionado{
     font-size: 22px;
     font-family: 'Roboto', sans-serif;
@@ -357,11 +356,7 @@ footer .contactanos{
     color: white;
     background-color:  #4d582a ;
 }
-
-
-
 .mainProductAdd h4, h5{
-
     font-family: 'Roboto', sans-serif;
     font-size: small;
     margin-top: 10px;
@@ -373,7 +368,6 @@ footer .contactanos{
     border-bottom:1px solid gray;
     background-color: transparent;
 }
-
 .mainProductAdd .cod-cat{
     margin: 30px 0px;
     display: flex;
@@ -389,6 +383,7 @@ footer .contactanos{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 35px;
 }
 .mainProductAdd .drag-drop {
     height: 130px;
@@ -436,7 +431,6 @@ footer .contactanos{
 .mainProductAdd .fa-stack .bottom { 
     color: rgba(225, 225, 225, .75); 
 }
- 
 .mainProductAdd .accion{
     display: flex;
     justify-content: center;
@@ -461,7 +455,6 @@ footer .contactanos{
         margin-bottom: 20px;
         display: flex;
         flex-wrap: wrap;
-    
     }
     .mainProductAdd .precio-stock{
         margin-bottom: 20px;
@@ -512,170 +505,127 @@ footer .contactanos{
 /*
  * productCart 
  */
-
-
-
-
-
-
- /* general*/
-
-.mainProductCart h4,h5{
-    font-family: 'Roboto', sans-serif;
-    font-size: small;
-    margin-top: 10px;
+/* general*/
+.mainProductCart body{
+    height: 1200px;
 }
-.mainProductCart input, select.custom-select{
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    border-bottom:1px solid gray;
-    background-color: transparent;
+.mainProductCart h4, h5, span{
+    font-family: 'Roboto', sans-serif;
+    font-size:14px;
+    margin-top: 20px;
+    width: max-content;
 }
 /* cuerpo de formulario*/
 .mainProductCart .encabezado p{
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
+    background-color: #534317;
+    color: white;
     text-align: center;
-    margin:0 auto;
-    border-bottom: 1px solid #a8ab7a;
+    margin-top: 15px;
+
 }
 .mainProductCart #paginacion {
+    padding-bottom: 20px;
     overflow: hidden;
-}
+} 
 .mainProductCart .derecha{ 
     float: right;
 }
+.mainProductCart form {
+    width: 1120px;
+    margin-bottom: 48px;
+}
 .mainProductCart .imagen img{
-    background-image: url('');
-    width: 200px;
+    width: 65px;
+}
+.mainProductCart .codigo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     border:1px solid gray;
-    border-radius: 5px;
-    padding: 5px;
+    margin-bottom: 5px;
+}
+.mainProductCart .card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border:none;
+    font-size:14px;  
 }
 .mainProductCart .card-body{
     padding: 0px;
 }
-
-.mainProductCart .carrito-total{
-	background: #FC304D;
-	cursor:  pointer;
-	padding: 5px 10px;
-	position: relative;
+.mainProductCart .codigo select{
+   margin-top: 10px;
 }
-.mainProductCart .bolsa{
-	position: absolute;
-	background: #f2f2f2;
-	display: none;
-	padding:  5px;
-	z-index:  9999;
-}
-.mainProductCart .simpleCart_items{
-	width: 350px;
-}
-.mainProductCart .simpleCart_shelfItem{
-	padding-top:  15px;
-	padding-bottom: 15px;
-}
-.mainProductCart .item-image img{
-	height: auto;
-	width: 80px;
-}
-.mainProductCart .item_image,
-.mainProductCart .item_Quantity,
-.mainProductCart .item_price{
-	margin-bottom: 15px;
-}
-.mainProductCart .item_price{
-	font-size: 2em;
-}
-.mainProductCart .item-remove a{
-	color: #EC2626;
-}
-
-.mainProductCart .item_add{
-	border-radius: 21.5px;
-	border:  thin solid;
-	transition: .5s;
-	padding:  5px 10px;
-}
-.mainProductCart .item_add:hover{
-	background: #41DA7B;
-	border:  thin solid #2DC466;
-	color: #fff;
-}
-
 .mainProductCart .cantidad-precio{
     display: flex;
     flex-wrap: wrap;
 }
 .mainProductCart .precio{
-    text-align: center;
+   margin-top:15px;
 }
-.mainProductCart .precio input{
-    margin-top: 10px;
+.mainProductCart .remove{
+    margin-top:15px ;
+    margin-left: 10px;;
+    font-size: small;
 }
-.mainProductCart .descuento input{
-    margin-top: 10px;
+.mainProductCart .pago-envio h5{
+    margin-left: 100px;
 }
-.mainProductCart .pago-envio{
-    display: flex;
-    flex-wrap: wrap;
-} 
 .mainProductCart .custom-select{
-    border-radius: 0px;
-    width: 50%;
+    width: 80%;
 }  
 .mainProductCart .botonesAccion{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 10px 0;
+    margin: 30px 0;
+}
+.mainProductCart .botones{
+    color: white;
+    background-color:  #4d582a
 } 
 .mainProductCart .accion{
     margin-bottom: 7px;
     text-align: center;
 }
-.mainProductCart .carrito{
-    display: flex;
-    flex-wrap: wrap;
-}
-.mainProductCart .titles{
-    background-color: #534317;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-    border-bottom: 4px solid #e2ddf1
-}
-.mainProductCart .montserrat{
-    font-family: 'Montserrat', sans-serif;
-}
-.mainProductCart .productoSeleccionado{
-    font-size: 22px
-}
-.mainProductCart .producto .card{
-    border:1px solid black;
-}
-.mainProductCart .producto .card-body{
-    padding: 5px;
-}
-.mainProductCart .botones{
-    color: white;
-    background-color:  #4d582a
-}
 
+@media(max-width:375px){
+    .mainProductCart .imagen{
+        display: none;
+    }
+}
 
 @media(min-width:768px){
-    .mainProductCart h4, h5{
-        font-family: 'Roboto', sans-serif;
-        font-size: medium;
-        margin-top: 10px;
+    .mainProductCart .card{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        border:none;
+        font-size:14px;
+        margin-top: 30px;
     }
-    .mainProductCart .encabezado p{
-        font-size: 20px;
+    .mainProductCart .card-body{
+        padding: 0px;
+    }
+    .mainProductCart .codigo select{
+       margin-top: 28px;
+    }
+    .mainProductCart .precio{
+        margin-top:35px;
+    }
+    .mainProductCart .pago-envio h5{
+        margin-left: 40px;
+    }
+    .mainProductCart .remove{
+        margin-top:35px ;
+        margin-left: 45px;
     }
     .mainProductCart .pago-envio{
         display:flex;
-        flex-direction: column;
+        flex-direction: row;
     }
     .mainProductCart .botonesAccion{
         display: flex;
@@ -685,27 +635,38 @@ footer .contactanos{
     }
     .mainProductCart .botones{
         width: 200px;
-    }
+    } 
 }
 
+
 @media(min-width:1024px){
-    .mainProductCart form.container-fluid{
-        padding-left: 50px;
-        padding-right: 50px;
+    .mainProductCart .precio{
+        margin-top:50px;
     }
-    .mainProductCart h4, h5{
-        font-family: 'Roboto', sans-serif;
-        font-size: large;
-        margin-top: 10px;
-    }    
     .mainProductCart .pago-envio{
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;  
     }
+    .mainProductCart .codigo select{
+        
+        margin-top: 40px;
+     }
+     .mainProductCart .pago-envio h5{
+        margin-left: 80px;
+    }
+    .mainProductCart .remove{
+        margin-top:40px ;
+        margin-left: 70px;
+    }
+    .mainProductCart .custom-select{
+        margin-top: -5px;
+        width: 90%;
+    } 
     .mainProductCart .botones{
         width: 250px;
     } 
+}
 
 
 
