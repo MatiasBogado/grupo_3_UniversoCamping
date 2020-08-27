@@ -534,8 +534,7 @@ footer .contactanos{
 }
 .mainProductCart form {
     width: 1120px;
-    margin-bottom: 48px;
-}
+}   
 .mainProductCart .imagen img{
     width: 65px;
 }
@@ -566,7 +565,7 @@ footer .contactanos{
 .mainProductCart .precio{
    margin-top:15px;
 }
-.mainProductCart .remove{
+.mainProductCart a{
     margin-top:15px ;
     margin-left: 10px;;
     font-size: small;
@@ -590,6 +589,16 @@ footer .contactanos{
 .mainProductCart .accion{
     margin-bottom: 7px;
     text-align: center;
+}
+.mainProductCart .tituloCarousel{
+    font-family: 'Roboto', sans-serif;
+    font-size:18px;
+    margin-top: 10px;
+    margin-left: 75px;
+    text-align: center;
+}
+.mainProductCart article{
+    margin-left: 5px;
 }
 
 @media(max-width:375px){
@@ -619,7 +628,7 @@ footer .contactanos{
     .mainProductCart .pago-envio h5{
         margin-left: 40px;
     }
-    .mainProductCart .remove{
+    .mainProductCart a{
         margin-top:35px ;
         margin-left: 45px;
     }
@@ -636,6 +645,12 @@ footer .contactanos{
     .mainProductCart .botones{
         width: 200px;
     } 
+    .mainProductCart .tituloCarousel{
+        margin-left: 247px;
+    }
+    .mainProductCart article{
+        margin-left: 35px;
+    }
 }
 
 
@@ -649,13 +664,12 @@ footer .contactanos{
         flex-direction: row;  
     }
     .mainProductCart .codigo select{
-        
         margin-top: 40px;
      }
      .mainProductCart .pago-envio h5{
         margin-left: 80px;
     }
-    .mainProductCart .remove{
+    .mainProductCart a{
         margin-top:40px ;
         margin-left: 70px;
     }
@@ -665,7 +679,13 @@ footer .contactanos{
     } 
     .mainProductCart .botones{
         width: 250px;
+    }
+    .mainProductCart .tituloCarousel{
+        margin-left: 370px;
     } 
+    .mainProductCart article{
+        margin-left: 27px;
+    }
 }
 
 
@@ -759,6 +779,7 @@ footer .contactanos{
 
 
  .mainRegister .register{
+    margin-top: 30px; 
     padding-left: 100px;
     padding-right: 100px;
     background-color: #4d582a ;
