@@ -48,14 +48,14 @@
                                 <span><span>$</span>56789</span>
                             </div>
                         </div>
-                        <a id="" href=""><i class="fa fa-trash" style="color:#7daa1e"></i></a>
+                        <a class="tachito" id="" href=""><i class="fa fa-trash" style="color:#7daa1e"></i></a>
                     </div>
                 </div>
                 <div class="producto">
                     <div class="codigo ">
                         <div class="imagen col-3 col-md-2">
                             <h4>Producto</h4>
-                            <img src="/img/products/Carpa-Hummer-Diner-Pro-300x300.jpg">
+                            <img src="/img/products/Indumentaria-Chaleco-de-pesca-Waterdog-FV35063-300x300.jpg">
                         </div>
                         <div class="card col-5">
                             <div class="card-body">
@@ -79,10 +79,12 @@
                                 <span><span>$</span>12345</span>
                             </div>
                         </div>
-                        <a id="" href=""><i class="fa fa-trash" style="color:#7daa1e;"></i></a>
+                        <a class="tachito" id="" href=""><i class="fa fa-trash" style="color:#7daa1e;"></i></a>
                     </div>
                 </div>
-
+                <div class="row total "  >
+                    <h4>TOTAL A PAGAR :<span><span>$</span> 12345 </span></h4>                 
+                </div>
                 <!-- METODOS DE PAGO, CODIGO DESCUENTO Y  METODO DE ENVIO-->
                 <div class="pago-envio col-12 ">
                     <div class=" col-md-4 col-lg-4" style="text-align: center">
@@ -118,118 +120,90 @@
                 <!-- CAJA DE BOTONES (FINALIZAR COMPRA-AGREGAR PRODUCTO-VACIAR CARRITO)-->
                 <div class="botonesAccion">
                     <div class="my-2 accion col-md-4 col-lg-4">
-                        <button class="botones btn btn-outline-dark" type="button" data-toggle="collapse"
-                            data-target="#agregar" aria-expanded="false" aria-controls="agregar">FINALIZAR
-                            COMPRA</button>
+                        <a href=""><button class="botones btn btn-outline-dark" type="button" >FINALIZAR COMPRA</button></a>
                     </div>
                     <div class="my-2 accion  col-md-4 col-lg-4">
-                        <button href="./index " class="botones btn btn-outline-dark" type="button" data-toggle="collapse"
-                            data-target="#eliminar" aria-expanded="false" aria-controls="eliminar">SEGUIR
-                            COMPRANDO</button>
+                        <a href="/"><button class="botones btn btn-outline-dark" type="button" >SEGUIR COMPRANDO</button></a>
                     </div>
                     <div class="my-2 accion  col-md-4 col-lg-4">
-                        <button class="botones btn btn-outline-dark" style="opacity:0.6" type="button"
-                            data-toggle="collapse" data-target="#modificar" aria-expanded="false"
-                            aria-controls="modificarr">VACIAR CARRITO</button>
+                        <a href="/"><button class="botones btn btn-outline-dark" type="button"  style="opacity:0.6" >VACIAR CARRITO</button></a>
                     </div>
                 </div>
             </form>
             <!-- SECCIÓN CAROUSEL -->
             <h2 class="text-center tituloCarousel my-3"> Productos Recomendados </h2>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
                 <div class="carousel-inner ContenedorCarousel">
+                    <div class="carousel-item ">
+                        <div class="row productos justify-content-center">
+                            <div class="col-4 col-md-3 col-lg-2 ">
+                                <a href="/productDetail" style="color: black;"> 
+                                <img src="/img/products/Indumentaria-Campera-Bugaboo-dama-Gris-300x300.jpg" class="d-block w-100" alt="...">
+                                <article>
+                                    <h2>$2000</h2>
+                                    <span class="fas fa-tags oferta" style="color:green">50% OFF</span>
+                                    <p>Producto</p>
+                                </article>
+                                </a>
+                            </div>  
+                            <div class="col-4 col-md-3 col-lg-2 ">
+                                <a href="/productDetail" style="color: black;"> 
+                                <img src="/img/products/Accesorios-Anafe-Brogas-300x300.jpg" class="d-block w-100" alt="...">
+                                <article>
+                                    <h2>$2000</h2>
+                                    <span class="fas fa-tags oferta" style="color:green">50% OFF</span>
+                                    <p>Producto</p>
+                                </article>
+                                </a>
+                            </div>
+                            <div class="col-4 col-md-3 col-lg-2 ">
+                                <a href="/productDetail" style="color: black;"> 
+                                <img src="/img/products/Accesorios-Cortaplumas-Victorinox-Fisherman-Roja-17-Usos-1.4733.72-300x300.jpg" class="d-block w-100" alt="...">
+                                <article>
+                                    <h2>$2000</h2>
+                                    <span class="fas fa-tags oferta" style="color:green">50% OFF</span>
+                                    <p>Producto</p>
+                                </article>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="carousel-item active">
-                        <div class="row productos justify-content-center">  
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="/productDetail" style="color: black;"> 
-                                <img src="/img/producto1.png" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                                </a>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="/productDetail" style="color: black;"> 
-                                <img src="img/producto2.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                                </a>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="/productDetail" style="color: black;"> 
-                                <img src="img/producto3.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
                         <div class="row productos justify-content-center">
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="/img/producto1.png" class="d-block w-100" alt="...">
+                            <div class="col-4 col-md-3 col-lg-2 ">
+                                <a href="/productDetail" style="color: black;"> 
+                                <img src="/img/products/Carpa-Hummer-Invicta-6D-300x300.jpg" class="d-block w-100" alt="...">
                                 <article>
                                     <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
+                                    <span class="fas fa-tags oferta"style="color:green">40% OFF</span>
                                     <p>Producto</p>
                                 </article>
+                                </a>
                             </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="img/producto2.jpg" class="d-block w-100" alt="...">
+                            <div class="col-4 col-md-3 col-lg-2 ">
+                                <a href="/productDetail" style="color: black;"> 
+                                <img src="/img/products/Pesca-Reel-Abu-Garcia-Black-Max-3-300x300.jpg" class="d-block w-100" alt="...">
                                 <article>
                                     <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
+                                    <span class="fas fa-tags oferta" style="color:green">40% OFF</span>
                                     <p>Producto</p>
                                 </article>
+                                </a>
                             </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="img/producto3.jpg" class="d-block w-100" alt="...">
+                            <div class="col-4 col-md-3 col-lg-2 ">
+                                <a href="/productDetail" style="color: black;"> 
+                                <img src="/img/products/Rifles-Revolver-Gamo-PR-776-Co2-Gas-Comprimido-2-cargadores-300x300.jpg" class="d-block w-100" alt="...">
                                 <article>
                                     <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
+                                    <span class="fas fa-tags oferta" style="color:green">40% OFF</span>
                                     <p>Producto</p>
                                 </article>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row productos justify-content-center">
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="/img/producto1.png" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="img/producto2.jpg" class="d-block w-100" alt="...">
-                                <article >
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="img/producto3.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div> 
-            </div>
+            </div>  
         </div>
     </div>
     </main>
