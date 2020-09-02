@@ -300,9 +300,6 @@ footer .contactanos{
  * productAdd
  */
 
-
-
-
  /* cuerpo de formulario*/
 .mainProductAdd .encabezado p{
     font-family: 'Roboto', sans-serif;
@@ -331,171 +328,183 @@ footer .contactanos{
 .mainProductAdd .izquierda{
      float: left;
 }
-.mainProductAdd .productoSeleccionado{
-    font-size: 22px;
-    font-family: 'Roboto', sans-serif;
-}
-.mainProductAdd .card{
-    border:1px solid grey;
-}
-.mainProductAdd .inputCodigo{
-    border: 1px solid black
-}
-.mainProductAdd .buttonCodigo{
-    background-color: white;
-    border: 1px solid black
-}
-.mainProductAdd .borderRadiusCalcular2{
-    border-radius: 0px 10px 10px 0px
-}
-.mainProductAdd .borderRadiusCalcular{
-    border-radius: 10px 0px 0px 10px
-}
-.mainProductAdd .botones{
-    font-size: 15px;
-    color: white;
-    background-color:  #4d582a ;
-}
-.mainProductAdd h4, h5{
-    font-family: 'Roboto', sans-serif;
-    font-size: small;
-    margin-top: 10px;
-}
-.mainProductAdd input, select{
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    border-bottom:1px solid gray;
-    background-color: transparent;
-}
-.mainProductAdd .cod-cat{
-    margin: 30px 0px;
-    display: flex;
-    flex-wrap: wrap;
-}
-.mainProductAdd .descripcion{
-    display: flex;
-    flex-wrap: wrap;
+
+.mainProductAdd .Categorias{
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 10px;
+    justify-content: center;
 }
 
-/* Estilo del área del input[file] */
-.mainProductAdd .imagen{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 35px;
+.mainProductAdd .Categorias img{
+    border: 1px solid;
+    border-radius: 20px;
+    border-width: 2px;
 }
-.mainProductAdd .drag-drop {
-    height: 130px;
-    width: 200px;
-    text-align: center;
-    color: white;
-    position: relative;
-}   
-.mainProductAdd .drag-drop span.desc {
-    display: block;
-    font-size: 12px;
-    padding: 0 8px;
-    color: #000;
-}
-.mainProductAdd input[type="file"] {
-    height: 160px;
-    opacity: 0;
+.mainProductAdd .textoCat{
+    font-size:16px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:rgba(0, 0, 0, 0.431);
+    color: rgb(255, 255, 255);
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; 
-    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
 }
-     
-/* Estilo del área del input[file] con :hover */
-.mainProductAdd .drag-drop:hover, input[type="file"]:hover {
-    background-color: #ebefbc;
-    cursor: pointer;
+.mainProductAdd.catIr{
+    font-size: 13px;
 }
-.mainProductAdd .drag-drop:hover span.desc {
-    color: #fff;
-} 
-     
-/* Composición del icono de Upload con FontAwesome */
-.mainProductAdd .fa-stack {
-    margin-top: 8px;
-}    
-.mainProductAdd .fa-stack .top { 
-    color: white; 
-}  
-.mainProductAdd .fa-stack .medium { 
-    color: black;
-    text-shadow: 0 0 4px #666;
-}     
-.mainProductAdd .fa-stack .bottom { 
-    color: rgba(225, 225, 225, .75); 
+.mainProductAdd form{
+    align-self: flex-end;
 }
-.mainProductAdd .accion{
-    display: flex;
+.mainProductAdd .btn{
+    align-self: flex-end;
+    background-color: white;
+    margin-left: 15px;
+}
+
+
+
+
+/*
+ * productAdm
+ */
+
+ /* cuerpo de formulario*/
+
+.mainProductAdm .encabezado p{
+    background-color: #534317;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin:10px auto;
+    padding: 10px;
+}
+.mainProductAdm .formulario{
     justify-content: center;
+    margin-bottom: 35px;
 }
-.mainProductAdd .tarjeta-accion{
-    display: flex;
-    flex-direction: column;
+.mainProductAdm .botones{
+    color: white;
+    background-color:  #4d582a;
+    margin-left: 20px;
 }
 
- 
+
+
 @media(min-width:768px){
-    .mainProductAdd .encabezado p{
-        font-family: 'Roboto', sans-serif;
-        font-size: 20px;  
+    .mainProductAdm{
+        padding: 5px 30px;
     }
-    .mainProductAdd h4, h5{
-        font-family: 'Roboto', sans-serif;
-        font-size: medium;
-        margin-top: 10px;
-    }
-    .mainProductAdd .cod-cat{
-        margin-bottom: 20px;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .mainProductAdd .precio-stock{
-        margin-bottom: 20px;
-        display: flex;
-        flex-wrap: wrap;
-    } 
-    .mainProductAdd .botonesAccion{
-        display: flex;
-        justify-content: space-around;
-    } 
-    .mainProductAdd .botones{
-        width: 250px;
-        font-size: 12px;
-    }  
 }
 
-@media(min-width:1024px){ 
-    .mainProductAdd form.container-fluid{
-        padding-left: 80px;
-        padding-right: 80px;
-    }
-    .mainProductAdd h4, h5{
-        font-family: 'Roboto', sans-serif;
-        font-size: large;
-        margin-top: 10px;
-    }
-    .mainProductAdd .cod-cat{
-        margin-bottom:  20px;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .mainProductAdd .precio-stock{
-        margin-bottom: 50px;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .mainProductAdd .botones{
-        width: 250px;
-        font-size: 15px;
+
+@media(min-width:1024px){
+    .mainProductAdm{
+        padding: 5px 50px;
     }
 }
+
+@media(min-width:1440px){
+    .mainProductAdm{
+    padding: 5px 200px;
+    }
+}
+
+/*
+ * productShow
+ */
+
+ /* cuerpo de formulario*/
+
+ .mainProductShow .encabezado p{
+    background-color: #534317;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin:10px auto;
+    padding: 10px;
+}
+.mainProductShow .formulario{
+    justify-content: center;
+    margin-bottom: 35px;
+}
+.mainProductShow .botones{
+    color: white;
+    background-color:  #4d582a;
+    margin-left: 20px;
+}
+
+
+
+@media(min-width:768px){
+    .mainProductShow{
+        padding: 5px 30px;
+    }
+}
+
+
+@media(min-width:1024px){
+    .mainProductShow{
+        padding: 5px 50px;
+    }
+}
+
+@media(min-width:1440px){
+    .mainProductShow {
+    padding: 5px 200px;
+    }
+}
+
+/*
+ * productAddProfile
+ */
+
+ /* cuerpo de formulario*/
+
+ .mainproductAddProfile .encabezado p{
+    background-color: #534317;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin:10px auto;
+    padding: 10px;
+}
+.mainproductAddProfile .formulario{
+    justify-content: center;
+    margin-bottom: 35px;
+}
+.mainproductAddProfile .botones{
+    color: white;
+    background-color:  #4d582a;
+    margin-left: 20px;
+}
+
+
+
+@media(min-width:768px){
+    .mainproductAddProfile{
+        padding: 5px 30px;
+    }
+}
+
+
+@media(min-width:1024px){
+    .mainproductAddProfile{
+        padding: 5px 50px;
+    }
+}
+
+@media(min-width:1440px){
+    .mainproductAddProfile {
+    padding: 5px 200px;
+    }
+}
+
+
 
 
 
@@ -531,6 +540,9 @@ footer .contactanos{
 } 
 .mainProductCart .derecha{ 
     float: right;
+}
+.mainProductCart .izquierda{ 
+    float: left;
 }
 .mainProductCart form {
     width: 1120px;

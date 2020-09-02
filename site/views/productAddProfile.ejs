@@ -1,0 +1,99 @@
+<%- include('partials/head.ejs') %>
+
+<body>
+    <!-- Header -->
+    <%- include('partials/header.ejs') %>
+    <!--=============================
+    =            Content            =
+    ==============================-->
+    <main class="mainproductAddProfile" >
+         
+                <div class="encabezado" style="padding: 0px 15px">
+                    <p class="titles p-1">Administrador de productos</p>
+                </div>
+            
+        
+                <div class="container">
+                    <section class="perfilUsuario">
+                        <div class="row perfil">
+    
+                            <div class="titulo col-12">
+                                <h2>
+                                    
+                                </h2>
+                            </div>
+                            <div class="col-12">
+    
+                                <div class="contenido">
+    
+    
+                                    <ul class="nav nav-tabs " id="myTab" role="tablist">
+                                       
+                                        <li class="nav-item " role="presentation">
+                                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#productos" role="tab" aria-controls="profile" aria-selected="false">Mis productos</a>
+                                        </li>
+                                        <li class="nav-item " role="presentation">
+                                            <a class="nav-link " id="home-tab" data-toggle="tab" href="#datos" role="tab" aria-controls="home" aria-selected="true">Agregar producto</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">   
+                                        <div class="tab-pane fade show active " id="productos" role="tabpanel" aria-labelledby="profile-tab">
+                                            <div class="row productos p-4">
+                                                <div class="col-12 col-md-3 col-xl-2">
+                                                    <div class="contenido">
+    
+                                                            <figure>
+                                                                <a href=""><img src="" alt=" "></a>
+                                                            </figure>
+    
+                                                            
+                                                                <p>
+                                                                 
+                                                                </p>
+                                                                
+                                                                    <div class="d-flex justify-content-around">
+                                                                        <form action="" method="GET">
+                                                                            <button class="btn btn-outline-light"> <h4 class="fas fa-info-circle text-info"></h4></button>
+                                                                        </form>
+                                                                        <form action="" method="GET">
+                                                                            <button class="btn btn-outline-light"> <h4 class="fas fa-edit text-primary"></h4></button>
+                                                                        </form>
+                                                                        <form action="" method="POST">
+                                                                            <button class="btn btn-outline-light"> <h4 class="fas fa-trash-alt text-danger"></h4></button>
+                                                                        </form>
+                                                                    </div>
+                                                        </div>
+                                                    </div>
+    
+                                                    
+                                            </div>
+                                            <!--finaliza el row-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+    
+    
+        
+    </main>
+
+
+
+
+
+
+
+
+
+
+    <!--====  End of Content  ====-->
+    <!-- footer -->
+    <%- include('partials/footer.ejs') %>
+    <!-- scripts -->
+    <%- include('partials/scripts.ejs') %>
+</body>
+
+</html>

@@ -16,102 +16,61 @@
                     <p class="titles p-1">Administrador de productos</p>
                     <div id="paginacion">
                         <span class="izquierda">&laquo; Anterior</span>
-                        <span class="derecha">Siguiente &raquo;</span>
                     </div>
                 </div>
-                <!-- BOX DE CODIGO Y CATEGORIA DEL PRODUCTO -->
-                <div class="cod-cat justify-content-around">
-                    <div class="codigo col-md-6 col-lg-4" style="text-align: center">
-                        <h4 class="productoSeleccionado">Ingresar código</h4>
-                        <div class="row">
-                            <div class="form-control-container col-9 pr-0">
-                                <input type="tel" class="borderRadiusCalcular form-control js-shipping-input form-control-inline" autocorrect="" autocapitalize="off" name="" placeholder="Codigo del producto" aria-label="">
-                                <input type="hidden" name="" id="" value="">
-                            </div>
-                            <div class="col-3 pl-0">
-                                <button class="borderRadiusCalcular2 js-calculate-shipping btn btn-dark btn-block" aria-label="Calcular envío">
-                                    <span class="js-calculate-shipping-wording">
-                                        <i class="fas fa-search"></i>
-                                    </span>
-                                    <span class="js-calculating-shipping-wording" style="display: none;">Calculando</span>
-                                    <span class="float-right loading" style="display: none;">
-                                        <svg class="icon-inline icon-smd icon-spin svg-icon-primary"  viewBox="0 0 512 512"></svg>
-                                    </span>
-                                </button>
-                            </div>
+                <div class="row Categorias">
+                    <div class="col-8 col-md-4 col-lg-4 my-4">
+                        <img src="/img/CAMPING.png" alt="" class="card-img">
+                        <div class="row card-img-overlay justify-content-center">
+                            <a href="">
+                                <h4 class="textoCat text-center">CARPAS</h4>
+                            </a> 
                         </div>
                     </div>
-                    <div class="my-2 categoria col-md-6 col-lg-6" style="text-align: center">
-                        <h4 class="productoSeleccionado">Categoria</h4>
-                        <select class="categoria " name="categoria" id="">
-                            <option value="">Buscar</option>
-                            <option value="Ofertas">-- Ofertas --</option>
-                            <option value="Pesca">-- Pesca --</option>
-                            <option value="Accesorios">-- Accesorios --</option>
-                            <option value="Carpas">-- Carpas --</option>
-                            <option value="Rifles">-- Rifles --</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- BOX DE DESCRIPCION DEL PRODUCTO -->
-                <div class="descripcion justify-content-around">
-                    <div class="col-md-6 col-lg-4" style="text-align: center">
-                        <h4 class="productoSeleccionado">Descripción del producto</h4>
-                        <div class="card col-12">
-                            <div class="card-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi odio dolores
-                                voluptatum ab placeat minus illum quisquam velit aperiam doloribus saepe at, non laborum
-                                repellendus accusantium blanditiis quae eum consequatur?
-                            </div>
+                    <div class="col-8 col-md-4 col-lg-4 my-4">
+                        <img src="/img/PESCA.png" alt="" class="card-img">
+                        <div class="row card-img-overlay justify-content-center">
+                            <a href="">
+                                <h4 class="textoCat text-center">PESCA</h4>
+                            </a>   
                         </div>
                     </div>
-                    <!-- BOX DE IMAGEN DEL PRODUCTO-->
-                    <div class=" col-md-6 col-lg-6" style="text-align: center">
-                        <h4 class="productoSeleccionado">Verificar imagen</h4>
-                        <div class="imagen">
-                            <div class="drag-drop">
-                                <input type="file" multiple="multiple" id="photo" />
-                                <span class="fa-stack fa-2x">
-                                    <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
-                                    <i class="fa fa-circle fa-stack-1x top medium"></i>
-                                    <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
-                                </span>
-                                <span class="desc productoSeleccionado">Pulse aquí para añadir imagen</span>
-                            </div>
+                    <div class="col-8 col-md-4 col-lg-4 my-4">
+                        <img src="/img/ACCESORIOS.png" alt="" class="card-img">
+                        <div class="row card-img-overlay justify-content-center">
+                            <a href="">
+                                <h4 class="textoCat text-center">ACCESORIOS</h4>
+                            </a>   
                         </div>
                     </div>
-                </div>
-                <!-- BOX DE PRECIO Y STOCK DEL PRODUCTO-->
-                <div class="precio-stock my-3">
-                    <div class="col-md-4 col-lg-4 align-self-center" style="text-align: center">
-                        <h4 class="productoSeleccionado">Stock</h4>
-                        <label><input type="number"></label>
+                    <div class="col-8 col-md-4 col-lg-4 my-4">
+                        <img src="/img/indumentaria.jpg" alt="" class="card-img">
+                        <div class="row card-img-overlay justify-content-center">
+                            <a href="">
+                                <h4 class="textoCat text-center">INDUMENTARIA</h4>
+                            </a>   
+                        </div>
                     </div>
-                    <div class="col-md-4 col-lg-4 my-3 align-self-center" style="text-align: center">
-                        <h4 class="productoSeleccionado">Descuento</h4>
-                        <label><input type="number"></label>
+                    <div class="col-8 col-md-4 col-lg-4 my-4">
+                        <img src="/img/calzado.jpg" alt="" class="card-img">
+                        <div class="row card-img-overlay justify-content-center">
+                            <a href="">
+                                <h4 class="textoCat text-center">CALZADO</h4>
+                            </a>   
+                        </div>
                     </div>
-                    <div class="col-md-4 col-lg-4 my-3 align-self-center" style="text-align: center">
-                        <h4 class="productoSeleccionado">Precio</h4>
-                        <label><input type="number"></label>
-                    </div>
-                </div>
-                <!-- BOX DE BOTONES DE COLAPSO (AGREGAR-MODIFICAR-ELIMINAR)-->
-                <div class="botonesAccion">
-                    <div class="my-2 accion col-md-4 col-lg-4">
-                        <button class="botones btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#agregar"
-                            aria-expanded="false" aria-controls="agregar">AGREGAR PRODUCTO</button>
-                    </div>
-                    <div class="my-2 accion  col-md-4 col-lg-4">
-                        <button class="botones btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#eliminar"
-                            aria-expanded="false" aria-controls="eliminar">MODIFICAR PRODUCTO</button>
-                    </div>
-                    <div class="my-2 accion  col-md-4 col-lg-4">
-                        <button class="botones btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#modificar"
-                            aria-expanded="false" aria-controls="modificarr">ELIMINAR PRODUCTO</button>
+                    <div class="col-8 col-md-4 col-lg-4 my-4">
+                        <img src="/img/rifles.png" alt="" class="card-img">
+                        <div class="row card-img-overlay justify-content-center">
+                            <a href="">
+                                <h4 class="textoCat text-center">RIFLES</h4>
+                            </a>   
+                        </div>
                     </div>
                 </div>
             </form>
+            <h6>*Debe seleccionar una categoría para acceder a la administracion de productos(info-modificar-agregar-eliminar)</h6>
+            
         </div>
     </div>
     </main>
