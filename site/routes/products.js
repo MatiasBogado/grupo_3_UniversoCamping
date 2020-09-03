@@ -27,6 +27,14 @@ router.get('/show/:id',productsController.show);
 router.put('/edit/:id',upload.any(),productsController.editar);
 router.delete('/delete/:id',productsController.eliminar);
 
+router.get('/Adm', productsController.productAdm)
+router.get('/show', productsController.productShow)
+router.get('/AddProfile',productsController.productAddProfile)
+
 
 
 module.exports = router
+
+
+
+

@@ -1,0 +1,78 @@
+<%- include('partials/head.ejs') %>
+
+<body>
+    <!-- Header -->
+    <%- include('partials/header.ejs') %>
+    <!--=============================
+    =            Content            =
+    ==============================-->
+    <main class="mainProductAdm" >
+         
+                <div class="encabezado" style="padding: 0px 15px">
+                    <p class="titles p-1">Administrador de productos</p>
+                </div>
+            
+        
+                <div class="col-12  formulario">
+
+                    <div class="">
+                        <h5 class="mb-3">Datos del Producto</h5>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Categoría</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" value=" "
+                                    name="category">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Titulo de la publicación</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                    name="name">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="">Precio</label>
+                                    <input type="number" class="form-control" name="price">
+                                </div>
+                                <div class="col">
+                                    <label for="">Descuento</label>
+                                    <input type="number" class="form-control" name="discount">
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="exampleFormControlTextarea1">Descripción</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    name="description"></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Elija una imagen</label>
+                                <input type="file" class="form-control" name='image'>
+                            </div>
+                            <div class="mt-5 mr-5 d-flex justify-content-end">
+                                <button type="reset" class="botones btn btn-outline-dark">BORRAR</button>
+                                <button type="submit" class="botones btn btn-outline-dark">PUBLICAR</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            
+        
+    </main>
+
+
+
+
+
+
+
+
+
+
+    <!--====  End of Content  ====-->
+    <!-- footer -->
+    <%- include('partials/footer.ejs') %>
+    <!-- scripts -->
+    <%- include('partials/scripts.ejs') %>
+</body>
+
+</html>

@@ -17,8 +17,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(methodOverride('_method'));
-
 //rutas
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -32,7 +30,7 @@ app.listen(PUERTO, () =>console.log("El servidor esta funcionando en el puerto "
 //URL
 app.use('/',index)
 app.use('/products',products)
-app.use('/',users)
+app.use('/users',users)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,4 +47,3 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
-

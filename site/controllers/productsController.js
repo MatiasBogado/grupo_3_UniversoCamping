@@ -66,7 +66,17 @@ const products = {
         dbProduct.splice(aEliminar,1)
         fs.writeFileSync(path.join(__dirname,'..','data','productsDataBase.json'),JSON.stringify(dbProduct));
         res.redirect('/users/profile')
-    }
+    },
+    productAddProfile:function(req,res){
+        res.render('productAddProfile')
+    },
+    productAdm:function(req,res){
+        res.render('productAdm')
+    },
+    productShow:function(req,res){
+        res.render('productShow')
+    },
+    
 }
 
 module.exports = products;
