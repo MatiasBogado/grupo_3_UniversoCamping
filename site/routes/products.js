@@ -1,14 +1,32 @@
 const express = require('express');
 const router = express.Router();
 
-const productsController = require('../controllers/productsController');
-const products = require('../controllers/productsController');
+const productsController = require('../controllers/productsController')
 
-router.get('/productDetail', productsController.productDetail)
-router.get('/productCart', productsController.productCart)
-router.get('/productAdd', productsController.productAdd)
-router.get('/productAdm', productsController.productAdm)
-router.get('/productShow', productsController.productShow)
-router.get('/productAddProfile',productsController.productAddProfile)
+const multer = require('multer');
+const path = require('path');
+
+let storage = multer.diskStorage({
+    destination:(req,file,callback)=>{
+        callback(null,'public/img/products')
+    },
+    filename:(req,file,callback)=>{
+        callback(null,file.fieldname + Date.now() + path.extname(file.originalname))
+    }
+})
+
+let upload = multer({storage:storage})
+
+router.get('/detail/:id', productsController.productDetail)
+router.get('/Cart', productsController.productCart)
+router.get('/Add', productsController.productAdd)
+router.get('/', productsController.listar)
+
+
+router.get('/show/:id',productsController.show);
+router.put('/edit/:id',upload.any(),productsController.editar);
+router.delete('/delete/:id',productsController.eliminar);
+
+
 
 module.exports = router

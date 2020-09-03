@@ -1,156 +1,147 @@
-<%- include('partials/head.ejs') %>
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
 
-<body>
-    <!-- Header -->
-    <%- include('partials/header.ejs') %>
-    <!--=============================
-    =            Content            =
-    ==============================-->
-    <main class="mainProductShow">
-        <div class="encabezado">
-            <p class="titles p-1">Administrador de productos</p>
-        </div>
-        <div class="container">
-            <section class="perfilUsuario">
-                <div class="row perfil">
-                    <div class="titulo col-12">
-                        <h2> </h2>
-                    </div>
-                    <div class="contenido text-left">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item " role="presentation">
-                                <a class="nav-link  active" id="home-tab" data-toggle="tab" href="#detalle" role="tab"
-                                    aria-controls="home" aria-selected="false">Detalle del Producto</a>
-                            </li>
-                            <li class="nav-item " role="presentation">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#editar" role="tab"
-                                    aria-controls="detalle" aria-selected="true">Editar Producto</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
+    <body>
+        <%- include('partials/header') %>
+            <div class="container">
+                <section class="perfilUsuario">
+                    <div class="row perfil">
 
-                            <div class="tab-pane fade  show   active " id="detalle" role="tabpanel"
-                                aria-labelledby="profile-tab">
+                        <div class="titulo col-12">
+                            <h2>
+                                <%= title %>
+                            </h2>
+                        </div>
 
-                                <div class="row p-3">
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class="col-1">
+                        <div class="contenido text-left">
 
-                                                <a href="" class="text-warning"><i
-                                                        class="fas fa-chevron-circle-left"></i></a>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item " role="presentation">
+                                    <a class="nav-link  active" id="home-tab" data-toggle="tab" href="#detalle" role="tab" aria-controls="home" aria-selected="true">Detalle del Producto</a>
+                                </li>
+                                <li class="nav-item " role="presentation">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#editar" role="tab" aria-controls="detalle" aria-selected="false">Editar Producto</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
 
+                                <div class="tab-pane fade  show   active " id="detalle" role="tabpanel" aria-labelledby="profile-tab">
+
+                                    <div class="row p-3">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    <% if (producto.id>1) { %>
+                                                        <a href="/show/<%- producto.id-1 %> " class="text-warning"><i class="fas fa-chevron-circle-left"></i></a>
+                                                        <% } %>
+                                                </div>
+                                                <div class="col-10">
+                                                    <h3 class="text-center">
+                                                        <%= producto.name %>
+                                                    </h3>
+                                                </div>
+                                                <div class="col-1">
+                                                    <% if (producto.id < total) { %>
+                                                        <a href="/show/<%- producto.id+1 %> " class="text-warning"><i class="fas fa-chevron-circle-right"></i></a>
+
+                                                        <% } %>
+                                                </div>
                                             </div>
-                                            <div class="col-10">
-                                                <h3 class="text-center">
-                                                </h3>
-                                            </div>
-                                            <div class="col-1">
-                                                <a href="" class="text-warning"><i
-                                                        class="fas fa-chevron-circle-right"></i></a>
-                                            </div>
+
+
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-md-4 mt-3">
-                                        <figure class="text-center">
-                                            <img src=" " alt="" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="col-12 col-md-8 mt-3">
-                                        <p>
-
-                                        </p>
-                                        <div class="row">
-                                            <div class="col-12 col-lg-4">
-                                                <span><b>Categoría:</b>
-
+                                        <div class="col-12 col-md-4 mt-3">
+                                            <figure class="text-center">
+                                                <img src="/img/products/<%= producto.image %> " alt="" class="img-fluid">
+                                            </figure>
+                                        </div>
+                                        <div class="col-12 col-md-8 mt-3">
+                                            <p>
+                                                <%= producto.description %>
+                                            </p>
+                                            <div class="row">
+                                                <div class="col-12 col-lg-4">
+                                                    <span><b>Categoría:</b> 
+                                                        <%= producto.category %>
+                                                    </span>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-4">
+                                                    <span><b>Precio:</b>  $
+                                                    <%=producto.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
                                                 </span>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-4">
-                                                <span><b>Precio:</b> $
-
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-4">
+                                                    <span><b>Descuento:</b> 
+                                                    <%=producto.discount%>%
                                                 </span>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-4">
-                                                <span><b>Descuento:</b>
+                                                </div>
 
-                                                </span>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane fade " id="editar" role="tabpanel" aria-labelledby="home-tab">
-                                <form action="" method="POST" enctype="multipart/form-data">
-                                    <div class="row p-3">
-                                        <div class="form-group col-12">
-                                            <input class="form-control" type="text" value="" name="name">
-                                        </div>
-                                        <div class="col-12 col-md-4 col-xl-4 mt-3">
-                                            <figure class="text-center">
-                                                <img src=" " alt="" class="img-fluid">
-                                            </figure>
-                                            <input type="file" class="form-control" name="image">
-                                        </div>
-                                        <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
-                                            <textarea class="form-control" rows="7" name="description" id=""></textarea>
-                                            <p>
-                                            </p>
-                                            <div class="row">
-                                                <div class="form-group col-12 col-lg-4">
+                                <div class="tab-pane fade " id="editar" role="tabpanel" aria-labelledby="home-tab">
+                                    <form action="/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                        <div class="row p-3">
+                                            <div class="form-group col-12">
+                                                <input class="form-control" type="text" value="<%= producto.name%>" name="name">
+                                            </div>
+                                            <div class="col-12 col-md-4 col-xl-4 mt-3">
+                                                <figure class="text-center">
+                                                    <img src="/img/products/<%= producto.image %> " alt="" class="img-fluid">
+                                                </figure>
+                                                <input type="file" class="form-control" name="image">
+                                            </div>
+                                            <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
+                                                <textarea class="form-control" rows="7" name="description" id=""><%= producto.description %></textarea>
+                                                <p>
+                                                </p>
+                                                <div class="row">
+                                                    <div class="form-group col-12 col-lg-4">
 
-                                                    <select name="category" id="" class="form-control">
-                                                        <option value=" " selected>
-                                                        </option>
-
-                                                        <option value=" "></option>
-
-
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-6 col-lg-4">
-
-                                                    <div class="input-group mb-2 mr-sm-2">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">$</div>
-                                                        </div>
-                                                        <input type="text" class="form-control" value="" name="price">
+                                                     
                                                     </div>
-                                                </div>
-                                                <div class="col-6 col-lg-4">
-                                                    <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="form-group col-6 col-lg-4">
 
-                                                        <input type="text" class="form-control" value=""
-                                                            name="discount">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">%</div>
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">$</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" value="<%=producto.price%>" name="price">
                                                         </div>
                                                     </div>
-                                                    </span>
-                                                </div>
-                                                <div class="col-12 d-flex justify-content-end">
-                                                    <button class="botones btn btn-outline-dark">CANCELAR</button>
-                                                    <button class="botones btn btn-outline-dark" type="submit" name="id"
-                                                        value=" ">GUARDAR</button>
+                                                    <div class="col-6 col-lg-4">
+                                                        <div class="input-group mb-2 mr-sm-2">
+
+                                                            <input type="text" class="form-control" value="<%=producto.discount%>" name="discount">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">%</div>
+                                                            </div>
+                                                        </div>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-12 d-flex justify-content-end">
+                                                        <button class="btn btn-danger mr-2">Cancelar</button>
+                                                        <button class="btn btn-info" type="submit" name="id" value="<%= producto.id %> ">Guardar</button>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
             </section>
-        </div>
-    </main>
+            </div>
 
-    <!--====  End of Content  ====-->
-    <!-- footer -->
-    <%- include('partials/footer.ejs') %>
-    <!-- scripts -->
-    <%- include('partials/scripts.ejs') %>
-</body>
+
+
+
+            <%- include('partials/footer') %>
+    </body>
 
 </html>

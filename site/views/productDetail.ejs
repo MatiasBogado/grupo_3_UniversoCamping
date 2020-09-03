@@ -14,15 +14,15 @@
             <article class="col-12 col-lg-8 article1 mt-4" style="border:2px solid; border-right: 0px; border-radius: 10px;">
                 <div class="row">
                     <div class="d-none d-md-block col-3 px-md-0 secondaryImages">
-                        <img height="33%" src="img/producto3.jpg" class="d-block w-100" alt="...">
-                        <img height="33%" src="img/producto3.jpg" class="d-block w-100" alt="...">
-                        <img height="33%" src="img/producto3.jpg" class="d-block w-100" alt="...">
-                        <img height="33%" src="img/producto3.jpg" class="d-block w-100" alt="...">
-                        <img height="33%" src="img/producto3.jpg" class="d-block w-100" alt="...">
-                        <img height="33%" src="img/producto3.jpg" class="d-block w-100" alt="...">
+                        <img src="/img/products/<%= producto.image %> " class="img-fluid" alt="">
+                        <img src="/img/products/<%= producto.image %> " class="img-fluid" alt="">
+                        <img src="/img/products/<%= producto.image %> " class="img-fluid" alt="">
+                        <img src="/img/products/<%= producto.image %> " class="img-fluid" alt="">
+                        <img src="/img/products/<%= producto.image %> " class="img-fluid" alt="">
+                        <img src="/img/products/<%= producto.image %> " class="img-fluid" alt="">
                     </div>
                     <div class="col-12 col-md-9 mainImage p-0">
-                        <img height="100%" src="img/producto3.jpg" class="d-block w-100" alt="...">
+                        <img height="100%" src="/img/products/<%= producto.image %> " class="d-block w-100" alt="">
                     </div>
                 </div>
             </article>
@@ -32,7 +32,7 @@
             =            Detail            =
             =============================-->
             <article class="col-12 col-lg-4 article2 mt-4">
-                <h5 class="titleSection card-header text-center" >Titulo producto</h5>
+                <h5 class="titleSection card-header text-center" ><%= producto.name %> </h5>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
@@ -47,11 +47,11 @@
                         <div class="col-lg-12 montserrat">
                             <ul class="list-unstyled mb-0">
                                 <li class="">
-                                    <p class="precio blackColor m-0 d-inline" href="#">$1034ARS</p>
-                                    <p class="d-inline greenColor m-0" href="#"> 20% OFF</p>
+                                    <p class="precio blackColor m-0 d-inline" href="#"><%- producto.price %></p>
+                                    <p class="d-inline greenColor m-0" href="#"> 20% OFF (falta agregar propiedad discount a database)</p>
                                 </li>
                                 <li class="mb-4">
-                                    <p class="rounded envio d-inline" href="#">Stock disponible</p>
+                                    <p class="rounded envio d-inline" href="#">Stock disponible (falta agregar propiedad stock a database)</p>
                                 </li>
                                 <li class="my-2">
                                     <div class="row">
@@ -110,26 +110,7 @@
             <article class="col-12 mt-4">
                 <h5 class="titleSection card-header text-center" >Descripción</h5>
                 <div class="card-body montserrat">
-                    <p>-Lorem ipsum</p>
-                    <p>dolor sit amet, consectetur adipisicing elit. Assumenda debitis, iste quo ad accusantium distinctio aut provident earum reprehenderit voluptatem tenetur ipsum porro itaque laborum, iure deserunt ipsam alias maiores!</p>
-                    <p>
-                        .Lorem ipsum dolor sit amet
-                    </p>
-                    <p>
-                        .consectetur adipisicing elit
-                    </p>
-                    <p>
-                        .Lorem ipsum dolor sit amet
-                    </p>
-                    <p>
-                        .consectetur adipisicing elit
-                    </p>
-                    <p>
-                        .Lorem ipsum dolor sit amet
-                    </p>
-                    <p>
-                        .consectetur adipisicing elit
-                    </p>
+                    <%= producto.description %> 
                 </div>
             </article>
             <!--====  End of Descripcion  ====-->

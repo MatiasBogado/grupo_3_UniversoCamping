@@ -1,0 +1,48 @@
+<%- include('partials/head.ejs') %>
+
+<body>
+    <!-- Header -->
+    <%- include('partials/header.ejs') %>
+    <!--=============================
+    =            Content            =
+    ==============================-->
+    <main class="mainRegister">
+        <div>
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 p-0">
+                        <p class="titles p-1">Iniciar sesion</p>
+                        <form style="padding-left: 15px; padding-right: 15px">
+                            <div class="row form-group">
+                                <label for="nombre" class="col-form-label col-md-4 ">E-mail:</label>
+                                <div class="col-md-8">
+                                    <input type="email" name="E-mail" value="" id="E-mail" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="Contraseña" class="col-form-label col-md-4 ">Contraseña:</label>
+                                <div class="col-md-8">
+                                    <input type="password" name="Contraseña" value="" id="Contraseña"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-sm-4 text-center">
+                                    <button class="register btn btn-outline-dark"  type="submit">INICIAR SESION</button>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--====  End of Content  ====-->
+    <!-- footer -->
+    <%- include('partials/footer.ejs') %>
+    <!-- scripts -->
+    <%- include('partials/scripts.ejs') %>
+</body>
+
+</html>
