@@ -5,119 +5,353 @@
     <!--=============================
     =            Content            =
     ==============================-->
+
+
     <main class="mainIndex">
         <!--CAJA CONTENIDO GENERAL-->
         <div class="Home">
+            
             <!-- BANNER -->
-            <div class="banner">
-                <img src="/img/banner-2.png" alt="">
-            </div>
-            <!-- SECCIÓN CAROUSEL -->
-            <h2 class="text-center tituloCarousel my-3"> Productos Recomendados </h2>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner ContenedorCarousel">
-                    <div class="carousel-item active">
-                        <div class="row productos justify-content-center">
-                              
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="/productDetail" style="color: black;"> 
-                                <img src="/img/producto1.png" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                                </a>
-                            </div>
-                            
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="/productDetail" style="color: black;"> 
-                                <img src="img/producto2.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                                </a>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="/productDetail" style="color: black;"> 
-                                <img src="img/producto3.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row productos justify-content-center">
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="/img/producto1.png" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="img/producto2.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="img/producto3.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row productos justify-content-center">
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="/img/producto1.png" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="img/producto2.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <img src="img/producto3.jpg" class="d-block w-100" alt="...">
-                                <article>
-                                    <h2>$2000</h2>
-                                    <span class="fas fa-tags oferta">50% OFF</span>
-                                    <p>Producto</p>
-                                </article>
-                            </div>
-                        </div>
-                    </div>
+            <div class="banner row m-0" style=" background-image: url('https://www.trekkingchile.com/es/wp-content/themes/trekkingchile/img/teaser/outdoor.jpg')">
+                <div class="text-center text-white col-12 justify-content-center" style="align-self: center;">
+                    <p class="text-white bienvenido d-block m-0">
+                        Bienvenido
+                    </p>
+                    <p>
+                        esperemos que encuentre todo lo que este buscando
+                    </p>  
+                    <a href="#carrusel" class="text-white">
+                    <i  style="font-size:40px ;" class="fas fa-chevron-down"></i>
+                    </a>
                 </div>
-                <a  class="carousel-control-prev controlPrev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </div>
+
+            <!-- SECCIÓN CAROUSEL -->
+            
+                <h2 class="text-center tituloCarousel mt-3 mb-0 p-0" id="carrusel"> Destacados </h2>
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner ContenedorCarousel">
+                        <div class="carousel-item active">
+                            <div class="row productos justify-content-around">
+                                  
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="img/products/Accesorios-Cortaplumas-Victorinox-Fisherman-Roja-17-Usos-1.4733.72-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center p-3">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="/img/products/Rifles-Rifle-Aire-Comprimido-Resortero-Calibre-5mm-Economico-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center p-3">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="/img/products/Accesorios-Anafe-Brogas-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row productos justify-content-around">
+                                  
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="img/products/Accesorios-Cortaplumas-Victorinox-Fisherman-Roja-17-Usos-1.4733.72-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center p-3">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="/img/products/Rifles-Rifle-Aire-Comprimido-Resortero-Calibre-5mm-Economico-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center p-3">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="/img/products/Accesorios-Anafe-Brogas-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row productos justify-content-around">
+                                  
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="img/products/Accesorios-Cortaplumas-Victorinox-Fisherman-Roja-17-Usos-1.4733.72-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center p-3">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="/img/products/Rifles-Rifle-Aire-Comprimido-Resortero-Calibre-5mm-Economico-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="contenido col-3 my-4">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure class="text-center p-3">
+                                        <a href="/products/detail/2 ">
+                                            <img style="max-width: 100%;" src="/img/products/Accesorios-Anafe-Brogas-300x300.jpg" alt=" ">
+                                        </a>
+                                    </figure>
+        
+                                    <!--informacion-->
+                                    <article class="text-center">
+                                        <!--nombre del producto ??-->
+                                        <p>
+                                            producto destacado
+                                        </p>
+                                        <!--precio-->
+                                        <h2 class="d-inline">$
+                                            1567
+                                        </h2>
+                                        <!--descuento-->
+                                        %off
+                                        
+                                        <!--icono de envío-->
+                                        <i class="fas fa-truck "></i>
+        
+                                        <!--botones ver y comprar-->
+                                        <div class="d-block m-3">
+                                        <button type="button" class="btn btn-outline-dark">Ver</button>
+                                        <button type="button" class="btn btn-dark">Comprar</button>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+
+
+                <a class="carousel-control-prev controlPrev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <i  style="font-size:50px ;" class="fas fa-chevron-circle-left"></i>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next controlNext" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <i style="font-size:50px ;" class="fas fa-chevron-circle-right"></i>
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            </div>
+
+
+
+            
             <!-- SECCION CATEGORIAS -->
             <div class="row Categorias bg-dark pt-5">
                 <div class="col-8 col-md-3 col-lg-2 my-3">
@@ -190,6 +424,8 @@
                 </div>
             </div>
             <!-- SECCION MARCAS -->
+            <h2 class="text-center tituloCarousel mt-3 mb-0 p-0" id="carrusel"> Marcas </h2>
+            
             <div class="row marcas justify-content-center my-3">
                 <div class="col-1 col-md-2 col-lg-2">
                     <img src="/img/marcas-1.jpg" alt="...">

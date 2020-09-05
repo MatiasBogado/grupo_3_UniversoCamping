@@ -3,7 +3,7 @@
 <%- include('partials/head')  %> 
 <body>
     <%- include('partials/header')  %> 
-    <div class="container">
+    <div class="container my-3 montserrat">
         <section>
 
             <!--caja que contiene todos los productos de la ultima visita-->
@@ -11,43 +11,49 @@
 
                 <!--caja que contiene el titulo de la sección-->
                 <div class="titulo col-12">
-                    <h2>
+                    <h5 class="titleSection card-header text-center">
                         <%= title %> 
-                    </h2>
+                    </h5>
                 </div>
                 <!--recorro los productos basados en la ultima visita con un forEach-->
                 <% productos.forEach(producto => { %>
 
                     <!--caja de la grilla de bootstrap-->
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-4 my-2">
 
                         <!--caja que muestra la información del producto-->
                         <div class="contenido">
 
                             <!--ETIQUETA SEMANTICA-->
-                            <figure>
+                            <figure class="text-center p-3">
                                 <a href="/products/detail/<%= producto.id %> ">
-                                    <img src="/img/products/<%- producto.image %>  " alt=" ">
+                                    <img style="max-width: 100%;" src="/img/products/<%- producto.image %>  " alt=" ">
                                 </a>
                             </figure>
 
                             <!--informacion-->
-                            <article>
+                            <article class="text-center">
+                                <!--nombre del producto ??-->
+                                <p>
+                                    <%- producto.name %>
+                                </p>
                                 <!--precio-->
-                                <h2>$
+                                <h2 class="d-inline">$
                                     <%- (producto.price) %>
                                 </h2>
                                 <!--descuento-->
                                 <% if (producto.discount !=0) { %>
                                     <span><%- producto.discount %> % OFF</span>
                                 <% } %>
-                               
-                                <!--nombre del producto ??-->
-                                <p>
-                                    <%- producto.name %>
-                                </p>
+                                
                                 <!--icono de envío-->
                                 <i class="fas fa-truck "></i>
+
+                                <!--botones ver y comprar-->
+                                <div class="d-block m-3">
+                                <button type="button" class="btn btn-outline-dark">Ver</button>
+                                <button type="button" class="btn btn-dark">Comprar</button>
+                                </div>
                             </article>
                         </div>
                         <!--finaliza contenido-->
@@ -62,7 +68,6 @@
         </section>
 
     </div>
-
 
 
 

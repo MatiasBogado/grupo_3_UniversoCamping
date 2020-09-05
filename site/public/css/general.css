@@ -58,7 +58,7 @@ header .nav-link{
 	align-self: center;
 }
 header .fa-shopping-cart{
-    font-size: 30px;
+    font-size: 23px;
 }
 header .buscardorContainer{
     text-align: center;
@@ -217,8 +217,15 @@ footer .contactanos{
 
 
 /* BANNER */
-.mainIndex .banner img{
+.mainIndex .banner{
     width: 100%;
+    height: 300px;
+    background-position-x: center;
+    background-position-y: center;
+}
+.mainIndex .banner .bienvenido{
+    font-size: 70px;
+    vertical-align: middle;
 }
 .mainIndex .Categorias{
     font-family: 'Montserrat', sans-serif;
@@ -228,11 +235,14 @@ footer .contactanos{
 }
 
 @media (min-width: 1024px) {
-    .mainIndex .banner img{
-      height: 300px;
+    .mainIndex .banner{
+      height: 400px;
     }
-    .mainIndex .carousel-control-next, .carousel-control-prev{
-        background-color:#161711;
+    .carousel-control-next, .carousel-control-prev{
+        color: black;
+    }
+    .carousel-control-prev:hover, .carousel-control-next:hover, .carousel-control-next:focus, .carousel-control-prev:focus{
+        color: black;
     }
   }
 
@@ -241,14 +251,12 @@ footer .contactanos{
 .mainIndex .tituloCarousel{
     padding-bottom: 10px;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
-.mainIndex .ContenedorCarousel{
+.ContenedorCarousel{
     text-align: center;
 }
-.mainIndex .ContenedorCarousel img{
-    border: 1px solid;
-    border-radius: 10px;
-}
+
 .mainIndex .oferta{
  color: rgb(168, 200, 28);
 }
@@ -518,7 +526,7 @@ footer .contactanos{
 .mainProductCart body{
     height: 1200px;
 }
-.mainProductCart h4, h5, span{
+.mainProductCart h4, span{
     font-family: 'Roboto', sans-serif;
     font-size:14px;
     margin-top: 20px;
@@ -755,7 +763,7 @@ footer .contactanos{
 .mainProductDetail section .article2 .precio{
 	font-size: 30px;
 }
-.mainProductDetail section .titleSection{
+.titleSection{
 	background-color: #534317;
 	color: white;
 	font-family: 'Roboto', sans-serif;
@@ -797,7 +805,7 @@ footer .contactanos{
 	font-family: 'Roboto', sans-serif;
 	border-bottom: 4px solid #e2ddf1
 }
-.mainProductDetail .montserrat{
+.montserrat{
 	font-family: 'Montserrat', sans-serif;
 }
 .mainProductDetail .blackColor{
@@ -834,7 +842,13 @@ footer .contactanos{
     text-align: center;
 }
     
-
+.contenido{
+    border-bottom: 3px solid #e2ddf1;
+}
+.contenido:hover{
+    border: 3px solid #e2ddf1;
+    border-radius:7px;
+}
 
 
 

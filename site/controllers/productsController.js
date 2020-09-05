@@ -23,7 +23,7 @@ const products = {
     },
     listar: function(req, res) {
         res.render('products', {
-                title: "Todos los Productos",
+                title: "Todos los productos",
                 productos: dbProduct
             }) //muestra información de prueba
     },
