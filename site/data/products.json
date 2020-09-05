@@ -13,7 +13,7 @@
         "description": "ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla",
         "price": 2800,
         "image": "Carpa-Hi-Tec-1-persona-Milos-300x300.jpg",
-        "category": "carpas"
+        "category": "carpas"        
     },
     {
         "id": 3,
@@ -43,7 +43,7 @@
         "id": 6,
         "name": "Carpa Hummer Igloo 4D",
         "description": "mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit",
-        "price": 11900,
+        "price": 9900,
         "image": "Carpa-Hummer-Igloo-4D-300x300.jpg",
         "category": "carpas"
     },
@@ -51,9 +51,10 @@
         "id": 7,
         "name": "Carpa Hummer Invicta 6D",
         "description": "vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in",
-        "price": 12400,
+        "price": 6400,
         "image": "Carpa-Hummer-Invicta-6D-300x300.jpg",
         "category": "carpas"
+        
     },
     {
         "id": 8,
@@ -67,7 +68,7 @@
         "id": 9,
         "name": "Caña Okuma Morena Power 2.10 1 Tramos 15-45 Libras",
         "description": "mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper",
-        "price": 11450,
+        "price": 5450,
         "image": "Pesca-Caña-Okuma-Morena-Power-2.10-2-Tramos-15-45-Libras-300x300.jpg",
         "category": "pesca"
     },
@@ -75,7 +76,7 @@
         "id": 10,
         "name": "Reel Frontal Shimano Sienna 1000",
         "description": "pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie",
-        "price": 10800,
+        "price": 9800,
         "image": "Pesca-Reel-Shimano-Sienna-Frontal-300x300.jpg",
         "category": "pesca"
     },
@@ -123,7 +124,7 @@
         "id": 16,
         "name": "Señuelo Storm Doom Bell Shallow",
         "description": "ipsum dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit",
-        "price": 980,
+        "price": 1080,
         "image": "Pesca-Señuelo-Storm-Doom-Bell-Shallow-a-300x300.jpg",
         "category": "pesca"
     },
@@ -139,7 +140,7 @@
         "id": 18,
         "name": "Cortaplumas Victorinox Fisherman Roja 17 Usos",
         "description": "odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum",
-        "price": 950,
+        "price": 1250,
         "image": "Accesorios-Cortaplumas-Victorinox-Fisherman-Roja-17-Usos-1.4733.72-300x300.jpg",
         "category": "accesorios"
     },
@@ -163,7 +164,7 @@
         "id": 21,
         "name": "Botella Térmica Coleman Acero Inoxidable Switch 700ml",
         "description": "justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa",
-        "price": 810,
+        "price": 1110,
         "image": "Accesorios-Botella-Térmica-Coleman-Acero-Inoxidable-Switch-700ml.jpg",
         "category": "accesorios"
     },
@@ -307,7 +308,7 @@
         "id": 39,
         "name": "Zapatillas Columbia Drainmaker III",
         "description": "quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas",
-        "price": 965,
+        "price": 1965,
         "image": "Calzado-Zapatillas-Columbia-Drainmaker-III-300x300.jpg",
         "category": "calzado"
     },
@@ -331,7 +332,7 @@
         "id": 42,
         "name": "Rifle Aire Comprimido Resortero Calibre 5 mm Economico",
         "description": "lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed",
-        "price": 2000, 
+        "price": 2000,
         "image": "Rifles-Rifle-Aire-Comprimido-Resortero-Calibre-5mm-Economico-300x300.jpg",
         "category": "rifles"
     },
@@ -383,5 +384,4 @@
         "image": "Rifles-Revolver-Gamo-PR-776-Co2-Gas-Comprimido-2-cargadores-300x300.jpg",
         "category": "rifles"
     }
-    
 ]

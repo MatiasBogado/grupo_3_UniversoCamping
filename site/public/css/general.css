@@ -526,7 +526,7 @@ footer .contactanos{
 .mainProductCart body{
     height: 1200px;
 }
-.mainProductCart h4, span{
+.mainProductCart h4, h5, span{
     font-family: 'Roboto', sans-serif;
     font-size:14px;
     margin-top: 20px;
@@ -553,7 +553,7 @@ footer .contactanos{
     float: left;
 }
 .mainProductCart form {
-    width: 1120px;
+    box-sizing: border-box;
 }   
 .mainProductCart .imagen img{
     width: 65px;
@@ -577,7 +577,7 @@ footer .contactanos{
     padding: 0px;
 }
 .mainProductCart .codigo select{
-   margin-top: 10px;
+   margin-top: 2px;
 }
 .mainProductCart .cantidad-precio{
     display: flex;
@@ -590,20 +590,22 @@ footer .contactanos{
     margin-top:15px ;
     margin-left: 10px;;
     font-size: small;
+    background-color: white;
+    border:none;
 }
 .mainProductCart .total{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    margin-right:25px;
-    
+    margin-right:35px; 
 
 }
+
 .mainProductCart .pago-envio h5{
-    margin-left: 100px;
+    margin-left: 85px;
 }
 .mainProductCart .custom-select{
-    width: 80%;
+    width: 90%;
 }  
 .mainProductCart .botonesAccion{
     display: flex;
@@ -623,12 +625,9 @@ footer .contactanos{
     font-family: 'Roboto', sans-serif;
     font-size:18px;
     margin-top: 10px;
-    margin-left: 75px;
     text-align: center;
 }
-.mainProductCart article{
-    margin-left: 5px;
-}
+
 
 @media(max-width:375px){
     .mainProductCart .imagen{
@@ -655,14 +654,15 @@ footer .contactanos{
         margin-top:35px;
     }
     .mainProductCart .pago-envio h5{
-        margin-left: 40px;
+        margin-left: 30px;
     }
     .mainProductCart .tachito{
         margin-top:35px ;
         margin-left: 45px;
+       
     }
     .mainProductCart .total{
-        margin-right:80px;
+        margin-right:95px;
     }
     .mainProductCart .pago-envio{
         display:flex;
@@ -677,12 +677,6 @@ footer .contactanos{
     .mainProductCart .botones{
         width: 200px;
     } 
-    .mainProductCart .tituloCarousel{
-        margin-left: 247px;
-    }
-    .mainProductCart article{
-        margin-left: 35px;
-    }
 }
 
 
@@ -699,27 +693,22 @@ footer .contactanos{
         margin-top: 40px;
      }
      .mainProductCart .pago-envio h5{
-        margin-left: 80px;
+        margin-left: 65px;
     }
     .mainProductCart .tachito{
         margin-top:40px ;
         margin-left: 70px;
     }
     .mainProductCart .total{
-        margin-right:140px;
+        margin-right:155px;
     }
     .mainProductCart .custom-select{
         margin-top: -5px;
         width: 90%;
-    } 
+    }
+    
     .mainProductCart .botones{
         width: 250px;
-    }
-    .mainProductCart .tituloCarousel{
-        margin-left: 370px;
-    } 
-    .mainProductCart article{
-        margin-left: 27px;
     }
 }
 @media(min-width:1440px){
@@ -727,17 +716,15 @@ footer .contactanos{
         display: flex;
         justify-content: center;
     } 
-    .mainProductCart article{
-        margin-left: 35px;
+    .mainProductCart .pago-envio h5{
+        margin-left: 90px;
     }
     .mainProductCart .total{
-        margin-right:180px;
+        margin-right:185px;
         margin-bottom: 10px;
     }
+   
 }
-
-
-
 
 
 

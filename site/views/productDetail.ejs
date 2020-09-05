@@ -11,7 +11,7 @@
             <!--============================
             =            Images            =
             =============================-->
-            <article class="col-12 col-lg-8 article1 mt-4">
+            <article class="col-12 col-lg-8 article1 mt-4" style="border:2px solid; border-right: 0px; border-radius: 10px;">
                 <div class="row">
                     <div class="d-none d-md-block col-3 px-md-0 secondaryImages">
                         <img src="/img/products/<%= producto.image %> " class="img-fluid" alt="">
@@ -32,7 +32,9 @@
             =            Detail            =
             =============================-->
             <article class="col-12 col-lg-4 article2 mt-4">
+                <form action="/products/agregarAlCarrito/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">   
                 <h5 class="titleSection card-header text-center" ><%= producto.name %> </h5>
+               
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
@@ -69,7 +71,9 @@
                                             </div>
                                         </div>
                                         <div class="col-8">
-                                            <a href="/productCart"><button class="btn-carrito btn btn-block btn-outline-dark">Carrito</button></a>
+                                            
+                                            <a ><button class="btn-carrito btn btn-block btn-outline-dark" value="<%= producto.id %> ">Carrito</button></a>
+                                            </form>
                                         </div>
                                     </div>
                                 </li>
@@ -101,6 +105,7 @@
                         </div>
                     </div>
                 </div>
+            </form>
             </article>
             <!--====  End of Detail  ====-->
             <hr>
