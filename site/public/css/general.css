@@ -837,5 +837,9 @@ footer .contactanos{
     border-radius:7px;
 }
 
-
+.categoriaSection{
+    
+    background-position-y: center;
+    height: 200px;
+}
 
