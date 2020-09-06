@@ -253,6 +253,7 @@ footer .contactanos{
     }
     .carousel-control-next, .carousel-control-prev{
         color: black;
+        font-size: 60px;
     }
     .carousel-control-prev:hover, .carousel-control-next:hover, .carousel-control-next:focus, .carousel-control-prev:focus{
         color: black;
