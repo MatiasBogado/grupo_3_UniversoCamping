@@ -540,7 +540,7 @@ footer .contactanos{
 .mainProductCart body{
     height: 1200px;
 }
-.mainProductCart h4, h5, span{
+.mainProductCart h4, span{
     font-family: 'Roboto', sans-serif;
     font-size:14px;
     margin-top: 20px;
