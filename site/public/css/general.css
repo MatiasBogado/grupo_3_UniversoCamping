@@ -107,6 +107,12 @@ header nav .imgLogo{
 
 }
 @media (min-width: 992px) { 
+    header form input{
+        border: 0;
+        border-right: 2px solid var(--color-grisClaro);
+        padding-right: 5px;
+        width: 81%;
+        }
     header .navContentLg{
         margin: 0;
     }
@@ -222,10 +228,17 @@ footer .contactanos{
     height: 300px;
     background-position-x: center;
     background-position-y: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
 .mainIndex .banner .bienvenido{
     font-size: 70px;
     vertical-align: middle;
+}
+.fa-chevron-down{
+    font-size: 50px;
 }
 .mainIndex .Categorias{
     font-family: 'Montserrat', sans-serif;
@@ -248,7 +261,7 @@ footer .contactanos{
 
 /*CAROUSEL*/
 
-.mainIndex .tituloCarousel{
+.tituloCarousel{
     padding-bottom: 10px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
