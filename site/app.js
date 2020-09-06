@@ -38,7 +38,7 @@ app.listen(PUERTO, () =>console.log("El servidor esta funcionando en el puerto "
 app.use('/',index)
 app.use('/products',products)
 app.use('/users',users)
-/*
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
@@ -53,4 +53,4 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
-});*/
+});
