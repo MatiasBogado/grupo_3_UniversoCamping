@@ -6,74 +6,75 @@
     <!--=============================
     =            Content            =
     ==============================-->
-    <main class="mainProductAdd">
-    <!-- CUERPO DE ADMINISTRACION-->
-    <div class="container">
-        <div class="row" style="padding: 0px 15px">
-            <!-- FORMULARIO -->
-            <form class="container my-3 montserrat p-0"  action="">
-                <div class="encabezado">
+    <main class="mainProductAdm" >
+        
+         
+                <div class="encabezado" style="padding: 0px 15px">
                     <p class="titles p-1">Administrador de productos</p>
-                    <div id="paginacion">
-                        <span class="izquierda">&laquo; Anterior</span>
-                    </div>
                 </div>
-                <div class="row Categorias">
-                    <div class="col-8 col-md-4 col-lg-4 my-4">
-                        <img src="/img/CAMPING.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center">
-                            <a href="">
-                                <h4 class="textoCat text-center">CARPAS</h4>
-                            </a> 
-                        </div>
-                    </div>
-                    <div class="col-8 col-md-4 col-lg-4 my-4">
-                        <img src="/img/PESCA.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center">
-                            <a href="">
-                                <h4 class="textoCat text-center">PESCA</h4>
-                            </a>   
-                        </div>
-                    </div>
-                    <div class="col-8 col-md-4 col-lg-4 my-4">
-                        <img src="/img/ACCESORIOS.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center">
-                            <a href="">
-                                <h4 class="textoCat text-center">ACCESORIOS</h4>
-                            </a>   
-                        </div>
-                    </div>
-                    <div class="col-8 col-md-4 col-lg-4 my-4">
-                        <img src="/img/indumentaria.jpg" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center">
-                            <a href="">
-                                <h4 class="textoCat text-center">INDUMENTARIA</h4>
-                            </a>   
-                        </div>
-                    </div>
-                    <div class="col-8 col-md-4 col-lg-4 my-4">
-                        <img src="/img/calzado.jpg" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center">
-                            <a href="">
-                                <h4 class="textoCat text-center">CALZADO</h4>
-                            </a>   
-                        </div>
-                    </div>
-                    <div class="col-8 col-md-4 col-lg-4 my-4">
-                        <img src="/img/rifles.png" alt="" class="card-img">
-                        <div class="row card-img-overlay justify-content-center">
-                            <a href="">
-                                <h4 class="textoCat text-center">RIFLES</h4>
-                            </a>   
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <h6>*Debe seleccionar una categoría para acceder a la administracion de productos(info-modificar-agregar-eliminar)</h6>
             
-        </div>
-    </div>
+        
+                <div class="col-12  formulario">
+
+                    <div class="">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                    <select id="exampleFormControlInput1" value=""
+                                    name="category">
+                                        <option value="null">Selecciona una categoria</option>
+                                        <option value="carpas">Carpas</option>
+                                        <option value="pesca">Pesca</option>
+                                        <option value="accesorios">Accesorios</option>
+                                        <option value="indumentaria">Indumentaria</option>
+                                        <option value="calzado">Calzado</option>
+                                        <option value="rifles">Rifles</option>
+                                        </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Titulo de la publicación</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                    name="name">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="">Precio</label>
+                                    <input type="number" class="form-control" name="price">
+                                </div>
+                                <div class="col">
+                                    <label for="">Descuento</label>
+                                    <input type="number" class="form-control" name="discount">
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="exampleFormControlTextarea1">Descripción</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    name="description"></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Elija una imagen</label>
+                                <input type="file" class="form-control" name='image'>
+                            </div>
+                            <div class="mt-5 mr-5 d-flex justify-content-end">
+                                <button type="reset" class="botones btn btn-outline-dark">BORRAR</button>
+                                <button type="submit" class="botones btn btn-outline-dark">PUBLICAR</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            
+        
     </main>
+
+
+
+
+
+
+
+
+
+
     <!--====  End of Content  ====-->
     <!-- footer -->
     <%- include('partials/footer.ejs') %>

@@ -17,29 +17,26 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage:storage})
 
-router.get('/detail/:id', productsController.productDetail)
-
 router.get('/Cart', productsController.enCarrito)
 router.get('/carritoCompras/', productsController.enCarrito)
-router.post('/agregarAlCarrito/:id',upload.any(),productsController.agregarAlCarrito);
-router.post('/retiraDelCarrito/:id',productsController.retiraDelCarrito);
+router.put('/agregarAlCarrito/:id',upload.any(),productsController.agregarAlCarrito);
+router.put('/retiraDelCarrito/:id',productsController.retiraDelCarrito);
 
-router.get('/Add', productsController.productAdd)
 router.get('/', productsController.listar)
+router.get('/detail/:id', productsController.productDetail)
+router.get('/search',productsController.buscar);
 
+
+router.get('/add', productsController.addView)
+router.post('/add',upload.any(),productsController.agregar)
 
 router.get('/show/:id',productsController.show);
 router.put('/edit/:id',upload.any(),productsController.editar);
 router.delete('/delete/:id',productsController.eliminar);
-router.post('/Add',productsController.productAdd)
-router.get('/Adm', productsController.productAdm)
-router.get('/show', productsController.productShow)
-router.post('/show', productsController.productShow)
-router.get('/AddProfile',productsController.productAddProfile)
 
 
 
-module.exports = router;
+module.exports = router
 
 
 

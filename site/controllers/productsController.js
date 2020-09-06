@@ -1,4 +1,5 @@
 const dbProduct = require('../data/products'); //requiero la base de datos de productos
+const categorias =require('../data/category')
 
 const fs = require('fs');
 const path = require('path');
@@ -13,6 +14,19 @@ const products = {
         res.render('productDetail',{
             title:"Detalle del Producto",
             producto:producto[0]
+        })
+    },
+    buscar:function(req,res){
+        let buscar = req.query.search;
+        let resultados=[];
+        dbProduct.forEach(producto=>{
+            if(producto.name.toLowerCase().includes(buscar.toLowerCase()) || producto.description.toLowerCase().includes(buscar.toLowerCase()) || producto.category.toLowerCase().includes(buscar.toLowerCase())){
+                resultados.push(producto)
+            }
+        })
+        res.render('products',{
+            title:"Resultado de la busqueda",
+            productos:resultados
         })
     },
     enCarrito: function(req, res) {
@@ -47,19 +61,6 @@ const products = {
         fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(dbProduct),'utf-8'); 
         res.redirect('/products/carritoCompras/')
     },
-    productAdd:function(req,res){
-        let category = req.body.category;
-        let producto = dbProduct.filter(producto=>{
-            return producto.category == category
-        })
-        console.log(producto)
-        res.render('productAdd',{
-            title:"Productos Publicados",
-            producto:producto[0]
-        })
-    },
-       
-    
     listar: function(req, res) {
         res.render('products', {
                 title: "Todos los Productos",
@@ -67,16 +68,47 @@ const products = {
             }) //muestra información de prueba
     },
     show:function(req,res){
-        let idProducto = req.params.category;
+        let idProducto = req.params.id;
         let resultado = dbProduct.filter(producto =>{
-            return producto.category == idProducto
+            return producto.id == idProducto
         })
         res.render('productShow',{
             title: "Ver/Editar Producto",
-            
             producto: resultado[0],
-            total: producto.category.length,
+            total: dbProduct.length,
+            productDb : dbProduct,
+            categorias: categorias,
         })
+    },
+    addView:function(req,res){
+        res.render('productAdd')
+        
+    },
+    agregar:function(req,res,next){
+        
+        let lastID = 1;
+
+        dbProduct.forEach(producto=>{
+            if(producto.id > lastID){
+                lastID = producto.id
+            }
+        })
+
+        let newProduct ={
+            id: lastID + 1,
+            name: req.body.name.trim(),
+            price:Number(req.body.price),
+            discount:Number(req.body.discount),
+            category:req.body.category.trim(),
+            description:req.body.description.trim(),
+            image: (req.files[0])?req.files[0].filename:"default-image.png"
+        }
+
+        dbProduct.push(newProduct);
+        
+        fs.writeFileSync(path.join(__dirname,"..",'data',"products.json"),JSON.stringify(dbProduct),'utf-8')
+        
+        res.redirect('/products')
     },
     editar:function(req,res){
         let idProducto = req.params.id;
@@ -105,17 +137,7 @@ const products = {
         dbProduct.splice(aEliminar,1)
         fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(dbProduct));
         res.redirect('/users/profile')
-    },
-    productAddProfile:function(req,res){
-        res.render('productAddProfile')
-    },
-    productAdm:function(req,res){
-        res.render('productAdm')
-    },
-    productShow:function(req,res){
-        res.render('productShow')
-    },
-    
+    }
 }
 
 module.exports = products;

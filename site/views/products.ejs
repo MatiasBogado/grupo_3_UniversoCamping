@@ -39,11 +39,12 @@
                                 </p>
                                 <!--precio-->
                                 <h2 class="d-inline">$
-                                    <%- (producto.price) %>
+                                    <%- (producto.price -producto.price * producto.discount /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                                 </h2>
                                 <!--descuento-->
-                                <% if (producto.discount !=0) { %>
-                                    <span><%- producto.discount %> % OFF</span>
+                                <% if (producto.discount!=0) { %>
+                                    <span> <strike> $<%= producto.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></strike> / <strong><%- producto.discount %> % OFF</strong>
+                                    </span>
                                 <% } %>
                                 
                                 <!--icono de envío-->

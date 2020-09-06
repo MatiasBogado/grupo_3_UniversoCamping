@@ -16,13 +16,9 @@ const users = {
     profile:function(req,res){
         res.render('userProfile',{
             title:"Perfil de Usuario",
-            productos: dbProducts.filter(producto=>{
-                return producto.category != "visited" && producto.category != "in-sale"
+            productos: dbProducts
             })
-
-        })
-    }
-
+        }
 }
 
 module.exports = users;
