@@ -266,6 +266,7 @@ footer .contactanos{
     padding-bottom: 10px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    font-size:2rem;
 }
 .ContenedorCarousel{
     text-align: center;
@@ -633,12 +634,7 @@ footer .contactanos{
     margin-bottom: 7px;
     text-align: center;
 }
-.mainProductCart .tituloCarousel{
-    font-family: 'Roboto', sans-serif;
-    font-size:18px;
-    margin-top: 10px;
-    text-align: center;
-}
+
 
 
 @media(max-width:375px){
@@ -850,4 +846,6 @@ footer .contactanos{
     background-position-y: center;
     height: 200px;
 }
+
+
 

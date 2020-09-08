@@ -52,15 +52,23 @@
 
                                 <!--botones ver y comprar-->
                                 <div class="d-block m-3">
-                                <button type="button" class="btn btn-outline-dark">Ver</button>
-                                <button type="button" class="btn btn-dark">Comprar</button>
+                        
+                            
+                                <form class="d-inline" action="/products/agregarAlCarrito/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">  
+                                    <a href="/products/detail/<%= producto.id %>"><button type="button" class="btn btn-outline-dark">Ver</button></a>
+                                    <a><button class="btn-carrito btn  btn-dark" value="<%= producto.id %> ">Carrito</button></a>
+                                </form>
+
                                 </div>
                             </article>
                         </div>
                         <!--finaliza contenido-->
 
                     </div>
+                    
                     <!--finaliza caja de grilla de boostrap-->
+
+                    
 
                     <% }) %>
             </div>
@@ -69,6 +77,8 @@
         </section>
 
     </div>
+
+    
 
 
 
