@@ -461,6 +461,7 @@ footer .contactanos{
 
 
 
+
 @media(min-width:768px){
     .mainProductShow{
         padding: 5px 30px;
@@ -615,9 +616,6 @@ footer .contactanos{
 
 }
 
-.mainProductCart .pago-envio h5{
-    margin-left: 85px;
-}
 .mainProductCart .custom-select{
     width: 90%;
 }  
@@ -668,7 +666,7 @@ footer .contactanos{
         margin-top:35px;
     }
     .mainProductCart .pago-envio h5{
-        margin-left: 30px;
+        font-size:18px;
     }
     .mainProductCart .tachito{
         margin-top:35px ;
@@ -706,9 +704,7 @@ footer .contactanos{
     .mainProductCart .codigo select{
         margin-top: 40px;
      }
-     .mainProductCart .pago-envio h5{
-        margin-left: 65px;
-    }
+     
     .mainProductCart .tachito{
         margin-top:40px ;
         margin-left: 70px;
@@ -730,9 +726,7 @@ footer .contactanos{
         display: flex;
         justify-content: center;
     } 
-    .mainProductCart .pago-envio h5{
-        margin-left: 90px;
-    }
+    
     .mainProductCart .total{
         margin-right:185px;
         margin-bottom: 10px;

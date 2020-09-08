@@ -2,81 +2,93 @@
 <html lang="es">
 <%- include('partials/head') %>
 
-    <body>
-        <%- include('partials/header') %>
-            <div class="container">
-                <section class="perfilUsuario">
-                    <div class="row perfil">
+<body>
+    <%- include('partials/header') %>
+    <div class="container">
+        <section class="perfilUsuario">
+            <div class="row perfil">
 
-                        <div class="titulo col-12">
-                            <h5 class="titleSection card-header text-center my-3"><%= title %></h5>
-                        </div>
-                        <div class="col-12">
+                <div class="titulo col-12">
+                    <h5 class="titleSection card-header text-center my-3"><%= title %></h5>
+                </div>
+                <div class="col-12">
 
-                            <div class="contenido">
+                    <div class="contenido">
 
 
-                                <ul class="nav nav-tabs " id="myTab" role="tablist">
-                                    
-                                    <li class="nav-item " role="presentation">
-                                        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#productos" role="tab" aria-controls="profile" aria-selected="false">Mis Productos</a>
-                                    </li>
-                                    <li class="nav-item " role="presentation">
-                                        <a class="nav-link" id="home-tab" data-toggle="tab" href="/products/add" role="tab" aria-controls="home" aria-selected="true">Agregar producto</a>
-                                    </li>
-                                    
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
+                        <ul class="nav nav-tabs " id="myTab" role="tablist">
 
-                                    <div class="tab-pane fade show active " id="productos" role="tabpanel" aria-labelledby="profile-tab">
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#productos"
+                                    role="tab" aria-controls="profile" aria-selected="false">Mis Productos</a>
+                            </li>
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link" id="home-tab" data-toggle="tab" href="/products/add" role="tab"
+                                    aria-controls="home" aria-selected="true">Agregar producto</a>
+                            </li>
 
-                                        <div class="row productos p-4">
-                                            <% productos.forEach(producto => { %>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
 
-                                                <div class="col-12 col-md-3 col-xl-2">
+                            <div class="tab-pane fade show active " id="productos" role="tabpanel"
+                                aria-labelledby="profile-tab">
 
-                                                    <div class="contenido">
+                                <div class="row productos p-4">
+                                    <% productos.forEach(producto => { %>
 
-                                                        <figure>
-                                                            <a href=""><img src="/img/products/<%- producto.image %>  " alt=" "></a>
-                                                        </figure>
+                                    <div class="col-6 col-md-3 col-xl-2">
 
-                                                        <%if (producto.name.length > 10) {%>
-                                                            <p>
-                                                                <%- producto.name.slice(0,20) + '...'%>
-                                                            </p>
-                                                            <%}%>
+                                        <div class="contenido">
+
+                                            <figure>
+                                                <a href=""><img src="/img/products/<%- producto.image %>  " alt=""
+                                                        style="width: 150px;"></a>
+                                            </figure>
+
+                                            <%if (producto.name.length > 10) {%>
+                                            <p>
+                                                <%- producto.name.slice(0,20) + '...'%>
+                                            </p>
+                                            <%}%>
 
                                                                 <div class="d-flex justify-content-around">
-                                                                    <form action="/products/show/<%= producto.id %>" method="GET">
-                                                                        <button class="btn btn-outline-light"> <h4 class="fas fa-eye text-info"></h4></button>
-                                                                    </form>
-                                                                    <form action="/products/show/<%= producto.id %>" method="GET">
-                                                                        <button class="btn btn-outline-light"> <h4 class="fas fa-edit text-primary"></h4></button>
-                                                                    </form>
-                                                                    <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
-                                                                        <button class="btn btn-outline-light"> <h4 class="fas fa-trash text-danger"></h4></button>
-                                                                    </form>
-                                                                </div>
-                                                    </div>
-                                                </div>
-
-                                                <% }) %>
+                                                                    <form action="/products/show/<%= producto.id %>"
+                                            method="GET">
+                                            <button class="btn btn-outline-light">
+                                                <h4 class="fas fa-eye text-info"></h4>
+                                            </button>
+                                            </form>
+                                            <form action="/products/show/<%= producto.id %>" method="GET">
+                                                <button class="btn btn-outline-light">
+                                                    <h4 class="fas fa-edit text-primary"></h4>
+                                                </button>
+                                            </form>
+                                            <form action="/products/delete/<%= producto.id %>?_method=DELETE"
+                                                method="POST">
+                                                <button class="btn btn-outline-light">
+                                                    <h4 class="fas fa-trash" style="color:green "></h4>
+                                                </button>
+                                            </form>
                                         </div>
-                                        <!--finaliza el row-->
                                     </div>
-
                                 </div>
+
+                                <% }) %>
                             </div>
+                            <!--finaliza el row-->
                         </div>
+
                     </div>
-                </section>
+                </div>
             </div>
+    </div>
+    </section>
+    </div>
 
 
 
 
-            <%- include('partials/footer') %>
-    </body>
+    <%- include('partials/footer') %>
+</body>
 
 </html>
