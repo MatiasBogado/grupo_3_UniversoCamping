@@ -8,7 +8,9 @@ Campistas casuales, profesionales, entusiastas y participantes de actividades ou
 
 ### Integrantes del grupo:  
 
-- Matias Bogado: me llamo Matias Bogado ,tengo 35 años, desempleado,  realizo un curso de progaramacion en FORMAR ,pretendo conseguir un trabajo digno.
+- Matias Bogado:  35 años ,Desarrollador Full Stack, tengo conocimientos en desarrollo Front-End y Back-End, además de manejar diferentes sistemas operativos y lenguajes de programación, basándome en principios del diseño UX/UI.
+Siempre dispuesto a evolucionar continuamente ,a ayudar y a resolver cualquier duda tanto dentro como fuera del horario laboral.
+Disfruto programando, buscando las mejores soluciones a nivel tecnológico y cumpliendo los objetivos.
 
 - Nicolas Iacson: Soy Nicolas Iacson, tengo 18 años, entusiasta de la tecnología, mi objetivo actual es terminar este curso para trabajar de lo que me gusta y seguir formándome en el futuro y poder gestionar un negocio propio en algún momento.
 

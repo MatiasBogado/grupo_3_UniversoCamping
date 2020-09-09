@@ -482,57 +482,6 @@ footer .contactanos{
     }
 }
 
-/*
- * productAddProfile
- */
-
- /* cuerpo de formulario*/
-
- .mainproductAddProfile .encabezado p{
-    background-color: #534317;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    text-align: center;
-    margin:10px auto;
-    padding: 10px;
-}
-.mainproductAddProfile .formulario{
-    justify-content: center;
-    margin-bottom: 35px;
-}
-.mainproductAddProfile .botones{
-    color: white;
-    background-color:  #4d582a;
-    margin-left: 20px;
-}
-
-
-
-@media(min-width:768px){
-    .mainproductAddProfile{
-        padding: 5px 30px;
-    }
-}
-
-
-@media(min-width:1024px){
-    .mainproductAddProfile{
-        padding: 5px 50px;
-    }
-}
-
-@media(min-width:1440px){
-    .mainproductAddProfile {
-    padding: 5px 200px;
-    }
-}
-
-
-
-
-
-
 
     
 /*
@@ -820,10 +769,9 @@ footer .contactanos{
 
  .mainRegister .register{
     margin-top: 30px; 
-    padding-left: 100px;
-    padding-right: 100px;
     background-color: #4d582a ;
     color: white;
+    width:260px;
 }
 .mainRegister .titles{
     background-color: #534317;
