@@ -14,6 +14,8 @@ Campistas casuales, profesionales, entusiastas y participantes de actividades ou
 
 - Federico Melgarejo: 21 años, ayudo en lo que puedo, ya quiero ver este proyecto terminado.
 
+- Ezequiel Zapata : 30 años , estudiante de programacion
+
 #### Referencias:
 
 https://www.lalomitaoutdoors.com.ar/ _Referencia base, mas cercano a lo que nos interesa lograr._
