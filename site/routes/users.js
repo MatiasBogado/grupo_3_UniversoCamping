@@ -1,10 +1,19 @@
 const express = require('express');
 const router = express.Router();
 
-const usersController = require('../controllers/usersController')
+const usersController = require('../controllers/usersController');
+//const loginValidator = require('../validators/loginValidator');
+const registerValidator = require('../validators/registerValidator')
+const multerAvatar = require('../middlewares/multerAvatar');
+
+
 
 router.get('/register', usersController.register)
+router.post('/register',multerAvatar.any(),registerValidator, usersController.procesoRegister)
+
 router.get('/login', usersController.login)
+router.post('/login', usersController.procesoLogin)
+
 router.get('/profile', usersController.profile);
 
 module.exports = router

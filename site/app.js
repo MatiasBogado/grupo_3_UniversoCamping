@@ -21,6 +21,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret:'Universo camping rules'}));
 
 app.use(methodOverride('_method'));
 
