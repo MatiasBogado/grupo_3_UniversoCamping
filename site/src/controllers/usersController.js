@@ -61,6 +61,8 @@ const users = {
                     req.session.user = {
                         id:usuario.id,
                         nick:usuario.nombre + ' ' + usuario.apellido,
+                        nombre: usuario.nombre,
+                        apellido: usuario.apellido,
                         rol:usuario.rol,
                         email:usuario.email,
                         avatar:usuario.avatar

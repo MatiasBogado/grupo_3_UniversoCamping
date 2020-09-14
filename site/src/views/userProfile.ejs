@@ -27,13 +27,16 @@
                         </ul>
                         <div class="tab-content" id="myTabContent ">
                             <div class="tab-pane fade show active my-5" id="usuarios" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="d-inline-block avatar">
+                                <% if (user) { %>
+                                <div class="d-inline-block "><img src="/img/avatares/<%= (user.avatar) %> " style="width: 300px; width: 300px;" alt="" >
                                 </div>
                                 <div class="d-inline-block p-3" style="position: absolute; ">
-                                    <div>Nombre</div>
-                                    <div>apellido</div>
-                                    <div>Email</div>
+                                    
+                                    <div>Nombre: <%= (user.nombre) %></div>
+                                    <div>apellido: <%= (user.apellido) %></div>
+                                    <div>Email: <%= (user.email) %></div>
                                     <div>Editar</div>
+                                    <% } %>
                                 </div>
                             </div>
                             <div class="tab-pane fade show" id="productos" role="tabpanel" aria-labelledby="profile-tab">
