@@ -7,88 +7,123 @@
     <div class="container">
         <section class="perfilUsuario">
             <div class="row perfil">
-
                 <div class="titulo col-12">
-                    <h5 class="titleSection card-header text-center my-3"><%= title %></h5>
+                    <h5 class="titleSection card-header text-center my-3">
+                        <%= title %>
+                    </h5>
                 </div>
                 <div class="col-12">
-
-                    <div class="contenido">
-
-
+                    <div class="">
                         <ul class="nav nav-tabs " id="myTab" role="tablist">
-
                             <li class="nav-item " role="presentation">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#productos"
-                                    role="tab" aria-controls="profile" aria-selected="false">Mis Productos</a>
+                                <a class="nav-link active blackColor" id="profile-tab" data-toggle="tab" href="#usuarios" role="tab" aria-controls="profile" aria-selected="false">Mi cuenta</a>
                             </li>
                             <li class="nav-item " role="presentation">
-                                <a class="nav-link" id="home-tab" data-toggle="tab" href="/products/add" role="tab"
-                                    aria-controls="home" aria-selected="true">Agregar producto</a>
+                                <a class="nav-link blackColor" id="profile-tab" data-toggle="tab" href="#productos" role="tab" aria-controls="profile" aria-selected="false">Mis Productos</a>
                             </li>
-
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#agregar" role="tab" aria-controls="home" aria-selected="true">Agregar producto</a>
+                            </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
-
-                            <div class="tab-pane fade show active " id="productos" role="tabpanel"
-                                aria-labelledby="profile-tab">
-
+                        <div class="tab-content" id="myTabContent ">
+                            <div class="tab-pane fade show active my-5" id="usuarios" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="d-inline-block avatar">
+                                </div>
+                                <div class="d-inline-block p-3" style="position: absolute; ">
+                                    <div>Nombre</div>
+                                    <div>apellido</div>
+                                    <div>Email</div>
+                                    <div>Editar</div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="productos" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="row productos p-4">
                                     <% productos.forEach(producto => { %>
-
                                     <div class="col-6 col-md-3 col-xl-2">
-
                                         <div class="contenido">
-
                                             <figure>
-                                                <a href=""><img src="/img/products/<%- producto.image %>  " alt=""
-                                                        style="width: 150px;"></a>
+                                                <a href=""><img src="/img/products/<%- producto.image %>  " alt="" style="width: 150px;"></a>
                                             </figure>
-
                                             <%if (producto.name.length > 10) {%>
                                             <p>
                                                 <%- producto.name.slice(0,20) + '...'%>
                                             </p>
                                             <%}%>
-
-                                                                <div class="d-flex justify-content-around">
-                                                                    <form action="/products/show/<%= producto.id %>"
-                                            method="GET">
-                                            <button class="btn btn-outline-light">
-                                                <h4 class="fas fa-eye text-info"></h4>
-                                            </button>
-                                            </form>
-                                            <form action="/products/show/<%= producto.id %>" method="GET">
-                                                <button class="btn btn-outline-light">
-                                                    <h4 class="fas fa-edit text-primary"></h4>
-                                                </button>
-                                            </form>
-                                            <form action="/products/delete/<%= producto.id %>?_method=DELETE"
-                                                method="POST">
-                                                <button class="btn btn-outline-light">
-                                                    <h4 class="fas fa-trash" style="color:green "></h4>
-                                                </button>
-                                            </form>
+                                            <div class="d-flex justify-content-around">
+                                                <form action="/products/show/<%= producto.id %>" method="GET">
+                                                    <button class="btn btn-outline-light">
+                                                        <h4 class="fas fa-eye text-info"></h4>
+                                                    </button>
+                                                </form>
+                                                <form action="/products/show/<%= producto.id %>" method="GET">
+                                                    <button class="btn btn-outline-light">
+                                                        <h4 class="fas fa-edit text-primary"></h4>
+                                                    </button>
+                                                </form>
+                                                <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                                                    <button class="btn btn-outline-light">
+                                                        <h4 class="fas fa-trash" style="color:green "></h4>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
+                                    <% }) %>
                                 </div>
-
-                                <% }) %>
                             </div>
-                            <!--finaliza el row-->
+                            <div class="tab-pane fade show" id="agregar" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="col-12  formulario">
+                                    <div class="">
+                                        <form action="" method="POST" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <select id="exampleFormControlInput1" value="" name="category">
+                                                    <option value="null">Selecciona una categoria</option>
+                                                    <option value="carpas">Carpas</option>
+                                                    <option value="pesca">Pesca</option>
+                                                    <option value="accesorios">Accesorios</option>
+                                                    <option value="indumentaria">Indumentaria</option>
+                                                    <option value="calzado">Calzado</option>
+                                                    <option value="rifles">Rifles</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Titulo de la publicación</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="name">
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label for="">Precio</label>
+                                                    <input type="number" class="form-control" name="price">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="">Descuento</label>
+                                                    <input type="number" class="form-control" name="discount">
+                                                </div>
+                                            </div>
+                                            <div class="form-group mt-3">
+                                                <label for="exampleFormControlTextarea1">Descripción</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                                            </div>
+                                            <div class="form-group mt-3">
+                                                <label for="">Elija una imagen</label>
+                                                <input type="file" class="form-control" name='image'>
+                                            </div>
+                                            <div class="mt-5 mr-5 d-flex justify-content-end">
+                                                <button type="reset" class="botones btn btn-outline-dark">BORRAR</button>
+                                                <button type="submit" class="botones btn btn-outline-dark">PUBLICAR</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+        </section>
     </div>
-    </section>
-    </div>
-
-
-
-
     <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
 </body>
 
 </html>

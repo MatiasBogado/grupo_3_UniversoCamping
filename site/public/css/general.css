@@ -748,7 +748,7 @@ footer .contactanos{
 .montserrat{
 	font-family: 'Montserrat', sans-serif;
 }
-.mainProductDetail .blackColor{
+.blackColor{
 	color: black
 }
 .mainProductDetail section .article2 .borderRadiusCalcular2{
@@ -792,6 +792,15 @@ footer .contactanos{
     
     background-position-y: center;
     height: 200px;
+}
+
+.avatar{
+    background-image:url("https://innostudio.de/fileuploader/images/default-avatar.png");
+    width: 200px;
+    height: 200px;
+    object-fit:contain;
+    background-position: center;
+
 }
 
 
