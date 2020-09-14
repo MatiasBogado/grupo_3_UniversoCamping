@@ -13,18 +13,19 @@
                     <div class="col-12 col-lg-8 p-0" style="border: 2px solid #e2ddf1; border-radius: 10px;">
                         <h5 class="titleSection card-header text-center p-1" style="border-top-left-radius: 10px;
                         border-top-right-radius: 10px;">Iniciar sesion</h5>
-                        <form class="my-3" style="padding-left: 15px; padding-right: 15px">
+                        <form class="my-3" style="padding-left: 15px; padding-right: 15px" action="" method="POST">
                             <div class="row form-group">
                                 <label for="nombre" class="col-form-label col-md-4 ">E-mail:</label>
                                 <div class="col-md-8">
-                                    <input type="email" name="E-mail" value="" id="E-mail" class="form-control">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" name="email">
+                                    <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
                                 </div>
                             </div>
                             <div class="row form-group">
                                 <label for="Contraseña" class="col-form-label col-md-4 ">Contraseña:</label>
                                 <div class="col-md-8">
-                                    <input type="password" name="Contraseña" value="" id="Contraseña"
-                                        class="form-control">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" name="contraseña">
+                                    <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>
                                 </div>
                             </div>
                             <div class="form-group form-check text-center">

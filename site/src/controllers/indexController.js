@@ -4,7 +4,8 @@ const index = {
     index:function(req,res) {
         let producto = dbProduct
         res.render('index',{
-            producto:producto
+            producto:producto,
+            user:req.session.user
         })
     }
 }

@@ -61,8 +61,8 @@
                               </div>
 
                             <div class="form-group form-check text-center">
-                                  <input type="checkbox" class="form-check-input" id="exampleCheck1" name="bases">
-                                  <label class="form-check-label" for="exampleCheck1">Acepto los terminos y condiciones</label>
+                                  <input type="checkbox" class="form-check-input" id="exampleCheck1" name="bases" required>
+                                  <label class="form-check-label" for="exampleCheck1">Acepto los <a href="">terminos y condiciones</a> </label>
                                   <br>
                                   <small class="text-danger"><%= (typeof errors != 'undefined' && errors.bases)?errors.bases.msg: "" %> </small>
                             </div>

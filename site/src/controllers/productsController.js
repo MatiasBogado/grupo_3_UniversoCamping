@@ -13,11 +13,15 @@ const products = {
         console.log(producto)
         res.render('productDetail',{
             title:"Detalle del Producto",
-            producto:producto[0]
+            producto:producto[0],
+            user:req.session.user
         })
     },
     buscar:function(req,res){
         let buscar = req.query.search;
+        if(buscar == ""){
+            res.redirect("/")
+        }else{
         let resultados=[];
         dbProduct.forEach(producto=>{
             if(producto.name.toLowerCase().includes(buscar.toLowerCase()) || producto.description.toLowerCase().includes(buscar.toLowerCase()) || producto.category.toLowerCase().includes(buscar.toLowerCase())){
@@ -26,8 +30,10 @@ const products = {
         })
         res.render('products',{
             title:"Resultado de la busqueda",
-            productos:resultados
+            productos:resultados,
+            user:req.session.user
         })
+    }
     },
     enCarrito: function(req, res) {
         let productoEnCarrito = dbProduct.filter(producto => {
@@ -36,7 +42,8 @@ const products = {
         
         res.render('productCart', { 
             title: 'Carrito de Compras', 
-            productoEnCarrito: productoEnCarrito         
+            productoEnCarrito: productoEnCarrito,
+            user:req.session.user         
         })
     },
     agregarAlCarrito: function(req,res){
@@ -64,7 +71,8 @@ const products = {
     listar: function(req, res) {
         res.render('products', {
                 title: "Todos los Productos",
-                productos: dbProduct
+                productos: dbProduct,
+                user:req.session.user
             }) //muestra información de prueba
     },
     show:function(req,res){
@@ -78,10 +86,13 @@ const products = {
             total: dbProduct.length,
             productDb : dbProduct,
             categorias: categorias,
+            user:req.session.user
         })
     },
     addView:function(req,res){
-        res.render('productAdd')
+        res.render('productAdd',{
+            user:req.session.user
+        })
         
     },
     agregar:function(req,res,next){

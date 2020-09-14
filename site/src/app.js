@@ -15,7 +15,7 @@ app.use(session({secret:'mercado liebre for ever'}));
 // view engine setup
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(logger('dev'));
 app.use(express.json());

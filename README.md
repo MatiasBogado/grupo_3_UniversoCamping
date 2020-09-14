@@ -16,7 +16,7 @@ Disfruto programando, buscando las mejores soluciones a nivel tecnológico y cum
 
 - Federico Melgarejo: 21 años, ayudo en lo que puedo, ya quiero ver este proyecto terminado.
 
-- Ezequiel Zapata : 30 años , estudiante de programacion
+- Ezequiel Zapata : 30 años , estudiante de programacion. Email: zapata.ed1989@gmail.com
 
 #### Referencias:
 
