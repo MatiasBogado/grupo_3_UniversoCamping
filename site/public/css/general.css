@@ -211,6 +211,9 @@ footer .contactanos{
 .iconosTarjetas{
     font-size: 20px;
 }
+.d-f{
+    float: left;
+}
 
 
 
@@ -310,10 +313,12 @@ footer .contactanos{
 
 @media (max-width: 375px) {
     .mainIndex .marcas img{
-    display: none;
-      
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     }
 }
+
 
 
 

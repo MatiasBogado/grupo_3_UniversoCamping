@@ -1,1 +1,38 @@
-[{"id":1,"nombre":"Federico ","apellido":"melgarejo","email":"asdasd@gmail.com","avatar":"avatar1599962063268.PNG","contraseña":"$2b$10$R7XgpuGmvNmeEs1hShKxaeis5s0NlQ5wNu7PFH0pBegVKaAER8mY2","rol":"user"},{"id":3,"nombre":"nicolas","apellido":"iacson","email":"nicolas@iacson.com","avatar":"default.png","contraseña":"$2b$10$IBXiw1AZJDLzestxWyYElumR/4G.giQS10.pdvFu6T9QlX3zaSr9W","rol":"user"},{"id":4,"nombre":"ezequiel","apellido":"zapata","email":"zapata.ed1989@gmail.com","avatar":"avatar1600110356522.jpg","contraseña":"$2b$10$q/4bmvuJfawpZZa1epgyKODuTqrXkCn/PZlY8S8/mBgqxwwNjIDi.","rol":"user"}]
+[
+    {
+        "id": 1,
+        "nombre": "Federico ",
+        "apellido": "melgarejo",
+        "email": "asdasd@gmail.com",
+        "avatar": "avatar1599962063268.PNG",
+        "contraseña": "$2b$10$R7XgpuGmvNmeEs1hShKxaeis5s0NlQ5wNu7PFH0pBegVKaAER8mY2",
+        "rol": "user"
+    },
+    {
+        "id": 3,
+        "nombre": "nicolas",
+        "apellido": "iacson",
+        "email": "nicolas@iacson.com",
+        "avatar": "default.png",
+        "contraseña": "$2b$10$IBXiw1AZJDLzestxWyYElumR/4G.giQS10.pdvFu6T9QlX3zaSr9W",
+        "rol": "user"
+    },
+    {
+        "id": 4,
+        "nombre": "ezequiel",
+        "apellido": "zapata",
+        "email": "zapata.ed1989@gmail.com",
+        "avatar": "avatar1600110356522.jpg",
+        "contraseña": "$2b$10$q/4bmvuJfawpZZa1epgyKODuTqrXkCn/PZlY8S8/mBgqxwwNjIDi.",
+        "rol": "user"
+    },
+    {
+        "id": 5,
+        "nombre": "Matias",
+        "apellido": "Bogado",
+        "email": "matiasbogado22@hotmail.com",
+        "avatar": "default.png",
+        "contraseña": "$2b$10$bSn2i9oTaSiKATFmWwtf7uPJzrqSbeQ853Y99NB3VpQ.cLEoY1d5a",
+        "rol": "user"
+    }
+]
