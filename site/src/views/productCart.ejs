@@ -9,7 +9,7 @@
     <main class="mainProductCart">
         <!-- CUERPO DEL CARRITO-->
         <div class="container">
-        
+
             <!-- FORMULARIO  -->
             <article>
                 <div class="encabezado">
@@ -21,7 +21,7 @@
                 </div>
                 <!--PRODUCTO SELECCIONADO, DESCRIPCION, CANTIDAD DE UNIDADES y PRECIO -->
                 <h4>Productos seleccionados</h4>
-                <% productoEnCarrito.forEach(producto => { %> 
+                <% productoEnCarrito.forEach(producto => { %>
                 <div class="producto">
                     <div class="codigo ">
                         <div class="imagen col-3 col-md-2">
@@ -30,7 +30,7 @@
                         </div>
                         <div class="card col-5">
                             <div class="card-body">
-                                <%- producto.name %> 
+                                <%- producto.name %>
                             </div>
                         </div>
                         <div class="cantidad-precio">
@@ -50,328 +50,348 @@
                                 <span><span>$</span><%- producto.price %></span>
                             </div>
                         </div>
-                        <form  action="/products/retiraDelCarrito/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">                                                     
-                        <button class="tachito"><i class="fa fa-trash" style="color:#7daa1e"></i></button>
-                        
+                        <form action="/products/retiraDelCarrito/<%= producto.id %>?_method=PUT" method="POST"
+                            enctype="multipart/form-data">
+                            <button class="tachito"><i class="fa fa-trash" style="color:#7daa1e"></i></button>
+
                     </div>
                     <% }) %>
                 </div>
-                
-                <div class="row total "  >
-                    <h4>TOTAL A PAGAR :<span><span>$</span> 12345 </span></h4>                 
+
+                <div class="row total ">
+                    <h4>TOTAL A PAGAR :<span><span>$</span> 12345 </span></h4>
                 </div>
-            
+
                 <!-- METODOS DE PAGO, CODIGO DESCUENTO Y  METODO DE ENVIO-->
                 <div class="container">
                     <div class="pago-envio col-12 ">
-                    <div class=" col-md-4 col-lg-4" style="text-align: center">
-                        <h5>Metodo de pago</h5>
-                        <div class="input">
-                            <select class="custom-select" id="" aria-label="">
-                                <option value="1">Efectivo</option>
-                                <option value="2">Tarjeta de credito</option>
-                                <option value="3">Transferencia</option>
-                                <option value="4">Pago QR</option>
-                                <option value="5">Mercado Pago</option>
-                            </select>
+                        <div class=" col-md-4 col-lg-4" style="text-align: center">
+                            <h5>Metodo de pago</h5>
+                            <div class="input">
+                                <select class="custom-select" id="" aria-label="">
+                                    <option value="1">Efectivo</option>
+                                    <option value="2">Tarjeta de credito</option>
+                                    <option value="3">Transferencia</option>
+                                    <option value="4">Pago QR</option>
+                                    <option value="5">Mercado Pago</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class=" col-md-4 col-lg-4" style="text-align: center">
-                        <h5>Codigo de descuento</h5>
-                        <div class="">
-                            <label><input type="text-number"></label>
+                        <div class=" col-md-4 col-lg-4" style="text-align: center">
+                            <h5>Codigo de descuento</h5>
+                            <div class="">
+                                <label><input type="text-number"></label>
+                            </div>
                         </div>
-                    </div>
-                    <div class=" col-md-4 col-lg-4" style="text-align: center">
-                        <h5>Metodo de envio</h5>
-                        <div class="input">
-                            <select class="custom-select" id="" aria-label="">
-                                <option value="Re">Retira en local</option>
-                                <option value="Co">Correo</option>
-                                <option value="Mo">Motomensajeria</option>
-                            </select>
+                        <div class=" col-md-4 col-lg-4" style="text-align: center">
+                            <h5>Metodo de envio</h5>
+                            <div class="input">
+                                <select class="custom-select" id="" aria-label="">
+                                    <option value="Re">Retira en local</option>
+                                    <option value="Co">Correo</option>
+                                    <option value="Mo">Motomensajeria</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
                     </div>
 
                     <!-- CAJA DE BOTONES (FINALIZAR COMPRA-AGREGAR PRODUCTO-VACIAR CARRITO)-->
                     <div class="botonesAccion">
-                    <div class="my-2 accion col-md-4 col-lg-4">
-                        <a href=""><button class="botones btn btn-outline-dark" type="button" >FINALIZAR COMPRA</button></a>
+                        <div class="my-2 accion col-md-4 col-lg-4">
+                            <a href=""><button class="botones btn btn-outline-dark" type="button">FINALIZAR
+                                    COMPRA</button></a>
+                        </div>
+                        <div class="my-2 accion  col-md-4 col-lg-4">
+                            <a href="/products"><button class="botones btn btn-outline-dark" type="button">SEGUIR
+                                    COMPRANDO</button></a>
+                        </div>
+                        <div class="my-2 accion  col-md-4 col-lg-4">
+                            <button class="botones btn btn-outline-dark" type="delete" style="opacity:0.6">VACIAR
+                                CARRITO</button>
+                        </div>
                     </div>
-                    <div class="my-2 accion  col-md-4 col-lg-4">
-                        <a href="/products"><button class="botones btn btn-outline-dark" type="button" >SEGUIR COMPRANDO</button></a>
-                    </div>
-                    <div class="my-2 accion  col-md-4 col-lg-4">
-                        <button class="botones btn btn-outline-dark" type="delete"  style="opacity:0.6" >VACIAR CARRITO</button>
-                    </div>
-                    </div>
-            
+                </div> 
                     <!-- SECCIÓN CAROUSEL -->
-                    <h2 class="text-center tituloCarousel my-3">Recomendados</h2>
+                    <h2 class="text-center tituloCarousel my-3" id="carousel">Recomendados </h2>
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner ContenedorCarousel">
-        
-        
                             <div class="carousel-item active">
-                                <div class="row productos justify-content-around montserrat">
-                                     
-        
-                                    <div class="col-4 col-md-3 col-lg-3 mb-3">
-                                        <div class="contenido p-3">
-        
-                                        <!--ETIQUETA SEMANTICA-->
-                                        <figure class="text-center">
-                                            <a href="/products/detail/25">
-                                                <img src="/img/products/Indumentaria-Campera-Bugaboo-dama-Gris-300x300.jpg" class="d-block w-100" alt="...">
-                                            </a>
-                                        </figure>
-            
-                                        <!--informacion-->
-                                        <article class="text-center">
-                                            <!--nombre del producto ??-->
-                                            <p class="m-0">
-                                                Campera Columbia Bugaboo II desmontable 3 en 1
-                                            </p>
-                                            <!--precio-->
-                                            <h2 class="d-inline">
-                                                2.762 
-                                            </h2>
-                                            <!--descuento-->
-                                            $3.682 / 25 % OFF
-                                            
-                                            <!--icono de envío-->
-                                            <i class="fas fa-truck "></i>
-            
-                                            <!--botones ver y comprar-->
-                                            <div class="d-block m-3">
-                                                <form class="d-inline" action="/products/agregarAlCarrito/25?_method=PUT" method="POST" enctype="multipart/form-data">  
-                                                    <a href="/products/detail/25"><button type="button" class="btn btn-outline-dark">Ver</button></a>
-                                                    <a><button class="btn-carrito btn  btn-dark" value="25">Carrito</button></a>
-                                                </form>
-                                            </div>
-                                        </article>
+                                <div class="row col-12 productos justify-content-around montserrat">
+                                    <div class="col-4 col-md-3 col-lg-3 ">
+                                        <div class="contenido ">
+
+                                            <!--ETIQUETA SEMANTICA-->
+                                            <figure class="text-center">
+                                                <a href="/products/detail/25">
+                                                    <img src="/img/products/Indumentaria-Campera-Bugaboo-dama-Gris-300x300.jpg"
+                                                        class="d-block w-100" alt="...">
+                                                </a>
+                                            </figure>
+
+                                            <!--informacion-->
+                                            <article class="text-center">
+                                                <!--nombre del producto ??-->
+                                                <p class="m-0">
+                                                    Campera Columbia Bugaboo
+                                                <!--precio-->
+                                                <h3 class="d-inline">
+                                                    2.762
+                                                </h3>
+                                                <!--descuento-->
+                                                $3.682 / 25 % OFF
+
+                                                <!--icono de envío-->
+                                                <i class="fas fa-truck "></i>
+
+                                                <!--botones ver y comprar-->
+                                                <div class="d-block ">
+                                                    <form class="d-inline"
+                                                        action="/products/agregarAlCarrito/25?_method=PUT" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        <a href="/products/detail/25"><button type="button"
+                                                                class="btn btn-outline-dark">Ver</button></a>
+                                                        <a><button class="btn-carrito btn  btn-dark" style="background-color: #4d582a;"
+                                                                value="25">Carrito</button></a>
+                                                    </form>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
+
+                                    <div class="col-4 col-md-3 col-lg-3 ">
+                                        <div class="contenido ">
+
+                                            <!--ETIQUETA SEMANTICA-->
+                                            <figure class="text-center">
+                                                <a href="/products/detail/44">
+                                                    <img src="/img/products/Rifles-Rifle-Fox-M16-Pcp-Cal-5mm-350cc-Con-Cargador-300x300.jpg"
+                                                        class="d-block w-100" alt="...">
+                                                </a>
+                                            </figure>
+
+                                            <!--informacion-->
+                                            <article class="text-center">
+                                                <!--nombre del producto ??-->
+                                                <p class="m-0">
+                                                    Rifle Gas Comprimido Shark 
+                                                </p>
+                                                <!--precio-->
+                                                <h3 class="d-inline">
+                                                    3.627
+                                                </h3>
+                                                <!--descuento-->
+                                                $4.030 / 10 % OFF
+
+                                                <!--icono de envío-->
+                                                <i class="fas fa-truck "></i>
+
+                                                <!--botones ver y comprar-->
+                                                <div class="d-block ">
+                                                    <form class="d-inline"
+                                                        action="/products/agregarAlCarrito/44?_method=PUT" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        <a href="/products/detail/44"><button type="button"
+                                                                class="btn btn-outline-dark">Ver</button></a>
+                                                        <a><button class="btn-carrito btn  btn-dark" style="background-color: #4d582a;"
+                                                                value="44">Carrito</button></a>
+                                                    </form>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
+
+                                    <div class="col-4 col-md-3 col-lg-3 ">
+                                        <div class="contenido ">
         
-                                    <div class="col-4 col-md-3 col-lg-3 mb-3">
-                                        <div class="contenido p-3">
+                                            <!--ETIQUETA SEMANTICA-->
+                                            <figure class="text-center">
+                                                <a href="/products/detail/18">
+                                                    <img src="/img/products/Accesorios-Cortaplumas-Victorinox-Fisherman-Roja-17-Usos-1.4733.72-300x300.jpg"
+                                                        class="d-block w-100" alt="...">
+                                                </a>
+                                            </figure>
         
-                                        <!--ETIQUETA SEMANTICA-->
-                                        <figure class="text-center">
-                                            <a href="/products/detail/44">
-                                                <img src="/img/products/Rifles-Rifle-Fox-M16-Pcp-Cal-5mm-350cc-Con-Cargador-300x300.jpg" class="d-block w-100" alt="...">
-                                            </a>
-                                        </figure>
-            
-                                        <!--informacion-->
-                                        <article class="text-center">
-                                            <!--nombre del producto ??-->
-                                            <p class="m-0">
-                                                Rifle Gas Comprimido Shark Repetición 5 mm Balines 
-                                            </p>
-                                            <!--precio-->
-                                            <h2 class="d-inline">                                  
-                                            3.627
-                                            </h2>
-                                            <!--descuento-->
-                                            $4.030 / 10 % OFF 
-                                            
-                                            <!--icono de envío-->
-                                            <i class="fas fa-truck "></i>
-            
-                                            <!--botones ver y comprar-->
-                                            <div class="d-block m-3">
-                                                <form class="d-inline" action="/products/agregarAlCarrito/44?_method=PUT" method="POST" enctype="multipart/form-data">  
-                                                    <a href="/products/detail/44"><button type="button" class="btn btn-outline-dark">Ver</button></a>
-                                                    <a><button class="btn-carrito btn  btn-dark" value="44">Carrito</button></a>
-                                                </form>
-                                            </div>
-                                        </article>
+                                            <!--informacion-->
+                                            <article class="text-center">
+                                                <!--nombre del producto ??-->
+                                                <p class="m-0">
+                                                    Cortaplumas de acero Victorinox 
+                                                </p>
+                                                <!--precio-->
+                                                <h3 class="d-inline">
+        
+                                                    1.063
+        
+                                                </h3>
+                                                <!--descuento-->
+                                                $1.250 / 15 % OFF
+                                                <!--icono de envío-->
+                                                <i class="fas fa-truck "></i>
+        
+                                                <!--botones ver y comprar-->
+                                                <div class="d-block ">
+                                                    <form class="d-inline" action="/products/agregarAlCarrito/18?_method=PUT"
+                                                        method="POST" enctype="multipart/form-data">
+                                                        <a href="/products/detail/18"><button type="button"
+                                                                class="btn btn-outline-dark">Ver</button></a>
+                                                        <a><button class="btn-carrito btn  btn-dark" style="background-color: #4d582a;"
+                                                                value="18">Carrito</button></a>
+                                                    </form>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-                                    </div>
-        
-                                    <div class="col-4 col-md-3 col-lg-3 mb-3">
-                                        <div class="contenido p-3">
-        
-                                        <!--ETIQUETA SEMANTICA-->
-                                        <figure class="text-center">
-                                            <a href="/products/detail/18">
-                                                <img src="/img/products/Accesorios-Cortaplumas-Victorinox-Fisherman-Roja-17-Usos-1.4733.72-300x300.jpg" class="d-block w-100" alt="...">
-                                            </a>
-                                        </figure>
-            
-                                        <!--informacion-->
-                                        <article class="text-center">
-                                            <!--nombre del producto ??-->
-                                            <p class="m-0">
-                                                Cortaplumas Victorinox Fisherman Roja 17 Usos
-                                            </p>
-                                            <!--precio-->
-                                            <h2 class="d-inline">
-        
-                                                1.063
-         
-                                            </h2>
-                                            <!--descuento-->
-                                            $1.250 / 15 % OFF 
-                                            <!--icono de envío-->
-                                            <i class="fas fa-truck "></i>
-            
-                                            <!--botones ver y comprar-->
-                                            <div class="d-block m-3">
-                                                <form class="d-inline" action="/products/agregarAlCarrito/18?_method=PUT" method="POST" enctype="multipart/form-data">  
-                                                    <a href="/products/detail/18"><button type="button" class="btn btn-outline-dark">Ver</button></a>
-                                                    <a><button class="btn-carrito btn  btn-dark" value="18">Carrito</button></a>
-                                                </form>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    </div>
-        
-        
-                                   
                                 </div>
                             </div>
-        
+
                             <div class="carousel-item">
-                                <div class="row productos justify-content-around montserrat">
-                                     
-        
-                                    <div class="col-4 col-md-3 col-lg-3 mb-3">
-                                        <div class="contenido p-3">
-        
-                                        <!--ETIQUETA SEMANTICA-->
-                                        <figure class="text-center">
-                                            <a href="/products/detail/25">
-                                                <img src="/img/products/Indumentaria-Campera-Bugaboo-dama-Gris-300x300.jpg" class="d-block w-100" alt="...">
-                                            </a>
-                                        </figure>
-            
-                                        <!--informacion-->
-                                        <article class="text-center">
-                                            <!--nombre del producto ??-->
-                                            <p class="m-0">
-                                                Campera Columbia Bugaboo II desmontable 3 en 1
-                                            </p>
-                                            <!--precio-->
-                                            <h2 class="d-inline">
-                                                2.762 
-                                            </h2>
-                                            <!--descuento-->
-                                            $3.682 / 25 % OFF
-                                            
-                                            <!--icono de envío-->
-                                            <i class="fas fa-truck "></i>
-            
-                                            <!--botones ver y comprar-->
-                                            <div class="d-block m-3">
-                                                <form class="d-inline" action="/products/agregarAlCarrito/25?_method=PUT" method="POST" enctype="multipart/form-data">  
-                                                    <a href="/products/detail/25"><button type="button" class="btn btn-outline-dark">Ver</button></a>
-                                                    <a><button class="btn-carrito btn  btn-dark" value="25">Carrito</button></a>
-                                                </form>
-                                            </div>
-                                        </article>
+                                <div class="row col-12 productos justify-content-around montserrat">
+                                    <div class="col-4 col-md-3 col-lg-3 ">
+                                        <div class="contenido ">
+
+                                            <!--ETIQUETA SEMANTICA-->
+                                            <figure class="text-center">
+                                                <a href="/products/detail/25">
+                                                    <img src="/img/products/Indumentaria-Campera-Bugaboo-dama-Gris-300x300.jpg"
+                                                        class="d-block w-100" alt="...">
+                                                </a>
+                                            </figure>
+
+                                            <!--informacion-->
+                                            <article class="text-center">
+                                                <!--nombre del producto ??-->
+                                                <p class="m-0">
+                                                    Campera Columbia Bugaboo II desmontable 3 en 1
+                                                </p>
+                                                <!--precio-->
+                                                <h3 class="d-inline">
+                                                    2.762
+                                                </h3>
+                                                <!--descuento-->
+                                                $3.682 / 25 % OFF
+
+                                                <!--icono de envío-->
+                                                <i class="fas fa-truck "></i>
+
+                                                <!--botones ver y comprar-->
+                                                <div class="d-block ">
+                                                    <form class="d-inline"
+                                                        action="/products/agregarAlCarrito/25?_method=PUT" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        <a href="/products/detail/25"><button type="button"
+                                                                class="btn btn-outline-dark">Ver</button></a>
+                                                        <a><button class="btn-carrito btn  btn-dark" style="background-color: #4d582a;"
+                                                                value="25">Carrito</button></a>
+                                                    </form>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
+
+                                    <div class="col-4 col-md-3 col-lg-3 ">
+                                        <div class="contenido ">
+
+                                            <!--ETIQUETA SEMANTICA-->
+                                            <figure class="text-center">
+                                                <a href="/products/detail/44">
+                                                    <img src="/img/products/Rifles-Rifle-Fox-M16-Pcp-Cal-5mm-350cc-Con-Cargador-300x300.jpg"
+                                                        class="d-block w-100" alt="...">
+                                                </a>
+                                            </figure>
+
+                                            <!--informacion-->
+                                            <article class="text-center">
+                                                <!--nombre del producto ??-->
+                                                <p class="m-0">
+                                                    Rifle Gas Comprimido Shark Repetición 5 mm Balines
+                                                </p>
+                                                <!--precio-->
+                                                <h3 class="d-inline">
+                                                    3.627
+                                                </h3>
+                                                <!--descuento-->
+                                                $4.030 / 10 % OFF
+
+                                                <!--icono de envío-->
+                                                <i class="fas fa-truck "></i>
+
+                                                <!--botones ver y comprar-->
+                                                <div class="d-block ">
+                                                    <form class="d-inline"
+                                                        action="/products/agregarAlCarrito/44?_method=PUT" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        <a href="/products/detail/44"><button type="button"
+                                                                class="btn btn-outline-dark">Ver</button></a>
+                                                        <a><button class="btn-carrito btn  btn-dark" style="background-color: #4d582a;"
+                                                                value="44">Carrito</button></a>
+                                                    </form>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-        
-                                    <div class="col-4 col-md-3 col-lg-3 mb-3">
-                                        <div class="contenido p-3">
-        
-                                        <!--ETIQUETA SEMANTICA-->
-                                        <figure class="text-center">
-                                            <a href="/products/detail/44">
-                                                <img src="/img/products/Rifles-Rifle-Fox-M16-Pcp-Cal-5mm-350cc-Con-Cargador-300x300.jpg" class="d-block w-100" alt="...">
-                                            </a>
-                                        </figure>
-            
-                                        <!--informacion-->
-                                        <article class="text-center">
-                                            <!--nombre del producto ??-->
-                                            <p class="m-0">
-                                                Rifle Gas Comprimido Shark Repetición 5 mm Balines 
-                                            </p>
-                                            <!--precio-->
-                                            <h2 class="d-inline">                                  
-                                            3.627
-                                            </h2>
-                                            <!--descuento-->
-                                            $4.030 / 10 % OFF 
-                                            
-                                            <!--icono de envío-->
-                                            <i class="fas fa-truck "></i>
-            
-                                            <!--botones ver y comprar-->
-                                            <div class="d-block m-3">
-                                                <form class="d-inline" action="/products/agregarAlCarrito/44?_method=PUT" method="POST" enctype="multipart/form-data">  
-                                                    <a href="/products/detail/44"><button type="button" class="btn btn-outline-dark">Ver</button></a>
-                                                    <a><button class="btn-carrito btn  btn-dark" value="44">Carrito</button></a>
-                                                </form>
-                                            </div>
-                                        </article>
+
+                                    <div class="col-4 col-md-3 col-lg-3 ">
+                                        <div class="contenido ">
+
+                                            <!--ETIQUETA SEMANTICA-->
+                                            <figure class="text-center">
+                                                <a href="/products/detail/9">
+                                                    <img src="/img/products/Pesca-Caña-Okuma-Morena-Power-2.10-2-Tramos-15-45-Libras-300x300.jpg"
+                                                        class="d-block w-100" alt="...">
+                                                </a>
+                                            </figure>
+
+                                            <!--informacion-->
+                                            <article class="text-center">
+                                                <!--nombre del producto ??-->
+                                                <p class="m-0">
+                                                    Caña Okuma Morena Power 2.10 Tramos 
+                                                </p>
+                                                <!--precio-->
+                                                <h3 class="d-inline">
+
+                                                    5.450
+
+                                                </h3>
+                                                <!--descuento-->
+                                                $3.250 / 15 % OFF
+                                                <!--icono de envío-->
+                                                <i class="fas fa-truck "></i>
+
+                                                <!--botones ver y comprar-->
+                                                <div class="d-block ">
+                                                    <form class="d-inline"
+                                                        action="/products/agregarAlCarrito/9?_method=PUT" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        <a href="/products/detail/9"><button type="button"
+                                                                class="btn btn-outline-dark">Ver</button></a>
+                                                        <a><button class="btn-carrito btn  btn-dark" style="background-color: #4d582a;"
+                                                                value="9">Carrito</button></a>
+                                                    </form>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-                                    </div>
-        
-                                    <div class="col-4 col-md-3 col-lg-3 mb-3">
-                                        <div class="contenido p-3">
-        
-                                        <!--ETIQUETA SEMANTICA-->
-                                        <figure class="text-center">
-                                            <a href="/products/detail/18">
-                                                <img src="/img/products/Accesorios-Cortaplumas-Victorinox-Fisherman-Roja-17-Usos-1.4733.72-300x300.jpg" class="d-block w-100" alt="...">
-                                            </a>
-                                        </figure>
-            
-                                        <!--informacion-->
-                                        <article class="text-center">
-                                            <!--nombre del producto ??-->
-                                            <p class="m-0">
-                                                Cortaplumas Victorinox Fisherman Roja 17 Usos
-                                            </p>
-                                            <!--precio-->
-                                            <h2 class="d-inline">
-        
-                                                1.063
-         
-                                            </h2>
-                                            <!--descuento-->
-                                            $1.250 / 15 % OFF 
-                                            <!--icono de envío-->
-                                            <i class="fas fa-truck "></i>
-            
-                                            <!--botones ver y comprar-->
-                                            <div class="d-block m-3">
-                                                <form class="d-inline" action="/products/agregarAlCarrito/18?_method=PUT" method="POST" enctype="multipart/form-data">  
-                                                    <a href="/products/detail/18"><button type="button" class="btn btn-outline-dark">Ver</button></a>
-                                                    <a><button class="btn-carrito btn  btn-dark" value="18">Carrito</button></a>
-                                                </form>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    </div>
-        
-        
-                                   
                                 </div>
                             </div>
-        
+
                         </div>
-                        <a  class="carousel-control-prev controlPrev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <a class="carousel-control-prev controlPrev" href="#carouselExampleControls" role="button"
+                            data-slide="prev">
                             <i class="fas fa-chevron-circle-left"></i>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next controlNext" href="#carouselExampleControls" role="button" data-slide="next">
+                        <a class="carousel-control-next controlNext" href="#carouselExampleControls" role="button"
+                            data-slide="next">
                             <i class="fas fa-chevron-circle-right"></i>
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-            </article>
-        </div>
     </main>
     <!--====  End of Content  ====-->
-   
-   <!-- footer -->
-   <%- include('partials/footer.ejs') %>
+
+    <!-- footer -->
+    <%- include('partials/footer.ejs') %>
     <!-- scripts -->
     <%- include('partials/scripts.ejs') %>
 </body>
