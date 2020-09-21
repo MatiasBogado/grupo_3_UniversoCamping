@@ -6,17 +6,17 @@ module.exports = [
     .isLength({
         min:1
     })
-    .withMessage('Ingresa tu nombre amigo'),
+    .withMessage('Ingresa tu nombre'),
 
     check('apellido')
     .isLength({
         min:1
     })
-    .withMessage('tu apellido tambien bro'),
+    .withMessage('Ingresa tu apellido'),
 
     check('email')
     .isEmail()
-    .withMessage('ingresa un e-mail válido forro'),
+    .withMessage('ingresa un e-mail válido'),
 
     body('email')
     .custom(function(value){
@@ -27,14 +27,14 @@ module.exports = [
         }
         return true
     })
-    .withMessage('Este mail ya está registrado salame'),
+    .withMessage('Este mail ya está registrado'),
     
     check('contraseña')
     .isLength({
         min:6,
         max:12,
     })
-    .withMessage('La contraseña no es valida, ponele onda che'),
+    .withMessage('La contraseña no es valida'),
 
     body('contraseña2')
     .custom(function(value,{req}){
@@ -43,9 +43,9 @@ module.exports = [
         }
         return true
     })
-    .withMessage('Las contraseñas no coinciden, tiene que coincidir pa'),
+    .withMessage('Las contraseñas no coinciden'),
 
     check('bases')
     .isString('on')
-    .withMessage('tenes aceptar las bases y condiciones, dale che media pila')
+    .withMessage('tenes aceptar las bases y condiciones')
 ]
