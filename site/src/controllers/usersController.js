@@ -70,7 +70,7 @@ const users = {
                 }
             })
             if(req.body.recordar){
-                res.cookie('userUniversoCamping',req.session.user,{maxAge:1000*60*2})
+                res.cookie('userUniversoCamping',req.session.user,{maxAge:1000*60*60*24})
             }
             return res.redirect('/')
         }else{
@@ -95,7 +95,55 @@ const users = {
             productos: dbProducts,
             user:req.session.user
             })
-        }
+        },
+        admin:function(req,res,next){
+            let idUser = req.params.id;
+            let show = req.params.show
+            let usersTotales= dbUsers
+            let resultado = dbUsers.filter(user =>{
+                return user.id == idUser
+            })
+            res.render("adminUsers",{
+                title: "Administracion de Usuarios",
+                usuario: resultado[0],
+                total: dbUsers.length,
+                show: show,
+                usersTotales: usersTotales,
+                user:req.session.user
+            })
+          },
+      editar: (req, res) => {
+        dbUsers.forEach(user => {
+            if (user.id == req.params.id){
+              user.nombre = req.body.nombre.trim(),
+              user.apellido = req.body.apellido.trim(),
+              user.rol= req.body.rol.trim(),
+              user.avatar = (req.files[0]?req.files[0].filename:user.avatar),
+              user.edad = req.body.edad,
+              user.email = req.body.email,
+              user.pais = req.body.pais,
+              user.localidad = req.body.localidad
+              
+            }
+        })
+        usersJSON = JSON.stringify(dbUsers)
+
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'users.json') , usersJSON)
+
+        res.redirect('/users/admin/' + req.params.id)
+  },
+  eliminar:function(req,res){
+      let idUser = req.params.id;
+      let aEliminar;
+      dbUsers.forEach(usuario=>{
+          if(usuario.id == idUser){
+              aEliminar = dbUsers.indexOf(usuario)
+          }
+      })
+      dbUsers.splice(aEliminar,1)
+      fs.writeFileSync(path.join(__dirname,'..','data','users.json'),JSON.stringify(dbUsers));
+      res.redirect('/users/admin/1')
+  }
 }
 
 module.exports = users;

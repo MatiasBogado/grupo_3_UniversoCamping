@@ -24,6 +24,9 @@ router.get('/show/:id',sessionUserCheck,productsController.show);
 router.put('/edit/:id',multerProduct.any(),sessionUserCheck,productsController.editar);
 router.delete('/delete/:id',sessionUserCheck,productsController.eliminar);
 
+router.get('/admin/:id',sessionUserCheck,productsController.admin);
+
+
 
 
 module.exports = router

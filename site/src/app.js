@@ -10,8 +10,6 @@ const methodOverride = require('method-override');
 
 const session = require('express-session');
 
-app.use(session({secret:'mercado liebre for ever'}));
-
 // view engine setup
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));

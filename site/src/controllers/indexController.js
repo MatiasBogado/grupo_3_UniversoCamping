@@ -1,4 +1,6 @@
 const dbProduct = require('../data/products'); //requiero la base de datos de productos
+const categorias =require('../data/category')
+
 
 const index = {
     index:function(req,res) {

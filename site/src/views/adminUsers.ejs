@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+<body>
+    <%- include('partials/header') %>
+
+
+    <div class="container">
+        <section class="perfilUsuario">
+            <div class="row perfil">
+                <!-- TITULO -->
+                <div class="titulo col-12">
+                    <h5 class="titleSection card-header text-center my-3">
+                        <%= title %>
+                    </h5>
+                </div>
+                <!-- BOTONES NAVEGACION USUARIO / PRODUCTOS -->
+                <div class="container row">
+                    <div style="margin-left: 15px;">
+                        <a class="" id="profile-tab"  href="/products/admin/1" >PRODUCTOS</a>
+                    </div>
+                    
+                    <div style="margin-left: 15px;">
+                        <a class="r" id="profile-tab"  href="/users/admin/1">USUARIOS</a>
+                    </div>
+                </div>
+
+                <!-- CONTENEDOR PRINCIPAL -->
+                <div class="col-12">
+
+                    <div class="">
+                        <!-- BOTONES NAVEGACION -->
+                        <ul class="nav nav-tabs " id="myTab" role="tablist">
+                            <!-- DETALLE -->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link active blackColor" id="profile-tab" data-toggle="tab" href="#detalleUsuario" role="tab" aria-controls="profile" aria-selected="false">Detalle Usuario</a>
+                            </li>
+
+                            <!-- LISTADO -->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="profile-tab" data-toggle="tab" href="#listadoUsuario" role="tab" aria-controls="profile" aria-selected="false">Lista de Usuarios</a>
+                            </li>
+
+                            <!-- EDITAR -->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#editarUsuario" role="tab" aria-controls="home" aria-selected="true">Editar Usuario</a>                            
+                            </li>   
+
+                            <!-- AGREGAR -->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#agregarUsuario" role="tab" aria-controls="home" aria-selected="true">Agregar Usuario</a>                            
+                            </li>    
+                        </ul>
+
+                        <!-- CONTENEDOR INFO -->
+                        <div class="tab-content" id="myTabContent ">
+
+                            <!-- DETALLE USUARIO -->
+                            <div class="tab-pane fade  show   active " id="detalleUsuario" role="tabpanel" aria-labelledby="profile-tab">
+                                
+                                <!-- flechas nav y nombre -->
+                                <div class="row p-3">
+                                    <div class="col-12">  
+                                        <!-- flecha izq -->                                   
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <% if (usuario.id>1) { %>
+                                                    <a href="/users/admin/<%- usuario.id-1 %> " class="text-warning"><i class="fas fa-angle-double-left" style="font-size: 2.5em; color: #534317"></i></a>
+                                                    <% } %>
+                                            </div>
+                                            <!-- usuario -->
+                                            <div class="col-10">
+                                                <h3 class="text-center">
+                                                    <%= usuario.id + " - " %> <%= usuario.nombre.replace(/\b\w/g, l => l.toUpperCase()) %><%= " "+ usuario.apellido.replace(/\b\w/g, l => l.toUpperCase()) %>
+                                                </h3>
+                                            </div>
+                                            <!--  flecha derecha   -->
+                                            <div class="col-1">
+                                                <% if (usuario.id < total) { %>
+                                                    <a href="/users/admin/<%- usuario.id+1 %> " class="text-warning"><i class="fas fa-angle-double-right "style="font-size: 2.5em; color: #534317"></i></a>
+                                                    <% } %>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- CONTENEDOR FOTO INFO USER -->
+                                <div class="row col-12">
+                                    
+                                    <!-- IMAGEN USUARIO -->
+                                    <div class="col-12 col-md-4">
+                                        <figure class="text-center">
+                                            <img src="/img/avatares/<%= usuario.avatar %> " alt="" class="img-fluid">
+                                        </figure>
+                                    </div>
+
+                                    
+                                    <!-- INFO user -->
+                                    <div class="col-12 col-md-8" >
+            
+                                        <div class="row">
+                                            <!-- EDAD -->
+                                            <div class="col-12 col-lg-4">
+                                                <span><b>Edad:</b> 
+                                                    <%= usuario.edad %>
+                                                </span>
+                                            </div>
+                                            <!-- CATEGORIA -->
+                                            <div class="col-12 col-lg-4">
+                                                <span><b>Categoría:</b> 
+                                                    <%= usuario.rol %>
+                                                </span>
+                                            </div>
+                                            <!-- MAIL -->
+                                            <div class="col-12 col-lg-4">
+                                                <span><b>Email:</b> 
+                                                    <%= usuario.email %>
+                                                </span>
+                                            </div>
+                                            <!-- PAIS -->
+                                            <div class="col-12 col-lg-4">
+                                                <span><b>Pais:</b> 
+                                                    <%= usuario.pais %>
+                                                </span>
+                                            </div>
+                                        <!-- LOCALIDAD -->
+                                            <div class="col-12 col-lg-4">
+                                                <span><b>Localidad:</b> 
+                                                    <%= usuario.localidad %>
+                                                </span>
+                                            </div>
+                                        <!-- DIRECCION -->
+                                            <div class="col-12 col-lg-4">
+                                                <span><b>Direccion:</b> 
+                                                    <%= usuario.direccion %>
+                                                </span>
+                                            </div>
+                                            <!-- COMPRAS -->
+                                            <div class="col-12 -">
+                                                <span><b>Compras realizadas:</b> 
+                                                    <%= usuario.compras %>
+                                                </span>
+                                            </div>
+                                        </div><!--  -->
+                                    </div><!-- FIN INFO user -->
+                                </div>
+
+                            </div>
+
+                            <!-- LISTADO USUARIOS -->
+                            <div class="tab-pane fade show" id="listadoUsuario" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row productos p-4">
+                                    <div class="row p-3">
+                                        <!-- IMAGEN -->
+                                        <% usersTotales.forEach( userlist=> { %>
+                                        <div class="col-6">
+                                            <ul class="row" >
+                                                
+                                                <li style="list-style: none"><img src="/img/avatares/<%= (userlist.avatar) %> " style="width: 40px; width: 40px; margin-right: 10px;" alt="" ><a href="/users/admin/<%= userlist.id %>"><%= userlist.nombre.replace(/\b\w/g, l => l.toUpperCase()) %>  <%= userlist.apellido.replace(/\b\w/g, l => l.toUpperCase()) %>  | <%= userlist.email %> </a></li>
+                                            </ul>
+                                        </div>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- EDITAR USUARIO -->
+                            <div class="container tab-pane fade " id="editarUsuario" role="tabpanel" aria-labelledby="home-tab">
+                                <form action="/users/editar/<%= usuario.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                    
+                                    <div class="row p-3 col-12">
+                                         <!-- EDITAR IMAGEN -->
+                                        <div class="col-12 col-md-4 col-xl-4 mt-3">
+                                            <figure class="text-center">
+                                                <img src="/img/avatares/<%= usuario.avatar %> " alt="" class="img-fluid">
+                                            </figure>
+                                            <input type="file" class="form-control" name="avatar">
+                                        </div>
+        
+                                        <div class="col-12 col-lg-8"> <!-- NOMBRE Y APELLIDO -->
+
+                                        <!-- EDITAR NOMBRE DE user -->
+        
+                                        <div class="form-group col-12 ">
+                                            <label for="">Nombre</label>
+                                            <input class="form-control" type="text" value="<%= usuario.nombre%>" name="nombre">
+                                        </div>
+                                            <!-- APELLIDO -->
+                                        <div class="form-group col-12 ">
+                                            <label for="">Apellido</label>
+                                            <input class="form-control" type="text" value="<%= usuario.apellido%>" name="apellido">
+                                        </div>
+                                        
+             
+                                            
+                                                <!-- EDAD -->
+                                                <div class="col-12 col-lg-3">
+                                                    <label for="">Edad:</label><input type="number" value="<%= usuario.edad %>" name="edad">
+                                                </div>
+
+                                                <!-- CATEGORIA -->
+                                                <div class="col-12 col-lg-4">
+                                                    <span>Categoría:
+                                        
+                                                        <select name="rol" id="">
+                                                            <option value="<%= usuario.rol %>" selected><%= usuario.rol %></option>
+                                                            <% if( usuario.rol != "admin") {%> 
+                                                            <option value="admin">admin</option>
+                                                            <% }else if( usuario.rol != "user") {%> 
+                                                            <option value="user">user</option>
+                                                            <% } %> 
+                                                        </select>
+                                                    </span>
+                                                </div>
+
+                                                <!-- MAIL -->
+                                                <div class="col-12 col-lg-5">
+                                                    <label for="">Email</label>
+                                                    <input class="form-control" type="text" value="<%= usuario.email%>" name="email">
+                                                </div>
+
+                                                <!-- PAIS -->
+                                                <div class="col-12 col-lg-4">
+                                                    <label for="">Pais:</label>      
+                                                    <input class="form-control " type="text" value="<%= usuario.pais%>" name="pais">
+                                                </div>
+
+                                              <!-- LOCALIDAD -->
+                                                <div class="col-12 col-lg-4">
+                                                    <span><b>Localidad:</b> 
+                                                        <%= usuario.localidad %>
+                                                    </span>
+                                                </div>
+
+                                               <!-- DIRECCION -->
+                                                <div class="col-12 col-lg-4">
+                                                    <span><b>Direccion:</b> 
+                                                        <%= usuario.direccion %>
+                                                    </span>
+                                                </div>
+
+                                                <!-- COMPRAS -->
+                                                <div class="col-12 -">
+                                                    <span><b>Compras realizadas:</b> 
+                                                        <%= usuario.compras %>
+                                                    </span>
+                                                </div>
+                                                
+                                                <!-- BOTONES  EDIT-->
+                                                <div class="col-12 d-flex justify-content-end"  id="botones">
+                                                    
+                                                    <button class="btn btn-info" type="submit" name="id" >ACTUALIZAR DATOS</button>
+        
+                                                </div>
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                       
+                                </form>
+                                <form action="/users/delete/<%= usuario.id %>?_method=DELETE" method="POST">
+                                    <div class="col-12 d-flex justify-content-end"  id="botones">
+                                    <button class="btn btn-danger mb-3">
+                                        ELIMINAR USUARIO
+                                    </button>
+                                </div>
+                                </form>
+                                
+
+        
+        
+                            </div>
+
+                            <!-- AGREGAR USUARIO -->
+                            <div class="container tab-pane fade " id="agregarUsuario" role="tabpanel" aria-labelledby="home-tab">
+
+                                <form action="/users/register" method="POST"style="padding-left: 15px; padding-right: 15px" class="mt-3" enctype="multipart/form-data">
+                                    <div class="row form-group">
+                                        <label for="nombre" class="col-form-label col-md-4 ">Nombre:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="nombre" value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>" id="nombre" class="form-control">
+                                            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="apellido" class="col-form-label col-md-4 ">Apellido:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="apellido" value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:'' %>" id="apellido" class="form-control">
+                                            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %> </small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="email" class="col-form-label col-md-4 ">E-mail:</label>
+                                        <div class="col-md-8">
+                                            <input type="email" name="email" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" id="email" class="form-control">
+                                            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="contraseña" class="col-form-label col-md-4 <%= (typeof errors != 'undefined' && errors.contraseña)?"is-invalid": ""  %></label>">Contraseña:</label>
+                                        <div class="col-md-8">
+                                            <input type="password" name="contraseña" value="" id="password"
+                                                class="form-control">
+                                            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="nombre" class="col-form-label col-md-4 ">Confirmar Contraseña:</label>
+                                        <div class="col-md-8">
+                                            <input type="password" name="contraseña2" value=""
+                                                id="Confirmar Contraseña" class="form-control <%= (typeof errors != 'undefined' && errors.contraseña2)?"is-invalid": ""  %>">
+                                            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña2)?errors.contraseña2.msg: "" %> </small>
+                                        </div>
+                                    </div>
+        
+                                    <div class="form-group col-12 col-xl-6">
+                                        <div class="custom-file mt-4">
+                                          <input type="file" class="custom-file-input " id="customFileLang" lang="es" name="avatar">
+                                          <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                          <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
+                                        </div>
+                                      </div>
+        
+                                    <div class="form-group form-check text-center">
+                                          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="bases" required>
+                                          <label class="form-check-label" for="exampleCheck1">Acepto los <a href="">terminos y condiciones</a> </label>
+                                          <br>
+                                          <small class="text-danger"><%= (typeof errors != 'undefined' && errors.bases)?errors.bases.msg: "" %> </small>
+                                    </div>
+                                    
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="text-center">
+                                            <button class="register btn btn-outline-dark"  type="submit">REGISTRAR</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+</body>
+
+</html>

@@ -135,7 +135,7 @@ const products = {
             }
         })
         fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(dbProduct),'utf-8');
-        res.redirect('/products/show/'+ idProducto)
+        res.redirect('/products/admin/'+ idProducto)
     },
     eliminar:function(req,res){
         let idProducto = req.params.id;
@@ -148,7 +148,25 @@ const products = {
         dbProduct.splice(aEliminar,1)
         fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(dbProduct));
         res.redirect('/users/profile')
+    },
+    admin:function(req,res){
+        let idProducto = req.params.id;
+        let  show = req.params.show
+        let productosTotales= dbProduct
+        let resultado = dbProduct.filter(producto =>{
+            return producto.id == idProducto
+        })
+            res.render("adminProducts",{
+            title: "Administracion de productos",
+            producto: resultado[0],
+            total: dbProduct.length,
+            categorias:categorias,
+            show: show,
+            productosTotales: productosTotales,
+            user:req.session.user
+        })
     }
+
 }
 
 module.exports = products;
