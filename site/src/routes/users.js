@@ -9,6 +9,7 @@ const multerAvatar = require('../middlewares/multerAvatar');
 const productsController = require('../controllers/productsController')
 
 const sessionUserCheck = require("../middlewares/sessionUserCheck")
+const sessionAdminCheck = require("../middlewares/sessionAdminCheck")
 
 const multerProduct = require("../middlewares/multerProduct")
 
@@ -25,10 +26,10 @@ router.post('/profile',multerProduct.any(),sessionUserCheck,productsController.a
 
 router.get('/logout',usersController.logout);
 
-router.get('/admin/:id',sessionUserCheck,usersController.admin);
+router.get('/admin/:id',sessionAdminCheck,usersController.admin);
 
-router.put('/editar/:id',multerAvatar.any(),sessionUserCheck,usersController.editar);
-router.delete('/delete/:id',sessionUserCheck,usersController.eliminar);
+router.put('/editar/:id',multerAvatar.any(),sessionAdminCheck,usersController.editar);
+router.delete('/delete/:id',sessionAdminCheck,usersController.eliminar);
 
 
 

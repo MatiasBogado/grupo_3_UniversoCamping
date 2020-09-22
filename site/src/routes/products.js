@@ -4,6 +4,7 @@ const router = express.Router();
 const productsController = require('../controllers/productsController')
 
 const sessionUserCheck = require("../middlewares/sessionUserCheck")
+const sessionAdminCheck = require("../middlewares/sessionAdminCheck")
 
 const multerProduct = require("../middlewares/multerProduct")
 
@@ -17,14 +18,14 @@ router.get('/detail/:id', productsController.productDetail)
 router.get('/search',productsController.buscar);
 
 
-router.get('/add',sessionUserCheck, productsController.addView)
-router.post('/add',multerProduct.any(),sessionUserCheck,productsController.agregar)
+router.get('/add',sessionAdminCheck, productsController.addView)
+router.post('/add',multerProduct.any(),sessionAdminCheck,productsController.agregar)
 
-router.get('/show/:id',sessionUserCheck,productsController.show);
-router.put('/edit/:id',multerProduct.any(),sessionUserCheck,productsController.editar);
-router.delete('/delete/:id',sessionUserCheck,productsController.eliminar);
+router.get('/show/:id',sessionAdminCheck,productsController.show);
+router.put('/edit/:id',multerProduct.any(),sessionAdminCheck,productsController.editar);
+router.delete('/delete/:id',sessionAdminCheck,productsController.eliminar);
 
-router.get('/admin/:id',sessionUserCheck,productsController.admin);
+router.get('/admin/:id',sessionAdminCheck,productsController.admin);
 
 
 
