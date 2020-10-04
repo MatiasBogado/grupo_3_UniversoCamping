@@ -22,14 +22,14 @@ router.get('/login', usersController.login)
 router.post('/login',loginValidator, usersController.procesoLogin)
 
 router.get('/profile', sessionUserCheck, usersController.profile);
-router.post('/profile',multerProduct.any(),sessionUserCheck,productsController.agregar)
+router.put('/updateProfile/:id',multerAvatar.any(),usersController.updateProfile);
 
 router.get('/logout',usersController.logout);
 
 router.get('/admin/:id',sessionAdminCheck,usersController.admin);
 
 router.put('/editar/:id',multerAvatar.any(),sessionAdminCheck,usersController.editar);
-router.delete('/delete/:id',sessionAdminCheck,usersController.eliminar);
+router.delete('/delete/:id',usersController.eliminar);
 
 
 

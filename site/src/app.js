@@ -9,7 +9,7 @@ var logger = require('morgan');
 const methodOverride = require('method-override');
 
 const session = require('express-session');
-
+const localsUserCheck = require("./middlewares/localsUserCheck")
 // view engine setup
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret:'Universo camping rules'}));
-
+app.use(localsUserCheck)
 app.use(methodOverride('_method'));
 
 //rutas

@@ -72,7 +72,7 @@
                                             <!-- usuario -->
                                             <div class="col-10">
                                                 <h3 class="text-center">
-                                                    <%= usuario.id + " - " %> <%= usuario.nombre.replace(/\b\w/g, l => l.toUpperCase()) %><%= " "+ usuario.apellido.replace(/\b\w/g, l => l.toUpperCase()) %>
+                                                    <%= usuario.id + " - " %> <%= usuario.nombre %><%= " "+ usuario.apellido %>
                                                 </h3>
                                             </div>
                                             <!--  flecha derecha   -->
@@ -105,7 +105,7 @@
                                             <!-- EDAD -->
                                             <div class="col-12 col-lg-4">
                                                 <span><b>Edad:</b> 
-                                                    <%= usuario.edad %>
+                                                    <%= usuario.fecha %>
                                                 </span>
                                             </div>
                                             <!-- CATEGORIA -->
@@ -122,20 +122,20 @@
                                             </div>
                                             <!-- PAIS -->
                                             <div class="col-12 col-lg-4">
-                                                <span><b>Pais:</b> 
-                                                    <%= usuario.pais %>
+                                                <span><b>Direccion:</b> 
+                                                    <%= usuario.direccion %>
                                                 </span>
                                             </div>
                                         <!-- LOCALIDAD -->
                                             <div class="col-12 col-lg-4">
-                                                <span><b>Localidad:</b> 
-                                                    <%= usuario.localidad %>
+                                                <span><b>Ciudad:</b> 
+                                                    <%= usuario.ciudad %>
                                                 </span>
                                             </div>
                                         <!-- DIRECCION -->
                                             <div class="col-12 col-lg-4">
-                                                <span><b>Direccion:</b> 
-                                                    <%= usuario.direccion %>
+                                                <span><b>Provincia:</b> 
+                                                    <%= usuario.provincia %>
                                                 </span>
                                             </div>
                                             <!-- COMPRAS -->
@@ -198,7 +198,7 @@
                                             
                                                 <!-- EDAD -->
                                                 <div class="col-12 col-lg-3">
-                                                    <label for="">Edad:</label><input type="number" value="<%= usuario.edad %>" name="edad">
+                                                    <label for="">Edad:</label><input type="date" value="<%= usuario.edad %>" name="edad">
                                                 </div>
 
                                                 <!-- CATEGORIA -->
@@ -222,25 +222,22 @@
                                                     <input class="form-control" type="text" value="<%= usuario.email%>" name="email">
                                                 </div>
 
-                                                <!-- PAIS -->
-                                                <div class="col-12 col-lg-4">
-                                                    <label for="">Pais:</label>      
-                                                    <input class="form-control " type="text" value="<%= usuario.pais%>" name="pais">
-                                                </div>
-
-                                              <!-- LOCALIDAD -->
-                                                <div class="col-12 col-lg-4">
-                                                    <span><b>Localidad:</b> 
-                                                        <%= usuario.localidad %>
-                                                    </span>
-                                                </div>
-
-                                               <!-- DIRECCION -->
-                                                <div class="col-12 col-lg-4">
-                                                    <span><b>Direccion:</b> 
-                                                        <%= usuario.direccion %>
-                                                    </span>
-                                                </div>
+                                                    <!-- DIRECCION -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Direccion:</label>      
+                                                        <input class="form-control " type="text" value="<%= user.direccion%>" name="direccion">
+                                                    </div>
+                                                <!-- CIUDAD -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Ciudad:</label>   
+                                                            <input class="form-control " type="text" value="<%= user.ciudad%>" name="ciudad">
+                                                        
+                                                    </div>
+                                                <!-- PROVINCIA -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Provincia:</label>   
+                                                            <input class="form-control " type="text" value="<%= user.provincia%>" name="provincia">
+                                                    </div>
 
                                                 <!-- COMPRAS -->
                                                 <div class="col-12 -">
