@@ -1,40 +1,63 @@
-const dbProduct = require('../data/products'); //requiero la base de datos de productos
-const categorias =require('../data/category')
+const db = require('../database/models');
+const dbProduct = require('../data/products');
+const dbCategories = require('../data/category')
+
 
 const fs = require('fs');
 const path = require('path');
 
 const products = {
-    productDetail:function(req,res){
-        let id = req.params.id;
-        let producto = dbProduct.filter(producto=>{
-            return producto.id == id
+    
+    agregar:function(req,res,next){
+        
+        db.Products.create({
+            nombre: req.body.name.trim(),
+            precio:Number(req.body.price),
+            descuento:Number(req.body.discount),
+            descripcion:req.body.description.trim(),
+            imagenes: (req.files[0])?req.files[0].filename:"default-image.png"
         })
-        console.log(producto)
-        res.render('productDetail',{
-            title:"Detalle del Producto",
-            producto:producto[0],
+        res.redirect('/products')
+},
+
+listar: function(req,res) {
+    db.Products.findAll()
+    .then(function(productos){
+        return res.render('products', {
+            title: "Todos los Productos",
+            productos: productos,
+            user:req.session.user
+        }) //muestra información de prueba
+    })
+    
+},
+
+addView:function(req,res){
+    //NO TOMA CATEGORIAS, ARREGLAR
+    db.Categories.findAll()
+    .then(function(categorias){
+        return res.render('productAdd',{
+            categorias:categorias,
             user:req.session.user
         })
-    },
-    buscar:function(req,res){
-        let buscar = req.query.search;
-        if(buscar == ""){
-            res.redirect("/")
-        }else{
-        let resultados=[];
-        dbProduct.forEach(producto=>{
-            if(producto.name.toLowerCase().includes(buscar.toLowerCase()) || producto.description.toLowerCase().includes(buscar.toLowerCase()) || producto.category.toLowerCase().includes(buscar.toLowerCase())){
-                resultados.push(producto)
+    })
+    
+    
+},
+    productDetail:function(req,res){
+        db.Products.findOne({
+            where:{
+                id:req.params.id
             }
         })
-        res.render('products',{
-            title:"Resultado de la busqueda",
-            productos:resultados,
+    .then(function(producto){
+        return res.render('productDetail',{
+            title:"Detalle del Producto",
+            producto:producto,
             user:req.session.user
         })
-    }
-    },
+    })},
+    buscar:function(req,res){},
     enCarrito: function(req, res) {
         let productoEnCarrito = dbProduct.filter(producto => {
             return producto.AgregadoAlCarrito == true
@@ -68,104 +91,60 @@ const products = {
         fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(dbProduct),'utf-8'); 
         res.redirect('/products/carritoCompras/')
     },
-    listar: function(req, res) {
-        res.render('products', {
-                title: "Todos los Productos",
-                productos: dbProduct,
-                user:req.session.user
-            }) //muestra información de prueba
-    },
     show:function(req,res){
-        let idProducto = req.params.id;
-        let resultado = dbProduct.filter(producto =>{
-            return producto.id == idProducto
-        })
+        
+       let id = db.Products.findByPk(req.params.id)
+       let todos = db.Products.findAll()
+       Promise.all([id,todos])
+       .then(function([idProd,todosProd]){
         res.render('productShow',{
-            title: "Ver/Editar Producto",
-            producto: resultado[0],
-            total: dbProduct.length,
-            productDb : dbProduct,
-            categorias: categorias,
+            title:"Ver/Editar Producto",
+            producto:idProd,
+            total:todosProd.length,
+            productDb:todosProd,
             user:req.session.user
         })
-    },
-    addView:function(req,res){
-        res.render('productAdd',{
-            user:req.session.user
-        })
+       })
         
-    },
-    agregar:function(req,res,next){
-        
-        let lastID = 1;
-
-        dbProduct.forEach(producto=>{
-            if(producto.id > lastID){
-                lastID = producto.id
-            }
-        })
-
-        let newProduct ={
-            id: lastID + 1,
-            name: req.body.name.trim(),
-            price:Number(req.body.price),
-            discount:Number(req.body.discount),
-            category:req.body.category.trim(),
-            description:req.body.description.trim(),
-            image: (req.files[0])?req.files[0].filename:"default-image.png"
-        }
-
-        dbProduct.push(newProduct);
-        
-        fs.writeFileSync(path.join(__dirname,"..",'data',"products.json"),JSON.stringify(dbProduct),'utf-8')
-        
-        res.redirect('/products')
     },
     editar:function(req,res){
-        let idProducto = req.params.id;
-        dbProduct.forEach(producto =>{
-            if(producto.id == idProducto){
-                producto.id = Number(req.body.id);
-                producto.name = req.body.name.trim();
-                producto.price = Number(req.body.price);
-                producto.discount = Number(req.body.discount);
-                producto.category = req.body.category.trim();
-                producto.description = req.body.description.trim();
-                producto.image = (req.files[0]?req.files[0].filename:producto.image)
+        db.Products.update({
+            nombre: req.body.name.trim(),
+            precio:Number(req.body.price),
+            descuento:Number(req.body.discount),
+            descripcion:req.body.description.trim(),
+            imagenes: (req.files[0])?req.files[0].filename:"default-image.png"
+        },{
+            where:{
+                id:req.params.id
             }
         })
-        fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(dbProduct),'utf-8');
-        res.redirect('/products/admin/'+ idProducto)
+        res.redirect('/products/admin/'+req.params.id)
     },
     eliminar:function(req,res){
-        let idProducto = req.params.id;
-        let aEliminar;
-        dbProduct.forEach(producto=>{
-            if(producto.id == idProducto){
-                aEliminar = dbProduct.indexOf(producto)
+        db.Products.destroy({
+            where:{
+                id:req.params.id
             }
         })
-        dbProduct.splice(aEliminar,1)
-        fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(dbProduct));
-        res.redirect('/users/profile')
+        res.redirect('/products')
     },
     admin:function(req,res){
-        let idProducto = req.params.id;
-        let  show = req.params.show
-        let productosTotales= dbProduct
-        let resultado = dbProduct.filter(producto =>{
-            return producto.id == idProducto
-        })
-            res.render("adminProducts",{
-            title: "Administracion de productos",
-            producto: resultado[0],
-            total: dbProduct.length,
-            categorias:categorias,
-            show: show,
-            productosTotales: productosTotales,
-            user:req.session.user
-        })
-    }
+    let show = req.params.show
+    let id = db.Products.findByPk(req.params.id)
+    let todos = db.Products.findAll()
+    Promise.all([id,todos])
+    .then(function([idProd,todosProd]){
+        res.render('adminProducts',{
+        title:"Ver/Editar Producto",
+        producto:idProd,
+        total:todosProd.length,
+        show: show,
+        productosTotales:todosProd,
+        user:req.session.user
+    })
+  })
+}
 
 }
 

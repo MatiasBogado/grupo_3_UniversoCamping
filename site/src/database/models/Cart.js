@@ -16,7 +16,12 @@ module.exports = (sequelize, dataTypes) => {
         cantidad:{
             type:dataTypes.INTEGER(11),
             allowNull: false,
-        }
+        },
+        id_user: {
+            type:dataTypes.STRING(100),
+            allowNull:false
+        },
+        
     }
 
     let config = {
@@ -26,6 +31,17 @@ module.exports = (sequelize, dataTypes) => {
 
     
     const Cart = sequelize.define(alias,cols,config);
+
+    Cart.associate = function(models){
+        Cart.hasMany(models.Products,{
+            as:"producto",
+            foreignKey:"id"
+        })
+        Cart.hasMany(models.Users,{
+            as:"usuario",
+            foreignKey:"id"
+        })
+    }
     
     return Cart
 }

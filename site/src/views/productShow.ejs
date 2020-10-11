@@ -43,7 +43,7 @@
                                             </div>
                                             <div class="col-10">
                                                 <h3 class="text-center">
-                                                    <%= producto.name %>
+                                                    <%= producto.nombre %>
                                                 </h3>
                                             </div>
                                             <div class="col-1">
@@ -58,27 +58,27 @@
 
                                     <div class="col-12 col-md-4 mt-3">
                                             <figure class="text-center">
-                                                <img src="/img/products/<%= producto.image %> " alt="" class="img-fluid">
+                                                <img src="/img/products/<%= producto.imagenes %> " alt="" class="img-fluid">
                                             </figure>
                                         </div>
                                     <div class="col-12 col-md-8 mt-3">
                                         <p>
-                                            <%= producto.description %>
+                                            <%= producto.descripcion %>
                                         </p>
                                         <div class="row">
                                             <div class="col-12 col-lg-4">
                                                 <span><b>Categoría:</b> 
-                                                    <%= producto.category %>
+                                                    
                                                 </span>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-4">
                                                 <span><b>Precio:</b>  $
-                                                <%=producto.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
+                                                <%=producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
                                             </span>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-4">
                                                 <span><b>Descuento:</b> 
-                                                <%=producto.discount%>%
+                                                <%=producto.descuento%>%
                                             </span>
                                             </div>
 
@@ -93,25 +93,23 @@
                                     <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                         <div class="row p-3">
                                             <div class="form-group col-12">
-                                                <input class="form-control" type="text" value="<%= producto.name%>" name="name">
+                                                <input class="form-control" type="text" value="<%= producto.nombre%>" name="name">
                                             </div>
                                             <div class="col-12 col-md-4 col-xl-4 mt-3">
                                                 <figure class="text-center">
-                                                    <img src="/img/products/<%= producto.image %> " alt="" class="img-fluid">
+                                                    <img src="/img/products/<%= producto.imagenes %> " alt="" class="img-fluid">
                                                 </figure>
                                                 <input type="file" class="form-control" name="image">
                                             </div>
                                             <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
-                                                <textarea class="form-control" rows="7" name="description" id=""><%= producto.description %></textarea>
+                                                <textarea class="form-control" rows="7" name="description" id=""><%= producto.descripcion %></textarea>
                                                 <p>
                                                 </p>
                                                 <div class="row">
                                                     <div class="form-group col-12 col-lg-4">
 
                                                         <select name="category" id="" class="form-control">
-                                                            <% categorias.forEach(producto => { %>
-                                                                <option value=" <%= producto.category %>"> <%= producto.category %></option>
-                                                            <% }) %>
+                                                            
                 
                                                         </select>
                                                     </div>
@@ -121,13 +119,13 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">$</div>
                                                             </div>
-                                                            <input type="text" class="form-control" value="<%=producto.price%>" name="price">
+                                                            <input type="text" class="form-control" value="<%=producto.precio%>" name="price">
                                                         </div>
                                                     </div>
                                                     <div class="col-6 col-lg-4">
                                                         <div class="input-group mb-2 mr-sm-2">
 
-                                                            <input type="text" class="form-control" value="<%=producto.discount%>" name="discount">
+                                                            <input type="text" class="form-control" value="<%=producto.descuento%>" name="discount">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">%</div>
                                                             </div>

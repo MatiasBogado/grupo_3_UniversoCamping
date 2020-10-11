@@ -31,7 +31,7 @@ const products = require('./routes/products')
 
 //servidor
 const PUERTO = 8080;
-app.listen(PUERTO, () =>console.log("El servidor esta funcionando en el puerto " + PUERTO))
+app.listen(PUERTO, () =>console.log("El servidor esta funcionando en el puerto " + PUERTO + " ---> http://localhost:8080/"))
 
 //URL
 app.use('/',index)

@@ -25,7 +25,7 @@ router.get('/show/:id',sessionAdminCheck,productsController.show);
 router.put('/edit/:id',multerProduct.any(),sessionAdminCheck,productsController.editar);
 router.delete('/delete/:id',sessionAdminCheck,productsController.eliminar);
 
-router.get('/admin/:id',sessionAdminCheck,productsController.admin);
+router.get('/admin/:id?',sessionAdminCheck,productsController.admin);
 
 
 

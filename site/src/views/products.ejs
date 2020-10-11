@@ -27,7 +27,7 @@
                             <!--ETIQUETA SEMANTICA-->
                             <figure class="text-center p-3">
                                 <a href="/products/detail/<%= producto.id %> ">
-                                    <img style="max-width: 100%;" src="/img/products/<%- producto.image %>  " alt=" ">
+                                    <img style="max-width: 100%;" src="/img/products/<%- producto.imagenes %>  " alt=" ">
                                 </a>
                             </figure>
 
@@ -35,15 +35,15 @@
                             <article class="text-center">
                                 <!--nombre del producto ??-->
                                 <p>
-                                    <%- producto.name %>
+                                    <%- producto.nombre %>
                                 </p>
                                 <!--precio-->
                                 <h2 class="d-inline">$
-                                    <%- (producto.price -producto.price * producto.discount /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                    <%- (producto.precio -producto.precio * producto.descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                                 </h2>
                                 <!--descuento-->
-                                <% if (producto.discount!=0) { %>
-                                    <span> <strike> $<%= producto.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></strike> / <strong><%- producto.discount %> % OFF</strong>
+                                <% if (producto.descuento!=0) { %>
+                                    <span> <strike> $<%= producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></strike> / <strong><%- producto.descuento %> % OFF</strong>
                                     </span>
                                 <% } %>
                                 
