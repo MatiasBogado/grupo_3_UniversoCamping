@@ -9,16 +9,19 @@ const path = require('path');
 const products = {
     
     agregar:function(req,res,next){
-        
-        db.Products.create({
-            nombre: req.body.name.trim(),
-            precio:Number(req.body.price),
-            descuento:Number(req.body.discount),
-            descripcion:req.body.description.trim(),
-            imagenes: (req.files[0])?req.files[0].filename:"default-image.png"
+        db.Products.findAll()
+        .then(productos=>{
+            db.Products.create({
+                id:productos.length+1,
+                nombre: req.body.name.trim(),
+                precio:Number(req.body.price),
+                descuento:Number(req.body.discount),
+                descripcion:req.body.description.trim(),
+                imagenes: (req.files[0])?req.files[0].filename:"default-image.png"
+            })
+            res.redirect('/products')
         })
-        res.redirect('/products')
-},
+    },
 
 listar: function(req,res) {
     db.Products.findAll()
@@ -33,7 +36,6 @@ listar: function(req,res) {
 },
 
 addView:function(req,res){
-    //NO TOMA CATEGORIAS, ARREGLAR
     db.Categories.findAll()
     .then(function(categorias){
         return res.render('productAdd',{
@@ -130,21 +132,23 @@ addView:function(req,res){
         res.redirect('/products')
     },
     admin:function(req,res){
-    let show = req.params.show
-    let id = db.Products.findByPk(req.params.id)
-    let todos = db.Products.findAll()
-    Promise.all([id,todos])
-    .then(function([idProd,todosProd]){
-        res.render('adminProducts',{
-        title:"Ver/Editar Producto",
-        producto:idProd,
-        total:todosProd.length,
-        show: show,
-        productosTotales:todosProd,
-        user:req.session.user
-    })
-  })
-}
+        let show = req.params.show
+        let id = db.Products.findByPk(req.params.id)
+        let todos = db.Products.findAll()
+        let categorias = db.Categories.findAll()
+        Promise.all([id,todos,categorias])
+        .then(function([idProd,todosProd,categories]){
+            res.render('adminProducts',{
+            title:"Ver/Editar Producto",
+            producto:idProd,
+            total:todosProd.length,
+            show: show,
+            productosTotales:todosProd,
+            categorias:categories,
+            user:req.session.user
+        }) 
+      })
+    }
 
 }
 
