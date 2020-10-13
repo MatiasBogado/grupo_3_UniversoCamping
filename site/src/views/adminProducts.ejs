@@ -22,7 +22,7 @@
                     </div>
                     
                     <div style="margin-left: 15px;">
-                        <a class="r" id="profile-tab"  href="/users/admin/1">USUARIOS</a>
+                        <a class="r" id="profile-tab"  href="/users/admin/1">USUARIOS (trabajo en curso)</a>
                     </div>
                 </div>
 
@@ -94,7 +94,7 @@
                                         <div class="row">
                                             <div class="col-12 col-lg-4">
                                                 <span><b>Categoría:</b> 
-                                                    
+                                                    <%= producto.categoria.nombre %>
                                                 </span>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-4">
@@ -126,6 +126,8 @@
                                             <%if (producto.nombre.length > 10) {%>
                                             <p>
                                                 <%- producto.nombre.slice(0,20) + '...'%>
+                                                <%} else {%>
+                                                    <%- producto.nombre %>
                                             </p>
                                             <%}%>
                                             <div class="d-flex justify-content-around">
@@ -167,9 +169,13 @@
                                                 <div class="row">
                                                     <div class="form-group col-12 col-lg-4">
 
-                                                        <select name="category" id="" class="form-control">
-                                                            
-                
+                                                        <select name="categoria" class="form-control">
+                                                    <option value="1">Carpas</option>
+                                                    <option value="2">Pesca</option>
+                                                    <option value="3">Accesorios</option>
+                                                    <option value="4">Indumentaria</option>
+                                                    <option value="5">Calzado</option>
+                                                    <option value="6">Rifles</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-6 col-lg-4">
@@ -219,14 +225,13 @@
                                     <div class="">
                                         <form action="/products/add" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <select id="exampleFormControlInput1" value="" name="category">
-                                                    <option value="null">Selecciona una categoria</option>
-                                                    <option value="carpas">Carpas</option>
-                                                    <option value="pesca">Pesca</option>
-                                                    <option value="accesorios">Accesorios</option>
-                                                    <option value="indumentaria">Indumentaria</option>
-                                                    <option value="calzado">Calzado</option>
-                                                    <option value="rifles">Rifles</option>
+                                                <select id="exampleFormControlInput1" name="categoria">
+                                                    <option value="1">Carpas</option>
+                                                    <option value="2">Pesca</option>
+                                                    <option value="3">Accesorios</option>
+                                                    <option value="4">Indumentaria</option>
+                                                    <option value="5">Calzado</option>
+                                                    <option value="6">Rifles</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

@@ -22,6 +22,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull:false
         },
         
+        id_product: {
+            type:dataTypes.STRING(100),
+            allowNull:false
+        },
+        
     }
 
     let config = {
@@ -33,14 +38,14 @@ module.exports = (sequelize, dataTypes) => {
     const Cart = sequelize.define(alias,cols,config);
 
     Cart.associate = function(models){
-        Cart.hasMany(models.Products,{
+        /*Cart.hasMany(models.Products,{
             as:"producto",
-            foreignKey:"id"
+            foreignKey:"id_product"
         })
         Cart.hasMany(models.Users,{
             as:"usuario",
-            foreignKey:"id"
-        })
+            foreignKey:"id_user"
+        })*/
     }
     
     return Cart

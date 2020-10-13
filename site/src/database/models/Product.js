@@ -37,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         id_category: {
             type:dataTypes.STRING(100),
-            allowNull:true
+            allowNull:false
         }
         
     }
@@ -54,12 +54,16 @@ module.exports = (sequelize, dataTypes) => {
     Product.associate = function(models){
         Product.belongsTo(models.Categories,{
             as:"categoria",
-            foreignKey:"id"
+            foreignKey:"id_category"
         })
-        Product.belongsTo(models.Users,{
+        /*Product.belongsTo(models.Users,{
             as:"usuario",
-            foreignKey:"id"
+            foreignKey:"id_user"
         })
+        Product.belongsTo(models.carrito,{
+            as:"carrito",
+            foreignKey:"id_product"
+        })*/
         
     }
 
