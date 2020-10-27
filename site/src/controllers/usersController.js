@@ -31,7 +31,11 @@ const users = {
             )
             .then(result => {
                 console.log(result)
+                if(req.session){
+                    return res.redirect('/users/admin/1')
+                }else{
                 return res.redirect('/users/login');
+            }
             })
             .catch(errores => {
                 console.log(errores)
@@ -186,17 +190,18 @@ const users = {
             fs.unlinkSync('public/images/avatares/'+req.session.user.avatar)
         }
         //cerrar la session y borrar cookie
+        if(req.session.user.rol != "admin"){
         req.session.destroy();
         if(req.cookies.userMercadoLiebre){
             res.cookie('userMercadoLiebre','',{maxAge:-1});
-        }
+        }}
         //borrar el registro de la base de datos
         db.Users.destroy({
             where:{
                 id:req.params.id
             }
         })
-        return res.redirect('/')
+        return res.redirect('/users/admin/1')
     }
 }
 

@@ -3,11 +3,11 @@ module.exports = (sequelize, dataTypes) => {
     let alias = "Categories"
 
     let cols ={
-        id:{
-            type:dataTypes.INTEGER(11),
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey:true
+        id : {
+            type : dataTypes.INTEGER(11).UNSIGNED,
+            autoIncrement : true,
+            allowNull : false,
+            primaryKey : true
         },
         nombre:{
             type:dataTypes.STRING(45),
@@ -28,8 +28,9 @@ module.exports = (sequelize, dataTypes) => {
     const Category = sequelize.define(alias,cols,config);
 
     Category.associate = function(models){
+        /* categoria tiene muchos  productos */
         Category.hasMany(models.Products,{
-            as:"categoria",
+            as:"productos",
             foreignKey:"id_category"
         })
     }

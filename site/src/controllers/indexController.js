@@ -1,5 +1,3 @@
-const dbProduct = require('../data/products'); //requiero la base de datos de productos
-const categorias =require('../data/category')
 const db = require('../database/models');
 
 

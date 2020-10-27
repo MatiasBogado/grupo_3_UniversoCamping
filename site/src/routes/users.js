@@ -10,12 +10,12 @@ const productsController = require('../controllers/productsController')
 
 const sessionUserCheck = require("../middlewares/sessionUserCheck")
 const sessionAdminCheck = require("../middlewares/sessionAdminCheck")
-
-const multerProduct = require("../middlewares/multerProduct")
-
+const sessionUserRestrict = require ("../middlewares/sessionUserRestrict")
 
 
-router.get('/register', usersController.register)
+
+
+router.get('/register', sessionUserRestrict,usersController.register)
 router.post('/register',multerAvatar.any(),registerValidator, usersController.procesoRegister)
 
 router.get('/login', usersController.login)

@@ -1,15 +1,13 @@
-const category = require("../../data/category");
-
 module.exports = (sequelize, dataTypes) => {
 
     let alias = "Products"
 
     let cols ={
-        id:{
-            type:dataTypes.INTEGER(11),
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey:true
+        id : {
+            type : dataTypes.INTEGER(11).UNSIGNED,
+            autoIncrement : true,
+            allowNull : false,
+            primaryKey : true
         },
         nombre: {
             type:dataTypes.STRING(100),
@@ -31,13 +29,17 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.STRING(100),
             allowNull:false
         },
-        id_user: {
-            type:dataTypes.STRING(100),
-            allowNull:true
+        stock: {
+            type:dataTypes.INTEGER(11),
+            allowNull:false
+        },
+        id_cart: {
+            type:dataTypes.INTEGER(11).UNSIGNED,
+            
         },
         id_category: {
-            type:dataTypes.STRING(100),
-            allowNull:false
+            type:dataTypes.INTEGER(11).UNSIGNED,
+            
         }
         
     }
@@ -51,21 +53,38 @@ module.exports = (sequelize, dataTypes) => {
     
     const Product = sequelize.define(alias,cols,config);
     
+
     Product.associate = function(models){
+        /* productos le pertenecen a un carrito */
+        Product.belongsTo(models.Carts,{
+            as:"cart",
+            foreignKey:"id_cart"
+        })
+        /* producto pertenece a una categoria */
         Product.belongsTo(models.Categories,{
             as:"categoria",
             foreignKey:"id_category"
-        })
-        /*Product.belongsTo(models.Users,{
-            as:"usuario",
-            foreignKey:"id_user"
-        })
-        Product.belongsTo(models.carrito,{
-            as:"carrito",
-            foreignKey:"id_product"
-        })*/
-        
+        }),
+        Product.belongsToMany(models.Users,{
+            /* muchos productos le pertenece a muchos admines*/
+            as : 'admin', 
+            through : 'ventas',
+            foreignKey : 'id_products',//la clave foranea de este modelo en esa tabla intermedia
+            otherKey : 'id_users'//la otra clave foranea del otro modelo en cuestion en esa tabla intermedia
+        });
     }
+
+/*     Product.associate = function(models){
+        Product.belongsTo(models.Categories,{
+            as:"categoria",
+            foreignKey:"id"
+        })
+        Product.belongsTo(models.Users,{
+            as:"usuario",
+            foreignKey:"id"
+        })    } */
+        
+
 
     return Product
 }

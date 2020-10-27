@@ -1,7 +1,5 @@
 const db = require('../database/models');
-const dbProduct = require('../data/products');
-const dbCategories = require('../data/category')
-
+const {validationResult} = require('express-validator');
 
 const fs = require('fs');
 const path = require('path');
@@ -9,20 +7,26 @@ const path = require('path');
 const products = {
     
     agregar:function(req,res,next){
-        db.Products.findAll()
-        .then(productos=>{
-            db.Products.create({
-                id:productos.length+1,
-                nombre: req.body.name.trim(),
-                precio:Number(req.body.price),
-                descuento:Number(req.body.discount),
-                descripcion:req.body.description.trim(),
-                imagenes: (req.files[0])?req.files[0].filename:"default-image.png",
-                id_category:Number(req.body.categoria),
-            }) 
-            res.redirect('/products')
-        }) 
-    },
+        let errores = validationResult(req);
+        if(errores.isEmpty()){
+                db.Products.create({
+                    nombre: req.body.name.trim(),
+                    precio:Number(req.body.price),
+                    descuento:Number(req.body.discount),
+                    descripcion:req.body.description.trim(),
+                    imagenes: (req.files[0])?req.files[0].filename:"default.jpg",
+                    id_category:req.body.category,
+                    stock: req.body.stock
+                }) 
+                .then(result => {
+                    console.log(result)
+                    res.redirect('/products')
+                })   
+         
+        .catch(errores => {
+            console.log(errores)
+        })
+    }},
 
 listar: function(req,res) {
     db.Products.findAll()
@@ -32,6 +36,9 @@ listar: function(req,res) {
             productos: productos,
             user:req.session.user
         }) //muestra información de prueba
+    })
+    .catch(errores => {
+        console.log(errores)
     })
     
 },
@@ -43,6 +50,9 @@ addView:function(req,res){
             categorias:categorias,
             user:req.session.user
         })
+    })
+    .catch(errores => {
+        console.log(errores)
     })
     
     
@@ -59,7 +69,11 @@ addView:function(req,res){
             producto:producto,
             user:req.session.user
         })
-    })},
+    })
+    .catch(errores => {
+        console.log(errores)
+    })
+},
     buscar:function(req,res){},
     enCarrito: function(req, res) {
         let productoEnCarrito = dbProduct.filter(producto => {
@@ -108,6 +122,9 @@ addView:function(req,res){
             user:req.session.user
         })
        })
+       .catch(errores => {
+        console.log(errores)
+    })
         
     },
     editar:function(req,res){
@@ -116,8 +133,9 @@ addView:function(req,res){
             precio:Number(req.body.price),
             descuento:Number(req.body.discount),
             descripcion:req.body.description.trim(),
-            imagenes: (req.files[0])?req.files[0].filename:"default-image.png",
+            imagenes: (req.files[0])?req.files[0].filename:"default.jpg",
             id_category:Number(req.body.categoria),
+            stock: req.body.stock
         },{
             where:{
                 id:req.params.id
@@ -131,7 +149,7 @@ addView:function(req,res){
                 id:req.params.id
             }
         })
-        res.redirect('/products')
+        res.redirect('/products/admin/1')
     },
     admin:function(req,res){
         let show = req.params.show
@@ -142,8 +160,9 @@ addView:function(req,res){
             include:[{association:"categoria"}]
         })
         let categorias = db.Categories.findAll()
-        Promise.all([id,todos,categorias])
-        .then(function([idProd,todosProd,categoriasProd]){
+        let ventas = db.Ventas.findAll()   
+        Promise.all([id,todos,categorias,ventas])
+        .then(function([idProd,todosProd,categoriasProd,ventaProd]){
             res.render('adminProducts',{
             title:"Ver/Editar Producto",
             producto:idProd,
@@ -151,9 +170,12 @@ addView:function(req,res){
             show: show,
             productosTotales:todosProd,
             categorias:categoriasProd,
-            user:req.session.user
+            ventas:ventaProd
         })
       })
+      .catch(errores => {
+        console.log(errores)
+    })
     }
 
 }

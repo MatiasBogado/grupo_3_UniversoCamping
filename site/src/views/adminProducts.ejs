@@ -50,7 +50,11 @@
                             <!-- AGREGAR -->
                             <li class="nav-item " role="presentation">
                                 <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#agregarProducto" role="tab" aria-controls="home" aria-selected="true">Agregar Producto</a>                            
-                            </li>    
+                            </li>  
+                            <!-- VENTAS -->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#ventas" role="tab" aria-controls="home" aria-selected="true">Ventas</a>                            
+                            </li>   
                         </ul>
 
                         <!-- CONTENEDOR INFO -->
@@ -61,11 +65,17 @@
 
                                 <div class="row p-3">
                                     <div class="col-12">
+                                        
+
                                         <div class="row">
+                                            
                                             <div class="col-1">
-                                                <% if (producto.id > 1) { %>
-                                                    <a href="/products/admin/<%- producto.id-1 %> " class="text-warning"><i class="fas fa-angle-double-left "style="font-size: 2.5em; color: #534317"></i></a>
-                                                    <% } %>
+                                                <%for (let i = 0; i< productosTotales.length; i++) {%>
+                                                    <% if (producto.id> 1 && productosTotales[i].id==producto.id) { %> 
+                                                        <a href="/products/admin/<%-productosTotales[i-1].id%> " class="text-warning"><i class="fas fa-angle-double-left "style="font-size: 2.5em; color: #534317"></i></a>        
+                                                        <%}}%>
+                                                        
+                                                    
                                             </div>
                                             <div class="col-10">
                                                 <h3 class="text-center">
@@ -73,11 +83,15 @@
                                                 </h3>
                                             </div>
                                             <div class="col-1">
-                                                <% if (producto.id < total) { %>
-                                                    <a href="/products/admin/<%- producto.id+1 %> " class="text-warning"><i class="fas fa-angle-double-right "style="font-size: 2.5em; color: #534317"></i></a>
-
-                                                    <% } %>
+                                                <%for (let i = 0; i< productosTotales.length; i++) {%>
+                                                    <% if (producto.id != productosTotales[productosTotales.length-1].id  && productosTotales[i].id==producto.id) { %>
+                                                    <a href="/products/admin/<%- productosTotales[i+1].id%> " class="text-warning"><i class="fas fa-angle-double-right "style="font-size: 2.5em; color: #534317"></i></a>
+                                                <%}}%>
+                                                    
                                             </div>
+
+                                            
+                                        
                                         </div>
 
                                     </div>
@@ -94,7 +108,12 @@
                                         <div class="row">
                                             <div class="col-12 col-lg-4">
                                                 <span><b>Categoría:</b> 
+                                                    <% if (producto.categoria) { %>
                                                     <%= producto.categoria.nombre %>
+                                                    <% }else{ %>
+                                                    <%= "sin definir" %>
+                                                    <% } %>
+                                                        
                                                 </span>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-4">
@@ -105,6 +124,11 @@
                                             <div class="col-12 col-md-6 col-lg-4">
                                                 <span><b>Descuento:</b> 
                                                 <%=producto.descuento%>%
+                                            </span>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <span><b>Stock:</b> 
+                                                <%=producto.stock%>
                                             </span>
                                             </div>
 
@@ -167,7 +191,7 @@
                                                 <p>
                                                 </p>
                                                 <div class="row">
-                                                    <div class="form-group col-12 col-lg-4">
+                                                    <div class="form-group col-12 col-lg-3">
 
                                                         <select name="categoria" class="form-control">
                                                             <% categorias.forEach(categoria => { %>
@@ -177,7 +201,7 @@
                                                                 <% }) %>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group col-6 col-lg-4">
+                                                    <div class="form-group col-6 col-lg-3">
 
                                                         <div class="input-group mb-2 mr-sm-2">
                                                             <div class="input-group-prepend">
@@ -186,15 +210,24 @@
                                                             <input type="text" class="form-control" value="<%=producto.precio%>" name="price">
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 col-lg-4">
+                                                    <div class="col-6 col-lg-3">
                                                         <div class="input-group mb-2 mr-sm-2">
 
                                                             <input type="text" class="form-control" value="<%=producto.descuento%>" name="discount">
                                                             <div class="input-group-prepend">
-                                                                <div class="input-group-text">%</div>
+                                                                <div class="input-group-text">%off</div>
                                                             </div>
                                                         </div>
                                                         </span>
+                                                    </div>
+                                                    <div class="form-group col-6 col-lg-3">
+
+                                                        <div class="input-group mb-2 mr-sm-2">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">Stock</div>
+                                                            </div>
+                                                            <input type="text" class="form-control" value="<%=producto.stock%>" name="stock">
+                                                        </div>
                                                     </div>
                                                     <div class="col-12 d-flex justify-content-end">
                                                         <button class="btn btn btn-outline-dark mr-2" style="color: white;
@@ -224,13 +257,13 @@
                                     <div class="">
                                         <form action="/products/add" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <select id="exampleFormControlInput1" name="categoria">
-                                                    <option value="1">Carpas</option>
-                                                    <option value="2">Pesca</option>
-                                                    <option value="3">Accesorios</option>
-                                                    <option value="4">Indumentaria</option>
-                                                    <option value="5">Calzado</option>
-                                                    <option value="6">Rifles</option>
+                                                <select id="exampleFormControlInput1 col-6" value="" name="category">
+                                                    <option value="">Selecciona una categoría</option>
+                                                    <% categorias.forEach(categoria => {%>
+                                                        <option value="<%- categoria.id%>">
+                                                            <%- categoria.nombre%>
+                                                        </option>
+                                                    <%})%>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -245,6 +278,10 @@
                                                 <div class="col">
                                                     <label for="">Descuento</label>
                                                     <input type="number" class="form-control" name="discount">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="">Stock</label>
+                                                    <input type="number" class="form-control" name="stock">
                                                 </div>
                                             </div>
                                             <div class="form-group mt-3">
@@ -265,6 +302,22 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- VENTAS -->
+                            <div class="tab-pane fade show" id="ventas" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row productos p-4">
+
+                                    <h2>EN PROCESO DE CREACION</h2>
+                                    <% ventas.forEach(venta => { %>
+                                        <div class="detalleVenta">
+                                            <%- venta.id_users%>
+                                            
+                                        </div>
+                                        
+                                    <% }) %>
+                                </div>
+                            </div>
+
 
                         </div><!-- FIN CONTENEDOR DE PANELES -->
                         

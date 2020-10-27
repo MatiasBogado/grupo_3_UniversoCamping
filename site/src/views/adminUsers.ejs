@@ -65,21 +65,23 @@
                                         <!-- flecha izq -->                                   
                                         <div class="row">
                                             <div class="col-1">
-                                                <% if (usuario.id>1) { %>
-                                                    <a href="/users/admin/<%- usuario.id-1 %> " class="text-warning"><i class="fas fa-angle-double-left" style="font-size: 2.5em; color: #534317"></i></a>
-                                                    <% } %>
+                                                <%for (let i = 0; i< usersTotales.length; i++) {%>
+                                                <% if (usuario.id>1 && usersTotales[i].id== usuario.id) { %>
+                                                    <a href="/users/admin/<%- usersTotales[i-1].id %> " class="text-warning"><i class="fas fa-angle-double-left" style="font-size: 2.5em; color: #534317"></i></a>
+                                                <% }} %>
                                             </div>
                                             <!-- usuario -->
                                             <div class="col-10">
                                                 <h3 class="text-center">
-                                                    <%= usuario.id + " - " %> <%= usuario.nombre %><%= " "+ usuario.apellido %>
+                                                 <%= usuario.nombre %><%= " "+ usuario.apellido %>
                                                 </h3>
                                             </div>
                                             <!--  flecha derecha   -->
                                             <div class="col-1">
-                                                <% if (usuario.id < total) { %>
-                                                    <a href="/users/admin/<%- usuario.id+1 %> " class="text-warning"><i class="fas fa-angle-double-right "style="font-size: 2.5em; color: #534317"></i></a>
-                                                    <% } %>
+                                                <%for (let i = 0; i< usersTotales.length; i++) {%>
+                                                <% if (usuario.id != usersTotales[usersTotales.length-1].id && usersTotales[i].id== usuario.id) { %>
+                                                    <a href="/users/admin/<%- usersTotales[i+1].id %> " class="text-warning"><i class="fas fa-angle-double-right "style="font-size: 2.5em; color: #534317"></i></a>
+                                                    <% }} %>
                                             </div>
 
                                         </div>
@@ -103,6 +105,11 @@
             
                                         <div class="row">
                                             <!-- EDAD -->
+                                            <div class="col-12 col-lg-4">
+                                                <span><b>Usuario ID:</b> 
+                                                    <%= usuario.id %>
+                                                </span>
+                                            </div>
                                             <div class="col-12 col-lg-4">
                                                 <span><b>Edad:</b> 
                                                     <%= usuario.fecha %>
