@@ -17,7 +17,8 @@ router.get('/', productsController.listar)
 router.get('/detail/:id', productsController.productDetail)
 router.get('/search',productsController.buscar);
 
-
+router.post('/categories/add',productsController.categoriesAdd);
+router.put('/categories/edit/:id',productsController.CategoriesEditar);
 router.get('/add',sessionAdminCheck, productsController.addView)
 router.post('/add',multerProduct.any(),sessionAdminCheck,productsController.agregar)
 

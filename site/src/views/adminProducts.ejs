@@ -22,7 +22,7 @@
                     </div>
                     
                     <div style="margin-left: 15px;">
-                        <a class="r" id="profile-tab"  href="/users/admin/1">USUARIOS (trabajo en curso)</a>
+                        <a class="r" id="profile-tab"  href="/users/admin/1">USUARIOS</a>
                     </div>
                 </div>
 
@@ -50,6 +50,10 @@
                             <!-- AGREGAR -->
                             <li class="nav-item " role="presentation">
                                 <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#agregarProducto" role="tab" aria-controls="home" aria-selected="true">Agregar Producto</a>                            
+                            </li>  
+                            <!-- CATEGORIAS -->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#categorias" role="tab" aria-controls="home" aria-selected="true">Categorias</a>                            
                             </li>  
                             <!-- VENTAS -->
                             <li class="nav-item " role="presentation">
@@ -300,6 +304,26 @@
                                             </div>
                                         </form>
                                     </div>
+                                </div>
+                            </div>
+
+                            <!-- CATEGORIAS -->
+                            <div class="tab-pane fade show" id="categorias" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row productos p-4">
+
+                                    <h2 class="col-12">EN PROCESO DE CREACION</h2>
+                                    <div class="col-12">
+                                        <form action="/products/categories/add" method="POST" enctype="multipart/form-data">
+                                        <input type="text" name="nombre" id="" placeholder="ingrese nueva categoria">
+                                        <button type="submit">Agregar categoria</button>
+                                        </form>
+                                    </div>
+
+                                    <div>
+                                        <p>total de categorias : <%= categorias.length %> </p>
+                                    </div>
+                                    
+
                                 </div>
                             </div>
 

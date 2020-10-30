@@ -5,6 +5,7 @@ var createError = require('http-errors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors')
 
 const methodOverride = require('method-override');
 
@@ -14,6 +15,7 @@ const localsUserCheck = require("./middlewares/localsUserCheck")
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -27,6 +29,9 @@ app.use(methodOverride('_method'));
 const index = require('./routes/index')
 const users = require('./routes/users')
 const products = require('./routes/products')
+const productsApi = require("./routes/api/productsApi")
+const usersApi = require("./routes/api/usersApi")
+const categoriesApi = require("./routes/api/categoriesApi")
 
 
 //servidor
@@ -37,6 +42,9 @@ app.listen(PUERTO, () =>console.log("El servidor esta funcionando en el puerto "
 app.use('/',index)
 app.use('/products',products)
 app.use('/users',users)
+app.use("/api/products",productsApi)
+app.use("/api/users",usersApi)
+app.use("/api/categories",categoriesApi)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

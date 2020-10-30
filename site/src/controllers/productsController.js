@@ -176,6 +176,37 @@ addView:function(req,res){
       .catch(errores => {
         console.log(errores)
     })
+    },
+    categoriesAdd:function(req,res,next){
+        let errores = validationResult(req);
+        if(errores.isEmpty()){
+                db.Categories.create({
+                    nombre: req.body.nombre
+                }) 
+                
+                .then(result => {
+                    console.log(result)
+                    res.redirect('/products/admin/1')
+                })   
+         
+        .catch(errores => {
+            console.log(errores)
+        })
+
+    }   
+    },
+    CategoriesEditar:function(req,res,next){
+        db.Categories.update({
+            nombre:req.body.category
+        })
+        .then(result =>{
+            console.log(result)
+            res.redirect("/products/admin/1");
+        })
+        .catch(errores => {
+            console.log(errores)
+        })
+
     }
 
 }
