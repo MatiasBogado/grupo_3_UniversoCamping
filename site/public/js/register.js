@@ -1,5 +1,5 @@
 window.addEventListener("load", function(){
-    //REGISTER
+//REGISTER
             //Traigo el formulario del register
         let formularioRegister = document.querySelector("form#register")
             //Traigo los input del formulario
@@ -10,6 +10,7 @@ window.addEventListener("load", function(){
         let confirmPassword = document.querySelector("input#confirmPassword")
         var fileInput = document.getElementById('customFileLang');
         let selectArchivo = document.getElementById("selectArchivo")
+        let checkBox = document.getElementById("exampleCheck1")
             /* expreciones regulares */
         let regexEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
         let regexFormat = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
@@ -37,33 +38,28 @@ window.addEventListener("load", function(){
                     return false
                 }
             }
-/* consultas a la de base de datos */
+        /* consultas a la de base de datos */
 
-///////////////SIN TERMINAR  VALIDACION MISMO MAIL <<<-----------------------------
-fetch("http://localhost:8080/api/users")
-    .then(respuesta => respuesta.json())
-    .then(data => {
-        let usuarios=data.usuarios           
-           email.addEventListener("keyup", function(e){
-            e.preventDefault()          
-               for (let i = 0; i < usuarios.length; i++) {
-                if(email.value == usuarios[i].email){
-                    emailRegister.innerHTML = "El email ya está en uso"
-                }
-                /*switch (true) {
-                    case (email.value == usuarios[i].email):   
-                     emailRegister.innerHTML = "no"
-                    break;
-                     case (email.value != usuarios[i].email):
-                     emailRegister.innerHTML = "si "
-                     break;
-                    default:
-                     emailRegister.innerHTML = ``
-                        break;
-                    } */
-               }
-           })
-    })
+        fetch("http://localhost:8080/api/users")
+            .then(respuesta => respuesta.json())
+            .then(data => {
+                let usuarios=data.usuarios  
+                /* validacion que no se repita mail */         
+                email.addEventListener("keyup", function(e){
+                    e.preventDefault()          
+                    emailRegister.innerHTML = ""
+                    setTimeout(function(){  
+                        usuarios.forEach(usuario => {
+                            if(email.value == usuario.email){
+                                emailRegister.innerHTML = "El email ya está en uso"  
+                                email.classList.remove("is-valid")
+                                email.classList.add("is-invalid")
+                            }              
+                        })
+                    }, 0)
+                }) 
+                })
+
 
                        ///////* EVENTOS *///////       
 ////////////////////////////////////////////////////////////////////////////
@@ -87,7 +83,7 @@ fetch("http://localhost:8080/api/users")
 
 
 ////////////////////////////////////////////////////////////////////////////
-//////////////KEYUP EVENTS
+///////////////KEYUP EVENTS
 ////////////////////////////////////////////////////////////////////////////
 
     formularioRegister.addEventListener("keyup", function () {
@@ -96,6 +92,7 @@ fetch("http://localhost:8080/api/users")
             let errores = true
             /* nombre */
             if (nombre.value.length =="" || nombre.value.length < 3){
+                nombreRegister.innerHTML = `debe ingresar un nombre de al menos 3 caracteres`
                 nombre.classList.add("is-invalid")
                 errores = true
             }else{
@@ -104,6 +101,7 @@ fetch("http://localhost:8080/api/users")
             }
             /* apellido */
             if (apellido.value.length =="" || apellido.value.length < 3){
+                apellidoRegister.innerHTML = `debe ingresar un apellido de al menos 3 caracteres`
                 apellido.classList.add("is-invalid")
                 errores = true
             }else{
@@ -111,7 +109,8 @@ fetch("http://localhost:8080/api/users")
                 apellido.classList.add("is-valid")
             }
             /* email */
-            if (email.value.length =="" || ValidateEmail() == false){
+            if (email.value.length =="" || ValidateEmail() == false ){
+                emailRegister.innerHTML = `debe ingresar un mail verdadero`
                 email.classList.add("is-invalid")
                 errores = true
             }else{
@@ -120,6 +119,7 @@ fetch("http://localhost:8080/api/users")
             }
             //Contraseña
             if (password.value.length =="" || password.value.length < 8){
+                contraseñaRegister.innerHTML = `debe ingresar una contraseña de al menos 8 caracteres`
                 password.classList.add("is-invalid")
                 errores = true
             }else{
@@ -128,6 +128,7 @@ fetch("http://localhost:8080/api/users")
             }
             //Confirmar contraseña
             if (confirmPassword.value.length =="" || password.value != confirmPassword.value){
+                contraseñaConfirmError.innerHTML = `las contraseñas deben coincidir`
                 confirmPassword.classList.add("is-invalid")
                 errores = true
             }else{
@@ -154,7 +155,7 @@ fetch("http://localhost:8080/api/users")
                 break;
             case (nombre.value.length<3):
                 event.preventDefault();
-                nombreRegister.innerHTML = "El nombre debe tener 3 caracteres o mas"
+                nombreRegister.innerHTML = "El nombre debe tener 3 caracteres o más"
               break;
             default:
                 nombreRegister.innerHTML = ``
@@ -233,9 +234,28 @@ fetch("http://localhost:8080/api/users")
                     break;
                 default:
                     avatarRegister.innerHTML =``
-
             } 
+            /* checkbox */
+/*             let checkRegister = document.getElementById("checkRegister")
+            switch (true) {
+                case (checkBox.value != "acepto"):
+                    checkRegister.innerHTML =`qqqqqqq`
+                    break;
+                case (checkBox.value == "acepto"):
+                        checkRegister.innerHTML =`ccccccccccc`
+                        break;
+                default:
+                    checkRegister.innerHTML =``
+                    break;
+            } */
     })
+
+
+
+  
+        
+
+  
 })
 
 
