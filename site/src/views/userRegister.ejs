@@ -13,18 +13,20 @@
                     <div class="col-12 col-md-12 col-lg-8 px-0 pb-3" style="border: 2px solid #e2ddf1; border-radius: 10px;">
                         <h5 class="titleSection card-header text-center p-1" style="border-top-left-radius: 10px;
                         border-top-right-radius: 10px;"><%-title%></h5>
-                        <form method="POST"style="padding-left: 15px; padding-right: 15px" class="mt-3" enctype="multipart/form-data">
+                        <form id="register" method="POST"style="padding-left: 15px; padding-right: 15px" class="mt-3" enctype="multipart/form-data">
                             <div class="row form-group">
                                 <label for="nombre" class="col-form-label col-md-4 ">Nombre:</label>
                                 <div class="col-md-8">
                                     <input type="text" name="nombre" value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>" id="nombre" class="form-control">
-                                    <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
+                                    <small id="nombreRegister" class="text-danger"></small>
+                                    <small id="" class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
                                 </div>
                             </div>
                             <div class="row form-group">
                                 <label for="apellido" class="col-form-label col-md-4 ">Apellido:</label>
                                 <div class="col-md-8">
                                     <input type="text" name="apellido" value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:'' %>" id="apellido" class="form-control">
+                                    <small id="apellidoRegister" class="text-danger"></small>
                                     <small class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %> </small>
                                 </div>
                             </div>
@@ -32,6 +34,7 @@
                                 <label for="email" class="col-form-label col-md-4 ">E-mail:</label>
                                 <div class="col-md-8">
                                     <input type="email" name="email" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" id="email" class="form-control">
+                                    <small id="emailRegister" class="text-danger"></small>
                                     <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
                                 </div>
                             </div>
@@ -40,6 +43,7 @@
                                 <div class="col-md-8">
                                     <input type="password" name="contraseña" value="" id="password"
                                         class="form-control">
+                                    <small id="contraseñaRegister" class="text-danger"></small>
                                     <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña)?errors.contraseña.msg: "" %> </small>
                                 </div>
                             </div>
@@ -47,7 +51,8 @@
                                 <label for="nombre" class="col-form-label col-md-4 ">Confirmar Contraseña:</label>
                                 <div class="col-md-8">
                                     <input type="password" name="contraseña2" value=""
-                                        id="Confirmar Contraseña" class="form-control <%= (typeof errors != 'undefined' && errors.contraseña2)?"is-invalid": ""  %>">
+                                        id="confirmPassword" class="form-control <%= (typeof errors != 'undefined' && errors.contraseña2)?"is-invalid": ""  %>">
+                                    <small id="contraseñaConfirmError" class="text-danger"></small>
                                     <small class="text-danger"><%= (typeof errors != 'undefined' && errors.contraseña2)?errors.contraseña2.msg: "" %> </small>
                                 </div>
                             </div>
@@ -56,6 +61,7 @@
                                 <div class="custom-file mt-4">
                                   <input type="file" class="custom-file-input " id="customFileLang" lang="es" name="avatar">
                                   <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                  <small id="avatarRegister" class="text-danger"></small>
                                   <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
                                 </div>
                               </div>
