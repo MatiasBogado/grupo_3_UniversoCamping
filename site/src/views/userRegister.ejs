@@ -59,8 +59,9 @@
 
                             <div class="form-group col-12 col-xl-6">
                                 <div class="custom-file mt-4">
-                                  <input type="file" class="custom-file-input " id="customFileLang" lang="es" name="avatar">
-                                  <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                  <input type="file" class="custom-file-input "  id="customFileLang" lang="es" name="avatar">
+                                  <label id="selectArchivo" class="custom-file-label" for="customFileLang">Seleccione Archivo</label>
+                                  
                                   <small id="avatarRegister" class="text-danger"></small>
                                   <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
                                 </div>
@@ -89,6 +90,7 @@
     <%- include('partials/footer.ejs') %>
     <!-- scripts -->
     <%- include('partials/scripts.ejs') %>
+    <script type="text/javascript" src="../js/register.js"></script>
 </body>
 
 </html>

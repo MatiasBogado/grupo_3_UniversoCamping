@@ -1,20 +1,150 @@
 window.addEventListener("load", function(){
-    //Traigo el formulario del register
-    let formularioRegister = document.querySelector("form#register")
-    formularioRegister.addEventListener("submit", function(event){
-
-        //Traigo los input del formulario
+    //REGISTER
+            //Traigo el formulario del register
+        let formularioRegister = document.querySelector("form#register")
+            //Traigo los input del formulario
         let nombre = document.querySelector("input#nombre")
         let apellido = document.querySelector("input#apellido")
-        let email = document.querySelector("input#email")
+        let email = document.querySelector("input#email")  
         let password = document.querySelector("input#password")
         let confirmPassword = document.querySelector("input#confirmPassword")
         var fileInput = document.getElementById('customFileLang');
+        let selectArchivo = document.getElementById("selectArchivo")
+            /* expreciones regulares */
+        let regexEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        let regexFormat = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
 
-        //validaciones
+          //////* funciones validators *//////
 
-        //REGISTER
-        
+        /* Email que sea un mail verdadero */
+        function ValidateEmail(){
+            let emailValue = document.getElementById("email").value         
+                if(emailValue.match(regexEmail)){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+          }
+        /* Imagen avatar que sea de formato jpg jpeg png gif */        
+        function validateFile(){
+            var fileInput = document.getElementById('customFileLang');
+            var filePath = fileInput.value;           
+                if(regexFormat.exec(filePath)){
+                    return true
+                }
+                else{
+                    return false
+                }
+            }
+/* consultas a la de base de datos */
+
+///////////////SIN TERMINAR  VALIDACION MISMO MAIL <<<-----------------------------
+fetch("http://localhost:8080/api/users")
+    .then(respuesta => respuesta.json())
+    .then(data => {
+        let usuarios=data.usuarios           
+           email.addEventListener("keyup", function(e){
+            e.preventDefault()          
+               for (let i = 0; i < usuarios.length; i++) {
+                if(email.value == usuarios[i].email){
+                    emailRegister.innerHTML = "El email ya está en uso"
+                }
+                /*switch (true) {
+                    case (email.value == usuarios[i].email):   
+                     emailRegister.innerHTML = "no"
+                    break;
+                     case (email.value != usuarios[i].email):
+                     emailRegister.innerHTML = "si "
+                     break;
+                    default:
+                     emailRegister.innerHTML = ``
+                        break;
+                    } */
+               }
+           })
+    })
+
+                       ///////* EVENTOS *///////       
+////////////////////////////////////////////////////////////////////////////
+/// CHANGE EVENTS
+////////////////////////////////////////////////////////////////////////////  
+
+    fileInput.addEventListener("change", function(){
+        /* muestra el texto de la foto que se elige para subir de avatar  */ 
+                var imagenAvatar = fileInput.files[0].name;
+                selectArchivo.innerHTML = imagenAvatar.substring(0,20)+"...";
+
+        /* valida en tiempo real el imput de subir imagen avatar */
+                if (validateFile() == false && fileInput.value){
+                    fileInput.classList.add("is-invalid")
+                    errores = true
+                }else{
+                    fileInput.classList.remove("is-invalid")
+                    fileInput.classList.add("is-valid")
+                }  
+          })
+
+
+////////////////////////////////////////////////////////////////////////////
+//////////////KEYUP EVENTS
+////////////////////////////////////////////////////////////////////////////
+
+    formularioRegister.addEventListener("keyup", function () {
+/* validaciones en tiempo real valido o invalido */
+        function validateInputs() {
+            let errores = true
+            /* nombre */
+            if (nombre.value.length =="" || nombre.value.length < 3){
+                nombre.classList.add("is-invalid")
+                errores = true
+            }else{
+                nombre.classList.remove("is-invalid")
+                nombre.classList.add("is-valid")
+            }
+            /* apellido */
+            if (apellido.value.length =="" || apellido.value.length < 3){
+                apellido.classList.add("is-invalid")
+                errores = true
+            }else{
+                apellido.classList.remove("is-invalid")
+                apellido.classList.add("is-valid")
+            }
+            /* email */
+            if (email.value.length =="" || ValidateEmail() == false){
+                email.classList.add("is-invalid")
+                errores = true
+            }else{
+                email.classList.remove("is-invalid")
+                email.classList.add("is-valid")
+            }
+            //Contraseña
+            if (password.value.length =="" || password.value.length < 8){
+                password.classList.add("is-invalid")
+                errores = true
+            }else{
+                password.classList.remove("is-invalid")
+                password.classList.add("is-valid")
+            }
+            //Confirmar contraseña
+            if (confirmPassword.value.length =="" || password.value != confirmPassword.value){
+                confirmPassword.classList.add("is-invalid")
+                errores = true
+            }else{
+                confirmPassword.classList.remove("is-invalid")
+                confirmPassword.classList.add("is-valid")
+            }  
+        }
+        console.log(validateInputs());
+    })
+
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////SUBMIT EVENTS
+////////////////////////////////////////////////////////////////////////////
+
+    formularioRegister.addEventListener("submit", function(event){ 
+        /* validaciones al querer enviar el formulario */
+
         //nombre
         let nombreRegister = document.getElementById('nombreRegister');
         switch (true) {
@@ -23,9 +153,11 @@ window.addEventListener("load", function(){
                 nombreRegister.innerHTML = "Ingresa tu nombre"
                 break;
             case (nombre.value.length<3):
-              event.preventDefault();
+                event.preventDefault();
                 nombreRegister.innerHTML = "El nombre debe tener 3 caracteres o mas"
               break;
+            default:
+                nombreRegister.innerHTML = ``
           }
           //apellido
           let apellidoRegister = document.getElementById('apellidoRegister');
@@ -35,73 +167,76 @@ window.addEventListener("load", function(){
                 apellidoRegister.innerHTML = "Ingresa tu apellido"
                 break;
             case (apellido.value.length<3):
-              event.preventDefault();
-              apellidoRegister.innerHTML = "El apellido debe tener mas de 3 caracteres"
-              break;
+                event.preventDefault();
+                apellidoRegister.innerHTML = "El apellido debe tener mas de 3 caracteres"
+                break;
+            default:
+                apellidoRegister.innerHTML = ``
+
           }
           //email
-          function ValidateEmail(){
-            let email = document.getElementById("email").value
-            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-                if(email.match(pattern)){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-          }
           let emailRegister = document.getElementById('emailRegister');
           switch (true) {
             case (email.value == ""):
                 event.preventDefault();
                 emailRegister.innerHTML = "Ingresa tu Email"
                 break;
-            case (ValidateEmail() == true):
-              break;
-              case (ValidateEmail() == false):
+            /* case (ValidateEmail() == true):
+              break; */
+            case (ValidateEmail() == false):
                 event.preventDefault();
                 emailRegister.innerHTML = "Ingresaste un email invalido"
               break;
+            
+            default:
+                emailRegister.innerHTML = ``
           }
           //Contraseña
           let contraseñaRegister = document.getElementById('contraseñaRegister'); 
           switch (true) {
             case (password.value == ""):
                 event.preventDefault();
-                contraseñaRegister.innerHTML = "La contraseña no a sido ingresada"
+                contraseñaRegister.innerHTML = "Ingresa una contraseña"
                 break;
             case (password.value.length<8):
                 event.preventDefault();
-                contraseñaRegister.innerHTML = "La contraseña debe tener 8 caracteres o mas"
+                contraseñaRegister.innerHTML = "La contraseña debe tener 8 caracteres o más"
               break;
+            default:
+                contraseñaRegister.innerHTML = ``
           }
           //Confirmar contraseña
-          if (password.value != confirmPassword.value){
-            contraseñaConfirmError.innerHTML = "Las contraseñas no son iguales"
+          switch (true) {
+              case (confirmPassword.value == ""):
+                event.preventDefault(); 
+                contraseñaConfirmError.innerHTML = "Debe repetir su contraseña"
+                break;
+              case (password.value != confirmPassword.value):
+                event.preventDefault();
+                contraseñaConfirmError.innerHTML = "Las contraseñas no son iguales"
+                  break;
+              default:
+                contraseñaConfirmError.innerHTML=``
+                  break;
           }
           //imagen
           let avatarRegister = document.getElementById('avatarRegister'); 
-          function validateFile(){
-            var fileInput = document.getElementById('customFileLang');
-            var filePath = fileInput.value;
-            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-                if(allowedExtensions.exec(filePath)){
-                    return true
-                }
-                else{
-                    return false
-                }
-            }
             switch (true) {
                 case (validateFile() == true && fileInput.value != ''):
+                    event.preventDefault();
                     console.log('La imagen se subio correctamente');
                     break;
                 case (validateFile() == false && fileInput.value != ''):
-                    fileInput.value = '';
+                    /* fileInput.value = ''; */
                     event.preventDefault();
                     avatarRegister.innerHTML = "Porfavor sube un archivo que tenga una de las suguiente extenciones .jpeg/.jpg/.png/.gif."
                     break;
+                default:
+                    avatarRegister.innerHTML =``
+
             } 
     })
 })
+
+
 

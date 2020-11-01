@@ -28,7 +28,7 @@ module.exports = [
         })
         .then(user => {
             if(user){
-                return Promise.reject("Este email ya esta registrado")
+                return Promise.reject("Este email ya está registrado")
             }
         })
     }),
@@ -51,5 +51,5 @@ module.exports = [
 
     check('bases')
     .isString('on')
-    .withMessage('tenes aceptar las bases y condiciones')
+    .withMessage('tenés que aceptar las bases y condiciones')
 ]

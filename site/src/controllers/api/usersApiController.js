@@ -7,6 +7,7 @@ const users = {
         .then((respuesta) => {
             let usuarios= {
                 cantidad: respuesta.length,
+                usuarios: respuesta
             }
             res.json(usuarios)
         })
