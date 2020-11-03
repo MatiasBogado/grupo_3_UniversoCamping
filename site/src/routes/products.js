@@ -5,7 +5,8 @@ const productsController = require('../controllers/productsController')
 
 const sessionUserCheck = require("../middlewares/sessionUserCheck")
 const sessionAdminCheck = require("../middlewares/sessionAdminCheck")
-const productsValidator = require('../validators/productsValidator')
+const productsAddValidator = require('../validators/productsAddValidator')
+const productsEditValidator = require('../validators/productsEditValidator')
 const multerProduct = require("../middlewares/multerProduct")
 
 router.get('/Cart', productsController.enCarrito)
@@ -20,10 +21,10 @@ router.get('/search',productsController.buscar);
 router.post('/categories/add',productsController.categoriesAdd);
 router.put('/categories/edit/:id',productsController.CategoriesEditar);
 router.get('/add',sessionAdminCheck, productsController.addView)
-router.post('/add',multerProduct.any(),sessionAdminCheck,productsController.agregar)
+router.post('/add',multerProduct.any(),productsAddValidator,sessionAdminCheck,productsController.agregar)
 
 router.get('/show/:id',sessionAdminCheck,productsController.show);
-router.put('/edit/:id',multerProduct.any(),sessionAdminCheck,productsController.editar);
+router.put('/edit/:id',multerProduct.any(),productsEditValidator,sessionAdminCheck,productsController.editar);
 router.delete('/delete/:id',sessionAdminCheck,productsController.eliminar);
 
 router.get('/admin/:id?',sessionAdminCheck,productsController.admin);

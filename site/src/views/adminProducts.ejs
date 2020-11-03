@@ -189,11 +189,13 @@
                             <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST"
                                 enctype="multipart/form-data">
                                 <div class="row p-3">
+                                    <!-- title -->
                                     <div class="form-group col-12">
                                         <input class="form-control" type="text" id="titleEdit"
                                             value="<%= producto.nombre%>" name="nameEdit">
                                         <small id="errorTitleEdit" class="text-danger"></small>
                                     </div>
+                                    <!-- imagen -->
                                     <div class="col-12 col-md-4 col-xl-4 mt-3">
                                         <figure class="text-center">
                                             <img src="/img/products/<%= producto.imagenes %> " alt="" class="img-fluid">
@@ -202,20 +204,26 @@
                                         <small id="errorImageEdit" class="text-danger"></small>
                                     </div>
                                     <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
+                                        <!-- descripcion -->
                                         <textarea class="form-control" rows="7" name="descriptionEdit"
                                             id="descriptionEdit"><%= producto.descripcion %></textarea>
                                         <small id="errorDescriptionEdit" class="text-danger"></small>
                                         <div class="row">
+
+                                            <!-- categoria -->
                                             <div class="form-group col-12 col-lg-4">
 
-                                                <select name="categoria" class="form-control">
+                                                <select name="categoriaEdit" class="form-control">
+                                                    <option value="null">Selecciona una opcion</option>
                                                     <% categorias.forEach(categoria => { %>
                                                     <option value="<%= categoria.id %>">
                                                         <%= categoria.nombre %>
                                                     </option>
                                                     <% }) %>
                                                 </select>
+                                                <small id="errorCAtegoriaEdit" class="text-danger"></small>
                                             </div>
+                                            <!-- precio -->
                                             <div class="form-group col-6 col-lg-4">
 
                                                 <div class="input-group mb-2 mr-sm-2">
@@ -223,20 +231,24 @@
                                                         <div class="input-group-text">$</div>
                                                     </div>
                                                     <input type="text" class="form-control" value="<%=producto.precio%>"
-                                                        name="price">
+                                                        name="priceEdit" id="precioEdit">
                                                 </div>
+                                                <small id="errorPrecioEdit" class="text-danger"></small>
                                             </div>
+                                            <!-- DESCUENTO -->
                                             <div class="col-6 col-lg-4">
                                                 <div class="input-group mb-2 mr-sm-2">
 
                                                     <input type="text" class="form-control"
-                                                        value="<%=producto.descuento%>" name="discount">
+                                                        value="<%=producto.descuento%>" name="discountEdit" id="descuentoEdit">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">%</div>
                                                     </div>
+                                                    <small id="errorDescuentoEdit" class="text-danger"></small>
                                                 </div>
                                                 </span>
                                             </div>
+                                            <!-- stock -->
                                             <div class="form-group col-6 col-lg-3">
 
                                                 <div class="input-group mb-2 mr-sm-2">
@@ -244,15 +256,19 @@
                                                         <div class="input-group-text">Stock</div>
                                                     </div>
                                                     <input type="text" class="form-control" value="<%=producto.stock%>"
-                                                        name="stock">
+                                                        name="stockEdit" id="stockEdit">
                                                 </div>
+                                                <small id="errorStockEdit" class="text-danger"></small>
                                             </div>
+                                            <!-- botones -->
                                             <div class="col-12 d-flex justify-content-end">
+                                                <!-- cancelar -->
                                                 <button id="cancelar" type="submit"
                                                     class="btn btn btn-outline-dark mr-2" style="color: white;
                                                         background-color:  #4d582a;">Cancelar</button>
+                                                <!-- guardar -->
                                                 <button class="btn btn btn-outline-dark" style="color: white;
-                                                        background-color:  #4d582a;" type="submit" name="id"
+                                                        background-color:  #4d582a;" type="submit" id="guardar" name="id"
                                                     value="<%= producto.id %> ">Guardar</button>
                                             </div>
                                         </div>
@@ -279,31 +295,37 @@
                                     <form action="/products/add" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <select id="exampleFormControlInput1" name="categoria">
+                                                <option value="null">Selecciona una categoria</option>
                                                 <% categorias.forEach(categoria => { %>
-                                                <option value="<%= categoria.id %>">
+                                                <option value="<%= categoria.id %>" id="opt">
                                                     <%= categoria.nombre %>
                                                 </option>
                                                 <% }) %>
                                             </select>
+                                            <small id="errorCategoria" class="text-danger"></small>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleFormControlInput1">Titulo de la publicación</label>
+                                            <label for="titleAdd">Titulo de la publicación</label>
                                             <input type="text" class="form-control" id="titleAdd" placeholder=""
                                                 name="title">
                                             <small id="errorTitle" class="text-danger"></small>
+                                       
                                         </div>
                                         <div class="form-row">
                                             <div class="col">
                                                 <label for="">Precio</label>
-                                                <input type="number" class="form-control" name="price">
+                                                <input type="number" class="form-control" name="price"  id="precioAdd">
+                                                <small id="errorPrecio" class="text-danger"></small>
                                             </div>
                                             <div class="col">
                                                 <label for="">Descuento</label>
-                                                <input type="number" class="form-control" name="discount">
+                                                <input type="number" class="form-control" name="discount" id="descuentoAdd">
+                                                <small id="errorDescuento" class="text-danger"></small>
                                             </div>
                                             <div class="col">
                                                 <label for="">Stock</label>
-                                                <input type="number" class="form-control" name="stock">
+                                                <input type="number" class="form-control" name="stock" id="stockAdd">
+                                                <small id="errorStock" class="text-danger"></small>
                                             </div>
                                         </div>
                                         <div class="form-group mt-3">
@@ -376,7 +398,9 @@
 
     <%- include('partials/footer') %>
     <%- include('partials/scripts') %>
-    <script type="text/javascript" src="/js/products.js"></script>
+    <script type="text/javascript" src="/js/tabAdmin.js"></script>
+    <script type="text/javascript" src="/js/productsAdd.js"></script>
+    <script type="text/javascript" src="/js/productsEdit.js"></script>
 </body>
 
 </html>

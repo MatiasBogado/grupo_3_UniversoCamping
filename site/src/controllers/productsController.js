@@ -27,6 +27,8 @@ const products = {
                 .catch(errores => {
                     console.log(errores)
                 })
+        }else{
+            res.redirect("/products/admin/1#agregarProducto")
         }
     },
 
@@ -130,20 +132,31 @@ const products = {
 
     },
     editar: function (req, res) {
+        let errores = validationResult(req);
+        if (errores.isEmpty()) {
         db.Products.update({
             nombre: req.body.nameEdit.trim(),
-            precio: Number(req.body.price),
-            descuento: Number(req.body.discount),
+            precio: Number(req.body.priceEdit),
+            descuento: Number(req.body.discountEdit),
             descripcion: req.body.descriptionEdit.trim(),
             imagenes: (req.files[0]) ? req.files[0].filename : "default.jpg",
-            id_category: Number(req.body.categoria),
-            stock: req.body.stock
+            id_category: Number(req.body.categoriaEdit),
+            stock: req.body.stockEdit
         }, {
             where: {
                 id: req.params.id
             }
+        })  
+        .then(result => {
+            console.log(result)
+            res.redirect('/products/admin/'+req.params.id+"#detalleProducto")
         })
-        res.redirect('/products/admin/' + req.params.id)
+        .catch(errores => {
+            console.log(errores)
+        })
+        }else{
+        res.redirect('/products/admin/' + req.params.id + "#editarProducto")
+        }
     },
     eliminar: function (req, res) {
         db.Products.destroy({
