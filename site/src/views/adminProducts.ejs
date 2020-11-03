@@ -18,11 +18,11 @@
                 <!-- BOTONES NAVEGACION USUARIO / PRODUCTOS -->
                 <div class="container row">
                     <div style="margin-left: 15px;">
-                        <a class="" id="profile-tab"  href="/products/admin/1" >PRODUCTOS</a>
+                        <a class="" id="profile-tab" href="/products/admin/1">PRODUCTOS</a>
                     </div>
-                    
+
                     <div style="margin-left: 15px;">
-                        <a class="r" id="profile-tab"  href="/users/admin/1">USUARIOS</a>
+                        <a class="r" id="profile-tab" href="/users/admin/1">USUARIOS</a>
                     </div>
                 </div>
 
@@ -34,52 +34,53 @@
                         <ul class="nav nav-tabs " id="myTab" role="tablist">
                             <!-- DETALLE -->
                             <li class="nav-item " role="presentation">
-                                <a class="nav-link active blackColor" id="profile-tab" data-toggle="tab" href="#detalleProducto" role="tab" aria-controls="profile" aria-selected="false">Detalle Producto</a>
+                                <a class="nav-link active blackColor" id="profile-tab" data-toggle="tab"
+                                    href="#detalleProducto" role="tab" aria-controls="profile"
+                                    aria-selected="false">Detalle Producto</a>
                             </li>
 
                             <!-- LISTADO -->
                             <li class="nav-item " role="presentation">
-                                <a class="nav-link blackColor" id="profile-tab" data-toggle="tab" href="#listadoProductos" role="tab" aria-controls="profile" aria-selected="false">Listado Productos</a>
+                                <a class="nav-link blackColor" id="profile-tab" data-toggle="tab"
+                                    href="#listadoProductos" role="tab" aria-controls="profile"
+                                    aria-selected="false">Listado Productos</a>
                             </li>
 
                             <!-- EDITAR -->
                             <li class="nav-item " role="presentation">
-                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#editarProducto" role="tab" aria-controls="home" aria-selected="true">Editar Producto</a>                            
-                            </li>   
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#editarProducto"
+                                    role="tab" aria-controls="home" aria-selected="true">Editar Producto</a>
+                            </li>
 
                             <!-- AGREGAR -->
                             <li class="nav-item " role="presentation">
-                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#agregarProducto" role="tab" aria-controls="home" aria-selected="true">Agregar Producto</a>                            
-                            </li>  
-                            <!-- CATEGORIAS -->
-                            <li class="nav-item " role="presentation">
-                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#categorias" role="tab" aria-controls="home" aria-selected="true">Categorias</a>                            
-                            </li>  
-                            <!-- VENTAS -->
-                            <li class="nav-item " role="presentation">
-                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#ventas" role="tab" aria-controls="home" aria-selected="true">Ventas</a>                            
-                            </li>   
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#agregarProducto"
+                                    role="tab" aria-controls="home" aria-selected="true">Agregar Producto</a>
+                            </li>
                         </ul>
 
                         <!-- CONTENEDOR INFO -->
                         <div class="tab-content" id="myTabContent ">
 
                             <!-- DETALLE PRODUCTOS -->
-                            <div class="tab-pane fade  show   active " id="detalleProducto" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="tab-pane fade  show   active " id="detalleProducto" role="tabpanel"
+                                aria-labelledby="profile-tab">
 
                                 <div class="row p-3">
                                     <div class="col-12">
-                                        
+
 
                                         <div class="row">
-                                            
+
                                             <div class="col-1">
                                                 <%for (let i = 0; i< productosTotales.length; i++) {%>
-                                                    <% if (producto.id> 1 && productosTotales[i].id==producto.id) { %> 
-                                                        <a href="/products/admin/<%-productosTotales[i-1].id%> " class="text-warning"><i class="fas fa-angle-double-left "style="font-size: 2.5em; color: #534317"></i></a>        
-                                                        <%}}%>
-                                                        
-                                                    
+                                                <% if (producto.id> 1 && productosTotales[i].id==producto.id) { %>
+                                                <a href="/products/admin/<%-productosTotales[i-1].id%> "
+                                                    class="text-warning"><i class="fas fa-angle-double-left "
+                                                        style="font-size: 2.5em; color: #534317"></i></a>
+                                                <%}}%>
+
+
                                             </div>
                                             <div class="col-10">
                                                 <h3 class="text-center">
@@ -88,52 +89,54 @@
                                             </div>
                                             <div class="col-1">
                                                 <%for (let i = 0; i< productosTotales.length; i++) {%>
-                                                    <% if (producto.id != productosTotales[productosTotales.length-1].id  && productosTotales[i].id==producto.id) { %>
-                                                    <a href="/products/admin/<%- productosTotales[i+1].id%> " class="text-warning"><i class="fas fa-angle-double-right "style="font-size: 2.5em; color: #534317"></i></a>
+                                                <% if (producto.id != productosTotales[productosTotales.length-1].id  && productosTotales[i].id==producto.id) { %>
+                                                <a href="/products/admin/<%- productosTotales[i+1].id%> "
+                                                    class="text-warning"><i class="fas fa-angle-double-right "
+                                                        style="font-size: 2.5em; color: #534317"></i></a>
                                                 <%}}%>
-                                                    
+
                                             </div>
 
-                                            
-                                        
+
+
                                         </div>
 
                                     </div>
 
                                     <div class="col-12 col-md-4 mt-3">
-                                            <figure class="text-center">
-                                                <img src="/img/products/<%= producto.imagenes %> " alt="" class="img-fluid">
-                                            </figure>
-                                        </div>
+                                        <figure class="text-center">
+                                            <img src="/img/products/<%= producto.imagenes %> " alt="" class="img-fluid">
+                                        </figure>
+                                    </div>
                                     <div class="col-12 col-md-8 mt-3">
                                         <p>
                                             <%= producto.descripcion %>
                                         </p>
                                         <div class="row">
                                             <div class="col-12 col-lg-4">
-                                                <span><b>Categoría:</b> 
+                                                <span><b>Categoría:</b>
                                                     <% if (producto.categoria) { %>
                                                     <%= producto.categoria.nombre %>
                                                     <% }else{ %>
                                                     <%= "sin definir" %>
                                                     <% } %>
-                                                        
+
                                                 </span>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-4">
-                                                <span><b>Precio:</b>  $
-                                                <%=producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
-                                            </span>
+                                                <span><b>Precio:</b> $
+                                                    <%=producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
+                                                </span>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-4">
-                                                <span><b>Descuento:</b> 
-                                                <%=producto.descuento%>%
-                                            </span>
+                                                <span><b>Descuento:</b>
+                                                    <%=producto.descuento%>%
+                                                </span>
                                             </div>
                                             <div class="col-12 col-md-6 col-lg-4">
-                                                <span><b>Stock:</b> 
-                                                <%=producto.stock%>
-                                            </span>
+                                                <span><b>Stock:</b>
+                                                    <%=producto.stock%>
+                                                </span>
                                             </div>
 
                                         </div>
@@ -143,218 +146,237 @@
                             </div>
 
                             <!-- LISTADO PRODUCTOS -->
-                            <div class="tab-pane fade show" id="listadoProductos" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="tab-pane fade show" id="listadoProductos" role="tabpanel"
+                                aria-labelledby="profile-tab">
                                 <div class="row productos p-4">
                                     <% productosTotales.forEach(producto => { %>
                                     <div class="col-6 col-md-3 col-xl-2">
                                         <div class="contenido">
                                             <figure>
-                                                <a href="/products/admin/<%- producto.id %>"><img src="/img/products/<%- producto.imagenes %>  " alt="" style="width: 150px;"></a>
+                                                <a href="/products/admin/<%- producto.id %>"><img
+                                                        src="/img/products/<%- producto.imagenes %>  " alt=""
+                                                        style="width: 150px;"></a>
                                             </figure>
                                             <%if (producto.nombre.length > 10) {%>
                                             <p>
                                                 <%- producto.nombre.slice(0,20) + '...'%>
                                                 <%} else {%>
-                                                    <%- producto.nombre %>
+                                                <%- producto.nombre %>
                                             </p>
                                             <%}%>
                                             <div class="d-flex justify-content-around">
                                                 <form action="/products/detail/<%= producto.id %>" method="GET">
-                                                    <button class="btn btn-outline-light">
-                                                        <h4 class="fas fa-eye text-info"></h4>
-                                                    </button>
-                                                </form>
-                                                
-                                                <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
-                                                    <button class="btn btn-outline-light">
-                                                        <h4 class="fas fa-trash" style="color:green "></h4>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <% }) %>
-                                </div>
-                            </div>
-
-                            <!-- EDITAR PRODUCTOS -->
-                            <div class="tab-pane fade " id="editarProducto" role="tabpanel" aria-labelledby="home-tab">
-                                    <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                                        <div class="row p-3">
-                                            <div class="form-group col-12">
-                                                <input class="form-control" type="text" value="<%= producto.nombre%>" name="name">
-                                            </div>
-                                            <div class="col-12 col-md-4 col-xl-4 mt-3">
-                                                <figure class="text-center">
-                                                    <img src="/img/products/<%= producto.imagenes %> " alt="" class="img-fluid">
-                                                </figure>
-                                                <input type="file" class="form-control" name="image">
-                                            </div>
-                                            <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
-                                                <textarea class="form-control" rows="7" name="description" id=""><%= producto.descripcion %></textarea>
-                                                <p>
-                                                </p>
-                                                <div class="row">
-                                                    <div class="form-group col-12 col-lg-3">
-
-                                                        <select name="categoria" class="form-control">
-                                                            <% categorias.forEach(categoria => { %>
-                                                                <option value="<%= categoria.id %>">
-                                                                    <%= categoria.nombre %>
-                                                                </option> 
-                                                                <% }) %>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-6 col-lg-3">
-
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text">$</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" value="<%=producto.precio%>" name="price">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-lg-3">
-                                                        <div class="input-group mb-2 mr-sm-2">
-
-                                                            <input type="text" class="form-control" value="<%=producto.descuento%>" name="discount">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text">%off</div>
-                                                            </div>
-                                                        </div>
-                                                        </span>
-                                                    </div>
-                                                    <div class="form-group col-6 col-lg-3">
-
-                                                        <div class="input-group mb-2 mr-sm-2">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text">Stock</div>
-                                                            </div>
-                                                            <input type="text" class="form-control" value="<%=producto.stock%>" name="stock">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 d-flex justify-content-end">
-                                                        <button class="btn btn btn-outline-dark mr-2" style="color: white;
-                                                        background-color:  #4d582a;">Cancelar</button>
-                                                        <button class="btn btn btn-outline-dark"  style="color: white;
-                                                        background-color:  #4d582a;" type="submit" name="id" value="<%= producto.id %> ">Guardar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </form>
-                                    <div>
-                                    <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
-                                        <div class="col-12 d-flex justify-content-end"  id="botones">
-                                            <button class="btn btn-danger mb-3">
-                                                ELIMINAR PRODUCTO
+                                            <button class="btn btn-outline-light">
+                                                <h4 class="fas fa-eye text-info"></h4>
                                             </button>
+                                            </form>
+
+                                            <form action="/products/delete/<%= producto.id %>?_method=DELETE"
+                                                method="POST">
+                                                <button class="btn btn-outline-light">
+                                                    <h4 class="fas fa-trash" style="color:green "></h4>
+                                                </button>
+                                            </form>
                                         </div>
-                                    </form>
                                     </div>
                                 </div>
+                                <% }) %>
+                            </div>
+                        </div>
 
-                            <!--  AGREGAR  PRODUCTOS-->
-                            <div class="tab-pane fade show" id="agregarProducto" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="col-12  formulario">
-                                    <div class="">
-                                        <form action="/products/add" method="POST" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <select id="exampleFormControlInput1 col-6" value="" name="category">
-                                                    <option value="">Selecciona una categoría</option>
-                                                    <% categorias.forEach(categoria => {%>
-                                                        <option value="<%- categoria.id%>">
-                                                            <%- categoria.nombre%>
-                                                        </option>
-                                                    <%})%>
+                        <!-- EDITAR PRODUCTOS -->
+                        <div class="tab-pane fade " id="editarProducto" role="tabpanel" aria-labelledby="home-tab">
+                            <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST"
+                                enctype="multipart/form-data">
+                                <div class="row p-3">
+                                    <div class="form-group col-12">
+                                        <input class="form-control" type="text" id="titleEdit"
+                                            value="<%= producto.nombre%>" name="nameEdit">
+                                        <small id="errorTitleEdit" class="text-danger"></small>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-xl-4 mt-3">
+                                        <figure class="text-center">
+                                            <img src="/img/products/<%= producto.imagenes %> " alt="" class="img-fluid">
+                                        </figure>
+                                        <input type="file" class="form-control" id="imagenEdit" name="imageEdit">
+                                        <small id="errorImageEdit" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
+                                        <textarea class="form-control" rows="7" name="descriptionEdit"
+                                            id="descriptionEdit"><%= producto.descripcion %></textarea>
+                                        <small id="errorDescriptionEdit" class="text-danger"></small>
+                                        <div class="row">
+                                            <div class="form-group col-12 col-lg-4">
+
+                                                <select name="categoria" class="form-control">
+                                                    <% categorias.forEach(categoria => { %>
+                                                    <option value="<%= categoria.id %>">
+                                                        <%= categoria.nombre %>
+                                                    </option>
+                                                    <% }) %>
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Titulo de la publicación</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="name">
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="col">
-                                                    <label for="">Precio</label>
-                                                    <input type="number" class="form-control" name="price">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="">Descuento</label>
-                                                    <input type="number" class="form-control" name="discount">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="">Stock</label>
-                                                    <input type="number" class="form-control" name="stock">
+                                            <div class="form-group col-6 col-lg-4">
+
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">$</div>
+                                                    </div>
+                                                    <input type="text" class="form-control" value="<%=producto.precio%>"
+                                                        name="price">
                                                 </div>
                                             </div>
-                                            <div class="form-group mt-3">
-                                                <label for="exampleFormControlTextarea1">Descripción</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                                            <div class="col-6 col-lg-4">
+                                                <div class="input-group mb-2 mr-sm-2">
+
+                                                    <input type="text" class="form-control"
+                                                        value="<%=producto.descuento%>" name="discount">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">%</div>
+                                                    </div>
+                                                </div>
+                                                </span>
                                             </div>
-                                            <div class="form-group mt-3">
-                                                <label for="">Elija una imagen</label>
-                                                <input type="file" class="form-control" name='image'>
+                                            <div class="form-group col-6 col-lg-3">
+
+                                                <div class="input-group mb-2 mr-sm-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">Stock</div>
+                                                    </div>
+                                                    <input type="text" class="form-control" value="<%=producto.stock%>"
+                                                        name="stock">
+                                                </div>
                                             </div>
-                                            <div class="mt-5 mr-5 d-flex justify-content-end">
-                                                <button type="reset" class="btn btn btn-outline-dark mr-2" style="color: white;
-                                                background-color:  #4d582a;margin-bottom: 20px;">BORRAR</button>
-                                                <button type="submit"  class="btn btn btn-outline-dark mr-2" style="color: white;
-                                                background-color:  #4d582a;margin-bottom: 20px;">PUBLICAR</button>
+                                            <div class="col-12 d-flex justify-content-end">
+                                                <button id="cancelar" type="submit"
+                                                    class="btn btn btn-outline-dark mr-2" style="color: white;
+                                                        background-color:  #4d582a;">Cancelar</button>
+                                                <button class="btn btn btn-outline-dark" style="color: white;
+                                                        background-color:  #4d582a;" type="submit" name="id"
+                                                    value="<%= producto.id %> ">Guardar</button>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
+
+                                </div>
+                            </form>
+                            <div>
+                                <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                                    <div class="col-12 d-flex justify-content-end" id="botones">
+                                        <button class="btn btn-danger mb-3">
+                                            ELIMINAR PRODUCTO
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!--  AGREGAR  PRODUCTOS-->
+                        <div class="tab-pane fade show" id="agregarProducto" role="tabpanel"
+                            aria-labelledby="profile-tab">
+                            <div class="col-12 formulario">
+                                <div class="">
+                                    <form action="/products/add" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <select id="exampleFormControlInput1" name="categoria">
+                                                <% categorias.forEach(categoria => { %>
+                                                <option value="<%= categoria.id %>">
+                                                    <%= categoria.nombre %>
+                                                </option>
+                                                <% }) %>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Titulo de la publicación</label>
+                                            <input type="text" class="form-control" id="titleAdd" placeholder=""
+                                                name="title">
+                                            <small id="errorTitle" class="text-danger"></small>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <label for="">Precio</label>
+                                                <input type="number" class="form-control" name="price">
+                                            </div>
+                                            <div class="col">
+                                                <label for="">Descuento</label>
+                                                <input type="number" class="form-control" name="discount">
+                                            </div>
+                                            <div class="col">
+                                                <label for="">Stock</label>
+                                                <input type="number" class="form-control" name="stock">
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <label for="exampleFormControlTextarea1">Descripción</label>
+                                            <textarea class="form-control" id="descriptionAdd" rows="3"
+                                                name="description"></textarea>
+                                            <small id="errorDescription" class="text-danger"></small>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <label for="">Elija una imagen</label>
+                                            <input type="file" class="form-control" id="imagenAdd" name='imageAdd'>
+                                            <small id="errorImageAdd" class="text-danger"></small>
+                                        </div>
+                                        <div class="mt-5 mr-5 d-flex justify-content-end">
+                                            <button type="reset" class="btn btn btn-outline-dark mr-2" style="color: white;
+                                                background-color:  #4d582a;margin-bottom: 20px;">BORRAR</button>
+                                            <button type="submit" class="btn btn btn-outline-dark mr-2" style="color: white;
+                                                background-color:  #4d582a;margin-bottom: 20px;">PUBLICAR</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- CATEGORIAS -->
-                            <div class="tab-pane fade show" id="categorias" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row productos p-4">
+                        <!-- CATEGORIAS -->
+                        <div class="tab-pane fade show" id="categorias" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row productos p-4">
 
-                                    <h2 class="col-12">EN PROCESO DE CREACION</h2>
-                                    <div class="col-12">
-                                        <form action="/products/categories/add" method="POST" enctype="multipart/form-data">
+                                <h2 class="col-12">EN PROCESO DE CREACION</h2>
+                                <div class="col-12">
+                                    <form action="/products/categories/add" method="POST" enctype="multipart/form-data">
                                         <input type="text" name="nombre" id="" placeholder="ingrese nueva categoria">
                                         <button type="submit">Agregar categoria</button>
-                                        </form>
-                                    </div>
+                                    </form>
+                                </div>
 
-                                    <div>
-                                        <p>total de categorias : <%= categorias.length %> </p>
-                                    </div>
-                                    
+                                <div>
+                                    <p>total de categorias : <%= categorias.length %> </p>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <!-- VENTAS -->
+                        <div class="tab-pane fade show" id="ventas" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row productos p-4">
+
+                                <h2>EN PROCESO DE CREACION</h2>
+                                <% ventas.forEach(venta => { %>
+                                <div class="detalleVenta">
+                                    <%- venta.id_users%>
 
                                 </div>
+
+                                <% }) %>
                             </div>
-
-                            <!-- VENTAS -->
-                            <div class="tab-pane fade show" id="ventas" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row productos p-4">
-
-                                    <h2>EN PROCESO DE CREACION</h2>
-                                    <% ventas.forEach(venta => { %>
-                                        <div class="detalleVenta">
-                                            <%- venta.id_users%>
-                                            
-                                        </div>
-                                        
-                                    <% }) %>
-                                </div>
-                            </div>
+                        </div>
 
 
-                        </div><!-- FIN CONTENEDOR DE PANELES -->
-                        
-                    </div>
+                    </div><!-- FIN CONTENEDOR DE PANELES -->
+
                 </div>
             </div>
-        </section>
+    </div>
+    </section>
     </div>
 
 
 
     <%- include('partials/footer') %>
     <%- include('partials/scripts') %>
+    <script type="text/javascript" src="/js/products.js"></script>
 </body>
 
 </html>

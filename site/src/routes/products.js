@@ -5,7 +5,7 @@ const productsController = require('../controllers/productsController')
 
 const sessionUserCheck = require("../middlewares/sessionUserCheck")
 const sessionAdminCheck = require("../middlewares/sessionAdminCheck")
-
+const productsValidator = require('../validators/productsValidator')
 const multerProduct = require("../middlewares/multerProduct")
 
 router.get('/Cart', productsController.enCarrito)

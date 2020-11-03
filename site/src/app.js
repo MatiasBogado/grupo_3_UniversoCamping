@@ -21,7 +21,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret:'Universo camping rules'}));
+app.use(session({ secret: 'Universo camping rules' }));
 app.use(localsUserCheck)
 app.use(methodOverride('_method'));
 
@@ -36,23 +36,23 @@ const categoriesApi = require("./routes/api/categoriesApi")
 
 //servidor
 const PUERTO = 8080;
-app.listen(PUERTO, () =>console.log("El servidor esta funcionando en el puerto " + PUERTO + " ---> http://localhost:8080/"))
+app.listen(PUERTO, () => console.log("El servidor esta funcionando en el puerto " + PUERTO + " ---> http://localhost:8080/"))
 
 //URL
-app.use('/',index)
-app.use('/products',products)
-app.use('/users',users)
-app.use("/api/products",productsApi)
-app.use("/api/users",usersApi)
-app.use("/api/categories",categoriesApi)
+app.use('/', index)
+app.use('/products', products)
+app.use('/users', users)
+app.use("/api/products", productsApi)
+app.use("/api/users", usersApi)
+app.use("/api/categories", categoriesApi)
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
