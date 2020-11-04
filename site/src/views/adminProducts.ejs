@@ -57,6 +57,16 @@
                                 <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#agregarProducto"
                                     role="tab" aria-controls="home" aria-selected="true">Agregar Producto</a>
                             </li>
+                             <!-- VEntas -->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#ventas"
+                                    role="tab" aria-controls="home" aria-selected="true">Ventas</a>
+                            </li>
+                            <!-- Categorias-->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#categorias"
+                                    role="tab" aria-controls="home" aria-selected="true">Categorias</a>
+                            </li>
                         </ul>
 
                         <!-- CONTENEDOR INFO -->
@@ -214,17 +224,18 @@
                                             <div class="form-group col-12 col-lg-4">
 
                                                 <select name="categoriaEdit" class="form-control">
-                                                    <option value="null">Selecciona una opcion</option>
+                                                    <option value="<%= producto.categoria.id %>" selected><%= producto.categoria.nombre %> </option>
                                                     <% categorias.forEach(categoria => { %>
+                                                        <% if(producto.categoria.id != categoria.id) {%> 
                                                     <option value="<%= categoria.id %>">
                                                         <%= categoria.nombre %>
                                                     </option>
-                                                    <% }) %>
+                                                    <% }}) %>
                                                 </select>
                                                 <small id="errorCAtegoriaEdit" class="text-danger"></small>
                                             </div>
                                             <!-- precio -->
-                                            <div class="form-group col-6 col-lg-4">
+                                            <div class="form-group col-12 col-lg-4">
 
                                                 <div class="input-group mb-2 mr-sm-2">
                                                     <div class="input-group-prepend">
@@ -236,7 +247,7 @@
                                                 <small id="errorPrecioEdit" class="text-danger"></small>
                                             </div>
                                             <!-- DESCUENTO -->
-                                            <div class="col-6 col-lg-4">
+                                            <div class="col-12 col-lg-4">
                                                 <div class="input-group mb-2 mr-sm-2">
 
                                                     <input type="text" class="form-control"
@@ -249,7 +260,7 @@
                                                 </span>
                                             </div>
                                             <!-- stock -->
-                                            <div class="form-group col-6 col-lg-3">
+                                            <div class="form-group col-12 col-lg-4">
 
                                                 <div class="input-group mb-2 mr-sm-2">
                                                     <div class="input-group-prepend">
@@ -261,15 +272,19 @@
                                                 <small id="errorStockEdit" class="text-danger"></small>
                                             </div>
                                             <!-- botones -->
-                                            <div class="col-12 d-flex justify-content-end">
+                                            <div class="col-12 row">
                                                 <!-- cancelar -->
-                                                <button id="cancelar" type="submit"
-                                                    class="btn btn btn-outline-dark mr-2" style="color: white;
-                                                        background-color:  #4d582a;">Cancelar</button>
+                                                <div class="col-6 col-lg-4 d-flex justify-content-center">
+                                                    <button id="cancelar" type="submit"
+                                                    class="btn btn btn-outline-dark" style="color: white;
+                                                        background-color:  #4d582a; width: 100%;">Cancelar</button>
+                                                </div>
                                                 <!-- guardar -->
-                                                <button class="btn btn btn-outline-dark" style="color: white;
-                                                        background-color:  #4d582a;" type="submit" id="guardar" name="id"
+                                                <div class="col-6 col-lg-4 d-flex justify-content-center">
+                                                    <button class="btn btn btn-outline-dark" style="color: white;
+                                                    background-color:  #4d582a; width: 100%;" type="submit" id="guardar" name="id"
                                                     value="<%= producto.id %> ">Guardar</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

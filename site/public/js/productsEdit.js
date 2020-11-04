@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
 ////////////////////////////////////////////////////////////////////////////
 /////Click EVENTS
 ////////////////////////////////////////////////////////////////////////////
-guardarBtn.addEventListener("click",function(){
+formularioEdit.addEventListener("click",function(){
    /* FAlta editar confirms de guardar y eliminar */
 })
 ////////////////////////////////////////////////////////////////////////////
@@ -90,13 +90,14 @@ formularioEdit.addEventListener("keyup",function(){
     } else {
         stockEdit.classList.remove("is-invalid")
         stockEdit.classList.add("is-valid")
-        errorStockEdit.innerHTML = ""
+      errorStockEdit.innerHTML = ""
     }    
   
       }
       console.log(validateInputsEdit());
    
 })
+
 ////////////////////////////////////////////////////////////////////////////
 //////////////////CHANGE EVENTS
 ////////////////////////////////////////////////////////////////////////////
@@ -124,7 +125,7 @@ formularioEdit.addEventListener("keyup",function(){
 ////////////////////////////SUBMIT EVENTS
 ////////////////////////////////////////////////////////////////////////////
   formularioEdit.addEventListener("submit", function (event) {
-      e.preventDefault()
+     
     
     //tituloEdit
     let errorTituloEdit = document.getElementById('errorTitleEdit');
@@ -177,12 +178,13 @@ formularioEdit.addEventListener("keyup",function(){
         errorImagenEdit.innerHTML = "Porfavor sube un archivo que tenga una de las suguiente extenciones .jpeg/.jpg/.png/.gif."
         break;
       default:
-        errorImagenEdit.innerHTML = " "
+        errorImagenEdit.innerHTML = ""
     }
 
      /* precio */
     let errorPrecioEdit = document.getElementById('errorPrecioEdit');
         if (precioEdit.value.length == "" || precioEdit.value  < 0) {
+          event.preventDefault();
         errorPrecioEdit.innerHTML = "*Ingresa una precio"
         precioEdit.classList.add("is-invalid")
         errores = true
@@ -194,6 +196,7 @@ formularioEdit.addEventListener("keyup",function(){
     /* descuento */
         let errorDescuentoEdit = document.getElementById('errorDescuentoEdit');
         if (descuentoEdit.value.length == "" || descuentoEdit.value  < 0) {
+             event.preventDefault();
             errorDescuentoEdit.innerHTML = "*Ingresa una descuento"
             descuentoEdit.classList.add("is-invalid")
             errores = true
@@ -205,6 +208,7 @@ formularioEdit.addEventListener("keyup",function(){
     /* stock */
         let errorStockEdit = document.getElementById('errorStockEdit');
         if (stockEdit.value.length == "" || stockEdit.value  < 0) {
+             event.preventDefault();
             errorStockEdit.innerHTML = "*Ingresa el stock"
             stockEdit.classList.add("is-invalid")
           errores = true
@@ -214,6 +218,8 @@ formularioEdit.addEventListener("keyup",function(){
           errorStockEdit.innerHTML = ""
         }  
   })
+
+
 
   
 
