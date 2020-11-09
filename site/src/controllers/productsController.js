@@ -3,6 +3,7 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const fs = require('fs');
 const path = require('path');
+const {Op} = require('sequelize');
 
 const products = {
 
@@ -15,13 +16,13 @@ const products = {
                 descuento: Number(req.body.discount),
                 descripcion: req.body.description.trim(),
                 imagenes: (req.files[0]) ? req.files[0].filename : "default.jpg",
-                id_category: req.body.category,
+                id_category: req.body.categoria,
                 stock: req.body.stock
 
             })
                 .then(result => {
                     console.log(result)
-                    res.redirect('/products')
+                    res.redirect('/products/admin/1#listadoProductos')
                 })
 
                 .catch(errores => {
@@ -78,28 +79,62 @@ const products = {
                 console.log(errores)
             })
     },
-    buscar: function (req, res) { },
-    enCarrito: function (req, res) {
-        let productoEnCarrito = dbProduct.filter(producto => {
-            return producto.AgregadoAlCarrito == true
-        })
+    buscar: function (req, res) {
+        if (req.query.search == "") {
+            res.redirect('/')
+        }
+        let search = req.query.search;
+        db.Products.findAll({
+                where: {
+                    nombre: {
+                        [Op.like]: `%${search}%`
+                    }
+                }
+            })
+            .then(result => {
+                if(result.length>0){
+                    res.render('products', {
+                        title: `Resultado de la búsqueda "${search}"`,
+                        productos: result,
+                    })
+                }else{
+                    res.render('products', {
+                        title: `No hay resultados en su busqueda "${search}"` ,
+                        productos: result,
+                    })
+                }
+            })
+            .catch(errors => {
+                res.send(errors)
+            })
+    },
 
-        res.render('productCart', {
-            title: 'Carrito de Compras',
-            productoEnCarrito: productoEnCarrito,
-            user: req.session.user
+    enCarrito: function (req, res) {
+        db.Products.findAll()
+        .then(function (productos) {
+            let productoEnCarrito = productos.filter(producto => {
+                return producto.AgregadoAlCarrito == true
+            })
+            res.render('productCart', {
+                title: 'Carrito de Compras',
+                productoEnCarrito: productoEnCarrito,
+                user: req.session.user
+            })            
+        })
+        .catch(errores => {
+            console.log(errores)
         })
     },
     agregarAlCarrito: function (req, res) {
         let idproducto = req.params.id;
-
-        dbProduct.forEach(producto => {
-            if (producto.id == idproducto) {
-                producto.AgregadoAlCarrito = true;
-            }
+        db.Products.findAll()
+        .then(function (productos){
+            productos.forEach(producto => {
+                if (producto.id == idproducto) {
+                    producto.AgregadoAlCarrito = true;
+                }
+            })          
         })
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(dbProduct), 'utf-8');
-        res.redirect('/products/carritoCompras/')
     },
     retiraDelCarrito: function (req, res) {
         let idproducto = req.params.id;
@@ -158,7 +193,7 @@ const products = {
         res.redirect('/products/admin/' + req.params.id + "#editarProducto")
         }
     },
-    eliminar: function (req, res) {
+    eliminarProd: function (req, res) {
         db.Products.destroy({
             where: {
                 id: req.params.id
@@ -175,9 +210,11 @@ const products = {
             include: [{ association: "categoria" }]
         })
         let categorias = db.Categories.findAll()
+        let idCategory = db.Categories.findByPk(req.params.id)
         let ventas = db.Ventas.findAll()
-        Promise.all([id, todos, categorias, ventas])
-            .then(function ([idProd, todosProd, categoriasProd, ventaProd]) {
+
+        Promise.all([id, todos, categorias,idCategory, ventas])
+            .then(function ([idProd, todosProd, categoriasProd,idCategoryProd, ventaProd]) {
                 res.render('adminProducts', {
                     title: "Ver/Editar Producto",
                     producto: idProd,
@@ -185,6 +222,7 @@ const products = {
                     show: show,
                     productosTotales: todosProd,
                     categorias: categoriasProd,
+                    idCategory:idCategoryProd,
                     ventas: ventaProd
                 })
             })
@@ -192,36 +230,57 @@ const products = {
                 console.log(errores)
             })
     },
-    categoriesAdd: function (req, res, next) {
-        let errores = validationResult(req);
-        if (errores.isEmpty()) {
+    categoriesAdd: function (req, res, next){
             db.Categories.create({
-                nombre: req.body.nombre
-            })
+                nombre: req.body.nombre,
+                imagen: (req.files[0]) ? req.files[0].filename : "default.jpg",
 
+            })
                 .then(result => {
                     console.log(result)
-                    res.redirect('/products/admin/1')
+                    res.redirect('/products/admin/1#categorias')
                 })
-
                 .catch(errores => {
                     console.log(errores)
-                })
-
-        }
+                }) 
     },
     CategoriesEditar: function (req, res, next) {
+
         db.Categories.update({
-            nombre: req.body.category
+            nombre: req.body.nombreEdit,
+            /* imagen: (req.files[0]) ? req.files[0].filename : "default.jpg" */
+        }, {
+            where: {
+                id: req.params.id
+            }
         })
             .then(result => {
                 console.log(result)
-                res.redirect("/products/admin/1");
+                res.redirect("/products/admin/1#categorias");
             })
             .catch(errores => {
                 console.log(errores)
             })
 
+    },
+    categoriesEliminar: function (req, res) {
+        db.Products.update({
+            id_category: null,  
+        }, {
+            where: {
+                id_category: req.params.id
+            }
+        })  
+        db.Categories.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+    
+    .catch(error => {
+        console.log(error)
+    })
+        res.redirect('/products/admin/1#categorias')
     }
 
 }

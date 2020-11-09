@@ -29,6 +29,9 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.STRING(100),
             allowNull:false
         },
+        agregado_al_carrito: {
+            type:dataTypes.STRING(11),
+        },
         stock: {
             type:dataTypes.INTEGER(11),
             allowNull:false

@@ -224,13 +224,21 @@
                                             <div class="form-group col-12 col-lg-4">
 
                                                 <select name="categoriaEdit" class="form-control">
+                                                    <%if (producto.categoria){ %> 
                                                     <option value="<%= producto.categoria.id %>" selected><%= producto.categoria.nombre %> </option>
                                                     <% categorias.forEach(categoria => { %>
                                                         <% if(producto.categoria.id != categoria.id) {%> 
                                                     <option value="<%= categoria.id %>">
                                                         <%= categoria.nombre %>
                                                     </option>
-                                                    <% }}) %>
+                                                    <% }})}else{ %>
+                                                        <option value="" selected>seleccione una categoria</option>
+                                                        <% categorias.forEach(categoria => { %>          
+                                                        <option value="<%= categoria.id %>">
+                                                            <%= categoria.nombre %>
+                                                        </option>
+
+                                                    <%})} %> 
                                                 </select>
                                                 <small id="errorCAtegoriaEdit" class="text-danger"></small>
                                             </div>
@@ -368,20 +376,67 @@
                         <!-- CATEGORIAS -->
                         <div class="tab-pane fade show" id="categorias" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row productos p-4">
+                                 <!--LISTADO CATEGORIAS --> 
+                                <div class="col-12 col-lg-6 " >  
+                                    <div >
+                                        <h3 class="mb-3"> categorias</h3>
+                                            <% categorias.forEach(category => {%> 
+                                                <div class="col-12">
+                                                    <ul style="padding: 0%;">
+                                                        <li class="row" style="align-items: center;border-bottom: 1px solid black;" >
+                                                            <figure class="col-4">
+                                                                <img src="/img/categories/<%= category.imagen %>" alt="" style="width: 80px;" >
+                                                            </figure>
+                                                            
+                                                            <div class="row col-8" style="justify-content: flex-end;">
+                                                                <form action="/products/categories/edit/<%= category.id %>?_method=PUT"
+                                                                    method="POST">
+                                                                    <div class="col-8">
+                                                                        
+                                                                        <input type="text" name="nombreEdit" id="" placeholder="<%= category.nombre %>">
+                                                                        <input type="file" name="imgCategoryEdit" id="">
+                                                                    </div>
 
-                                <h2 class="col-12">EN PROCESO DE CREACION</h2>
-                                <div class="col-12">
-                                    <form action="/products/categories/add" method="POST" enctype="multipart/form-data">
-                                        <input type="text" name="nombre" id="" placeholder="ingrese nueva categoria">
-                                        <button type="submit">Agregar categoria</button>
-                                    </form>
+                                                                    <button class="btn btn-outline-light col-4" style="background-color: blue; color: white; border-radius: 50px;">
+                                                                        Actualizar
+                                                                    </button>
+                                                                </form>
+                                                                <form action="/products/categories/delete/<%= category.id %>?_method=DELETE"
+                                                                    method="POST">
+                                                                    <button class="btn btn-outline-light">
+                                                                        <h4 class="fas fa-trash" style="color:red "></h4>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+
+                                                        </li>
+                                                        
+                                                    </ul>                                        
+                                                </div>
+                                            <% }) %>                                             
+                                            <div>
+                                                <p>total de categorias : <%= categorias.length %> </p>
+                                            </div>                                        
+                                    </div>          
                                 </div>
+                                <!-- FORMULARIO AGREGAR CATEGORIA -->
+                                <div class="col-12 col-lg-6" style="border: 1px solid black; height: fit-content;">
+                                    <div >
+                                        <form action="/products/categories/add" method="POST" enctype="multipart/form-data">                                     
+                                            <div class="mt-1 mb-4">
+                                                <h4>Agregar categoria</h4>
+                                            </div>
+                                            <input type="text" name="nombre" class="col-12" placeholder="Nombre de la categoria">
+                                            <input type="file" name="imgCategory" id="imgCategory" class="form-control mt-2" style="padding: 0%;">
 
-                                <div>
-                                    <p>total de categorias : <%= categorias.length %> </p>
+                                            <div>
+                                                <button type="submit" class="mt-4 mb-3 col-12" >Agregar categoria</button>
+                                            </div>       
+                                            
+                                        </form>
+                                    </div>
+
                                 </div>
-
-
                             </div>
                         </div>
 
@@ -389,7 +444,7 @@
                         <div class="tab-pane fade show" id="ventas" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row productos p-4">
 
-                                <h2>EN PROCESO DE CREACION</h2>
+                                <h2 class="col-12" style="background-color: red; color: white;">EN PROCESO DE CREACION</h2>
                                 <% ventas.forEach(venta => { %>
                                 <div class="detalleVenta">
                                     <%- venta.id_users%>

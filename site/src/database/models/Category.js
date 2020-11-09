@@ -9,13 +9,12 @@ module.exports = (sequelize, dataTypes) => {
             allowNull : false,
             primaryKey : true
         },
-        nombre:{
+        nombre: {
             type:dataTypes.STRING(45),
-            allowNull:false,
+            allowNull:false
         },
         imagen:{
             type:dataTypes.STRING(45),
-            allowNull:false,
         }
     }
 

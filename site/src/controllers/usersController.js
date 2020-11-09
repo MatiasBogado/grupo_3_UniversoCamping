@@ -26,7 +26,7 @@ const users = {
                     email: req.body.email.trim(),
                     password: bcrypt.hashSync(req.body.contraseña.trim(), 10),
                     avatar: (req.files[0]) ? req.files[0].filename : "default.png",
-                    rol: "admin"
+                    rol: "user"
                 }
             )
                 .then(result => {
