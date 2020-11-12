@@ -7,7 +7,7 @@
         <section>
 
             <!--caja que contiene todos los productos de la ultima visita-->
-            <div class="row productos">
+            <div class="row productos justify-content-around">
 
                 <!--caja que contiene el titulo de la sección-->
                 <div class="titulo col-12">
@@ -19,54 +19,30 @@
                 <% productos.forEach(producto => { %>
 
                     <!--caja de la grilla de bootstrap-->
-                    <div class="col-12 col-md-6 col-lg-4 my-2">
 
-                        <!--caja que muestra la información del producto-->
-                        <div class="contenido">
-
-                            <!--ETIQUETA SEMANTICA-->
-                            <figure class="text-center p-3">
-                                <a href="/products/detail/<%= producto.id %> ">
-                                    <img style="max-width: 100%;" src="/img/products/<%- producto.imagenes %>  " alt=" ">
-                                </a>
-                            </figure>
-
-                            <!--informacion-->
-                            <article class="text-center">
-                                <!--nombre del producto ??-->
-                                <p>
-                                    <%- producto.nombre %>
-                                </p>
-                                <!--precio-->
-                                <h2 class="d-inline">$
-                                    <%- (producto.precio -producto.precio * producto.descuento /100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                                </h2>
-                                <!--descuento-->
-                                <% if (producto.descuento!=0) { %>
-                                    <span> <strike> $<%= producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></strike> / <strong><%- producto.descuento %> % OFF</strong>
-                                    </span>
-                                <% } %>
-                                
-                                <!--icono de envío-->
-                                <i class="fas fa-truck "></i>
-
-                                <!--botones ver y comprar-->
-                                <div class="d-block m-3">
-                        
-                            
-                                <form class="d-inline" action="/products/agregarAlCarrito/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">  
-                                    <a href="/products/detail/<%= producto.id %>"><button type="button" class="btn btn-outline-dark">Ver</button></a>
-                                    <a><button class="btn-carrito btn  btn-dark" style="background-color: #4d582a;" value="<%= producto.id %> ">Comprar</button></a>
-                                </form>
-
-                                </div>
-                            </article>
-                        </div>
-                        <!--finaliza contenido-->
-
-                    </div>
                     
                     <!--finaliza caja de grilla de boostrap-->
+
+                        <div class="col-3 my-3 text-center">
+                            <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
+                                <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
+                                <h4 class="titleProduct"><%= producto.nombre %></h4>
+                                <p class="d-inline"><%= producto.precio %></p>
+                                <p class="d-inline"><%= producto.descuento %>% OFF</p>
+                                <i class="fas fa-truck "></i>
+                            </a>
+                            <div class="d-block m-3 text-center">
+                                <form class="d-inline text-center"
+                                    action="/products/agregarAlCarrito/<% producto.id %>?_method=PUT"
+                                    method="POST" enctype="multipart/form-data">
+                                    <a href="/products/detail/<% producto.id %>"><button type="button"
+                                            class="btn btn-outline-dark">Ver</button></a>
+                                    <a><button class="btn-carrito btn  btn-dark"
+                                            style="background-color: #4d582a;  border-color: transparent;"
+                                            value="25">Carrito</button></a>
+                                </form>
+                            </div>
+                        </div>
 
                     
 
@@ -79,8 +55,6 @@
     </div>
 
     
-
-
 
     
     <%- include('partials/footer')  %> 

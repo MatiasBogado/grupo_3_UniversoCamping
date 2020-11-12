@@ -312,13 +312,29 @@ footer .contactanos{
 /*MARCAS*/
 
 @media (max-width: 375px) {
-    .mainIndex .marcas img{
+.mainIndex .marcas img{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     }
 }
-
+.logotipo{
+    margin: 5px;
+    filter:grayscale(100%);
+    opacity:.5;
+    transition:0.6s;
+    -webkit-transition: .6s;
+    -moz-transition: .6s;
+    }
+    
+.logotipo:hover{
+    filter:grayscale(0%);
+    opacity:1;
+    margin-top:-4px;
+    -webkit-box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+    }
 
 
 
@@ -721,7 +737,8 @@ footer .contactanos{
 }
 .mainProductDetail .btn-carrito{
 	color: white;
-	background-color:#4d582a;
+    background-color:#4d582a;
+    border-color: transparent;
 }
 @media (min-width: 992px) {
 	.mainProductDetail section .article1{
@@ -807,6 +824,27 @@ footer .contactanos{
     background-position: center;
 
 }
-
+.titleProduct{
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+.anchorProducs:hover{
+    color: black;
+    text-decoration: none; 
+}
+.prev_arrow{
+    position: absolute;
+    font-size: 50px;
+    right: 0%;
+    top: 50%;
+}
+.next_arrow{
+    z-index: 20;
+    position: absolute;
+    font-size: 50px;
+    left: 0%;
+    top: 50%;
+}
 
 
