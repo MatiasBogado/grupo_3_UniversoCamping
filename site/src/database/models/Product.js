@@ -29,16 +29,9 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.STRING(100),
             allowNull:false
         },
-        agregado_al_carrito: {
-            type:dataTypes.STRING(11),
-        },
         stock: {
             type:dataTypes.INTEGER(11),
             allowNull:false
-        },
-        id_cart: {
-            type:dataTypes.INTEGER(11).UNSIGNED,
-            
         },
         id_category: {
             type:dataTypes.INTEGER(11).UNSIGNED,
@@ -58,10 +51,10 @@ module.exports = (sequelize, dataTypes) => {
     
 
     Product.associate = function(models){
-        /* productos le pertenecen a un carrito */
-        Product.belongsTo(models.Carts,{
+        
+        Product.hasOne(models.Carts,{
             as:"cart",
-            foreignKey:"id_cart"
+            foreignKey:"products_id"
         })
         /* producto pertenece a una categoria */
         Product.belongsTo(models.Categories,{

@@ -10,7 +10,7 @@ const productsEditValidator = require('../validators/productsEditValidator')
 const multerProduct = require("../middlewares/multerProduct")
 const multerCategories = require("../middlewares/multerCategories")
 
-router.get('/cart', productsController.enCarrito)
+router.get('/cart',sessionUserCheck,productsController.enCarrito)
 router.get('/carritoCompras/', productsController.enCarrito)
 router.put('/agregarAlCarrito/:id',multerProduct.any(),productsController.agregarAlCarrito);
 router.put('/retiraDelCarrito/:id',productsController.retiraDelCarrito);

@@ -110,15 +110,31 @@ const products = {
     },
 
     enCarrito: function (req, res) {
-        db.Products.findAll()
+        db.Carts.findAll({include:[{association:"productos"},{association:"Users"}]})
         .then(function (productos) {
-            let productoEnCarrito = productos.filter(producto => {
-                return producto.AgregadoAlCarrito == true
+            /* en el carrito se guardan todos los productos de todos los usuarios */
+            /* hay que separarlos para mostrarlos en la vista */
+
+            
+           let totalProduct = []/* total de productos en el  carrito de un usuario en especifico */
+           let precios=[]/* cada uno de los precios de los productos del carrito de un usuario */
+           let cantidad;
+
+            productos.forEach(product=>{     
+                if (product.id_user == req.session.user.id){ /* separo los productos de cada usuario*/
+                    totalProduct.push(product)
+                    precios.push(product.productos.precio)
+                    cantidad = product.cantidad
+                }
             })
+            let precioTotal = precios.reduce(function(a, b){ return a + b; });/* suma de precios de los productos de UN usuario */
+
             res.render('productCart', {
                 title: 'Carrito de Compras',
-                productoEnCarrito: productoEnCarrito,
-                user: req.session.user
+                productoEnCarrito: productos,
+                user: req.session.user,
+                totalProductoEnCarrito : totalProduct.length,
+                precioTotal:precioTotal
             })            
         })
         .catch(errores => {
@@ -126,26 +142,27 @@ const products = {
         })
     },
     agregarAlCarrito: function (req, res) {
-        let idproducto = req.params.id;
-        db.Products.findAll()
-        .then(function (productos){
-            productos.forEach(producto => {
-                if (producto.id == idproducto) {
-                    producto.AgregadoAlCarrito = true;
-                }
-            })          
+
+        db.Carts.create({
+            cantidad:req.body.quantity,
+            products_id:req.params.id,
+            id_user:req.session.user.id
+        })
+        .then(result => {
+            console.log(result)
+            res.redirect('/products/cart')
+        })
+        .catch(errors=>{
+            console.log(errors)
         })
     },
     retiraDelCarrito: function (req, res) {
-        let idproducto = req.params.id;
-
-        dbProduct.forEach(producto => {
-            if (producto.id == idproducto) {
-                producto.AgregadoAlCarrito = false;
+        db.Carts.destroy({
+            where: {
+                id: req.params.id
             }
         })
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(dbProduct), 'utf-8');
-        res.redirect('/products/carritoCompras/')
+        res.redirect('/products/cart')
     },
     show: function (req, res) {
 

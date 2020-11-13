@@ -12,17 +12,19 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey : true
         },
         remito:{
-            type:dataTypes.INTEGER(11),
-            allowNull: false,
+            type:dataTypes.INTEGER(11)
         },
         cantidad:{
-            type:dataTypes.INTEGER(11),
-            allowNull: false,
+            type:dataTypes.INTEGER(11)
         },
         id_user: {
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
+        products_id: {
+            type:dataTypes.INTEGER(11),
+            allowNull:false
+        }
         
     }
 
@@ -40,10 +42,10 @@ module.exports = (sequelize, dataTypes) => {
             as:"Users",
             foreignKey:"id_user"
         })
-        /* carrito tiene muchos productos */
-        Cart.hasMany(models.Products,{
+        
+        Cart.belongsTo(models.Products,{
             as:"productos",
-            foreignKey:"id_cart"
+            foreignKey:"products_id"
         })
 
     }
