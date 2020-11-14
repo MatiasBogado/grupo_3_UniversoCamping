@@ -33,13 +33,13 @@
                             </a>
                             <div class="d-block m-3 text-center">
                                 <form class="d-inline text-center"
-                                    action="/products/agregarAlCarrito/<% producto.id %>?_method=PUT"
+                                    action="/products/agregarAlCarrito/<%= producto.id %>?_method=PUT"
                                     method="POST" enctype="multipart/form-data">
-                                    <a href="/products/detail/<% producto.id %>"><button type="button"
+                                    <a href="/products/detail/<%= producto.id %>"><button type="button"
                                             class="btn btn-outline-dark">Ver</button></a>
                                     <a><button class="btn-carrito btn  btn-dark"
                                             style="background-color: #4d582a;  border-color: transparent;"
-                                            value="25">Carrito</button></a>
+                                            value=<%= producto.id %>">Agregar al carrito</button></a>
                                 </form>
                             </div>
                         </div>

@@ -11,9 +11,10 @@ const multerProduct = require("../middlewares/multerProduct")
 const multerCategories = require("../middlewares/multerCategories")
 
 router.get('/cart',sessionUserCheck,productsController.enCarrito)
-router.get('/carritoCompras/', productsController.enCarrito)
-router.put('/agregarAlCarrito/:id',multerProduct.any(),productsController.agregarAlCarrito);
-router.put('/retiraDelCarrito/:id',productsController.retiraDelCarrito);
+router.put('/agregarAlCarrito/:id',sessionUserCheck,multerProduct.any(),productsController.agregarAlCarrito);
+router.put('/retiraDelCarrito/:id',sessionUserCheck,productsController.retiraDelCarrito);
+router.put('/deleteAllCarrito',sessionUserCheck,productsController.deleteAllCarrito);
+
 
 router.get('/', productsController.listar)
 router.get('/detail/:id', productsController.productDetail)

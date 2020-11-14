@@ -119,24 +119,32 @@ const products = {
            let totalProduct = []/* total de productos en el  carrito de un usuario en especifico */
            let precios=[]/* cada uno de los precios de los productos del carrito de un usuario */
            let cantidad;
-
+           
             productos.forEach(product=>{     
                 if (product.id_user == req.session.user.id){ /* separo los productos de cada usuario*/
                     totalProduct.push(product)
                     precios.push(product.productos.precio)
                     cantidad = product.cantidad
+                    
                 }
             })
-            let precioTotal = precios.reduce(function(a, b){ return a + b; });/* suma de precios de los productos de UN usuario */
-
+            let precioTotal;
+            if(precios.length>=1){
+                precioTotal = precios.reduce(function(a, b){ return a + b; });/* suma de precios de los productos de UN usuario */
+            }
+        
             res.render('productCart', {
                 title: 'Carrito de Compras',
                 productoEnCarrito: productos,
                 user: req.session.user,
                 totalProductoEnCarrito : totalProduct.length,
-                precioTotal:precioTotal
+                precioTotal:precioTotal,
+                cantidad:cantidad
+
             })            
+                
         })
+        
         .catch(errores => {
             console.log(errores)
         })
@@ -160,6 +168,15 @@ const products = {
         db.Carts.destroy({
             where: {
                 id: req.params.id
+            }
+        })
+        res.redirect('/products/cart')
+    },
+    deleteAllCarrito: function (req,res) {
+         
+        db.Carts.destroy({
+            where: {
+                id_user : req.session.user.id
             }
         })
         res.redirect('/products/cart')
