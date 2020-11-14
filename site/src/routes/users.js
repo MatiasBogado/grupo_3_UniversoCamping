@@ -16,20 +16,20 @@ const sessionUserRestrict = require ("../middlewares/sessionUserRestrict")
 
 
 router.get('/register', sessionUserRestrict,usersController.register)
-router.post('/register',multerAvatar.any(),registerValidator, usersController.procesoRegister)
+router.post('/register',multerAvatar.any(),sessionUserRestrict,registerValidator, usersController.procesoRegister)
 
-router.get('/login', usersController.login)
-router.post('/login',loginValidator, usersController.procesoLogin)
+router.get('/login',sessionUserRestrict, usersController.login)
+router.post('/login',sessionUserRestrict,loginValidator, usersController.procesoLogin)
 
 router.get('/profile', sessionUserCheck, usersController.profile);
-router.put('/updateProfile/:id',multerAvatar.any(),usersController.updateProfile);
+router.put('/updateProfile/:id',multerAvatar.any(),sessionUserCheck,usersController.updateProfile);
 
-router.get('/logout',usersController.logout);
+router.get('/logout',sessionUserCheck,usersController.logout);
 
 router.get('/admin/:id',sessionAdminCheck,usersController.admin);
 
 router.put('/editar/:id',multerAvatar.any(),sessionAdminCheck,usersController.editar);
-router.delete('/delete/:id',usersController.eliminar);
+router.delete('/delete/:id',sessionUserCheck,usersController.eliminar);
 
 
 

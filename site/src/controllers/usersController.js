@@ -190,6 +190,12 @@ const users = {
         if (fs.existsSync('public/images/avatares/' + req.session.user.avatar) && req.session.user.avatar != "default.png") {
             fs.unlinkSync('public/images/avatares/' + req.session.user.avatar)
         }
+        //eliminar los productos que tenga en carrito
+        db.Carts.destroy({
+            where: {
+                id_user : req.session.user.id
+            }
+        })
         //cerrar la session y borrar cookie
         if (req.session.user.rol != "admin") {
             req.session.destroy();
