@@ -113,6 +113,7 @@ const users = {
         db.Users.update(
             {
                 fecha: req.body.fecha,
+                dni:req.body.dni,
                 avatar: (req.files[0]) ? req.files[0].filename : req.session.user.avatar,
                 direccion: (req.body.direccion != "") ? req.body.direccion.trim() : null,
                 ciudad: (req.body.ciudad != "") ? req.body.ciudad.trim() : null,
@@ -164,6 +165,7 @@ const users = {
             apellido: req.body.apellido.trim(),
             rol: req.body.rol.trim(),
             avatar: (req.files[0] ? req.files[0].filename : req.session.user.avatar),
+            dni:req.body.dni,
             edad: req.body.edad,
             email: req.body.email,
             direccion: (req.body.direccion != "") ? req.body.direccion.trim() : null,

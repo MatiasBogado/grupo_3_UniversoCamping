@@ -25,6 +25,9 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.STRING(100),
             allowNull: false
         },
+        dni:{
+            type:dataTypes.INTEGER(11),
+        },
         fecha:{
             type:dataTypes.DATEONLY(),
         },
