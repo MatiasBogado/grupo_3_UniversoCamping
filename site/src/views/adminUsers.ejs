@@ -7,7 +7,7 @@
 
 
     <div class="container">
-        <section class="perfilUsuario">
+        <section class="perfilUsuario montserrat">
             <div class="row perfil">
                 <!-- TITULO -->
                 <div class="titulo col-12">
@@ -15,17 +15,6 @@
                         <%= title %>
                     </h5>
                 </div>
-                <!-- BOTONES NAVEGACION USUARIO / PRODUCTOS -->
-                <div class="container row">
-                    <div style="margin-left: 15px;">
-                        <a class="" id="profile-tab"  href="/products/admin/1" >PRODUCTOS</a>
-                    </div>
-                    
-                    <div style="margin-left: 15px;">
-                        <a class="r" id="profile-tab"  href="/users/admin/1">USUARIOS</a>
-                    </div>
-                </div>
-
                 <!-- CONTENEDOR PRINCIPAL -->
                 <div class="col-12">
 
@@ -189,7 +178,7 @@
                                             <figure class="text-center">
                                                 <img src="/img/avatares/<%= usuario.avatar %> " alt="" class="img-fluid">
                                             </figure>
-                                            <input type="file" class="form-control" name="avatar">
+                                            
                                         </div>
         
                                         <div class="col-12 col-lg-8"> <!-- NOMBRE Y APELLIDO -->
@@ -250,7 +239,11 @@
                                                         <label for="">Provincia:</label>   
                                                             <input class="form-control " type="text" value="<%= user.provincia%>" name="provincia">
                                                     </div>
-
+                                                    
+                                                <!--IMAGEN-->
+                                                <div class="mt-2 col-12">
+                                                <input type="file" class="form-control" name="avatar">
+                                                </div>
                                                 <!-- COMPRAS -->
                                                 <div class="col-12 -">
                                                     <span><b>Compras realizadas:</b> 
@@ -273,8 +266,8 @@
                                 </form>
                                 <form action="/users/delete/<%= usuario.id %>?_method=DELETE" method="POST">
                                     <div class="col-12 d-flex justify-content-end"  id="botones">
-                                    <button class="btn btn-danger mb-3">
-                                        ELIMINAR USUARIO
+                                    <button id="botones" class="btn mb-3" style="background-color: #59222F; color: white;">
+                                        Eliminar usuario
                                     </button>
                                 </div>
                                 </form>
@@ -351,7 +344,18 @@
                             </div>
 
                         </div>
-
+                        
+                        <div class="container"><hr style="background-color: #dee2e6;"></div>
+                    <!-- BOTONES NAVEGACION USUARIO / PRODUCTOS -->
+                    <div class="container">
+                    <div class="row justify-content-end">
+                        <a href="/products/admin/1">
+                            <button class="btn btn-outline-dark mb-3 borderTransparent" style="color: white;
+                            background-color:  #4d582a;">Editar productos</button>
+                        </a>
+                    </div>
+                    
+                </div>
                         
                     </div>
                 </div>

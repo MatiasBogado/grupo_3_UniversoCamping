@@ -7,7 +7,7 @@
         <section>
 
             <!--caja que contiene todos los productos de la ultima visita-->
-            <div class="row productos justify-content-around">
+            <div class="row productos">
 
                 <!--caja que contiene el titulo de la sección-->
                 <div class="titulo col-12">
@@ -23,7 +23,7 @@
                     
                     <!--finaliza caja de grilla de boostrap-->
 
-                        <div class="col-3 my-3 text-center">
+                        <div class="col-3 my-3 text-center productosProd" id="descriptionProd">
                             <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
                                 <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
                                 <h4 class="titleProduct"><%= producto.nombre %></h4>
@@ -42,6 +42,8 @@
                                             value=<%= producto.id %>">Agregar al carrito</button></a>
                                 </form>
                             </div>
+                            <div id="descriptionProd">
+                            </div>
                         </div>
 
                     
@@ -51,13 +53,12 @@
             <!--finaliza el div.row-->
 
         </section>
-
     </div>
 
     
 
     
     <%- include('partials/footer')  %> 
-
+    <script type="text/javascript" src="../js/products.js"></script>
 </body>
 </html>

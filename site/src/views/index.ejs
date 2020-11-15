@@ -20,18 +20,32 @@
             </div>
 
             <!-- SECCIÓN CAROUSEL -->
+            
+            <div class="titulo col-12 mt-4">
+                <h5 class="titleSection card-header text-center">
+                    Productos destacados
+                </h5>
+            </div>
            
-           
-                <div class="container center my-4" style="text-align:center;">
+                <div id="carousel" class="container center my-4" style="text-align:center;">
                   <% productos.forEach(producto=>{ if (producto.id > 0 && producto.id < 7){%>
                     <div class="row justify-content-center">
                         <div class="col">
+                            <div class="productosIndex" style="border: 1px solid gray; border-radius: 5px; padding: 20px;">
                             <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
+                                
                                 <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
-                                <h4 class="titleProduct"><%= producto.nombre %></h4>
+                                <%if (producto.nombre.length > 17) {%>
+                                    <p>
+                                        <h5 class="titleProduct pt-4"><%- producto.nombre.slice(0,17) + '...'%></h5>
+                                    </p>
+                                    <%}else{%>
+                                        <h5 class="titleProduct pt-4"><%= producto.nombre %></h5>
+                                    <%}%>
                                 <p class="d-inline"><%= producto.precio %></p>
                                 <p class="d-inline"><%= producto.descuento %>% OFF</p>
                                 <i class="fas fa-truck "></i>
+                                
                             </a>
                             <div class="d-block m-3">
                                 <form class="d-inline"
@@ -40,10 +54,11 @@
                                     <a href="/products/detail/<% producto.id %>"><button type="button"
                                             class="btn btn-outline-dark">Ver</button></a>
                                     <a><button class="btn  btn-dark btn-carrito"
-                                            style="background-color: #4d582a; border-color: transparent;"
+                                            style="background-color: #4d582a;"
                                             value="25">Carrito</button></a>
                                 </form>
                             </div>
+                        </div>
                         </div>
                     </div>
                   <% }}) %>
@@ -171,7 +186,7 @@
             arrows: true,
             centerMode: true,
             centerPadding: '40px',
-            slidesToShow: 2
+            slidesToShow: 1
           }
         },
         {

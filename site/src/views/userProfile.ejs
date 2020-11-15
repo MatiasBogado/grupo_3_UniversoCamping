@@ -36,6 +36,7 @@
                               <div class="tab-pane fade show active my-5" id="usuarios" role="tabpanel" aria-labelledby="profile-tab">
                                 <form action="/users/updateProfile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                 <% if (user) { %>
+<<<<<<< Updated upstream
                                 <div class="d-inline-block "><img src="/img/avatares/<%= (user.avatar) %> " style="width: 300px; width: 300px;" alt="" >
                                     <input type="file" class="form-control" name="avatar">
                                 </div>
@@ -76,17 +77,72 @@
                                 <div class="col-12 ">
                                     <label for="">Ciudad:</label>   
                                         <input class="form-control " type="text" value="<%= user.ciudad%>" name="ciudad">
+=======
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="d-inline-block "><img src="/img/avatares/<%= (user.avatar) %> " style="width: 300px; width: 300px;" alt="" >
+                                                <input type="file" class="form-control" name="avatar">
+                                            </div>
+                                        </div>
+                                        <div class="col-7">
+>>>>>>> Stashed changes
                                     
-                                </div>
-                            <!-- PROVINCIA -->
-                                <div class="col-12 ">
-                                    <label for="">Provincia:</label>   
-                                        <input class="form-control " type="text" value="<%= user.provincia%>" name="provincia">
-                                </div>
-                                    <% } %>
-                                <!-- BOTON ACTUALIZAR -->
-                                <div class="col-12 d-flex justify-content-end"  id="botones">
+                                                <!-- EDITAR NOMBRE DE user -->
+                                                            
+                                                    <div class="form-group col-12 ">
+                                                        <label for="">Nombre:</label>
+                                                        <input class="form-control" type="text" value="<%= user.nombre%>" name="nombre" disabled>
+                                                    </div>
+                                                        <!-- APELLIDO -->
+                                                    <div class="form-group col-12 ">
+                                                        <label for="">Apellido:</label>
+                                                        <input class="form-control" type="text" value="<%= user.apellido%>" name="apellido" disabled>
+                                                    </div>
+                                                      <!-- MAIL -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Email:</label>
+                                                        <input class="form-control" type="text" value="<%= user.email%>" name="email" disabled>
+                                                    </div>
+                                                    <!-- EDAD -->
+                                                    <div class="col-12 col-lg-3">
+                                                        <label for="">Edad:</label>
+                                                        <input type="date" value="<%= user.edad %>" name="edad">
+                                                    </div>
+                                                    <!-- DIRECCION -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Direccion:</label>      
+                                                        <input class="form-control " type="text" value="<%= user.direccion%>" name="direccion">
+                                                    </div>
+                                                <!-- CIUDAD -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Ciudad:</label>   
+                                                            <input class="form-control " type="text" value="<%= user.ciudad%>" name="ciudad">
+                                                        
+                                                    </div>
+                                                <!-- PROVINCIA -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Provincia:</label>   
+                                                            <input class="form-control " type="text" value="<%= user.provincia%>" name="provincia">
+                                                    </div>
+                                                        <% } %>
+                                                    <!-- BOTON ACTUALIZAR -->
+                                                    <div class="col-12 d-flex mt-2 justify-content-end"  id="botones">
+                                                        <div class=""  style="margin-top: 5px;" id="botones">
+                                                        <button class="btn"  style="color: white;
+                                                        background-color:  #4d582a;" type="submit" name="id" >Actualizar datos</button>
+                                                        </div>
+                                                     </div>
+                                                    </form>
+                                                    <form class="col-12 d-flex justify-content-end" action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
+                                                        <!-- BOTON DARSE DE BAJA -->
+                                                        <div class=""  style="margin-top: 5px;" id="botones">
+                                                            <button class="btn mb-3" style="background-color: #59222F; color: white;">
+                                                            Darse de baja
+                                                            </button>
+                                                        </div>
+                                                    </form>
                                                     
+<<<<<<< Updated upstream
                                     <button class="btn btn btn-outline-dark"  style="color: white;
                                     background-color:  #4d582a;" type="submit" name="id" >ACTUALIZAR DATOS</button>
 
@@ -101,6 +157,13 @@
                                 </div>
                                 </form>
                             </div>
+=======
+                                                    
+                                        </div>
+                                    </div>
+                                
+                                
+>>>>>>> Stashed changes
                               
                             </div>
                             
@@ -113,16 +176,17 @@
                                 <div class="row productos p-4">
                                     <% productos.forEach(producto => { %>
                                     <div class="col-6 col-md-3 col-xl-2">
-                                        <div class="contenido">
+                                        <div class="productosProd text-center">
                                             <figure>
                                                 <a href=""><img src="/img/products/<%- producto.image %>  " alt="" style="width: 150px;"></a>
                                             </figure>
-                                            <%if (producto.name.length > 10) {%>
+                                            <%if (producto.name.length > 23) {%>
                                             <p>
-                                                <%- producto.name.slice(0,20) + '...'%>
+                                                <%- producto.name.slice(0,23) + '...'%>
                                             </p>
+                                            <%}else{%>
+                                                <%- producto.name %>
                                             <%}%>
-
                                         </div>
                                     </div>
                                     <% }) %>
