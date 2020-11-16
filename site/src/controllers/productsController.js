@@ -1,8 +1,5 @@
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
-const bcrypt = require('bcrypt');
-const fs = require('fs');
-const path = require('path');
 const {Op} = require('sequelize');
 
 const products = {
@@ -133,6 +130,7 @@ const products = {
                 precioTotal = precios.reduce(function(a, b){ return a + b; });/* suma de precios de los productos de UN usuario */
             }
         
+        
             res.render('productCart', {
                 title: 'Carrito de Compras',
                 productoEnCarrito: productos,
@@ -180,6 +178,43 @@ const products = {
             }
         })
         res.redirect('/products/cart')
+    },
+    confirm:function (req,res){
+        db.Carts.findAll({include:[{association:"productos"},{association:"Users"}]})
+        .then(function (productos) {
+            /* en el carrito se guardan todos los productos de todos los usuarios */
+            /* hay que separarlos para mostrarlos en la vista */
+
+            
+           let totalProduct = []/* total de productos en el  carrito de un usuario en especifico */
+           let precios=[]/* cada uno de los precios de los productos del carrito de un usuario */
+           let cantidad;
+           let productID;
+           
+            productos.forEach(product=>{     
+                if (product.id_user == req.session.user.id){ /* separo los productos de cada usuario*/
+                    totalProduct.push(product)
+                    precios.push(product.productos.precio)
+                    cantidad = product.cantidad
+                    productID= product.productos.id      
+                }
+            })
+            let precioTotal;
+            if(precios.length>=1){
+                precioTotal = precios.reduce(function(a, b){ return a + b; });/* suma de precios de los productos de UN usuario */
+            }
+            db.Ventas.create({
+                id_users: req.session.user.id,
+                id_products: productID,
+                cantidad:cantidad
+            })
+            res.render('compraConfirm', {
+                title: 'Compra Confirmada',
+            })    
+        })
+        
+
+     
     },
     show: function (req, res) {
 

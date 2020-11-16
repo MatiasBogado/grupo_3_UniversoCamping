@@ -97,6 +97,7 @@ const users = {
         if (req.session.user) {
             db.Users.findByPk(req.session.user.id)
                 .then(user => {
+                    
                     res.render('userProfile', {
                         title: "Perfil de Usuario",
                         productos: dbProducts,
@@ -104,6 +105,8 @@ const users = {
                     })
 
                 })
+
+
         } else {
             return res.redirect("/")
         }

@@ -14,6 +14,9 @@ router.get('/cart',sessionUserCheck,productsController.enCarrito)
 router.put('/agregarAlCarrito/:id',sessionUserCheck,multerProduct.any(),productsController.agregarAlCarrito);
 router.put('/retiraDelCarrito/:id',sessionUserCheck,productsController.retiraDelCarrito);
 router.put('/deleteAllCarrito',sessionUserCheck,productsController.deleteAllCarrito);
+router.get('/cart/confirm',sessionUserCheck,productsController.confirm);
+router.put('/cart/confirm',sessionUserCheck,productsController.confirm);
+
 
 
 router.get('/', productsController.listar)

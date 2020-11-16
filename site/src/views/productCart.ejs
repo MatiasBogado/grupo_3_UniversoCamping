@@ -156,8 +156,11 @@
                 <!-- CAJA DE BOTONES (FINALIZAR COMPRA-AGREGAR PRODUCTO-VACIAR CARRITO)-->
                 <div class="botonesAccion">
                     <div class="my-2 accion col-md-4 col-lg-4">
-                        <a href=""><button class="botones btn btn-outline-dark" type="button">FINALIZAR
+                        <form action="/products/cart/confirm?_method=PUT" method="POST">
+                            <a href="/products/cart/confirm"><button class="botones btn btn-outline-dark" type="submit">FINALIZAR
                                 COMPRA</button></a>
+                        </form>
+                      
                     </div>
                     <div class="my-2 accion  col-md-4 col-lg-4">
                         <a href="/products"><button class="botones btn btn-outline-dark" type="button">SEGUIR
