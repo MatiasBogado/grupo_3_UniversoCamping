@@ -23,6 +23,7 @@ router.get('/', productsController.listar)
 router.get('/detail/:id', productsController.productDetail)
 router.get('/search',productsController.buscar);
 
+router.get("/:categories",productsController.categories)
 router.post('/categories/add',multerCategories.any(),sessionAdminCheck,productsController.categoriesAdd);
 router.put('/categories/edit/:id',multerCategories.any(),sessionAdminCheck,productsController.CategoriesEditar);
 router.delete('/categories/delete/:id',sessionAdminCheck,productsController.categoriesEliminar);

@@ -48,10 +48,10 @@
                                     role="tab" aria-controls="home" aria-selected="true">Agregar Producto</a>
                             </li>
                             <!-- Categorias-->
-                            <li class="nav-item " role="presentation">
+                          <!--   <li class="nav-item " role="presentation">
                                 <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#categorias"
                                     role="tab" aria-controls="home" aria-selected="true">Categorias</a>
-                            </li>
+                            </li> -->
                              <!-- Ventas-->
                             <li class="nav-item " role="presentation">
                                 <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#ventas"
@@ -150,7 +150,7 @@
                                 aria-labelledby="profile-tab">
                                 <div class="row productos p-4">
                                     <% productosTotales.forEach(producto => { %>
-                                    <!--<div class="col-6 col-md-3 col-xl-2">
+                                    <div class="col-6 col-md-3 col-xl-2">
                                         <div class="contenido">
                                             <figure>
                                                 <a href="/products/admin/<%- producto.id %>"><img
@@ -179,8 +179,8 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>-->
-                                <div class="col-12 col-md-4 col-lg-3 my-3 text-center productosProd" id="descriptionProd">
+                                </div>
+                                <!-- <div class="col-12 col-md-4 col-lg-3 my-3 text-center productosProd" id="descriptionProd">
                                     <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
                                         <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
                                         <h4 class="titleProduct"><%= producto.nombre %></h4> 
@@ -199,7 +199,7 @@
                                         </form>
                                     </div>
                                     </a>
-                                </div>
+                                </div> -->
                                 <% }) %>
                             </div>
                         </div>

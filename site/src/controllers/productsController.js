@@ -300,6 +300,20 @@ const products = {
                 console.log(errores)
             })
     },
+    categories: function(req,res,next){
+        db.Products.findAll({
+           include: [{ association: "categoria" }],
+           where:{
+               id_category:req.params.categories
+           }
+       })
+       .then(products =>{
+           res.render("products",{
+               title:" ",
+               productos:products
+           })
+       })
+   },
     categoriesAdd: function (req, res, next){
             db.Categories.create({
                 nombre: req.body.nombre,
