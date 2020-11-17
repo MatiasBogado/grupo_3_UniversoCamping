@@ -184,37 +184,36 @@ const products = {
         .then(function (productos) {
             /* en el carrito se guardan todos los productos de todos los usuarios */
             /* hay que separarlos para mostrarlos en la vista */
-
-            
            let totalProduct = []/* total de productos en el  carrito de un usuario en especifico */
            let precios=[]/* cada uno de los precios de los productos del carrito de un usuario */
            let cantidad;
            let productID;
-           
+           let precioTotal;
+           if(precios.length>=1){
+               precioTotal = precios.reduce(function(a, b){ return a + b; });/* suma de precios de los productos de UN usuario */
+           }
             productos.forEach(product=>{     
+
+
                 if (product.id_user == req.session.user.id){ /* separo los productos de cada usuario*/
                     totalProduct.push(product)
                     precios.push(product.productos.precio)
                     cantidad = product.cantidad
-                    productID= product.productos.id      
+                    productID= product.productos.id   
+                    db.Ventas.create({
+                        id_users: req.session.user.id,
+                        id_products: productID,
+                        cantidad:cantidad
+                    })
+                    res.render('compraConfirm', {
+                        title: 'Compra Confirmada',
+                    })     
                 }
             })
-            let precioTotal;
-            if(precios.length>=1){
-                precioTotal = precios.reduce(function(a, b){ return a + b; });/* suma de precios de los productos de UN usuario */
-            }
-            db.Ventas.create({
-                id_users: req.session.user.id,
-                id_products: productID,
-                cantidad:cantidad
-            })
-            res.render('compraConfirm', {
-                title: 'Compra Confirmada',
-            })    
         })
-        
-
-     
+        .catch(errores => {
+            console.log(errores)
+        })
     },
     show: function (req, res) {
 
@@ -271,6 +270,7 @@ const products = {
         res.redirect('/products/admin/1')
     },
     admin: function (req, res) {
+        let usuarios = db.Users.findAll()
         let show = req.params.show
         let id = db.Products.findByPk(req.params.id, {
             include: [{ association: "categoria" }]
@@ -282,8 +282,8 @@ const products = {
         let idCategory = db.Categories.findByPk(req.params.id)
         let ventas = db.Ventas.findAll()
 
-        Promise.all([id, todos, categorias,idCategory, ventas])
-            .then(function ([idProd, todosProd, categoriasProd,idCategoryProd, ventaProd]) {
+        Promise.all([id, todos, categorias,idCategory, ventas,usuarios])
+            .then(function ([idProd, todosProd, categoriasProd,idCategoryProd, ventaProd,usuariosProd]) {
                 res.render('adminProducts', {
                     title: "Ver/Editar Producto",
                     producto: idProd,
@@ -292,7 +292,8 @@ const products = {
                     productosTotales: todosProd,
                     categorias: categoriasProd,
                     idCategory:idCategoryProd,
-                    ventas: ventaProd
+                    ventas: ventaProd,
+                    usuarios:usuariosProd
                 })
             })
             .catch(errores => {

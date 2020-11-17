@@ -6,7 +6,7 @@
     <%- include('partials/header') %>
 
 
-    <div class="container">
+    <div class="container montserrat">
         <section class="perfilUsuario">
             <div class="row perfil">
                 <!-- TITULO -->
@@ -15,17 +15,7 @@
                         <%= title %>
                     </h5>
                 </div>
-                <!-- BOTONES NAVEGACION USUARIO / PRODUCTOS -->
-                <div class="container row">
-                    <div style="margin-left: 15px;">
-                        <a class="" id="profile-tab" href="/products/admin/1">PRODUCTOS</a>
-                    </div>
-
-                    <div style="margin-left: 15px;">
-                        <a class="r" id="profile-tab" href="/users/admin/1">USUARIOS</a>
-                    </div>
-                </div>
-
+    
                 <!-- CONTENEDOR PRINCIPAL -->
                 <div class="col-12">
 
@@ -57,15 +47,15 @@
                                 <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#agregarProducto"
                                     role="tab" aria-controls="home" aria-selected="true">Agregar Producto</a>
                             </li>
-                             <!-- VEntas -->
-                            <li class="nav-item " role="presentation">
-                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#ventas"
-                                    role="tab" aria-controls="home" aria-selected="true">Ventas</a>
-                            </li>
                             <!-- Categorias-->
                             <li class="nav-item " role="presentation">
                                 <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#categorias"
                                     role="tab" aria-controls="home" aria-selected="true">Categorias</a>
+                            </li>
+                             <!-- Ventas-->
+                            <li class="nav-item " role="presentation">
+                                <a class="nav-link blackColor" id="home-tab" data-toggle="tab" href="#ventas"
+                                    role="tab" aria-controls="home" aria-selected="true">Ventas</a>
                             </li>
                         </ul>
 
@@ -160,14 +150,14 @@
                                 aria-labelledby="profile-tab">
                                 <div class="row productos p-4">
                                     <% productosTotales.forEach(producto => { %>
-                                    <div class="col-6 col-md-3 col-xl-2">
+                                    <!--<div class="col-6 col-md-3 col-xl-2">
                                         <div class="contenido">
                                             <figure>
                                                 <a href="/products/admin/<%- producto.id %>"><img
                                                         src="/img/products/<%- producto.imagenes %>  " alt=""
-                                                        style="width: 150px;"></a>
+                                                        style="width: 100%;"></a>
                                             </figure>
-                                            <%if (producto.nombre.length > 10) {%>
+                                            <%if (producto.nombre.length > 15) {%>
                                             <p>
                                                 <%- producto.nombre.slice(0,20) + '...'%>
                                                 <%} else {%>
@@ -184,11 +174,31 @@
                                             <form action="/products/delete/<%= producto.id %>?_method=DELETE"
                                                 method="POST">
                                                 <button class="btn btn-outline-light">
-                                                    <h4 class="fas fa-trash" style="color:green "></h4>
+                                                    <h4 class="fas fa-trash" style="color:#4d582a"></h4>
                                                 </button>
                                             </form>
                                         </div>
                                     </div>
+                                </div>-->
+                                <div class="col-12 col-md-4 col-lg-3 my-3 text-center productosProd" id="descriptionProd">
+                                    <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
+                                        <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
+                                        <h4 class="titleProduct"><%= producto.nombre %></h4> 
+                                        <div class="d-flex justify-content-around">
+                                            <form action="/products/detail/<%= producto.id %>" method="GET">
+                                        <button class="btn btn-outline-light">
+                                            <h4 class="fas fa-eye text-info"></h4>
+                                        </button>
+                                        </form>
+
+                                        <form action="/products/delete/<%= producto.id %>?_method=DELETE"
+                                            method="POST">
+                                            <button class="btn btn-outline-light">
+                                                <h4 class="fas fa-trash" style="color:#59222F"></h4>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    </a>
                                 </div>
                                 <% }) %>
                             </div>
@@ -210,8 +220,6 @@
                                         <figure class="text-center">
                                             <img src="/img/products/<%= producto.imagenes %> " alt="" class="img-fluid">
                                         </figure>
-                                        <input type="file" class="form-control" id="imagenEdit" name="imageEdit">
-                                        <small id="errorImageEdit" class="text-danger"></small>
                                     </div>
                                     <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
                                         <!-- descripcion -->
@@ -221,7 +229,7 @@
                                         <div class="row">
 
                                             <!-- categoria -->
-                                            <div class="form-group col-12 col-lg-4">
+                                            <div class="form-group col-12 col-lg-4 mt-3">
 
                                                 <select name="categoriaEdit" class="form-control">
                                                     <%if (producto.categoria){ %> 
@@ -243,9 +251,9 @@
                                                 <small id="errorCAtegoriaEdit" class="text-danger"></small>
                                             </div>
                                             <!-- precio -->
-                                            <div class="form-group col-12 col-lg-4">
+                                            <div class="form-group col-12 col-lg-4 mt-3">
 
-                                                <div class="input-group mb-2 mr-sm-2">
+                                                <div class="input-group mr-sm-2">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">$</div>
                                                     </div>
@@ -256,7 +264,7 @@
                                             </div>
                                             <!-- DESCUENTO -->
                                             <div class="col-12 col-lg-4">
-                                                <div class="input-group mb-2 mr-sm-2">
+                                                <div class="input-group mr-sm-2 mt-3">
 
                                                     <input type="text" class="form-control"
                                                         value="<%=producto.descuento%>" name="discountEdit" id="descuentoEdit">
@@ -279,6 +287,11 @@
                                                 </div>
                                                 <small id="errorStockEdit" class="text-danger"></small>
                                             </div>
+                                            <div class="col">
+                                                <input type="file" class="form-control" id="imagenEdit" name="imageEdit">
+                                            <small id="errorImageEdit" class="text-danger"></small>
+                                            </div>
+                                            
                                             <!-- botones -->
                                             <div class="col-12 row">
                                                 <!-- cancelar -->
@@ -302,7 +315,7 @@
                             <div>
                                 <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
                                     <div class="col-12 d-flex justify-content-end" id="botones">
-                                        <button class="btn btn-danger mb-3">
+                                        <button class="btn mb-3" style="background-color: #59222F; color: white;">
                                             ELIMINAR PRODUCTO
                                         </button>
                                     </div>
@@ -313,7 +326,7 @@
                         <!--  AGREGAR  PRODUCTOS-->
                         <div class="tab-pane fade show" id="agregarProducto" role="tabpanel"
                             aria-labelledby="profile-tab">
-                            <div class="col-12 formulario">
+                            <div class="col-12 formulario mt-3">
                                 <div class="">
                                     <form action="/products/add" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
@@ -377,13 +390,29 @@
                         <div class="tab-pane fade show" id="categorias" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row productos p-4">
                                  <!--LISTADO CATEGORIAS --> 
-                                <div class="col-12 col-lg-6 " >  
-                                    <div >
-                                        <h3 class="mb-3"> categorias</h3>
+                                <div class="col-lg-12">  
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <form action="/products/categories/add" method="POST" enctype="multipart/form-data">                                     
+                                                <div class="mt-1 mb-4">
+                                                    <h4>Agregar categoria</h4>
+                                                </div>
+                                                <input type="text" name="nombre" class="col-12" placeholder="Nombre de la categoria">
+                                                <input type="file" name="imgCategory" id="imgCategory" class="form-control mt-2" style="padding: 0%;">
+    
+                                                <div>
+                                                    <button type="submit"
+                                                    class="mt-3 btn btn-outline-dark" style="color: white;
+                                                        background-color:  #4d582a;">Agregar categoria</button>
+                                                </div>       
+                                                
+                                            </form>
+                                        </div>
+                                        <h3 class="col-12 mt-4">Categorias existentes</h3>
                                             <% categorias.forEach(category => {%> 
-                                                <div class="col-12">
+                                                <div class="col-6">
                                                     <ul style="padding: 0%;">
-                                                        <li class="row" style="align-items: center;border-bottom: 1px solid black;" >
+                                                        <li class="row" style="align-items: center;" >
                                                             <figure class="col-4">
                                                                 <img src="/img/categories/<%= category.imagen %>" alt="" style="width: 80px;" >
                                                             </figure>
@@ -396,21 +425,19 @@
                                                                         <input type="text" name="nombreEdit" id="" placeholder="<%= category.nombre %>">
                                                                         <input type="file" name="imgCategoryEdit" id="">
                                                                     </div>
-
-                                                                    <button class="btn btn-outline-light col-4" style="background-color: blue; color: white; border-radius: 50px;">
+                                                                    <button class="mt-3 btn btn-outline-dark" style="color: white;
+                                                                        background-color:  #4d582a;">
                                                                         Actualizar
                                                                     </button>
                                                                 </form>
-                                                                <form action="/products/categories/delete/<%= category.id %>?_method=DELETE"
+                                                                <form class="d-inline" action="/products/categories/delete/<%= category.id %>?_method=DELETE"
                                                                     method="POST">
-                                                                    <button class="btn btn-outline-light">
-                                                                        <h4 class="fas fa-trash" style="color:red "></h4>
+                                                                    <button class="btn mb-3" style="background-color: #59222F; color: white;">
+                                                                        ELIMINAR PRODUCTO
                                                                     </button>
                                                                 </form>
                                                             </div>
-
                                                         </li>
-                                                        
                                                     </ul>                                        
                                                 </div>
                                             <% }) %>                                             
@@ -419,31 +446,57 @@
                                             </div>                                        
                                     </div>          
                                 </div>
-                                <!-- FORMULARIO AGREGAR CATEGORIA -->
-                                <div class="col-12 col-lg-6" style="border: 1px solid black; height: fit-content;">
-                                    <div >
-                                        <form action="/products/categories/add" method="POST" enctype="multipart/form-data">                                     
-                                            <div class="mt-1 mb-4">
-                                                <h4>Agregar categoria</h4>
-                                            </div>
-                                            <input type="text" name="nombre" class="col-12" placeholder="Nombre de la categoria">
-                                            <input type="file" name="imgCategory" id="imgCategory" class="form-control mt-2" style="padding: 0%;">
-
-                                            <div>
-                                                <button type="submit" class="mt-4 mb-3 col-12" >Agregar categoria</button>
-                                            </div>       
-                                            
-                                        </form>
-                                    </div>
-
-                                </div>
                             </div>
                         </div>
 
                         <!-- VENTAS -->
                         <div class="tab-pane fade show" id="ventas" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row productos p-4">
+                            <div class="col-12 row productos p-4">
 
+                               <!--  <div class="col-5 row" style="background-color: #59222F; color: white;margin: 0 auto;border-radius: 5px;">
+                                    <div class="col-6" style="text-align: center; padding: 10px;font-size: 1.1em;">
+                                        Ventas Totales:
+                                    </div>
+                                    <div class="col-6" style="text-align: center; padding: 10px;font-size: 1.1em;">
+                                        Ganancias:
+                                    </div>
+
+                                </div> -->
+                                
+                                <div class="col-12 row" style="background-color: #59222F; color: white;margin-top: 10px;border-radius: 5px;">
+                                    <div class="col-4" style="text-align: center;border-bottom: black solid 2px;padding: 5px;">
+                                        usuario
+                                    </div>
+                                    <div class="col-4" style="text-align: center;border-bottom: black solid 2px;padding: 5px;">
+                                        producto
+                                    </div>
+                                    <div class="col-4" style="text-align: center;border-bottom: black solid 2px;padding: 5px;">
+                                        cantidad
+                                    </div>
+                                 </div>
+
+                                <%ventas.forEach(venta =>{%>
+                                    <div class="col-12 row" >
+                                    <% productosTotales.forEach(product=>{%>  
+                                        <% usuarios.forEach(usuario=>{ %> 
+                                            <% if(venta.id_users == usuario.id){ %>  
+                                    
+        
+                                            <div style="padding: 5px;border-bottom: black solid 2px;text-align: center;margin-top: 10px;" class="col-4">
+                                                <p> <!-- usuario :  --> <a href="/users/admin/<%= usuario.id %> "><%=usuario.nombre  %></a>  </p>
+                                            </div>
+                                        <%} }) %>              
+                                        <% if(venta.id_products === product.id) %>
+                                            <div style="padding: 5px;border-bottom: black solid 2px;text-align: center;margin-top: 10px;"class="col-4">
+                                                <p > <!--  producto: --> <a href="/products/admin/<%= product.id %> "><%=product.nombre %></a> </p>
+                                            </div>    
+                                            <div style="padding-left: 30px;border-bottom: black solid 2px;text-align: center;margin-top: 20px;"class="col-4">
+                                                <p> <!-- cantidad: --> <%=venta.cantidad %></p>
+                                            </div>
+                                            <% }) %>
+                                         
+                                     </div>       
+                                     <% }) %> 
         
                             </div>
                         </div>
@@ -452,7 +505,28 @@
                     </div><!-- FIN CONTENEDOR DE PANELES -->
 
                 </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
             </div>
+            <div class="container"><hr style="background-color: #dee2e6;"></div>
+            <!-- BOTONES NAVEGACION USUARIO / PRODUCTOS -->
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <a href="/users/admin/1">
+                            <button class="btn btn-outline-dark mb-3 borderTransparent" style="color: white;
+                            background-color:  #4d582a;">Editar usuarios</button>
+                        </a>
+                    </div>
+                    
+                </div>
+
     </div>
     </section>
     </div>

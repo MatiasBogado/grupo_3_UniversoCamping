@@ -33,7 +33,7 @@ module.exports = (sequelize, dataTypes) => {
 
     const Venta = sequelize.define(alias,cols,config);
     
-    Venta.associate = function(models){
+/*     Venta.associate = function(models){
         
         Venta.belongsTo(models.Users,{
             as:"Users",
@@ -45,7 +45,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey:"id_products"
         })
 
-    }
+    } */
 
     return Venta
 }

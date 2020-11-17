@@ -70,11 +70,11 @@ module.exports = (sequelize, dataTypes) => {
             through : 'ventas',
             foreignKey : 'id_users',//la clave foranea de este modelo en esa tabla intermedia
             otherKey : 'id_products'//la otra clave foranea del otro modelo en cuestion en esa tabla intermedia
-        }),
+        })/* ,
         User.hasOne(models.Ventas,{
             as: "ventas",
             foreignKey:"id_user"
-        })
+        }) */
     }
 
 /*     User.associate = function(models){

@@ -358,7 +358,7 @@ footer .contactanos{
     font-family: 'Roboto', sans-serif;
     border-bottom: 4px solid #e2ddf1;
 }
-.mainProductAdd .montserrat{
+.montserrat{
     font-family: 'Montserrat', sans-serif;
 }
 .mainProductAdd #paginacion {
@@ -837,6 +837,9 @@ footer .contactanos{
     color: black;
     text-decoration: none; 
 }
+.anchorProducs:focus{
+    outline: 0px;
+}
 .prev_arrow{
     position: absolute;
     font-size: 50px;
@@ -851,4 +854,33 @@ footer .contactanos{
     top: 50%;
 }
 
+.productosIndex{
+    margin: 5px;
+    transition:0.6s;
+    -webkit-transition: .6s;
+    -moz-transition: .6s;
+    }
+    
+.productosIndex:hover{
+    filter:grayscale(0%);
+    opacity:1;
+    margin-top:-4px;
+    -webkit-box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+    }
+.productosProd{
+    transition:0.6s;
+    -webkit-transition: .6s;
+    -moz-transition: .6s;
+    }
+    
+.productosProd:hover{
+    -webkit-box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 20px 26px -9px rgba(0,0,0,0.75);
+}
+.borderTransparent{
+    border-color: transparent;
+}
 

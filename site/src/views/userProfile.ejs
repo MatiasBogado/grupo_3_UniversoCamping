@@ -36,71 +36,79 @@
                               <div class="tab-pane fade show active my-5" id="usuarios" role="tabpanel" aria-labelledby="profile-tab">
                                 <form action="/users/updateProfile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                 <% if (user) { %>
-                                <div class="d-inline-block "><img src="/img/avatares/<%= (user.avatar) %> " style="width: 300px; width: 300px;" alt="" >
-                                    <input type="file" class="form-control" name="avatar">
-                                </div>
-                                <div class="d-inline-block col-lg-7 p-3" >
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="d-inline-block "><img src="/img/avatares/<%= (user.avatar) %> " style="width: 300px; width: 300px;" alt="" >
+                                                <input type="file" class="form-control" name="avatar">
+                                            </div>
+                                        </div>
+                                        <div class="col-7">
                                     
-                                                                    <!-- EDITAR NOMBRE DE user -->
-                                        
-                                <div class="form-group col-12 ">
-                                    <label for="">Nombre:</label>
-                                    <input class="form-control" type="text" value="<%= user.nombre%>" name="nombre" disabled>
-                                </div>
-                                    <!-- APELLIDO -->
-                                <div class="form-group col-12 ">
-                                    <label for="">Apellido:</label>
-                                    <input class="form-control" type="text" value="<%= user.apellido%>" name="apellido" disabled>
-                                </div>
-                                  <!-- MAIL -->
-                                <div class="col-12 ">
-                                    <label for="">Email:</label>
-                                    <input class="form-control" type="text" value="<%= user.email%>" name="email" disabled>
-                                </div>
-                                  <!-- DNI -->
-                                <div class="col-12 ">
-                                    <label for="">DNI:</label>
-                                    <input class="form-control" type="text" value="<%= user.dni%>" name="dni" >
-                                </div>
-                                <!-- EDAD -->
-                                <div class="col-12 col-lg-3">
-                                    <label for="">Edad:</label>
-                                    <input type="date" value="<%= user.edad %>" name="edad">
-                                </div>
-                                <!-- DIRECCION -->
-                                <div class="col-12 ">
-                                    <label for="">Direccion:</label>      
-                                    <input class="form-control " type="text" value="<%= user.direccion%>" name="direccion">
-                                </div>
-                            <!-- CIUDAD -->
-                                <div class="col-12 ">
-                                    <label for="">Ciudad:</label>   
-                                        <input class="form-control " type="text" value="<%= user.ciudad%>" name="ciudad">
-                                    
-                                </div>
-                            <!-- PROVINCIA -->
-                                <div class="col-12 ">
-                                    <label for="">Provincia:</label>   
-                                        <input class="form-control " type="text" value="<%= user.provincia%>" name="provincia">
-                                </div>
-                                    <% } %>
-                                <!-- BOTON ACTUALIZAR -->
-                                <div class="col-12 d-flex justify-content-end"  id="botones">
+                                                <!-- EDITAR NOMBRE DE user -->
+                                                            
+                                                    <div class="form-group col-12 ">
+                                                        <label for="">Nombre:</label>
+                                                        <input class="form-control" type="text" value="<%= user.nombre%>" name="nombre" disabled>
+                                                    </div>
+                                                        <!-- APELLIDO -->
+                                                    <div class="form-group col-12 ">
+                                                        <label for="">Apellido:</label>
+                                                        <input class="form-control" type="text" value="<%= user.apellido%>" name="apellido" disabled>
+                                                    </div>
+                                                      <!-- MAIL -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Email:</label>
+                                                        <input class="form-control" type="text" value="<%= user.email%>" name="email" disabled>
+                                                    </div>
+                                                    <!-- EDAD -->
+                                                    <div class="col-12 col-lg-3">
+                                                        <label for="">Edad:</label>
+                                                        <input type="date" value="<%= user.edad %>" name="edad">
+                                                    </div>
+                                                  <!-- DNI -->
+                                                    <div class="col-12 col-lg-3">
+                                                        <label for="">DNI:</label>
+                                                        <input type="text" value="<%= user.dni %>" name="dni">
+                                                    </div>
+                                                    <!-- DIRECCION -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Direccion:</label>      
+                                                        <input class="form-control " type="text" value="<%= user.direccion%>" name="direccion">
+                                                    </div>
+                                                <!-- CIUDAD -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Ciudad:</label>   
+                                                            <input class="form-control " type="text" value="<%= user.ciudad%>" name="ciudad">
+                                                        
+                                                    </div>
+                                                <!-- PROVINCIA -->
+                                                    <div class="col-12 ">
+                                                        <label for="">Provincia:</label>   
+                                                            <input class="form-control " type="text" value="<%= user.provincia%>" name="provincia">
+                                                    </div>
+                                                        <% } %>
+                                                    <!-- BOTON ACTUALIZAR -->
+                                                    <div class="col-12 d-flex mt-2 justify-content-end"  id="botones">
+                                                        <div class=""  style="margin-top: 5px;" id="botones">
+                                                        <button class="btn"  style="color: white;
+                                                        background-color:  #4d582a;" type="submit" name="id" >Actualizar datos</button>
+                                                        </div>
+                                                     </div>
+                                                    </form>
+                                                    <form class="col-12 d-flex justify-content-end" action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
+                                                        <!-- BOTON DARSE DE BAJA -->
+                                                        <div class=""  style="margin-top: 5px;" id="botones">
+                                                            <button class="btn mb-3" style="background-color: #59222F; color: white;">
+                                                            Darse de baja
+                                                            </button>
+                                                        </div>
+                                                    </form>
                                                     
-                                    <button class="btn btn btn-outline-dark"  style="color: white;
-                                    background-color:  #4d582a;" type="submit" name="id" >ACTUALIZAR DATOS</button>
-
-                                 </div>
-                                </form>
-                                <!-- BOTON DARSE DE BAJA -->
-                                <form action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
-                                    <div class="col-12 d-flex justify-content-end"  style="margin-top: 5px;" id="botones">
-                                    <button class="btn btn-danger mb-3" type="submit">
-                                        DARSE DE BAJA
-                                    </button>
-                                </div>
-                                </form>
-                            </div>
+                                                    
+                                        </div>
+                                    </div>
+                                
+                                
                               
                             </div>
                             
@@ -112,7 +120,8 @@
                             <div class="tab-pane fade show" id="compras" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="row productos p-4">
 
-                                    
+                                    <!--  -->
+
                                 </div>
                             </div>
 

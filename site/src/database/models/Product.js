@@ -51,11 +51,11 @@ module.exports = (sequelize, dataTypes) => {
     
 
     Product.associate = function(models){
-        Product.hasOne(models.Ventas,{
+     /*    Product.hasOne(models.Ventas,{
             as:"Ventas",
             foreignKey:"id_products"
         }),
-        
+         */
         Product.hasOne(models.Carts,{
             as:"cart",
             foreignKey:"products_id"
