@@ -21,13 +21,13 @@
 
             <!-- SECCIÓN CAROUSEL -->
             
-            <div class="titulo col-12 mt-4">
+            <div id="carousel" class="titulo col-12 mt-4">
                 <h5 class="titleSection card-header text-center">
                     Productos destacados
                 </h5>
             </div>
            
-                <div id="carousel" class="container center my-4" style="text-align:center;">
+                <div  class="container center my-4" style="text-align:center;">
                   <% productos.forEach(producto=>{ if (producto.id > 0 && producto.id < 7){%>
                     <div class="row justify-content-center">
                         <div class="col">

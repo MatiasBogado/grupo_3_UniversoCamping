@@ -1,6 +1,6 @@
 <%- include('partials/head.ejs') %>
 
-<body>
+<body class="montserrat">
     <!-- Header -->
     <%- include('partials/header.ejs') %>
     <!--=============================
@@ -12,175 +12,145 @@
 
             <!-- FORMULARIO  -->
             <article>
-                <div class="encabezado">
+                <div class="montserrat">
                     <h5 class="titleSection card-header text-center my-3"><%= title %></h5>
                
                   
                     <%if (totalProductoEnCarrito<=0 || totalProductoEnCarrito== "" || totalProductoEnCarrito==undefined){ %> 
                         
-                        <h4 style="height: 56vh;">No hay productos agregados a su carrito</h4>
-                        <div class="my-2 accion  col-md-4 col-lg-4">
-                            <a href="/products"><button class="botones btn btn-outline-dark" type="button">SEGUIR
-                                    COMPRANDO</button></a>
+                        <div class="text-center mt-5">
+                        <p style="font-size: 25vh; line-height: 140px;" class="m-0">OPPS</p>
+                        <p class="m-0">No hay productos agregados a su carrito</p>
+                        <div class="my-5 accion col">
+                            <a href="/products"><button class="botones btn" type="button">Seguir comprando</button></a>
+                        </div>
                         </div>
                     
                     <%}else{ %> 
-            
-                <div id="paginacion">
-                    
-                    <span class="derecha"><img src="\img\compra-segura.png" alt="">Compra protegida</span>
-                </div>
             </div>
 
             <!--PRODUCTO SELECCIONADO, DESCRIPCION, CANTIDAD DE UNIDADES y PRECIO -->
+            <div class="container">
+
             
-            <h4>Productos seleccionados</h4>
-            <div class="row col-12" id="column"><!-- contenedor columnas -->
-                <div class="col-3">
-                    <h4 style="border-right: 1px solid black; padding-right: 20px;">Producto</h4>
-                </div>
 
-                <div class="col-8 row">
-                    <div class="col-6">
-                        <h4 >Nombre</h4>
-                    </div>
-                    <div class="col-2">
-                        <h4 >Precio </h4>
-                    </div>
-                    <div class="col-2">
-                        <h4 >Cantidad</h4>
-                    </div>
-                    <div class="col-2">
-                        <h4 >Total</h4>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <h4 >Eliminar</h4>
-                </div>
-
-            </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr style="background-color:#59222F ; color: white;">
+                              <th scope="col" class="border-0">
+                                <div class=" px-3 ">Producto</div>
+                              </th>
+                              <th scope="col" class="border-0">
+                                <div class="">Precio</div>
+                              </th>
+                              <th scope="col" class="border-0">
+                                <div class="">Cantidad</div>
+                              </th>
+                              <th scope="col" class="border-0">
+                                <div class="">Remover</div>
+                              </th>
+                            </tr>
+                                  
+                          </thead>
+                          <tbody>
+                            <% productoEnCarrito.forEach(producto => { %>
+                                <% if (producto.id_user == user.id ) { %>
+      
+                            
+                              <tr>
+                              <th scope="row" class="">
+                                <div class="p-2">
+                                  <img src="/img/products/<%- producto.productos.imagenes %> " alt="" width="70" class="img-fluid rounded shadow-sm">
+                                  <div class="ml-3 d-inline-block align-middle">
+                                      <h5 class="mb-0">
+                                          <a href="#" class="text-dark d-inline-block align-middle"><%- producto.productos.nombre %></a>
+                                      </h5>
+                                          <span class="text-muted font-weight-normal font-italic d-block">Categoria:</span>
+                                  </div>
+                                </div>
+                              </th>
+                              <td class="align-middle">
+                                  <strong>$<%- producto.productos.precio %></strong>
+                              </td>
+                              <td class="align-middle">
+                                  <strong><%- producto.cantidad %></strong>
+                              </td>
+                              <td class="align-middle">
+                                  <form action="/products/retiraDelCarrito/<%= producto.id %>?_method=PUT" method="POST"
+                                      enctype="multipart/form-data" class="col-1" style="margin: auto 0; padding: 0;">
+                                      <button class="btn text-dark" style="font-size: 20px ;margin: 0; background-color: transparent;" type="submit"><i class="fa fa-trash"></i></button>
+                                  </form>
+                              </td>
+                            </tr>
+                            <% }}) %>
+                          </tbody>
+                        </table>
+                      </div>
             
-            <% productoEnCarrito.forEach(producto => { %>
-                <% if (producto.id_user == user.id ) { %>
-            <div class="producto">
+                <!-- fin detalle de compra  -->
             
-                <div class="codigo col-12" style="padding: 5px 0;"><!-- contendeor filas detalle de compra -->
-                    <!-- IMAGEN PROD-->
-                    <div class="imagen col-3  col-md-2 " style="align-items: center;">
-                       
-                        <img src="/img/products/<%- producto.productos.imagenes %> ">
-                    </div>
-                    
-                    <div class="row col-8 col-md-9" style="padding-left: 30px;">
-                        <!-- NOMBRE PROD -->
-                        <div class="card col-12 col-md-6" style="align-items: center;">
-                            <div class="card-body">
-                                <%- producto.productos.nombre %>
-                            </div>
-                        </div>
-                        <!-- PRECIO PROD -->
-                        <div class="cantidad-precio col-12 col-md-2" style="align-items: center;">
-                            <div class="precio">
-                                <span><span>$</span><%- producto.productos.precio %> </span>
-                            </div>
-                        </div>
-                        <!-- CANTIDAD PROD -->
-                        <div class="cantidad-precio col-12 col-md-2" style="align-items: center;">
-                            <div class="precio">    
-                                <span><%- producto.cantidad %> </span>
-                            </div>
-                        </div>
-                        <!-- SUMA TOTAL DE LA CANTIDAD DEL PRODUCTO -->
-                        <div class="cantidad-precio col-12 col-md-2" style="align-items: center; padding: 0;">
-                            <div class="precio" >
-                                <span><span>$</span><%- (producto.productos.precio)*(producto.cantidad) %>  </span>
-                            </div>
-                        </div>
-                    </div>
-                
-                    
-                    
-                    <form action="/products/retiraDelCarrito/<%= producto.id %>?_method=PUT" method="POST"
-                        enctype="multipart/form-data" class="col-1" style="margin: auto 0; padding: 0;">
-                        <button class="tachito" style="font-size: 2em;margin: 0;" type="submit"><i class="fa fa-trash" style="color: red;"></i></button>
-                    </form>
-
-                </div>
-                <% }}) %><!-- fin detalle de compra  -->
-            </div>
-
-            <div class="row total"><!-- contenedor suma de procutos y precio -->
-                <!-- total de productos -->
-                <div class="col-12 row"  style="justify-content: flex-end;">
-                    <h4>total item : </h4> <span> <%= totalProductoEnCarrito %> </span>
-                </div>
-                <!-- precio total -->
-                <div class="col-12 row"  style="justify-content: flex-end;">
-                    <h4>TOTAL A PAGAR :</h4>  <span> <%= precioTotal %> </span>
-                </div>
             </div>
 
             <!-- METODOS DE PAGO, CODIGO DESCUENTO Y  METODO DE ENVIO-->
+
+            
+            </div>
             <div class="container">
-                <div class="pago-envio col-12 ">
-                    <div class=" col-md-4 col-lg-4" style="text-align: center">
-                        <h5>Metodo de pago</h5>
-                        <div class="input">
-                            <select class="custom-select" id="" aria-label="">
-                                <option value="1">Efectivo</option>
-                                <option value="2">Tarjeta de credito</option>
-                                <option value="3">Transferencia</option>
-                                <option value="4">Pago QR</option>
-                                <option value="5">Mercado Pago</option>
-                            </select>
+                <div class="row px-4 bg-white rounded shadow-sm">
+                    <div class="col-12">
+                      <div style="background-color:#59222F ; color: white;" class="card-header px-4 font-weight-bold">Orden de compra</div>
+                      <div class="p-4">
+                        <p class="font-italic mb-4">Porfavor verifique que tanto los productos como la cantidad que quiere del mismo esten correctas</p>
+                        <ul class="list-unstyled mb-4">
+                          <div class="row">
+                          <% productoEnCarrito.forEach(producto => { %>
+                              <% if (producto.id_user == user.id ) { %>
+                                  
+                          <div class="col-6 my-4">
+                          <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Precio de los productos</strong><strong><%- producto.productos.precio %></strong></li>
+                          <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">cantidad</strong><strong><%- producto.cantidad %> </strong></li>      
+                          <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Envio</strong><strong>$0.00</strong></li>
+                          <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Impuestos</strong><strong>$0.00</strong></li>
+                          <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                            <h5 class="font-weight-bold"><%- (producto.productos.precio)*(producto.cantidad) %></h5>
+                          </div>
+                          
+                            <% }}) %>
+                          </div>
+                          </li>
+                        </ul>
+                        
+                      <div class="container text-center">
+                        <div class="botonesAccion row">
+                            <div class="accion col-4">
+                                <a href="/products"><button class="botones btn btn-carrito" type="button">Seguir
+                                        comprando</button></a>
+                            </div>
+                            <form class="col-4" action="/products/deleteAllCarrito?_method=PUT" method="POST">
+                                <div class=" accion">
+            
+                                    <button class="botones btn btn-carrito" type="submit" >Vaciar
+                                        carrito</button>
+                                </div>
+                            </form>
+                            <form class="col-4" action="/products/cart/confirm?_method=PUT" method="POST">
+                                <a href="/products/cart/confirm"><button class="botones btn btn-carrito" type="submit">Finalizar
+                                    compra</button></a>
+                            </form>
                         </div>
                     </div>
-                    <div class=" col-md-4 col-lg-4" style="text-align: center">
-                        <h5>Codigo de descuento</h5>
-                        <div class="">
-                            <label><input type="text-number"></label>
-                        </div>
+                      </div>
                     </div>
-                    <div class=" col-md-4 col-lg-4" style="text-align: center">
-                        <h5>Metodo de envio</h5>
-                        <div class="input">
-                            <select class="custom-select" id="" aria-label="">
-                                <option value="Re">Retira en local</option>
-                                <option value="Co">Correo</option>
-                                <option value="Mo">Motomensajeria</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CAJA DE BOTONES (FINALIZAR COMPRA-AGREGAR PRODUCTO-VACIAR CARRITO)-->
-                <div class="botonesAccion">
-                    <div class="my-2 accion col-md-4 col-lg-4">
-                        <form action="/products/cart/confirm?_method=PUT" method="POST">
-                            <a href="/products/cart/confirm"><button class="botones btn btn-outline-dark" type="submit">FINALIZAR
-                                COMPRA</button></a>
-                        </form>
-                      
-                    </div>
-                    <div class="my-2 accion  col-md-4 col-lg-4">
-                        <a href="/products"><button class="botones btn btn-outline-dark" type="button">SEGUIR
-                                COMPRANDO</button></a>
-                    </div>
-                    <form action="/products/deleteAllCarrito?_method=PUT" method="POST">
-                        <div class="my-2 accion  col-md-4 col-lg-4">
-
-                            <button class="botones btn btn-outline-dark" type="submit" >VACIAR
-                                CARRITO</button>
-                        </div>
-                    </form>
-                </div>
-            </div> 
-
-            <%} %> 
+                  </div>
+            </div>
+             
            
                     <!-- SECCIÓN CAROUSEL -->
-
+                    <%} %>
     </main>
+
+      
     <!--====  End of Content  ====-->
 
     <!-- footer -->

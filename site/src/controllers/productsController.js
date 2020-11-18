@@ -309,7 +309,7 @@ const products = {
        })
        .then(products =>{
            res.render("products",{
-               title:" ",
+               title:"categorias",
                productos:products
            })
        })
