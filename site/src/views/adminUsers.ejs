@@ -17,6 +17,17 @@
                 </div>
                 <!-- CONTENEDOR PRINCIPAL -->
                 <div class="col-12">
+                <!-- BOTONES NAVEGACION USUARIO / PRODUCTOS -->
+                    <div class="container" style="margin-bottom: -50px;">
+                    <div class="row justify-content-end">
+                        <a href="/products/admin/1">
+                            <button class="btn btn-outline-dark mb-3 borderTransparent" style="color: white;
+                            background-color:  #4d582a;">Editar productos</button>
+                        </a>
+                    </div>
+                    
+                </div>
+                    
 
                     <div class="">
                         <!-- BOTONES NAVEGACION -->
@@ -226,23 +237,23 @@
                                                     <!-- DIRECCION -->
                                                     <div class="col-12 ">
                                                         <label for="">Direccion:</label>      
-                                                        <input class="form-control " type="text" value="<%= user.direccion%>" name="direccion">
+                                                        <input class="form-control " type="text" value="<%= usuario.direccion%>" name="direccion">
                                                     </div>
                                                 <!-- CIUDAD -->
                                                     <div class="col-12 ">
                                                         <label for="">Ciudad:</label>   
-                                                            <input class="form-control " type="text" value="<%= user.ciudad%>" name="ciudad">
+                                                            <input class="form-control " type="text" value="<%= usuario.ciudad%>" name="ciudad">
                                                         
                                                     </div>
                                                 <!-- PROVINCIA -->
                                                     <div class="col-12 ">
                                                         <label for="">Provincia:</label>   
-                                                            <input class="form-control " type="text" value="<%= user.provincia%>" name="provincia">
+                                                            <input class="form-control " type="text" value="<%= usuario.provincia%>" name="provincia">
                                                     </div>
                                                     
                                                 <!--IMAGEN-->
                                                 <div class="mt-2 col-12">
-                                                <input type="file" class="form-control" name="avatar">
+                                                <input type="file" class="form-control" name="avatar" value="<% usuario.avatar%>">
                                                 </div>
                                                 <!-- COMPRAS -->
                                                 <div class="col-12 -">
@@ -346,16 +357,7 @@
                         </div>
                         
                         <div class="container"><hr style="background-color: #dee2e6;"></div>
-                    <!-- BOTONES NAVEGACION USUARIO / PRODUCTOS -->
-                    <div class="container">
-                    <div class="row justify-content-end">
-                        <a href="/products/admin/1">
-                            <button class="btn btn-outline-dark mb-3 borderTransparent" style="color: white;
-                            background-color:  #4d582a;">Editar productos</button>
-                        </a>
-                    </div>
-                    
-                </div>
+
                         
                     </div>
                 </div>

@@ -117,7 +117,7 @@ const users = {
             {
                 fecha: req.body.fecha,
                 dni:req.body.dni,
-                avatar: (req.files[0]) ? req.files[0].filename : req.session.user.avatar,
+                avatar: (req.files[0])?req.files[0].filename:req.files[0],
                 direccion: (req.body.direccion != "") ? req.body.direccion.trim() : null,
                 ciudad: (req.body.ciudad != "") ? req.body.ciudad.trim() : null,
                 provincia: (req.body.provincia != "") ? req.body.provincia.trim() : null
@@ -148,7 +148,7 @@ const users = {
                 });
 
                 res.render("adminUsers", {
-                    title: "Administracion de Usuarios",
+                    title: "Administración de Usuarios",
                     usuario: resultado[0],
                     total: users.length,
                     usersTotales: users,
@@ -167,7 +167,7 @@ const users = {
             nombre: req.body.nombre.trim(),
             apellido: req.body.apellido.trim(),
             rol: req.body.rol.trim(),
-            avatar: (req.files[0] ? req.files[0].filename : req.session.user.avatar),
+            avatar: (req.files[0])?req.files[0].filename:req.files[0],
             dni:req.body.dni,
             edad: req.body.edad,
             email: req.body.email,

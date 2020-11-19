@@ -294,7 +294,7 @@ const products = {
         Promise.all([id, todos, categorias,idCategory, ventas,usuarios])
             .then(function ([idProd, todosProd, categoriasProd,idCategoryProd, ventaProd,usuariosProd]) {
                 res.render('adminProducts', {
-                    title: "Ver/Editar Producto",
+                    title: "Administración de Productos",
                     producto: idProd,
                     total: todosProd.length,
                     show: show,
