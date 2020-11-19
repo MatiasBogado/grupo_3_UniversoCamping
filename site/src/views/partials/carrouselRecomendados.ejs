@@ -12,7 +12,7 @@
                 <div class="productosIndex" style="border: 1px solid gray; border-radius: 5px; padding: 20px;">
                 <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
                     
-                    <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
+                    <div style="background-repeat:no-repeat; background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
                     <%if (producto.nombre.length > 17) {%>
                         <p>
                             <h5 class="titleProduct pt-4"><%- producto.nombre.slice(0,17) + '...'%></h5>

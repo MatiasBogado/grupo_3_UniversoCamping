@@ -516,20 +516,22 @@
                                               </tr>
                                             </thead>
                                             <tbody>
-                                            <%ventas.forEach(venta =>{%>
-                                                <% productosTotales.forEach(product=>{%>
-                                                    <% usuarios.forEach(usuario=>{ %> 
-                                                        <% if(venta.id_users == usuario.id){ %>    
-                                                        <tr>
-                                                            <th scope="row">#</th>
-                                                            <td><%=usuario.nombre %></td>
-                                                            <td><%=product.nombre %></td>
-                                                            <td><%=usuario.email %></td>
-                                                            <td><%=venta.cantidad %></td>
-                                                        </tr>
-                                                    <%} }) %> 
+                                                <%ventas.forEach(venta =>{%>
+                                                    <% productosTotales.forEach(product=>{%>
+                                                        <% if(venta.id_products === product.id){ %>
+                                                            <% usuarios.forEach(usuario=>{ %> 
+                                                                <% if(venta.id_users == usuario.id){ %>    
+                                                                <tr>
+                                                                    <th scope="row">#</th>
+                                                                    <td><%=usuario.nombre %></td>
+                                                                    <td><%=product.nombre %></td>
+                                                                    <td><%=usuario.email %></td>
+                                                                    <td><%=venta.cantidad %></td>
+                                                                </tr>
+                                                            <%} }) %>
+                                                        <% } %> 
+                                                    <% }) %>
                                                 <% }) %>
-                                            <% }) %> 
                                             </tbody>
                                           </table>
                                  </div>
