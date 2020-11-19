@@ -155,11 +155,12 @@
                             </div>
 
                             <!-- LISTADO PRODUCTOS -->
+                            <!-- LISTADO PRODUCTOS -->
                             <div class="tab-pane fade show" id="listadoProductos" role="tabpanel"
                                 aria-labelledby="profile-tab">
                                 <div class="row productos p-4">
                                     <% productosTotales.forEach(producto => { %>
-                                    <div class="col-6 col-md-3 col-xl-2">
+                                    <!--<div class="col-6 col-md-3 col-xl-2">
                                         <div class="contenido">
                                             <figure>
                                                 <a href="/products/admin/<%- producto.id %>"><img
@@ -188,27 +189,36 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- <div class="col-12 col-md-4 col-lg-3 my-3 text-center productosProd" id="descriptionProd">
+                                </div>-->
+                                <div class="col-12 col-md-4 col-lg-3 my-3 text-center productosProd" id="descriptionProd">
                                     <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
-                                        <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
+                                        <a href="<%= producto.id %>"><div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div></a>
                                         <h4 class="titleProduct"><%= producto.nombre %></h4> 
                                         <div class="d-flex justify-content-around">
-                                            <form action="/products/detail/<%= producto.id %>" method="GET">
+                                        <form action="/products/detail/<%= producto.id %>" method="GET">
                                         <button class="btn btn-outline-light">
-                                            <h4 class="fas fa-eye text-info"></h4>
+                                            <a href="<%= producto.id %>">
+                                                <div><h4 class="fas fa-eye" style="color: #262259;"></h4></div>
+                                            </a>
                                         </button>
                                         </form>
-
+                                        <form action="/products/admin/<%= producto.id %>" method="GET">
+                                            <button class="btn btn-outline-light">
+                                                <a href="<%= producto.id %>">
+                                                    <div><h4 class="fas fa-pencil" style="color: #4d582a;"></h4></div>
+                                                </a>
+                                            </button>
+                                        </form>
                                         <form action="/products/delete/<%= producto.id %>?_method=DELETE"
                                             method="POST">
                                             <button class="btn btn-outline-light">
-                                                <h4 class="fas fa-trash" style="color:#59222F"></h4>
+                                                <h4 class="fa fa-trash" style="color:#59222F"></h4>
                                             </button>
                                         </form>
+                                        
                                     </div>
                                     </a>
-                                </div> -->
+                                </div>
                                 <% }) %>
                             </div>
                         </div>
@@ -338,7 +348,7 @@
                                 <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
                                     <div class="col-12 d-flex justify-content-end" id="botones">
                                         <button class="btn mb-3" style="background-color: #59222F; color: white;">
-                                            ELIMINAR PRODUCTO
+                                            Eliminar producto
                                         </button>
                                     </div>
                                 </form>
@@ -410,9 +420,9 @@
                                         </div>
                                         <div class="mt-5 mr-5 d-flex justify-content-end">
                                             <button type="reset" class="btn btn btn-outline-dark mr-2" style="color: white;
-                                                background-color:  #4d582a;margin-bottom: 20px;">BORRAR</button>
+                                                background-color:  #4d582a;margin-bottom: 20px;">Borrar</button>
                                             <button type="submit" class="btn btn btn-outline-dark mr-2" style="color: white;
-                                                background-color:  #4d582a;margin-bottom: 20px;">PUBLICAR</button>
+                                                background-color:  #4d582a;margin-bottom: 20px;">Publicar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -466,7 +476,7 @@
                                                                 <form class="d-inline" action="/products/categories/delete/<%= category.id %>?_method=DELETE"
                                                                     method="POST">
                                                                     <button class="btn mb-3" style="background-color: #59222F; color: white;">
-                                                                        ELIMINAR PRODUCTO
+                                                                        Eliminar producto
                                                                     </button>
                                                                 </form>
                                                             </div>
@@ -484,54 +494,37 @@
 
                         <!-- VENTAS -->
                         <div class="tab-pane fade show" id="ventas" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="col-12 row productos p-4">
-
-                               <!--  <div class="col-5 row" style="background-color: #59222F; color: white;margin: 0 auto;border-radius: 5px;">
-                                    <div class="col-6" style="text-align: center; padding: 10px;font-size: 1.1em;">
-                                        Ventas Totales:
-                                    </div>
-                                    <div class="col-6" style="text-align: center; padding: 10px;font-size: 1.1em;">
-                                        Ganancias:
-                                    </div>
-
-                                </div> -->
-                                
-                                <div class="col-12 row" style="background-color: #59222F; color: white;margin-top: 10px;border-radius: 5px;">
-                                    <div class="col-4" style="text-align: center;border-bottom: black solid 2px;padding: 5px;">
-                                        usuario
-                                    </div>
-                                    <div class="col-4" style="text-align: center;border-bottom: black solid 2px;padding: 5px;">
-                                        producto
-                                    </div>
-                                    <div class="col-4" style="text-align: center;border-bottom: black solid 2px;padding: 5px;">
-                                        cantidad
-                                    </div>
+                            <div class="container justify-content-center mt-3">
+                                        <table class="table">
+                                            <thead class="thead" style="background-color: #59222F; color: white;">
+                                              <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Usuario</th>
+                                                <th scope="col">Producto</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Cantidad</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                            <%ventas.forEach(venta =>{%>
+                                                <% productosTotales.forEach(product=>{%>
+                                                    <% usuarios.forEach(usuario=>{ %> 
+                                                        <% if(venta.id_users == usuario.id){ %>    
+                                                        <tr>
+                                                            <th scope="row">#</th>
+                                                            <td><%=usuario.nombre %></td>
+                                                            <td><%=product.nombre %></td>
+                                                            <td><%=usuario.email %></td>
+                                                            <td><%=venta.cantidad %></td>
+                                                        </tr>
+                                                    <%} }) %> 
+                                                <% }) %>
+                                            <% }) %> 
+                                            </tbody>
+                                          </table>
                                  </div>
-
-                                <%ventas.forEach(venta =>{%>
-                                    <div class="col-12 row" >
-                                    <% productosTotales.forEach(product=>{%>  
-                                        <% usuarios.forEach(usuario=>{ %> 
-                                            <% if(venta.id_users == usuario.id){ %>  
-                                    
-        
-                                            <div style="padding: 5px;border-bottom: black solid 2px;text-align: center;margin-top: 10px;" class="col-4">
-                                                <p> <!-- usuario :  --> <a href="/users/admin/<%= usuario.id %> "><%=usuario.nombre  %></a>  </p>
-                                            </div>
-                                        <%} }) %>              
-                                        <% if(venta.id_products === product.id) %>
-                                            <div style="padding: 5px;border-bottom: black solid 2px;text-align: center;margin-top: 10px;"class="col-4">
-                                                <p > <!--  producto: --> <a href="/products/admin/<%= product.id %> "><%=product.nombre %></a> </p>
-                                            </div>    
-                                            <div style="padding-left: 30px;border-bottom: black solid 2px;text-align: center;margin-top: 20px;"class="col-4">
-                                                <p> <!-- cantidad: --> <%=venta.cantidad %></p>
-                                            </div>
-                                            <% }) %>
-                                         
-                                     </div>       
-                                     <% }) %> 
-        
                             </div>
+                            
                         </div>
 
 
