@@ -3,7 +3,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": null,
-    "database": "universo_campingg",
+    "database": "universo_camping",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
