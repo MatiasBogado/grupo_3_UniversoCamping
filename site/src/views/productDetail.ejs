@@ -56,7 +56,13 @@
                                     <% } %></p>
                                 </li>
                                 <li class="mb-4">
-                                    <p class="rounded envio d-inline" href="#">Stock disponible</p>
+                                    <% if(producto.stock > 0){%>
+                                        <p class="rounded envio d-inline" href="#">Stock disponible: <%= producto.stock %> u.</p>
+                                        <% }else{%>
+                                       <p class="rounded envio d-inline" style="background-color: red;" href="#">Sin stock</p>
+                                            <% } %> 
+
+                                    
                                 </li>
                                 <li class="my-2">
                                     <div class="row">

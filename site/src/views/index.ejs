@@ -19,56 +19,11 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN CAROUSEL -->
+            <!-- SECCIÓN CAROUSEL OFERTAS-->
+            <%- include('partials/carrouselOfertas.ejs') %>
+             <!-- SECCIÓN CAROUSEL DESTACADO-->
+            <%- include('partials/carrouselRecomendados.ejs') %>
             
-            <div class="titulo col-12 mt-4">
-                <h5 class="titleSection card-header text-center">
-                    Productos destacados
-                </h5>
-            </div>
-           
-                <div id="carousel" class="container center my-4" style="text-align:center;">
-                  <% productos.forEach(producto=>{ if (producto.id > 0 && producto.id < 7){%>
-                    <div class="row justify-content-center">
-                        <div class="col">
-                            <div class="productosIndex" style="border: 1px solid gray; border-radius: 5px; padding: 20px;">
-                            <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
-                                
-                                <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
-                                <%if (producto.nombre.length > 17) {%>
-                                    <p>
-                                        <h5 class="titleProduct pt-4"><%- producto.nombre.slice(0,17) + '...'%></h5>
-                                    </p>
-                                    <%}else{%>
-                                        <h5 class="titleProduct pt-4"><%= producto.nombre %></h5>
-                                    <%}%>
-                                <p class="d-inline"><%= producto.precio %></p>
-                                <p class="d-inline"><%= producto.descuento %>% OFF</p>
-                                <i class="fas fa-truck "></i>
-                                
-                            </a>
-                            <div class="d-block m-3">
-                                <form class="d-inline"
-                                    action="/products/agregarAlCarrito/<% producto.id %>?_method=PUT"
-                                    method="POST" enctype="multipart/form-data">
-                                    <a href="/products/detail/<% producto.id %>"><button type="button"
-                                            class="btn btn-outline-dark">Ver</button></a>
-                                    <a><button class="btn  btn-dark btn-carrito"
-                                            style="background-color: #4d582a;"
-                                            value="25">Carrito</button></a>
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                  <% }}) %>
-                </div>
-
-                          
-
-
-
-
 
             <!-- SECCION CATEGORIAS -->
             <div style="background-color: black;">
@@ -79,7 +34,7 @@
                             <div class="row justify-content-center">
                                 <h4 class="textoCat text-center">
                                     PESCA
-                                    <a href="/products/search?search=pesca">
+                                    <a href="/products/1">
                                         <h4 class="catIr text-white">Ver más</h4>
                                     </a>
                                 </h4>
@@ -90,7 +45,7 @@
                             <div class="row justify-content-center">
                                 <h4 class="textoCat text-center">
                                     ACCESORIOS
-                                    <a href="/products/search?search=accesorios">
+                                    <a href="/products/3">
                                         <h4 class="catIr text-white">Ver más</h4>
                                     </a>
                                 </h4>
@@ -101,7 +56,7 @@
                             <div class="row justify-content-center">
                                 <h4 class="textoCat text-center">
                                     INDUMENTARIA
-                                    <a href="/products/search?search=indumentaria">
+                                    <a href="/products/4">
                                         <h4 class="catIr text-white">Ver más</h4>
                                     </a>
                                 </h4>
@@ -112,7 +67,7 @@
                             <div class="row justify-content-center">
                                 <h4 class="textoCat text-center">
                                     CALZADO
-                                    <a href="/products/search?search=calzado">
+                                    <a href="/products/5">
                                         <h4 class="catIr text-white">Ver más</h4>
                                     </a>
                                 </h4>
@@ -123,7 +78,7 @@
                             <div class="row justify-content-center">
                                 <h4 class="textoCat text-center">
                                     RIFLES
-                                    <a href="/products/search?search=rifles">
+                                    <a href="/products/6">
                                         <h4 class="catIr text-white">Ver más</h4>
                                     </a>
                                 </h4>
@@ -134,7 +89,7 @@
                             <div class="row justify-content-center">
                                 <h4 class="textoCat text-center">
                                     CARPAS
-                                    <a href="/products/search?search=carpas">
+                                    <a href="/products/1">
                                         <h4 class="catIr text-white">Ver más</h4>
                                     </a>
                                 </h4>
@@ -143,6 +98,10 @@
                     </div>
                 </div>
             </div>
+
+
+
+
             <!-- SECCION MARCAS -->
             <div class="container  justify-content-center my-4">
                 <div class="row justify-content-around my-2">

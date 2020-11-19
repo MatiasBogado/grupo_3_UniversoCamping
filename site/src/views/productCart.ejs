@@ -179,6 +179,7 @@
             <%} %> 
            
                     <!-- SECCIÓN CAROUSEL -->
+                    <%- include('partials/carrouselRecomendados.ejs') %>
 
     </main>
     <!--====  End of Content  ====-->
@@ -187,6 +188,37 @@
     <%- include('partials/footer.ejs') %>
     <!-- scripts -->
     <%- include('partials/scripts.ejs') %>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.center').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      prevArrow:'<i class="next_arrow fas fa-chevron-circle-left"></i>',
+      nextArrow:'<i class="prev_arrow fas fa-chevron-circle-right"></i>',
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+        });
+      </script>
 </body>
 
 </html>

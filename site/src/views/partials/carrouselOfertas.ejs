@@ -1,12 +1,11 @@
-
 <div class="titulo col-12 mt-4">
     <h5 class="titleSection card-header text-center">
-        Productos Recomendados
+        Ofertas destacados
     </h5>
 </div>
 
     <div id="carousel" class="container-fluid center my-4" style="text-align:center;">
-      <% productos.forEach(producto=>{ if (producto.destacado > 0 && producto.destacado !=null){%>
+      <% productos.forEach(producto=>{ if (producto.descuento > 10){%>
         <div class="row justify-content-center">
             <div class="col">
                 <div class="productosIndex" style="border: 1px solid gray; border-radius: 5px; padding: 20px;">
@@ -20,12 +19,21 @@
                         <%}else{%>
                             <h5 class="titleProduct pt-4"><%= producto.nombre %></h5>
                         <%}%>
-                    <p class="d-inline" style="background-color: white;color: black;"><%= (producto.precio - producto.precio * producto.descuento/100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p>
-                    <p class="d-inline"style="background-color: white;color: black;"><%= producto.descuento %>% OFF</p>
+                    <p class="d-inline"><%= (producto.precio - producto.precio * producto.descuento/100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p>
+                    <p class="d-inline"><%= producto.descuento %>% OFF</p>
                     <i class="fas fa-truck "></i>
                     
                 </a>
-             
+                <!-- <div class="d-block m-3">
+                   
+                        <form class="d-inline" action="/products/agregarAlCarrito/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <a href="/products/detail/<%= producto.id %>"><button type="button"
+                                class="btn btn-outline-dark">Ver</button></a>
+                        <a><button class="btn  btn-dark btn-carrito"
+                                style="background-color: #4d582a;"
+                                value="25" type="submit" >Carrito</button></a>
+                    </form>
+                </div> -->
             </div>
             </div>
         </div>

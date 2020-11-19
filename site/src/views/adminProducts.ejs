@@ -138,6 +138,15 @@
                                                     <%=producto.stock%>
                                                 </span>
                                             </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <span><b>Producto destacado:</b>
+                                                    <%if(producto.destacado == 1){%>
+                                                        si
+                                                    <% }else{ %> 
+                                                        no
+                                                    <% } %> 
+                                                </span>
+                                            </div>
 
                                         </div>
                                     </div>
@@ -287,8 +296,21 @@
                                                 </div>
                                                 <small id="errorStockEdit" class="text-danger"></small>
                                             </div>
-                                            <div class="col">
-                                                <input type="file" class="form-control" id="imagenEdit" name="imageEdit">
+                                            <div class="col-6">
+                                                <label for="titleAdd">Producto destacado</label>
+                                                <select name="destacadoEdit" id="">
+                                                 <% if(producto.destacado == 1){%>
+                                                    <option value="0" > no</option>
+                                                    <option value="1"selected>si</option>
+                                                    <% }else{ %> 
+                                                    <option value="no" selected>no</option>
+                                                    <option value="1">si</option>
+                                                    <% } %> 
+
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="file" class="form-control" id="imagenEdit" name="imageEdit" value="<% producto.imagenes%>" >
                                             <small id="errorImageEdit" class="text-danger"></small>
                                             </div>
                                             
@@ -329,17 +351,28 @@
                             <div class="col-12 formulario mt-3">
                                 <div class="">
                                     <form action="/products/add" method="POST" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <select id="exampleFormControlInput1" name="categoria">
-                                                <option value="null">Selecciona una categoria</option>
-                                                <% categorias.forEach(categoria => { %>
-                                                <option value="<%= categoria.id %>" id="opt">
-                                                    <%= categoria.nombre %>
-                                                </option>
-                                                <% }) %>
-                                            </select>
-                                            <small id="errorCategoria" class="text-danger"></small>
+                                        <div class="col-12 row">
+                                            <div class="form-group col-6">
+                                                <select id="exampleFormControlInput1" name="categoria">
+                                                    <option value="null">Selecciona una categoria</option>
+                                                    <% categorias.forEach(categoria => { %>
+                                                    <option value="<%= categoria.id %>" id="opt">
+                                                        <%= categoria.nombre %>
+                                                    </option>
+                                                    <% }) %>
+                                                </select>
+                                                <small id="errorCategoria" class="text-danger"></small>
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="titleAdd">Producto destacado</label>
+                                                <select name="destacado" id="">
+                                                    <option value="0"selected>no</option>
+                                                    <option value="1">si</option>
+                                                </select>
+                                             
+                                            </div>
                                         </div>
+
                                         <div class="form-group">
                                             <label for="titleAdd">Titulo de la publicación</label>
                                             <input type="text" class="form-control" id="titleAdd" placeholder=""

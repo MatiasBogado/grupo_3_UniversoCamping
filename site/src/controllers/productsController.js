@@ -14,7 +14,8 @@ const products = {
                 descripcion: req.body.description.trim(),
                 imagenes: (req.files[0]) ? req.files[0].filename : "default.jpg",
                 id_category: req.body.categoria,
-                stock: req.body.stock
+                stock: req.body.stock,
+                destacado: req.body.destacado
 
             })
                 .then(result => {
@@ -107,8 +108,14 @@ const products = {
     },
 
     enCarrito: function (req, res) {
-        db.Carts.findAll({include:[{association:"productos"},{association:"Users"}]})
-        .then(function (productos) {
+        let prodCarrito = db.Carts.findAll({include:[{association:"productos"},{association:"Users"}]})
+
+        let Productos = db.Products.findAll({
+            include:[{association:"categoria"}]
+        })
+
+        Promise.all([prodCarrito,Productos])
+        .then(function ([prodCarrito,Productos]) {
             /* en el carrito se guardan todos los productos de todos los usuarios */
             /* hay que separarlos para mostrarlos en la vista */
 
@@ -117,7 +124,7 @@ const products = {
            let precios=[]/* cada uno de los precios de los productos del carrito de un usuario */
            let cantidad;
            
-            productos.forEach(product=>{     
+           prodCarrito.forEach(product=>{     
                 if (product.id_user == req.session.user.id){ /* separo los productos de cada usuario*/
                     totalProduct.push(product)
                     precios.push(product.productos.precio)
@@ -133,11 +140,12 @@ const products = {
         
             res.render('productCart', {
                 title: 'Carrito de Compras',
-                productoEnCarrito: productos,
+                productoEnCarrito: prodCarrito,
                 user: req.session.user,
                 totalProductoEnCarrito : totalProduct.length,
                 precioTotal:precioTotal,
-                cantidad:cantidad
+                cantidad:cantidad,
+                productos:Productos
 
             })            
                 
@@ -242,9 +250,10 @@ const products = {
             precio: Number(req.body.priceEdit),
             descuento: Number(req.body.discountEdit),
             descripcion: req.body.descriptionEdit.trim(),
-            imagenes: (req.files[0]) ? req.files[0].filename : "default.jpg",
+            imagenes: (req.files[0])?req.files[0].filename:req.files[0],
             id_category: Number(req.body.categoriaEdit),
-            stock: req.body.stockEdit
+            stock: req.body.stockEdit,
+            destacado: req.body.destacadoEdit
         }, {
             where: {
                 id: req.params.id

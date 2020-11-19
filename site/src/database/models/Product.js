@@ -36,6 +36,9 @@ module.exports = (sequelize, dataTypes) => {
         id_category: {
             type:dataTypes.INTEGER(11).UNSIGNED,
             
+        },
+        destacado:{
+            type:dataTypes.INTEGER(11).UNSIGNED
         }
         
     }
