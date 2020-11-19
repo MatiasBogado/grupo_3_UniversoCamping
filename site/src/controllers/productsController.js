@@ -213,6 +213,12 @@ const products = {
                         id_products: productID,
                         cantidad:cantidad
                     })
+                    db.Carts.destroy({
+                        where: {
+                            id_user : req.session.user.id
+                        }
+                    })
+                    
                     res.render('compraConfirm', {
                         title: 'Compra Confirmada',
                     })     
