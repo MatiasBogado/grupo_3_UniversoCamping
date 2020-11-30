@@ -61,7 +61,7 @@ window.addEventListener("load", function(){
 ///////////KEYUP EVENTS
 ////////////////////////////////////////////////////////////////////////////
 
-formulariologin.addEventListener("keyup", function () {
+passwordLogin.addEventListener("keyup", function () {
     function validateInputs() {
         let errores = true
                 //Contraseña

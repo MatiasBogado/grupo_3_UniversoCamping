@@ -92,12 +92,11 @@ window.addEventListener("load", function () {
     ////////////////////////////////////////////////////////////////////////////
     ///////////////KEYUP EVENTS
     ////////////////////////////////////////////////////////////////////////////
-
-    formularioRegister.addEventListener("keyup", function () {
+        /* nombre */
+        nombre.addEventListener("keyup", function () {
         /* validaciones en tiempo real valido o invalido */
         function validateInputs() {
             let errores = true
-            /* nombre */
             if (nombre.value.length == "" || nombre.value.length < 3) {
                 nombreRegister.innerHTML = `debe ingresar un nombre de al menos 3 caracteres`
                 nombre.classList.add("is-invalid")
@@ -107,7 +106,13 @@ window.addEventListener("load", function () {
                 nombre.classList.add("is-valid")
                 nombreRegister.innerHTML = ``
             }
-            /* apellido */
+        }
+        console.log(validateInputs());
+    })
+        /* apellido */
+        apellido.addEventListener("keyup", function () {
+        function validateInputs() {
+            let errores = true
             if (apellido.value.length == "" || apellido.value.length < 3) {
                 apellidoRegister.innerHTML = `debe ingresar un apellido de al menos 3 caracteres`
                 apellido.classList.add("is-invalid")
@@ -117,7 +122,13 @@ window.addEventListener("load", function () {
                 apellido.classList.add("is-valid")
                 apellidoRegister.innerHTML = ``
             }
-            /* email */
+        }
+        console.log(validateInputs());
+    }) 
+        /* email */
+        email.addEventListener("keyup", function () {
+        function validateInputs() {
+            let errores = true
             if (email.value.length == "" || ValidateEmail() == false) {
                 emailRegister.innerHTML = `debe ingresar un mail verdadero`
                 email.classList.add("is-invalid")
@@ -126,7 +137,13 @@ window.addEventListener("load", function () {
                 email.classList.remove("is-invalid")
                 email.classList.add("is-valid")
             }
-            //Contraseña
+        }
+        console.log(validateInputs());
+    })
+        //Contraseña
+        password.addEventListener("keyup", function () {
+        function validateInputs() {
+            let errores = true
             if (password.value.length == "" || password.value.length < 8) {
                 contraseñaRegister.innerHTML = `debe ingresar una contraseña de al menos 8 caracteres`
                 password.classList.add("is-invalid")
@@ -136,7 +153,13 @@ window.addEventListener("load", function () {
                 password.classList.add("is-valid")
                 contraseñaRegister.innerHTML = ``
             }
-            //Confirmar contraseña
+        }
+        console.log(validateInputs());
+    })
+        //Confirmar contraseña
+        confirmPassword.addEventListener("keyup", function () {
+        function validateInputs() {
+            let errores = true
             if (confirmPassword.value.length == "" || password.value != confirmPassword.value) {
                 contraseñaConfirmError.innerHTML = `las contraseñas deben coincidir`
                 confirmPassword.classList.add("is-invalid")
@@ -196,12 +219,14 @@ window.addEventListener("load", function () {
             case (email.value == ""):
                 event.preventDefault();
                 emailRegister.innerHTML = "Ingresa tu Email"
+                email.classList.add("is-invalid")
                 break;
             /* case (ValidateEmail() == true):
               break; */
             case (ValidateEmail() == false):
                 event.preventDefault();
                 emailRegister.innerHTML = "Ingresaste un email invalido"
+                email.classList.add("is-invalid")
                 break;
 
             default:
@@ -213,10 +238,12 @@ window.addEventListener("load", function () {
             case (password.value == ""):
                 event.preventDefault();
                 contraseñaRegister.innerHTML = "Ingresa una contraseña"
+                password.classList.add("is-invalid")
                 break;
             case (password.value.length < 8):
                 event.preventDefault();
                 contraseñaRegister.innerHTML = "La contraseña debe tener 8 caracteres o más"
+                password.classList.add("is-invalid")
                 break;
             default:
                 contraseñaRegister.innerHTML = ``
@@ -226,10 +253,12 @@ window.addEventListener("load", function () {
             case (confirmPassword.value == ""):
                 event.preventDefault();
                 contraseñaConfirmError.innerHTML = "Debe repetir su contraseña"
+                confirmPassword.classList.add("is-invalid")
                 break;
             case (password.value != confirmPassword.value):
                 event.preventDefault();
                 contraseñaConfirmError.innerHTML = "Las contraseñas no son iguales"
+                confirmPassword.classList.add("is-invalid")
                 break;
             default:
                 contraseñaConfirmError.innerHTML = ``

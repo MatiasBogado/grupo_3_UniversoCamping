@@ -23,9 +23,9 @@
                     
                     <!--finaliza caja de grilla de boostrap-->
 
-                        <div class="col-3 my-3 text-center productosProd" id="descriptionProd">
+                        <div class="col-12 col-md-6 col-lg-3 my-3 text-center productosProd" id="descriptionProd">
                             <a class="anchorProducs blackColor" href="/products/detail/<%= producto.id %>">
-                                <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px;"></div>
+                                <div style="background-position: center; background-image: url('/img/products/<%= producto.imagenes %>'); height: 200px; background-repeat: no-repeat;"></div>
                                 <h4 class="titleProduct"><%= producto.nombre %></h4>
                                 <p class="d-inline"><%= (producto.precio).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p>
                                 <p class="d-inline"><%= producto.descuento %>% OFF</p>

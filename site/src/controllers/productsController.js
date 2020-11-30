@@ -323,8 +323,14 @@ const products = {
            }
        })
        .then(products =>{
+
+        let titulo = []
+        products.forEach(product =>{
+            titulo.push(product.categoria.nombre)
+        })
+        
            res.render("products",{
-               title:"categorias",
+               title:"categoria: " + titulo[0],
                productos:products
            })
        })
